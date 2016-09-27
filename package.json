@@ -1,7 +1,7 @@
 {
-  "name": "jobtroll",
+  "name": "GroupProject3",
   "version": "1.0.0",
-  "description": "Group project part 2",
+  "description": "Group project part 3",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jrizza88/JobTroll.git"
+    "url": "git+https://github.com/jjthom87/QuestGroupProject.git"
   },
-  "author": "Jamar Torres, Ethan Favia, Jared Thomas, Damola Alabi",
+  "author": "Group ThunderStruck",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jrizza88/JobTroll/issues"
+    "url": "https://github.com/jjthom87/QuestGroupProject/issues"
   },
-  "homepage": "https://github.com/jrizza88/JobTroll#readme",
+  "homepage": "https://github.com/jjthom87/QuestGroupProject#readme",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.2",
