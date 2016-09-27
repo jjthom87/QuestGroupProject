@@ -1,7 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
-//var myConnection = require('./config/connection');
 var exphbs = require('express-handlebars');
 var bcrypt = require('bcrypt-nodejs');
 var passport = require('passport');
