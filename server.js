@@ -50,6 +50,9 @@ app.use(bodyParser.json())
 app.use(cookieParser())
 app.use(session({
  secret: 'jobtroll is the ticket to success',
+  store: new SequelizeStore({
+   db: db
+ }),
  resave: true,
  saveUninitialized: true
 }));
@@ -81,9 +84,9 @@ app.set('view engine', 'handlebars');
             res.redirect('/login');
             return false;
           };
-          models.User.findOne({ where: {id: req.user.id}}).then(function(user){
+          models.User.findOne({ where: {id: req.user.id}}).then(function(currentUser){
           var data = {
-            user: req.user
+            currentUser: currentUser
           }
           res.render('home', {data: data});
         });
@@ -105,7 +108,7 @@ app.set('view engine', 'handlebars');
      //Register user
   app.post('/users/create',function(req,res){
       models.User.create({
-        username: req.body.userName,
+        username: req.body.username,
         password: req.body.password,
         firstName: req.body.firstName,
         lastName: req.body.lastName
@@ -121,19 +124,6 @@ app.set('view engine', 'handlebars');
   req.logout();
   res.redirect('/');
  });
-
-// also want to give the option to login via Linkedin
-//passport.use(new LinkedInStrategy({
-//    consumerKey: 77d7l76s8dsyh4,
-//    consumerSecret: CkQizFeB4onJWAAH,
-//    callbackURL: "http://127.0.0.1:3000/auth/linkedin/callback"
-//  },
-//  function(token, tokenSecret, profile, done) {
-//    User.findOrCreate({ linkedinId: profile.id }, function (err, user) {
-//      return done(err, user);
-//    });
-//  }
-//));
 
 var PORT = process.env.PORT || 8000;
 
