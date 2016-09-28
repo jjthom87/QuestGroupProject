@@ -14,7 +14,7 @@ var _ = require('underscore');
 var bcrypt = require('bcryptjs');
 
 // this is used to sync the data
-var models = require('./models');
+var models = require('./src/server/models');
 var db = models.sequelize;
 
 db.sync();
@@ -59,7 +59,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //   /set up static files
-// app.use('/static', express.static('public/assets'));
+// app.use('/static', express.static('public'));
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
