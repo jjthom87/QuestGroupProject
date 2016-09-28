@@ -64,6 +64,10 @@ app.use(passport.session());
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
+//Serve static content for the app from the "public" directory in the application directory.
+// In case we need them
+app.use(express.static(__dirname + '/public'));
+
 // ------------------------------------
 // ROUTES
 // ------------------------------------
