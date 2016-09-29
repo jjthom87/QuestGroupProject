@@ -39,23 +39,19 @@
         </form>
         
         <p>
-	        <h9>If you are re-directed back to the login page, then that means your credentials are incorrect</h9>
-	      <br>
-	      
-	      <h9>If you don't have an account, please create one</h9>
-	      <br>
-	      
-	   	
-	   	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#registerModal" data-dismiss="modal" aria-label="Close">
-		  Don't have an account?
-		</button>
+		   	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#registerModal" data-dismiss="modal" aria-label="Close">
+			  Don't have an account?
+			</button>
 	    </p>
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+	    </div>
+	    <div class="modal-footer">
+	      	<h9>If you are re-directed back to the login page, then that means your credentials are incorrect</h9>
+		    <br>
+		      
+		    <h9>If you don't have an account, please create one</h9>
+	    </div>
+    {{!-- END of Modal-FOOTER --}}
     </div>
   </div>
 </div>
@@ -97,17 +93,18 @@
 				      <input type="submit" value="Create Account"/>
 				    </div>
 			</form>
-			<p>
-				<div class="error"></div>
-				<br>
-				<h9>If you are re-directed back to this page, that means the email is already in our system, or your username/password credentials are incorrect.</h9>
-			</p>
+			
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <p>
+			<div class="error"></div>
+			<br>
+			<h9>If you are re-directed back to this page, that means the email is already in our system, or your username/password credentials are incorrect.</h9>
+		</p>
       </div>
+      {{!-- END of Modal-FOOTER --}}
+
     </div>
   </div>
 </div>
