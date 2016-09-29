@@ -14,7 +14,7 @@ var _ = require('underscore');
 var bcrypt = require('bcryptjs');
 
 // this is used to sync the data
-var models = require('./models');
+var models = require('./src/server/models');
 var db = models.sequelize;
 
 db.sync();
@@ -59,14 +59,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //   /set up static files
-// app.use('/static', express.static('public/assets'));
+// app.use('/static', express.static('public'));
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
-
-//Serve static content for the app from the "public" directory in the application directory.
-// In case we need them
-app.use(express.static(__dirname + '/public'));
 
 // ------------------------------------
 // ROUTES
@@ -77,14 +73,14 @@ app.use(express.static(__dirname + '/public'));
     res.render('mainpage');
   });
 
- app.get('/login', function(req, res) {
-   res.render('login');
- });
+ // app.get('/login', function(req, res) {
+ //   res.render('login');
+ // });
 
   app.get('/home', function (req, res){
         if (!req.isAuthenticated()){
             req.session.error = 'Please sign in!';
-            res.redirect('/login');
+            res.redirect('/mainpage');
             return false;
           };
           models.User.findOne({ where: {id: req.user.id}}).then(function(currentUser){
@@ -99,7 +95,7 @@ app.use(express.static(__dirname + '/public'));
   app.post('/users/login', 
     passport.authenticate('local', {
       successRedirect: '/home',
-	    failureRedirect: '/login'
+	    failureRedirect: '/'
     })
   );
 
