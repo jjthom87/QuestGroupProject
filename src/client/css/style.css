@@ -1,0 +1,13 @@
+body {
+    background-image: url("../images/background.png");
+    background-attachment: fixed;
+    height:2000px; 
+}
+
+#logincont {
+    background-color: white; 
+    margin-top:300px;
+    display: block;
+    height: 300px;
+    position: absolute; 
+}
