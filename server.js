@@ -73,14 +73,14 @@ app.set('view engine', 'handlebars');
     res.render('mainpage');
   });
 
- app.get('/login', function(req, res) {
-   res.render('login');
- });
+ // app.get('/login', function(req, res) {
+ //   res.render('login');
+ // });
 
   app.get('/home', function (req, res){
         if (!req.isAuthenticated()){
             req.session.error = 'Please sign in!';
-            res.redirect('/login');
+            res.redirect('/mainpage');
             return false;
           };
           models.User.findOne({ where: {id: req.user.id}}).then(function(currentUser){
@@ -95,7 +95,7 @@ app.set('view engine', 'handlebars');
   app.post('/users/login', 
     passport.authenticate('local', {
       successRedirect: '/home',
-	    failureRedirect: '/login'
+	    failureRedirect: '/'
     })
   );
 
