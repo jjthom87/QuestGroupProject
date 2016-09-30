@@ -6,7 +6,7 @@ import { Route } from 'react-router';
 import Application from './Components/Application';
 
 // (EM): a page component to be routed for Quests at some point - will evenutally change component name
-import IndexPage from './Pages/IndexPage';
+import CreateQuest from './Pages/CreateQuest';
 
 export default (
 	/* This means the Application component 
@@ -14,7 +14,7 @@ export default (
 	<Route component={Application}>
 
 		{/* when the address bar shows /#/, render the IndexPage component */}
-		<Route path="/" component={IndexPage} />
-
+		<Route path="/beginquest" component={CreateQuest} />
+		
 	</Route>
 );
