@@ -80,7 +80,7 @@ app.set('view engine', 'handlebars');
   app.get('/home', function (req, res){
         if (!req.isAuthenticated()){
             req.session.error = 'Please sign in!';
-            res.redirect('/mainpage');
+            res.redirect('/');
             return false;
           };
           models.User.findOne({ where: {id: req.user.id}}).then(function(currentUser){
@@ -121,6 +121,7 @@ app.set('view engine', 'handlebars');
 
  app.get('/logout', function(req, res){
   req.logout();
+  req.session.destroy();
   res.redirect('/');
  });
 
