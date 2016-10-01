@@ -6,8 +6,13 @@ body {
 
 #logincont {
     background-color: white; 
+    opacity: 0.8;
     margin-top:300px;
     display: block;
     height: 300px;
     position: absolute; 
+}
+
+#logincont h1 h2 h3 button p {
+    opacity: 1;
 }
