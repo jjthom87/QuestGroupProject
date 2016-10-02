@@ -20,7 +20,7 @@ var db = models.sequelize;
 db.sync();
 
 var app = express();
-
+app.use(express.static(__dirname + "/src/client"))
 passport.serializeUser(function(user,done){
   done(null, user);
  });
@@ -59,19 +59,18 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //   /set up static files
-// app.use('/static', express.static('public'));
-
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
+app.use('/static', express.static(__dirname));
 
 // ------------------------------------
 // ROUTES
 // ------------------------------------
 
 //  ----- Log In  GET Request-------- //
- app.get('/', function (req, res) {
-    res.render('mainpage');
-  });
+app.get('/', (req, res) => {
+	res.sendFile(path.join(__dirname);
+});
+
+
 
  // app.get('/login', function(req, res) {
  //   res.render('login');
@@ -80,14 +79,14 @@ app.set('view engine', 'handlebars');
   app.get('/home', function (req, res){
         if (!req.isAuthenticated()){
             req.session.error = 'Please sign in!';
-            res.redirect('/mainpage');
+            res.redirect('/home');
             return false;
           };
           models.User.findOne({ where: {id: req.user.id}}).then(function(currentUser){
           var data = {
             currentUser: currentUser
           }
-          res.render('home', {data: data});
+          res.redirect('/home');
         });
   });
 
@@ -121,6 +120,7 @@ app.set('view engine', 'handlebars');
 
  app.get('/logout', function(req, res){
   req.logout();
+  req.session.destroy();
   res.redirect('/');
  });
 
