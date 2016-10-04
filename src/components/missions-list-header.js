@@ -5,8 +5,8 @@ export default class MissionsListHeader extends React.Component {
         return (
             <thead>
                 <tr>
-                    <th>Task</th>
-                    <th>Notes</th>
+                    <th>  Task  </th>
+                    <th>  Notes  </th>
                 </tr>
             </thead>
         );
