@@ -1,31 +1,32 @@
+var webpack = require('webpack');
+var path = require('path');
+
 module.exports = {
-  
-  // This code will be compiled 
-  entry: "./src/client/index.jsx",
-
-  // Then output into this file
-  output: {
-    filename: "public/bundle.js"
-  },
-
-
-  // This will be what we do
-  module: {
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel',
-        query: {
-          // These are the specific transformations we'll be using. 
-          presets: ['react', 'es2015']
+    devtool: 'inline-source-map',
+    entry: [
+        'webpack-dev-server/client?http://127.0.0.1:8080/',
+        'webpack/hot/only-dev-server',
+        './src'
+    ],
+    output: {
+        path: path.join(__dirname, 'public'),
+        filename: 'bundle.js'
+    },
+    resolve: {
+        modulesDirectories: ['node_modules', 'src'],
+        extensions: ['', '.js']
+    },
+    module: {
+        loaders: [
+        {
+            test: /\.jsx?$/,
+            exclude: /node_modules/,
+            loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015']
         }
-      }
+        ]
+    },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin()
     ]
-  },
-
-  resolve: {
-    extensions: ['', '.jsx', '.js']
-  }
-
-}
+};

@@ -3,10 +3,10 @@ import React from 'react';
 import { Route } from 'react-router';
 
 // Load this component for ALL routes
-import Application from './Components/Application';
+import Application from './Components/app';
 
-// (EM): a page component to be routed for Quests at some point - will evenutally change component name
-import IndexPage from './Pages/IndexPage';
+// lists ALL todo items
+import TodosListItem from './Components/TodosListItem';
 
 export default (
 	/* This means the Application component 
@@ -14,7 +14,8 @@ export default (
 	<Route component={Application}>
 
 		{/* when the address bar shows /#/, render the IndexPage component */}
-		<Route path="/" component={IndexPage} />
 
+		<Route path="/todoslistitem" component={TodosListItem} />
+		<Route path="/mainpage" component={MainPage} />
 	</Route>
 );
