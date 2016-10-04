@@ -6,7 +6,10 @@ import { Route } from 'react-router';
 import Application from './Components/app';
 
 // lists ALL todo items
-import TodosListItem from './Components/TodosListItem';
+
+import missions-list from './Components/missions-list';
+import quests-list from './Components/quests-list';
+
 
 export default (
 	/* This means the Application component 
@@ -15,7 +18,10 @@ export default (
 
 		{/* when the address bar shows /#/, render the IndexPage component */}
 
-		<Route path="/todoslistitem" component={TodosListItem} />
-		<Route path="/mainpage" component={MainPage} />
+		<Route path="/missionslist" component={missions-list} />
+		<Route path="/questslist" component={quests-list} />
+
+		<Route path="/" component={MainPage} />
+
 	</Route>
 );
