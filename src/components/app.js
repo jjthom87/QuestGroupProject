@@ -39,6 +39,7 @@ export default class App extends React.Component {
         return (
             <div>
 
+
                 <form action="/users/create" method="POST">
                              <h1>Hello</h1>
                              <h2>Create Your Account Here</h2>
@@ -83,6 +84,8 @@ export default class App extends React.Component {
                      <input type="submit" value="Log In"/>
                      </div>
                  </form>
+
+
 
                 <div id="missionSection">
                     <h1>Create a Mission</h1>
