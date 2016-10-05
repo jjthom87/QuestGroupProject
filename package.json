@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server"
+    "start": "webpack-dev-server"
   },
   "keywords": [],
   "author": "Eric Mok",
@@ -47,4 +47,8 @@
   "engines": {
     "node": "5.5.0"
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> e5d9dedc3cb840652742a9a2e17978132d8b3ea6
