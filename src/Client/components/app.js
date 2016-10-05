@@ -66,7 +66,7 @@ export default class App extends React.Component {
                              <div>
                              <input type="submit" value="Create Account"/>
                              </div>
-                             </form>
+                    </form>
 
                 <form action="/users/login" method="POST">
                      <h1>Login to Your Account Here</h1>

@@ -14,13 +14,13 @@ var _ = require('underscore');
 var bcrypt = require('bcryptjs');
 
 // this is used to sync the data
-var models = require('./src/server/models');
+var models = require('./src/Server/models');
 var db = models.sequelize;
 
 db.sync();
 
 var app = express();
-app.use(express.static(__dirname + "/src/client"))
+app.use(express.static(__dirname + "/src/Client/components"))
 passport.serializeUser(function(user,done){
   done(null, user);
  });
