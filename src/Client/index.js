@@ -1,5 +1,13 @@
 import React from 'react';
-import { render } from 'react-dom';
-import App from './src/Client/components/app';
+import ReactDOM from 'react-dom';
+import { Router, hashHistory } from 'react-router';
 
-render(<App />, document.getElementById('app'));
+// NOTE: this is where we "import" our routes from our routes file
+import routes from './src/routes';
+
+// our entry point to our application! we render our application and "mount"
+// it into the DOM
+ReactDOM.render(
+	<Router history={hashHistory}>{routes}</Router>,
+  document.getElementById('app')
+);
