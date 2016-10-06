@@ -4,10 +4,10 @@ import _ from 'lodash';
 import MissionHome from './mission-home';
 import QuestHome from './quest-home';
 
-import MissionsList from '../components/missions-list';
-import Createmission from '../components/create-mission';
-import QuestsList from '../components/quests-list';
-import Createquest from '../components/create-quest';
+// import QuestsList from '../components/quests-list';
+// import Createquest from '../components/create-quest';
+// import Createmission from '../components/create-mission';
+// import MissionsList from '../components/missions-list';
 
 const missions = [
 {
@@ -41,53 +41,13 @@ export default class Layout extends React.Component {
 
         return (
             <div>
-                <div class="navbar">
-                    <table>
-                        <thead>
-                            <tr>
-                                <td><Link to="missionhome" class="btn btn-success">Missions Home</Link></td>
-                                <td><Link to="questhome" class="btn btn-success">Missions Home</Link></td>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-
-                <div id="missionSection">
-                    <h1>Create a Mission</h1>
-                    
-                    <Createmission
-                        missions={this.state.missions}
-                        createTask={this.createTask.bind(this)}
-                    />
-                    <MissionsList
-                        missions = {this.state.missions}
-                        toggleTask = {this.toggleTask.bind(this)}
-                        saveTask = {this.saveTask.bind(this)}
-                        deleteTask = {this.deleteTask.bind(this)}
-                    />
-                        <p>(Nav-bar here)</p>
-                        <a href="/logout"><button type = "button">Logout</button></a>
-                        <a href="/home"><button type = "button">Home</button></a>
-                </div>
-
-                <div id="questSection">
-                        <h1>Create a Quest</h1>
-
-                        <Createquest
-                            quests={this.state.quests}
-                            createMission={this.createMission.bind(this)}
-                        />
-                        <QuestsList
-                            quests = {this.state.quests}
-                            toggleMission = {this.toggleMission.bind(this)}
-                            saveMission = {this.saveMission.bind(this)}
-                            deleteMission = {this.deleteMission.bind(this)}
-                        />
-                        
-                </div>
-
-                <MissionsHome />
-                <QuestHome />
+                <h1> layout </h1>
+                <MissionHome 
+                missions={this.state.missions}
+                />
+                <QuestHome 
+                quests={this.state.quests}
+                />
 
             </div>
         );
@@ -121,30 +81,4 @@ export default class Layout extends React.Component {
     }
 
 
-    // MISSION (tasks CRUD):
-    createTask(task) {
-        this.state.missions.push({
-            task,
-            isCompleted: false
-        });
-        this.setState({ isCompleted: false });
-    }
-
-    toggleTask(task) {
-        const foundtask= _.find(this.state.missions, mission => mission.task === task);
-        foundtask.isCompleted = !foundtask.isCompleted;
-        this.setState({ missions: this.state.missions});
-    }
-
-    saveTask(oldTask, newTask) {
-        const foundtask=_.find(this.state.missions, mission=> mission.task ===oldTask);
-        foundtask.task=newTask;
-        this.setState({missions: this.state.missions});
-    }
-
-    deleteTask(taskDelete) {
-        const removeTask=_.remove(this.state.missions, mission=> mission.task ===taskDelete);
-        this.setState({missions: this.state.missions});
-    }
-
-};
+}
