@@ -7,7 +7,7 @@ import App from './src/Client/pages/layout';
 import MissionHome from './pages/mission-home';
 import QuestHome from './pages/quest-home';
 import MissionsList from './components/missions-list';
-import QuestsList form './components/quests-list';
+import QuestsList from './components/quests-list';
 
 export default (
 	/* This means the Application component 

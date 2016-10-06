@@ -20,7 +20,7 @@ var db = models.sequelize;
 db.sync();
 
 var app = express();
-app.use(express.static(__dirname + "/src/Client/components"))
+app.use(express.static('public'));
 passport.serializeUser(function(user,done){
   done(null, user);
  });
