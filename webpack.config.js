@@ -6,11 +6,11 @@ module.exports = {
     entry: [
         'webpack-dev-server/client?http://127.0.0.1:8080/',
         'webpack/hot/only-dev-server',
-        'src/Client/components'
+        './src/Client/pages/layout'
     ],
     output: {
         path: path.join(__dirname, 'public'),
-        filename: 'Public/bundle.js'
+        filename: 'bundle.js'
     },
     resolve: {
         modulesDirectories: ['node_modules', 'src'],

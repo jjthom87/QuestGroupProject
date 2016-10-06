@@ -1,27 +1,29 @@
 import React from 'react';
 
-import { Route } from 'react-router';
+import { Router, Route, IndexRoute } from 'react-router';
 
 // Load this component for ALL routes
-import App from './src/Client/components/app';
-
-// lists ALL todo items
-
-import missions-list from './src/Client/components/missions-list';
-import quests-list from './src/Client/components/quests-list';
-
+import App from './src/Client/pages/layout';
+import MissionHome from './pages/mission-home';
+import QuestHome from './pages/quest-home';
+import MissionsList from './components/missions-list';
+import QuestsList from './components/quests-list';
 
 export default (
 	/* This means the Application component 
 		is gonna be the parent of all components nested w/in this route! */
-	<Route component={App}>
+		<Route path='/' component={App}>
 
-		{/* when the address bar shows /#/, render the IndexPage component */}
+			<Route path='missionhome' component={MissionHome}>
+				<Route component={MissionsList} />
+			</Route>
 
-		<Route path="/missionslist" component={missions-list} />
-		<Route path="/questslist" component={quests-list} />
+			<Route path='questhome' component={QuestHome}>
+				<Route component={QuestsList} />
+			</Route>
 
-		<Route path="/" component={MainPage} />
+		</Route>
 
-	</Route>
 );
+
+	
