@@ -1,3 +1,5 @@
+// ** app.js changed to layout.js ** in pages folder
+
 // import React from 'react';
 // import _ from 'lodash';
 
