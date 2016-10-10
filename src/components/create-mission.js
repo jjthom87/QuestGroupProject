@@ -15,9 +15,9 @@ export default class Createmission extends React.Component {
             <div>
                 <h2>Form A New Mission!</h2>
                 <form onSubmit={this.handleCreate.bind(this)}>
-                    <input type="text" placeholder="Enter Task" ref="createInput" />
-                    <input type="date" placeholder="Enter Date" ref="createDate" />
-                    <button> Add This Task </button>
+                    <input type="text" placeholder="Add Task" ref="createInput" />
+                    <input type="date" placeholder="Add Date" ref="createDate" />
+                    <button> Add New Task </button>
                     {this.renderError()}
                 </form>
             </div>
@@ -51,8 +51,6 @@ export default class Createmission extends React.Component {
         this.props.createTask(task, date);
         this.refs.createInput.value = '';
         this.refs.createDate.value = '';
-
-        
 
     }
 
