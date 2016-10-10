@@ -1,12 +1,15 @@
 import React, { cloneElement } from 'react';
 import QuestsList from './quests-list';
 import Createquest from './create-quest';
+import QuestTitle from './quest-title';
 
 
 const quests = [
 {
-    task: 'Example Quest',
+
+    milestone: 'Example Quest',
     isCompleted: false
+
 }]
 
 export default class QuestMain extends React.Component {
@@ -24,19 +27,19 @@ export default class QuestMain extends React.Component {
         return (
 
             <div>
-                <h1>Create a Quest</h1>
+                <h1>Quests Home</h1>
 
                 <Createquest
                     quests={this.props.quests}
-                    createMission={this.createMission.bind(this)}
+                    createMilestone={this.createMilestone.bind(this)}
                 />
                 {
                     cloneElement(this.props.children, {
 
                         quests: this.state.quests,
-                        toggleMission: this.toggleMission.bind(this),
-                        saveMission: this.saveMission.bind(this),
-                        deleteMission: this.deleteMission.bind(this)
+                        toggleMilestone: this.toggleMilestone.bind(this),
+                        saveMilestone: this.saveMilestone.bind(this),
+                        deleteMilestone: this.deleteMilestone.bind(this)
                      
                   })
                 }
@@ -46,29 +49,30 @@ export default class QuestMain extends React.Component {
          )
     }
 
-    // QUEST (missions CRUD):
-    createMission(mission) {
+    // QUEST (milestones CRUD):
+
+    createMilestone(milestone) {
         this.state.quests.push({
-            mission,
+            milestone,
             isCompleted: false
         });
         this.setState({ isCompleted: false });
     }
 
-    toggleMission(mission) {
-        const foundmission= _.find(this.state.quests, quest => quest.mission === mission);
-        foundmission.isCompleted = !foundmission.isCompleted;
+    toggleMilestone(milestone) {
+        const foundMilestone= _.find(this.state.quests, quest => quest.milestone === milestone);
+        foundMilestone.isCompleted = !foundMilestone.isCompleted;
         this.setState({ quests: this.state.quests });
     }
 
-    saveMission(oldMission, newMission) {
-        const foundmission=_.find(this.state.quests, quest => quest.mission === oldMission);
-        foundmission.mission=newMission;
+    saveMilestone(oldMilestone, newMilestone) {
+        const foundMilestone=_.find(this.state.quests, quest => quest.milestone === oldMilestone);
+        foundMilestone.milestone=newMilestone;
         this.setState({quests: this.state.quests});
     }
 
-    deleteMission(missionDelete) {
-        const removeMission=_.remove(this.state.quests, quest => quest.mission === missionDelete);
+    deleteMilestone(milestoneDelete) {
+        const removeMilestone=_.remove(this.state.quests, quest => quest.milestone === milestoneDelete);
         this.setState({quests: this.state.quests});
     }
 

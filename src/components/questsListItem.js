@@ -6,7 +6,8 @@ export default class QuestsListItem extends React.Component {
         super(props);
 
         this.state = {
-            isEditing: false
+            isEditing: false,
+            isTitle: false
         };
     }
 
@@ -29,10 +30,10 @@ export default class QuestsListItem extends React.Component {
     }
 
 
-    renderMissionSection() {
-        const { mission, isCompleted } = this.props;
+    renderMilestoneSection() {
+        const { milestone, isCompleted } = this.props;
 
-        const missionStyle = {
+        const milestoneStyle = {
             color: isCompleted ? 'green' : 'red',
             cursor: 'pointer'
         };
@@ -41,17 +42,17 @@ export default class QuestsListItem extends React.Component {
             return(
                 <td>
                     <form onSubmit={this.onSaveClick.bind(this)}>
-                        <input type="text" defaultValue={mission} ref="editInput" />
+                        <input type="text" defaultValue={milestone} ref="editInput" />
                     </form>
                 </td>
             );
         }
 
         return (
-            <td style={missionStyle}
-                onClick={this.props.toggleMission.bind(this, mission)}
+            <td style={milestoneStyle}
+                onClick={this.props.toggleMilestone.bind(this, milestone)}
             >
-                {mission}
+                {milestone}
 
             </td>
         );  
@@ -61,7 +62,7 @@ export default class QuestsListItem extends React.Component {
     render() {
         return (
                 <tr>
-                    {this.renderMissionSection()}
+                    {this.renderMilestoneSection()}
                     {this.renderActionsSection()}
                 </tr>
         );
@@ -79,9 +80,9 @@ export default class QuestsListItem extends React.Component {
 
         event.preventDefault();
 
-        const oldMission=this.props.mission;
-        const newMission=this.refs.editInput.value;
-        this.props.saveMission(oldMission, newMission);
+        const oldMilestone=this.props.milestone;
+        const newMilestone=this.refs.editInput.value;
+        this.props.saveMilestone(oldMilestone, newMilestone);
         this.setState({isEditing: false});
     }
 
@@ -89,8 +90,8 @@ export default class QuestsListItem extends React.Component {
 
         event.preventDefault();
 
-        const missionDelete=this.props.mission;
-        this.props.deleteMission(missionDelete);
+        const milestoneDelete=this.props.milestone;
+        this.props.deleteMilestone(milestoneDelete);
     }
 
 }

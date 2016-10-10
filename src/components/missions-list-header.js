@@ -6,7 +6,7 @@ export default class MissionsListHeader extends React.Component {
             <thead>
                 <tr>
                     <th>  Task  </th>
-                    <th>  Notes  </th>
+                    <th>  Date  </th>
                 </tr>
             </thead>
         );
