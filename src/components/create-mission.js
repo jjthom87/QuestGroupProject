@@ -41,7 +41,7 @@ export default class Createmission extends React.Component {
         }
 
         this.setState({ error: null });
-        this.props.createMission(task);
+        this.props.createTask(task);
         this.refs.createInput.value = '';
     }
 
