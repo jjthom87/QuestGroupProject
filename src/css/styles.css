@@ -1,0 +1,14 @@
+#siteName{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 75px;
+    padding: none;
+    margin-top:0;
+    display: inline-block;
+    color: yellow
+}
+
+#mainNav {
+    height: 8%;
+    background-color: black;
+    opacity: 0.6;
+}
