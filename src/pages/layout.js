@@ -31,9 +31,9 @@ export default class Layout extends React.Component {
                     </div>
             </nav>
         </header>
-        <div class="container" style={containerStyle}>
-          <div class="row">
-            <div class="col-lg-12">
+        <div className="container" style={containerStyle} id="layoutContain">
+          <div className="row">
+            <div className="col-lg-12">
               
               <hr/>
               {this.props.children}
