@@ -1,32 +1,31 @@
 import React from 'react';
+import QuestsList from './quests-list';
+import Createquest from './create-quest';
 
-import QuestsList from '../components/quests-list';
-import Createmission from '../components/create-quest';
-
-export default class QuestHome extends React.Component {
-
+export default class QuestMain extends React.Component {
     render() {
+        return (
 
-	    return (
+            <div>
+                <h1>Create a Quest</h1>
 
-			<div id="questSection">
-	            <h1>Create a Quest</h1>
+                <Createquest
+                    quests={this.props.quests}
+                    createMission={this.createMission.bind(this)}
+                />
+                <QuestsList
+                    quests = {this.props.quests}
+                    toggleMission = {this.toggleMission.bind(this)}
+                    saveMission = {this.saveMission.bind(this)}
+                    deleteMission = {this.deleteMission.bind(this)}
+                />
+                        
+            </div>
 
-	            <Createquest
-	                quests={this.props.quests}
-	                createMission={this.createMission.bind(this)}
-	            />
-	            <QuestsList
-	                quests = {this.props.quests}
-	                toggleMission = {this.toggleMission.bind(this)}
-	                saveMission = {this.saveMission.bind(this)}
-	                deleteMission = {this.deleteMission.bind(this)}
-	            />
-           	</div>
-		);
-	}
+         )
+    }
 
-	// QUEST (missions CRUD):
+    // QUEST (missions CRUD):
     createMission(mission) {
         this.props.quests.push({
             mission,
@@ -51,4 +50,5 @@ export default class QuestHome extends React.Component {
         const removeMission=_.remove(this.props.quests, quest => quest.mission === missionDelete);
         this.setState({quests: this.props.quests});
     }
+
 }
