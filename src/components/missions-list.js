@@ -4,7 +4,7 @@ import MissionsListHeader from './missions-list-header';
 import MissionsListItem from './missionsListItem';
 
 export default class MissionsList extends React.Component {
-
+    
     renderItems() {
         const props = _.omit(this.props, 'missions');
 
