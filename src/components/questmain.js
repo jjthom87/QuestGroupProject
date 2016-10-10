@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { cloneElement } from 'react';
 import QuestsList from './quests-list';
 import Createquest from './create-quest';
 
+
+const quests = [
+{
+    task: 'Example Quest',
+    isCompleted: false
+}]
+
 export default class QuestMain extends React.Component {
+    
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            quests
+        };
+    }
+
     render() {
+
         return (
 
             <div>
@@ -13,12 +30,16 @@ export default class QuestMain extends React.Component {
                     quests={this.props.quests}
                     createMission={this.createMission.bind(this)}
                 />
-                <QuestsList
-                    quests = {this.props.quests}
-                    toggleMission = {this.toggleMission.bind(this)}
-                    saveMission = {this.saveMission.bind(this)}
-                    deleteMission = {this.deleteMission.bind(this)}
-                />
+                {
+                    cloneElement(this.props.children, {
+
+                        quests: this.state.quests,
+                        toggleMission: this.toggleMission.bind(this),
+                        saveMission: this.saveMission.bind(this),
+                        deleteMission: this.deleteMission.bind(this)
+                     
+                  })
+                }
                         
             </div>
 
@@ -27,7 +48,7 @@ export default class QuestMain extends React.Component {
 
     // QUEST (missions CRUD):
     createMission(mission) {
-        this.props.quests.push({
+        this.state.quests.push({
             mission,
             isCompleted: false
         });
@@ -35,20 +56,20 @@ export default class QuestMain extends React.Component {
     }
 
     toggleMission(mission) {
-        const foundmission= _.find(this.props.quests, quest => quest.mission === mission);
+        const foundmission= _.find(this.state.quests, quest => quest.mission === mission);
         foundmission.isCompleted = !foundmission.isCompleted;
-        this.setState({ quests: this.props.quests });
+        this.setState({ quests: this.state.quests });
     }
 
     saveMission(oldMission, newMission) {
-        const foundmission=_.find(this.props.quests, quest => quest.mission === oldMission);
+        const foundmission=_.find(this.state.quests, quest => quest.mission === oldMission);
         foundmission.mission=newMission;
-        this.setState({quests: this.props.quests});
+        this.setState({quests: this.state.quests});
     }
 
     deleteMission(missionDelete) {
-        const removeMission=_.remove(this.props.quests, quest => quest.mission === missionDelete);
-        this.setState({quests: this.props.quests});
+        const removeMission=_.remove(this.state.quests, quest => quest.mission === missionDelete);
+        this.setState({quests: this.state.quests});
     }
 
 }

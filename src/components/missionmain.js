@@ -1,54 +1,81 @@
-import React from 'react';
+import React, { cloneElement } from 'react';
 import MissionsList from './missions-list';
 import Createmission from './create-mission';
 
+const missions = [
+{
+    task: 'Example Mission',
+    isCompleted: false
+},
+{
+    task: 'Example Mission',
+    isCompleted: false
+}
+];
+
 export default class MissionMain extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            missions
+        };
+    }
+
     render() {
         return (
 
             <div>
                 <h1>Create a Mission</h1>
-                
                 <Createmission
                     missions={this.props.missions}
                     createTask={this.createTask.bind(this)}
                 />
-                <MissionsList
-                    missions = {this.props.missions}
-                    toggleTask = {this.toggleTask.bind(this)}
-                    saveTask = {this.saveTask.bind(this)}
-                    deleteTask = {this.deleteTask.bind(this)}
-                />
-                    
+                
+
+                 {
+                    cloneElement(this.props.children, {
+
+                        missions: this.state.missions,
+                        toggleTask: this.toggleTask.bind(this),
+                        saveTask: this.saveTask.bind(this),
+                        deleteTask: this.deleteTask.bind(this)
+                     
+                  })
+                }
             </div>
 
-         )
+        );
     }
+  
+    
 
     // MISSION (tasks CRUD):
     createTask(task) {
-        this.props.missions.push({
+        this.state.missions.push({
             task,
             isCompleted: false
         });
         this.setState({ isCompleted: false });
+        console.log(missions);
     }
 
     toggleTask(task) {
-        const foundtask= _.find(this.props.missions, mission => mission.task === task);
+        const foundtask= _.find(this.state.missions, mission => mission.task === task);
         foundtask.isCompleted = !foundtask.isCompleted;
-        this.setState({ missions: this.props.missions});
+        this.setState({ missions: this.state.missions});
     }
 
     saveTask(oldTask, newTask) {
-        const foundtask=_.find(this.props.missions, mission=> mission.task ===oldTask);
+        const foundtask=_.find(this.state.missions, mission=> mission.task ===oldTask);
         foundtask.task=newTask;
-        this.setState({missions: this.props.missions});
+        this.setState({missions: this.state.missions});
     }
 
     deleteTask(taskDelete) {
-        const removeTask=_.remove(this.props.missions, mission=> mission.task ===taskDelete);
-        this.setState({missions: this.props.missions});
+        const removeTask=_.remove(this.state.missions, mission=> mission.task ===taskDelete);
+        this.setState({missions: this.state.missions});
     }
 
 }
