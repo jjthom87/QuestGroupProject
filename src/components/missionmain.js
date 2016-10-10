@@ -5,10 +5,12 @@ import Createmission from './create-mission';
 const missions = [
 {
     task: 'Example Mission',
+    date: 'date',
     isCompleted: false
 },
 {
     task: 'Example Mission',
+    date: 'date',
     isCompleted: false
 }
 ];
@@ -27,7 +29,7 @@ export default class MissionMain extends React.Component {
         return (
 
             <div>
-                <h1>Create a Mission</h1>
+                <h1>Missions Home</h1>
                 <Createmission
                     missions={this.props.missions}
                     createTask={this.createTask.bind(this)}
@@ -52,9 +54,10 @@ export default class MissionMain extends React.Component {
     
 
     // MISSION (tasks CRUD):
-    createTask(task) {
+    createTask(task, date) {
         this.state.missions.push({
             task,
+            date,
             isCompleted: false
         });
         this.setState({ isCompleted: false });
@@ -67,9 +70,10 @@ export default class MissionMain extends React.Component {
         this.setState({ missions: this.state.missions});
     }
 
-    saveTask(oldTask, newTask) {
+    saveTask(oldTask, newTask, oldDate, newDate) {
         const foundtask=_.find(this.state.missions, mission=> mission.task ===oldTask);
         foundtask.task=newTask;
+        foundtask.date=newDate;
         this.setState({missions: this.state.missions});
     }
 

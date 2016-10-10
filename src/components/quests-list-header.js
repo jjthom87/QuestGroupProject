@@ -5,7 +5,7 @@ export default class QuestsListHeader extends React.Component {
         return (
             <thead>
                 <tr>
-                    <th>  Mission  </th>
+                    <th>  Milestone  </th>
                     <th>  Date  </th>
                 </tr>
             </thead>

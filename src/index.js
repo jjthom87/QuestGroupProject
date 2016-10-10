@@ -16,6 +16,7 @@ import QuestsListHeader from './components/quests-list-header';
 import QuestsListItem from './components/questsListItem';
 import CreateQuest from './components/create-quest';
 import QuestsList from './components/quests-list';
+import QuestTitle from './components/quest-title';
 
 const app = document.getElementById('app');
 

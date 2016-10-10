@@ -12,11 +12,14 @@ export default class Createquest extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.handleCreate.bind(this)}>
-                <input type="text" placeholder="what missions?" ref="createInput"/>
-                <button> create mission </button>
-                {this.renderError()}
-            </form>
+            <div>
+                <h2> Build Your New Quest! </h2>
+                <form onSubmit={this.handleCreate.bind(this)}>
+                    <input type="text" placeholder="Add A Milestone!" ref="createInput"/>
+                    <button> Add Milestone </button>
+                    {this.renderError()}
+                </form>
+            </div>
         );
     }
 
@@ -32,8 +35,8 @@ export default class Createquest extends React.Component {
         event.preventDefault();
 
         const createInput = this.refs.createInput;
-        const missions = createInput.value;
-        const validateInput = this.validateInput(missions);
+        const milestones = createInput.value;
+        const validateInput = this.validateInput(milestones);
 
         if(validateInput) {
             this.setState({ error: validateInput });
@@ -41,15 +44,15 @@ export default class Createquest extends React.Component {
         }
 
         this.setState({ error: null });
-        this.props.createMission(missions);
+        this.props.createMilestone(milestones);
         this.refs.createInput.value = '';
     }
 
-    validateInput(mission) {
-        if(!mission) {
-            return ("Please enter a missions.");
-        } else if(_.find(this.props.quests, quest => quest.mission === mission)) {
-            return ("Duplicate missions exists.");
+    validateInput(milestone) {
+        if(!milestone) {
+            return ("Please enter a milestones.");
+        } else if(_.find(this.props.quests, quest => quest.milestone === milestone)) {
+            return ("Duplicate milestones exists.");
         } else {
             return null;
         }
