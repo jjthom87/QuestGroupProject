@@ -26,12 +26,10 @@ export default class Layout extends React.Component {
               <div className="navbar-header">
                         <a href="" className="navbar-brand"><img src="#" alt="#" className="img-responsive"/></a>
                         <h1 id="siteName" className="navbar">Bubo</h1>
-                        
-                        
                     </div>
             </nav>
         </header>
-        <div className="container" style={containerStyle} id="layoutContain">
+        <div className="container clearfix" style={containerStyle} id="layoutContain">
           <div className="row">
             <div className="col-lg-12">
               
