@@ -3,9 +3,11 @@ body{
     padding-top: 30px;
     margin: 0;
     background-attachment: fixed;
+    height: 2000px;
     
     
 }
+
 
 
 #siteName{
@@ -20,7 +22,7 @@ body{
 #mainNav {
     height: 80px;
     background-color: black;
-    opacity: 0.6;
+    opacity: 0.7;
 }
 
 #layoutContain {
