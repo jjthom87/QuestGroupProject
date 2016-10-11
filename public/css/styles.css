@@ -1,5 +1,9 @@
 body{
     background:url('../images/nightmountains.png');
+    padding-top: 30px;
+    margin: 0;
+    background-attachment: fixed;
+    
     
 }
 
@@ -14,7 +18,7 @@ body{
 }
 
 #mainNav {
-    height: 8%;
+    height: 80px;
     background-color: black;
     opacity: 0.6;
 }
