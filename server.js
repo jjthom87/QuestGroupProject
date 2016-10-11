@@ -22,6 +22,8 @@ db.sync();
 var app = express();
 app.use(express.static('public'));
 
+app.use(express.static('src/assets'));
+
 // passport.serializeUser(function(user,done){
 //   done(null, user);
 //  });
