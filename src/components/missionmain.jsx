@@ -1,4 +1,4 @@
-import React, { cloneElement } from 'react';
+import React, { Component, cloneElement } from 'react';
 import MissionsList from './missions-list';
 import Createmission from './create-mission';
 
@@ -17,13 +17,6 @@ import Createmission from './create-mission';
 
 export default class MissionMain extends React.Component {
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            missions: []
-        };
-    }
 
     // MISSION (tasks CRUD):
     createTask(task) {
@@ -33,6 +26,7 @@ export default class MissionMain extends React.Component {
             task
         }
         console.log(newMiss)
+
         fetch('/mission/create', {
             method: 'post',
             body: JSON.stringify(newMiss),
@@ -47,30 +41,7 @@ export default class MissionMain extends React.Component {
             });
         
         console.log(this.state.missions);
-    }
-
-    // createMiss(description) {
-    //     console.log("description is " + description);
-    //     const { missions } = this.state;
-    //     const newMiss = {
-    //         description
-    //     }
-    //     console.log(newMiss);
-    //     fetch('/mission/create', {
-    //         method: 'post',
-    //         body: JSON.stringify(newMiss),
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         }
-    //     }).then((response) => response.json())
-    //         .then((results) => {
-    //         console.log("results are " + results);
-    //         this.setState({
-    //             missions: missions.concat(results)
-    //         });
-    //     });
-    //         console.log(missions);
-    // }
+    } 
 
     toggleTask(task) {
         const foundtask= _.find(this.state.missions, mission => mission.task === task);
@@ -85,22 +56,21 @@ export default class MissionMain extends React.Component {
         this.setState({missions: this.state.missions});
     }
 
+
     deleteTask(taskDelete) {
         const removeTask=_.remove(this.state.missions, mission=> mission.task ===taskDelete);
         this.setState({missions: this.state.missions});
     }
 
+
     render() {
         return (
-
             <div>
                 <h1>Missions Home</h1>
                 <Createmission
                     missions={this.props.missions}
-                    createTask={this.createTask.bind(this)}
+                    createMiss={this.createMiss.bind(this)}
                 />
-                
-
                  {
                     cloneElement(this.props.children, {
 
@@ -112,8 +82,8 @@ export default class MissionMain extends React.Component {
                   })
                 }
             </div>
-
         );
     }
 
 }
+    

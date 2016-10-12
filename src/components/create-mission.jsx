@@ -1,10 +1,8 @@
-import React from 'react';
+import React, { Component, cloneElement } from 'react';
 
-export default class Createmission extends React.Component {
-
+class Createmission extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
             error: null
         };
@@ -38,17 +36,25 @@ export default class Createmission extends React.Component {
         const taskInput = createInput.value;
         const validateInput = this.validateInput(taskInput);
 
-
-        if(validateInput) {
-            this.setState({ error: validateInput });
-            return;
         }
+    }
+    renderError() {
+        if(!this.state.error) {
+            return null;
+        }
+            return <div style={{color:'red'}}> { this.state.error } </div>;
+        
+    }
+    handleCreate(event) {
+        event.preventDefault();
+
 
         this.setState({ error: null });
         this.props.createTask(taskInput);
         this.refs.createInput.value = '';
 
-    }
+        }
+
 
     validateInput(taskInput) {
         if(!taskInput) {
@@ -59,4 +65,17 @@ export default class Createmission extends React.Component {
             return null;
         }
     }
+    render() {
+        return (
+            <div>
+                <h2>Form A New Mission!</h2>
+                <form onSubmit={this.handleCreate.bind(this)}>
+                    <input type="text" placeholder="Enter Mission" ref="description" />
+                    <input type="submit" placeholder="Add Mission" />
+                    {this.renderError()}
+                </form>
+            </div>
+        );
+    }
 }
+
