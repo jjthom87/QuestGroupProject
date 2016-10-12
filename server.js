@@ -171,13 +171,27 @@ app.post('/mission/create', function(req, res){
   });
 });
 
-app.get('/missions', function(req,res){
-  models.Mission.findAll({}).then(function(missions){
-    res.json(missions)
-  }).catch(function(err){
-    res.json(err);
+// app.get('/missions', function(req,res){
+//   models.Mission.findAll({}).then(function(missions){
+//     res.json(missions)
+//   }).catch(function(err){
+//     res.json(err);
+//   });
+// });
+
+app.put('/api/task/:id', (req, res) => {
+  mission.findOneAndUpdate({ _id: req.params.id }, {
+    $set: { isCompleted: req.body.isCompleted }
+  }).exec((err, foundtask) => {
+    if (err) {
+      res.json(err);
+    } else {
+      res.json(foundtask);
+    }
   });
 });
+
+
 
 
 
