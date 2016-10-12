@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
-import MissionMain from '../components/missionmain';
-import QuestMain from '../components/questmain';
+import MissionMain from '../components/mission/missionmain';
+import QuestMain from '../components/quest/questmain';
 
 // import Footer from "../components/layout/Footer";
 // import Nav from "../components/layout/Nav";
