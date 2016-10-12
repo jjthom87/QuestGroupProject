@@ -31,7 +31,7 @@ export default class QuestsListItem extends React.Component {
 
 
     renderMilestoneSection() {
-        const { milestone, isCompleted } = this.props;
+        const { milestone, isCompleted, date } = this.props;
 
         const milestoneStyle = {
             color: isCompleted ? 'green' : 'red',
@@ -43,6 +43,7 @@ export default class QuestsListItem extends React.Component {
                 <td>
                     <form onSubmit={this.onSaveClick.bind(this)}>
                         <input type="text" defaultValue={milestone} ref="editInput" />
+                        <input type="date" defaultValue={date} ref="editDate" />
                     </form>
                 </td>
             );
@@ -52,7 +53,7 @@ export default class QuestsListItem extends React.Component {
             <td style={milestoneStyle}
                 onClick={this.props.toggleMilestone.bind(this, milestone)}
             >
-                {milestone}
+                {milestone} {date}
 
             </td>
         );  
@@ -82,7 +83,9 @@ export default class QuestsListItem extends React.Component {
 
         const oldMilestone=this.props.milestone;
         const newMilestone=this.refs.editInput.value;
-        this.props.saveMilestone(oldMilestone, newMilestone);
+        const oldDate=this.props.date;
+        const newDate=this.refs.editDate.value;
+        this.props.saveMilestone(oldMilestone, newMilestone, oldDate, newDate);
         this.setState({isEditing: false});
     }
 

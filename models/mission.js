@@ -1,7 +1,8 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var Mission = sequelize.define('Mission', {
-		description: {
+
+		task: {
 			type: DataTypes.STRING,
 			allowNull: false
 		},

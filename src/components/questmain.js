@@ -8,7 +8,8 @@ const quests = [
 {
 
     milestone: 'Example Quest',
-    isCompleted: false
+    isCompleted: false,
+    date: ''
 
 }]
 
@@ -51,9 +52,10 @@ export default class QuestMain extends React.Component {
 
     // QUEST (milestones CRUD):
 
-    createMilestone(milestone) {
+    createMilestone(milestone, date) {
         this.state.quests.push({
             milestone,
+            date,
             isCompleted: false
         });
         this.setState({ isCompleted: false });
@@ -65,9 +67,10 @@ export default class QuestMain extends React.Component {
         this.setState({ quests: this.state.quests });
     }
 
-    saveMilestone(oldMilestone, newMilestone) {
+    saveMilestone(oldMilestone, newMilestone, oldDate, newDate) {
         const foundMilestone=_.find(this.state.quests, quest => quest.milestone === oldMilestone);
         foundMilestone.milestone=newMilestone;
+        foundMilestone.date=newDate;
         this.setState({quests: this.state.quests});
     }
 

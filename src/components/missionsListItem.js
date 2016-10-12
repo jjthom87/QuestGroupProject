@@ -42,7 +42,7 @@ export default class MissionsListItem extends React.Component {
                 <td>
                     <form onSubmit={this.onSaveClick.bind(this)}>
                         <input type="text" defaultValue={task} ref="editInput" />
-                        <input type="text" defaultValue={date} ref="editDate" />
+                        <input type="date" defaultValue={date} ref="editDate" />
                     </form>
                 </td>
             );

@@ -162,7 +162,7 @@ app.use(bodyParser.json())
 
 app.post('/mission/create', function(req, res){
   models.Mission.create({
-    description: req.body.description,
+    task: req.body.task,
     isCompleted: false
   }).then(function(success){
     res.json(success);

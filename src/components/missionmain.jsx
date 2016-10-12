@@ -15,21 +15,18 @@ import Createmission from './create-mission';
 // }
 // ];
 
-class MissionMain extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            missions: []
-        };
-    }
-     // MISSION (tasks CRUD):
-    createMiss(description) {
-        console.log("description is " + description);
+export default class MissionMain extends React.Component {
+
+
+    // MISSION (tasks CRUD):
+    createTask(task) {
         const { missions } = this.state;
+        
         const newMiss = {
-            description
+            task
         }
-        console.log(newMiss);
+        console.log(newMiss)
+
         fetch('/mission/create', {
             method: 'post',
             body: JSON.stringify(newMiss),
@@ -38,40 +35,34 @@ class MissionMain extends Component {
             }
         }).then((response) => response.json())
             .then((results) => {
-            console.log("results are " + results);
-            this.setState({
-                missions: missions.concat(results)
+                this.setState({
+                    missions: missions.concat(results)
+                });
             });
-        });
-    }
-    //     createMission(text) {
-    //     const { missions } = this.state;
-    //     const newMission = {
-    //         description: text.description
-    //     }
-    //     this.state.missions.push({
-    //         task,
-    //         date,
-    //         isCompleted: false
-    //     });
-    //     this.setState({ isCompleted: false });
-    //     console.log(missions);
-    // },
+        
+        console.log(this.state.missions);
+    } 
+
     toggleTask(task) {
         const foundtask= _.find(this.state.missions, mission => mission.task === task);
         foundtask.isCompleted = !foundtask.isCompleted;
         this.setState({ missions: this.state.missions});
     }
+
     saveTask(oldTask, newTask, oldDate, newDate) {
         const foundtask=_.find(this.state.missions, mission=> mission.task ===oldTask);
         foundtask.task=newTask;
         foundtask.date=newDate;
         this.setState({missions: this.state.missions});
     }
+
+
     deleteTask(taskDelete) {
         const removeTask=_.remove(this.state.missions, mission=> mission.task ===taskDelete);
         this.setState({missions: this.state.missions});
     }
+
+
     render() {
         return (
             <div>
@@ -93,7 +84,6 @@ class MissionMain extends Component {
             </div>
         );
     }
-}
 
-export default MissionMain;
+}
     

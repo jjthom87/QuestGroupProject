@@ -5,6 +5,37 @@ class Createmission extends Component {
         super(props);
         this.state = {
             error: null
+        };
+    }
+
+    renderError() {
+        if(!this.state.error) {
+            return null;
+        }
+            return <div style={{color:'red'}}> { this.state.error } </div>;
+        
+    }
+
+    render() {
+        return (
+            <div>
+                <h2>Form A New Mission!</h2>
+                <form onSubmit={this.handleCreate.bind(this)}>
+                    <input type="text" placeholder="Add Task" ref="createInput" />
+                    <input type="submit" placeholder="Add Mission" />
+                    {this.renderError()}
+                </form>
+            </div>
+        );
+    }
+
+    handleCreate(event) {
+        event.preventDefault();
+
+        const createInput = this.refs.createInput;
+        const taskInput = createInput.value;
+        const validateInput = this.validateInput(taskInput);
+
         }
     }
     renderError() {
@@ -17,26 +48,18 @@ class Createmission extends Component {
     handleCreate(event) {
         event.preventDefault();
 
-        const description = this.refs.description.value;
-        // const validateInput = this.validateInput(newMission);
 
-        // if(validateInput) {
-        //     this.setState({ error: validateInput });
-        //     return;
-        // }
+        this.setState({ error: null });
+        this.props.createTask(taskInput);
+        this.refs.createInput.value = '';
 
-        // this.setState({ error: null });
-
-        if (description.length > 0) {
-            this.refs.description.value = '';
         }
 
-        this.props.createMiss(description);
-    }
-    validateInput(task) {
-        if(!task) {
+
+    validateInput(taskInput) {
+        if(!taskInput) {
             return ("Please enter a task.");
-        } else if(_.find(this.props.missions, mission => mission.task === task)) {
+        } else if(_.find(this.props.missions, mission => mission.taskInput === taskInput)) {
             return ("Duplicate task exists.");
         } else {
             return null;
@@ -55,6 +78,4 @@ class Createmission extends Component {
         );
     }
 }
-
-export default Createmission;
 
