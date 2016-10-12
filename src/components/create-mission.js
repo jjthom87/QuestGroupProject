@@ -10,20 +10,6 @@ export default class Createmission extends React.Component {
         };
     }
 
-    render() {
-        return (
-            <div>
-                <h2>Form A New Mission!</h2>
-                <form onSubmit={this.handleCreate.bind(this)}>
-                    <input type="text" placeholder="Add Task" ref="createInput" />
-                    <input type="date" placeholder="Add Date" ref="createDate" />
-                    <button> Add New Task </button>
-                    {this.renderError()}
-                </form>
-            </div>
-        );
-    }
-
     renderError() {
         if(!this.state.error) {
             return null;
@@ -32,15 +18,26 @@ export default class Createmission extends React.Component {
         
     }
 
+    render() {
+        return (
+            <div>
+                <h2>Form A New Mission!</h2>
+                <form onSubmit={this.handleCreate.bind(this)}>
+                    <input type="text" placeholder="Add Task" ref="createInput" />
+                    <input type="submit" placeholder="Add Mission" />
+                    {this.renderError()}
+                </form>
+            </div>
+        );
+    }
+
     handleCreate(event) {
         event.preventDefault();
 
         const createInput = this.refs.createInput;
-        const task = createInput.value;
-        const validateInput = this.validateInput(task);
+        const taskInput = createInput.value;
+        const validateInput = this.validateInput(taskInput);
 
-        const createDate = this.refs.createDate;
-        const date = createDate.value;
 
         if(validateInput) {
             this.setState({ error: validateInput });
@@ -48,16 +45,15 @@ export default class Createmission extends React.Component {
         }
 
         this.setState({ error: null });
-        this.props.createTask(task, date);
+        this.props.createTask(taskInput);
         this.refs.createInput.value = '';
-        this.refs.createDate.value = '';
 
     }
 
-    validateInput(task) {
-        if(!task) {
+    validateInput(taskInput) {
+        if(!taskInput) {
             return ("Please enter a task.");
-        } else if(_.find(this.props.missions, mission => mission.task === task)) {
+        } else if(_.find(this.props.missions, mission => mission.taskInput === taskInput)) {
             return ("Duplicate task exists.");
         } else {
             return null;
