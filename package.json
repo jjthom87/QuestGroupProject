@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot"
+    "start": "node server.js",
+    "build": "webpack --watch --config webpack.config.js"
   },
   "keywords": [],
   "author": "Eric Mok",
