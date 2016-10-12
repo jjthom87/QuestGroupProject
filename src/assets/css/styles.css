@@ -8,7 +8,19 @@ body{
     
 }
 
+#signButtons {
+    display: inline-block;
+    margin-right: 20px;
+}
 
+#signButtons button {
+    margin-right: 10px;
+    margin-top:20px;
+    background-color: grey;
+    color: yellow;
+    /*border-color: yellow;*/
+    
+}
 
 #siteName{
     font-family: 'Montserrat', sans-serif;
@@ -21,10 +33,11 @@ body{
 
 #mainNav {
     height: 80px;
-    background-color: black;
-    opacity: 0.7;
+    background-color: rgba(0, 0, 0, 0.7);
+    
 }
 
 #layoutContain {
     background-color: grey;
 }
+
