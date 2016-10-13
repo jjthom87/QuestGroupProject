@@ -20,8 +20,7 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        Milestone.belongsTo(models.User);
-        Milestone.hasMany(models.Quest);
+        Milestone.belongsTo(models.Quest);
         Milestone.hasMany(models.Mission);
         Milestone.hasMany(models.Task);
       }

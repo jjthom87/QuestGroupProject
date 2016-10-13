@@ -21,7 +21,6 @@ module.exports = function(sequelize, DataTypes) {
       associate: function(models) {
         // associations can be defined here
         Mission.belongsTo(models.User);
-        Mission.belongsTo(models.Quest);
         Mission.hasMany(models.Task);
       }
     }
