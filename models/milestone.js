@@ -1,6 +1,6 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var Mission = sequelize.define('Mission', {
+  var Milestone = sequelize.define('Milestone', {
 
 		task: {
 			type: DataTypes.STRING,
@@ -20,10 +20,11 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        Mission.belongsTo(models.User);
-        Mission.hasMany(models.Task);
+        Milestone.belongsTo(models.Quest);
+        Milestone.hasMany(models.Mission);
+        Milestone.hasMany(models.Task);
       }
     }
   });
-  return Mission;
+  return Milestone;
 };

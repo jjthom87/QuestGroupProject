@@ -1,14 +1,12 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link, IndexLink } from "react-router";
 import MissionMain from '../components/mission/missionmain';
 import QuestMain from '../components/quest/questmain';
+import CreateAccountPage from './CreateAccountPage';
+import LoginPage from './LoginPage';
 
 // import Footer from "../components/layout/Footer";
 // import Nav from "../components/layout/Nav";
-
-
-
-
 
 export default class Layout extends React.Component {
   
@@ -27,8 +25,8 @@ export default class Layout extends React.Component {
                         <h1 id="siteName" className="navbar">Bubo</h1>
                     </div>
                 <div className='navbar-right'id="signButtons">
-                    <button type="" className="btn btn-primary">Sign Up</button>
-                    <button type="" className="btn btn-primary">Login</button>
+                    <Link to="/register" className="btn btn-primary">Sign Up</Link>
+                    <Link to="/login" className="btn btn-primary">Login</Link>
                 </div>
             </nav>
         </header>
@@ -38,12 +36,11 @@ export default class Layout extends React.Component {
             <div className="col-lg-12">
               
               <hr/>
-              {this.props.children}
-
+                {this.props.children}
               <hr/>
-              <Link to="missionshome"> Missions Home |</Link>
-              <Link to="questshome"> Quests Home </Link>
-
+              <IndexLink to='/'>Home</IndexLink>
+              <Link to="/missionshome"> Missions Home |</Link>
+              <Link to="/questshome"> Quests Home </Link>
 
             </div>
           </div>
