@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default class QuestsListHeader extends React.Component {
+export default class MissionsListHeader extends React.Component {
     render() {
         return (
             <thead>
                 <tr>
-                    <th>  Milestone  </th>
+                    <th>  Task  </th>
                     <th>  Date  </th>
                 </tr>
             </thead>

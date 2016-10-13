@@ -1,6 +1,6 @@
-import React, { cloneElement } from 'react';
-import MissionsList from './missions-list';
-import Createmission from './create-mission';
+import React, { Component, cloneElement } from 'react';
+import MissionsList from 'MissionsList';
+import CreateMission from 'CreateMission';
 
 // const missions = [
 // {
@@ -16,7 +16,6 @@ import Createmission from './create-mission';
 // ];
 
 export default class MissionMain extends React.Component {
-
     constructor(props) {
         super(props);
 
@@ -24,7 +23,6 @@ export default class MissionMain extends React.Component {
             missions: []
         };
     }
-
     // componentWillMount() {
     //     fetch('/missions/all')
     //         .then((response) => response.json())
@@ -34,8 +32,6 @@ export default class MissionMain extends React.Component {
     //             });
     //         })
     // }
-
-    // MISSION (tasks CRUD):
     createTask(task) {
         const { missions } = this.state;
         
@@ -58,13 +54,11 @@ export default class MissionMain extends React.Component {
         
         console.log(this.state.missions);
     }
-
     toggleTask(task) {
         const foundtask= _.find(this.state.missions, mission => mission.task === task);
         foundtask.isCompleted = !foundtask.isCompleted;
         this.setState({ missions: this.state.missions});
     }
-
     // toggleTask(taskId) {
     //     const { missions } = this.state;
 
@@ -90,43 +84,33 @@ export default class MissionMain extends React.Component {
     //             });
     //     }
     // }
-
     saveTask(oldTask, newTask, oldDate, newDate) {
         const foundtask=_.find(this.state.missions, mission=> mission.task ===oldTask);
         foundtask.task=newTask;
         foundtask.date=newDate;
         this.setState({missions: this.state.missions});
     }
-
     deleteTask(taskDelete) {
         const removeTask=_.remove(this.state.missions, mission=> mission.task ===taskDelete);
         this.setState({missions: this.state.missions});
     }
-
     render() {
         return (
-
             <div>
                 <h1>Missions Home</h1>
-                <Createmission
+                <CreateMission
                     missions={this.props.missions}
                     createTask={this.createTask.bind(this)}
                 />
-                
-
                  {
                     cloneElement(this.props.children, {
-
                         missions: this.state.missions,
                         toggleTask: this.toggleTask.bind(this),
                         saveTask: this.saveTask.bind(this),
-                        deleteTask: this.deleteTask.bind(this)
-                     
+                        deleteTask: this.deleteTask.bind(this)      
                   })
                 }
             </div>
-
-        );
+         );
     }
-
 }

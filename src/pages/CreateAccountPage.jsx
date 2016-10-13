@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CreateAccount from '../components/users/CreateAccount';
+import CreateAccount from 'CreateAccount';
 import { Router , browserHistory } from 'react-router';
 
 export default class CreateAccountPage extends React.Component {

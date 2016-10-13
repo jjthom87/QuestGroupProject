@@ -1,7 +1,7 @@
 import _ from 'lodash';
-import React from 'react';
-import QuestsListHeader from './quests-list-header';
-import QuestsListItem from './questsListItem';
+import React, { Component } from 'react';
+import QuestsListHeader from 'QuestsListHeader';
+import QuestsListItem from 'QuestsListItem';
 
 export default class QuestsList extends React.Component {
 
