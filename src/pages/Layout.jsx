@@ -35,8 +35,6 @@ export default class Layout extends React.Component {
                
               <hr/>
               <IndexLink to='/'>Home</IndexLink>
-              <Link to="/missionshome"> Missions Home |</Link>
-              <Link to="/questshome"> Quests Home </Link>
               <Link to="/home"> Home </Link>
 
             </div>
