@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Router, Route, IndexRoute, hashHistory, browserHistory } from "react-router";
 
+import Application from "./components/Application"
 
 import Layout from "./pages/layout";
 import MissionMain from "./components/mission/missionmain";
