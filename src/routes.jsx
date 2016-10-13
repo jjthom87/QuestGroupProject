@@ -8,6 +8,7 @@ import MissionMain from "MissionMain";
 import QuestMain from "QuestMain";
 import CreateAccountPage from 'CreateAccountPage';
 import LoginPage from 'LoginPage';
+import Homepage from 'Homepage';
 
 export default (
   	<Router history={browserHistory}>
@@ -17,6 +18,7 @@ export default (
     		<Route path="/questshome" component={QuestMain} />
         	<Route path="/register" component={CreateAccountPage} />
         	<Route path="/login" component={LoginPage} />
+        	<Route path="/home" component={Homepage} />
     	</Route>
-  </Router>
+  	</Router>
 );
