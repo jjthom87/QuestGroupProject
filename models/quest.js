@@ -20,8 +20,7 @@ module.exports = function(sequelize, DataTypes) {
       associate: function(models) {
         // associations can be defined here
         Quest.belongsTo(models.User);
-        Quest.hasMany(models.Mission);
-        Quest.hasMany(models.Task);
+        Quest.hasMany(models.Milestone);
       }
     }
   });
