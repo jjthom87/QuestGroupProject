@@ -13,7 +13,6 @@ export default class CreateAccount extends React.Component {
 		var firstname = this.refs.firstname.value;
 		var lastname = this.refs.lastname.value;
 		var username = this.refs.username.value;
-		var email = this.refs.email.value;
 		var password = this.refs.password.value;
 
 		if (firstname.length > 0) {

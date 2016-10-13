@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CreateAccount from '../Components/CreateAccount';
+import CreateAccount from '../components/users/CreateAccount';
 import { Router , browserHistory } from 'react-router';
 
 export default class CreateAccountPage extends React.Component {
@@ -27,12 +27,15 @@ export default class CreateAccountPage extends React.Component {
 	}
 	render() {
 		return (
-			<div className = "row">
-				<div className="column small-centered small-11 medium-6 large-5">
-					<div className="container">
-						<h1 className = "container_header text-center">Create Account</h1>
-						<CreateAccount onCreate={this.handleNewData.bind(this)}/>
+			<div>
+				<div className = "row">
+					<div className="column small-centered small-11 medium-6 large-5">
+						<div className="container">
+							<h1 className = "container_header text-center">Create Account</h1>
+							<CreateAccount onCreate={this.handleNewData.bind(this)}/>
+						</div>
 					</div>
+
 				</div>
 			</div>
 		);

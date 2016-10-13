@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Login from '../Components/Login';
+import Login from '../components/users/Login';
 import { Router , browserHistory } from 'react-router';
 
 export default class Layout extends React.Component {

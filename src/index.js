@@ -1,6 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Router, Route, IndexRoute, hashHistory, browserHistory } from "react-router";
+import { Router, Route, IndexRoute, browserHistory } from "react-router";
+import requireAuth from './components/require_authentication';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
 
 import Application from "./components/Application"
 
@@ -19,14 +22,21 @@ import CreateQuest from './components/quest/create-quest';
 import QuestsList from './components/quest/quests-list';
 import QuestTitle from './components/quest/quest-title';
 
+import CreateAccountPage from './pages/CreateAccountPage';
+import CreateAccount from './components/users/CreateAccount';
+import LoginPage from './pages/LoginPage';
+import Login from './components/users/Login';
+
 const app = document.getElementById('app');
+const createStoreWithMiddleware = applyMiddleware()(createStore);
+
 
 ReactDOM.render(
-  <Router history={hashHistory}>
+  <Router history={browserHistory}>
 
     <Route path="/" component={Layout}>
 
-    	<Route path="missionshome" component={MissionMain}>
+    	<Route path="missionshome" component={requireAuth(MissionMain)}>
 
     	    <IndexRoute component={CreateMission} />
     	    <IndexRoute component={MissionsList}>
@@ -49,6 +59,14 @@ ReactDOM.render(
     		</IndexRoute>
 
     	</Route>
+
+        <Route path="register" component={CreateAccountPage}>
+            <IndexRoute component={CreateAccount} />
+        </Route>
+
+        <Route path="login" component={LoginPage}>
+            <IndexRoute component={Login} />
+        </Route>
       
     </Route>
 

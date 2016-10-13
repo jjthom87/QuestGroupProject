@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
-var _ = require('underscore');
+var _ = require('lodash');
 var bcrypt = require('bcryptjs');
 var middleware = require('./middleware.js')(db);
 
@@ -66,7 +66,6 @@ app.post('/users/create', function(req,res){
       firstname: req.body.firstname,
       lastname: req.body.lastname,
       username: req.body.username,
-      email: req.body.email,
       password: req.body.password
     }).then(function(success) {
       res.json(success);
@@ -74,6 +73,8 @@ app.post('/users/create', function(req,res){
       res.json(err);
     });
 });
+
+
 
 // app.post('/dream/create', middleware.requireAuthentication, function(req, res){
 //         models.Dream.create({
@@ -99,6 +100,17 @@ app.post('/users/create', function(req,res){
 //     })
 //   })
 // })
+
+// get all tasks per mission
+// app.get('/missions/all', (req, res) => {
+//   Mission.find().exec((err, tasks) => {
+//     if (err) {
+//       res.json(err);
+//     } else {
+//       res.json(tasks);
+//     }
+//   });
+// });
 
 // app.post('/mission/create', function(req, res){
 //   models.Mission.create({
