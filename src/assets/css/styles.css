@@ -1,11 +1,13 @@
 body{
-    background:url('../images/nightmountains.png');
+    background:url('../images/nightmountains.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     padding-top: 30px;
     margin: 0;
     background-attachment: fixed;
     height: 2000px;
-    
-    
 }
 
 #signButtons {
