@@ -1,16 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default class QuestsListItem extends React.Component {
-
+export default class MissionsListItem extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            isEditing: false,
-            isTitle: false
+            isEditing: false
         };
     }
-
     renderActionsSection() {
         if (this.state.isEditing) {
             return (
@@ -28,12 +25,10 @@ export default class QuestsListItem extends React.Component {
             </td>
         );
     }
+    renderTaskSection() {
+        const { task, isCompleted, date } = this.props;
 
-
-    renderMilestoneSection() {
-        const { milestone, isCompleted, date } = this.props;
-
-        const milestoneStyle = {
+        const taskStyle = {
             color: isCompleted ? 'green' : 'red',
             cursor: 'pointer'
         };
@@ -42,59 +37,52 @@ export default class QuestsListItem extends React.Component {
             return(
                 <td>
                     <form onSubmit={this.onSaveClick.bind(this)}>
-                        <input type="text" defaultValue={milestone} ref="editInput" />
+                        <input type="text" defaultValue={task} ref="editInput" />
                         <input type="date" defaultValue={date} ref="editDate" />
                     </form>
                 </td>
             );
         }
-
         return (
-            <td style={milestoneStyle}
-                onClick={this.props.toggleMilestone.bind(this, milestone)}
+            <td style={taskStyle}
+                onClick={this.props.toggleTask.bind(this, task)}
             >
-                {milestone} {date}
-
+                {task} {date}
             </td>
         );  
-
     }
-
-    render() {
-        return (
-                <tr>
-                    {this.renderMilestoneSection()}
-                    {this.renderActionsSection()}
-                </tr>
-        );
-    }
-
     onEditClick() {
         this.setState({ isEditing: true });
     }
-
     onCancelClick() {
         this.setState({ isEditing: false});
     }
-
     onSaveClick(event) {
 
         event.preventDefault();
 
-        const oldMilestone=this.props.milestone;
-        const newMilestone=this.refs.editInput.value;
+        const oldTask=this.props.task;
+        const newTask=this.refs.editInput.value;
         const oldDate=this.props.date;
         const newDate=this.refs.editDate.value;
-        this.props.saveMilestone(oldMilestone, newMilestone, oldDate, newDate);
-        this.setState({isEditing: false});
-    }
 
+        this.props.saveTask(oldTask, newTask, oldDate, newDate);
+        this.setState({isEditing: false});
+
+    }
     onDeleteClick(event) {
 
         event.preventDefault();
 
-        const milestoneDelete=this.props.milestone;
-        this.props.deleteMilestone(milestoneDelete);
+        const taskDelete=this.props.task;
+        this.props.deleteTask(taskDelete);
     }
-
+    render() {
+        return (
+                <tr>
+                    {this.renderTaskSection()}
+                    {this.renderActionsSection()}
+                </tr>
+        );
+    }
 }

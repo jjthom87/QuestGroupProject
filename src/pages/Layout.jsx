@@ -1,9 +1,5 @@
-import React from "react";
+import React, { Component } from 'react';
 import { Link, IndexLink } from "react-router";
-import MissionMain from '../components/mission/missionmain';
-import QuestMain from '../components/quest/questmain';
-import CreateAccountPage from './CreateAccountPage';
-import LoginPage from './LoginPage';
 
 // import Footer from "../components/layout/Footer";
 // import Nav from "../components/layout/Nav";
@@ -36,7 +32,7 @@ export default class Layout extends React.Component {
             <div className="col-lg-12">
               
               <hr/>
-                {this.props.children}
+               
               <hr/>
               <IndexLink to='/'>Home</IndexLink>
               <Link to="/missionshome"> Missions Home |</Link>

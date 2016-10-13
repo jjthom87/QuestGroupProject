@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default class Createquest extends React.Component {
-
+export default class CreateQuest extends React.Component {
     constructor(props) {
         super(props);
 
@@ -9,21 +8,6 @@ export default class Createquest extends React.Component {
             error: null
         };
     }
-
-    render() {
-        return (
-            <div>
-                <h2> Build Your New Quest! </h2>
-                <form onSubmit={this.handleCreate.bind(this)}>
-                    <input type="text" placeholder="Add Milestone" ref="createInput"/>
-                    <input type="date" placeholder="Add Date" ref="createDate"/>
-                    <button> Add New Milestone </button>
-                    {this.renderError()}
-                </form>
-            </div>
-        );
-    }
-
     renderError() {
         if(!this.state.error) {
             return null;
@@ -31,7 +15,6 @@ export default class Createquest extends React.Component {
             return <div style={{color:'red'}}> { this.state.error } </div>;
         
     }
-
     handleCreate(event) {
         event.preventDefault();
 
@@ -61,5 +44,18 @@ export default class Createquest extends React.Component {
         } else {
             return null;
         }
+    }
+    render() {
+        return (
+            <div>
+                <h2> Build Your New Quest! </h2>
+                <form onSubmit={this.handleCreate.bind(this)}>
+                    <input type="text" placeholder="Add Milestone" ref="createInput"/>
+                    <input type="date" placeholder="Add Date" ref="createDate"/>
+                    <button> Add New Milestone </button>
+                    {this.renderError()}
+                </form>
+            </div>
+        );
     }
 }

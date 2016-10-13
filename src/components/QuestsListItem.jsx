@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default class MissionsListItem extends React.Component {
+export default class QuestsListItem extends React.Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            isEditing: false
+            isEditing: false,
+            isTitle: false
         };
     }
 
@@ -29,10 +30,10 @@ export default class MissionsListItem extends React.Component {
     }
 
 
-    renderTaskSection() {
-        const { task, isCompleted, date } = this.props;
+    renderMilestoneSection() {
+        const { milestone, isCompleted, date } = this.props;
 
-        const taskStyle = {
+        const milestoneStyle = {
             color: isCompleted ? 'green' : 'red',
             cursor: 'pointer'
         };
@@ -41,7 +42,7 @@ export default class MissionsListItem extends React.Component {
             return(
                 <td>
                     <form onSubmit={this.onSaveClick.bind(this)}>
-                        <input type="text" defaultValue={task} ref="editInput" />
+                        <input type="text" defaultValue={milestone} ref="editInput" />
                         <input type="date" defaultValue={date} ref="editDate" />
                     </form>
                 </td>
@@ -49,10 +50,10 @@ export default class MissionsListItem extends React.Component {
         }
 
         return (
-            <td style={taskStyle}
-                onClick={this.props.toggleTask.bind(this, task)}
+            <td style={milestoneStyle}
+                onClick={this.props.toggleMilestone.bind(this, milestone)}
             >
-                {task} {date}
+                {milestone} {date}
 
             </td>
         );  
@@ -62,7 +63,7 @@ export default class MissionsListItem extends React.Component {
     render() {
         return (
                 <tr>
-                    {this.renderTaskSection()}
+                    {this.renderMilestoneSection()}
                     {this.renderActionsSection()}
                 </tr>
         );
@@ -80,22 +81,20 @@ export default class MissionsListItem extends React.Component {
 
         event.preventDefault();
 
-        const oldTask=this.props.task;
-        const newTask=this.refs.editInput.value;
+        const oldMilestone=this.props.milestone;
+        const newMilestone=this.refs.editInput.value;
         const oldDate=this.props.date;
         const newDate=this.refs.editDate.value;
-
-        this.props.saveTask(oldTask, newTask, oldDate, newDate);
+        this.props.saveMilestone(oldMilestone, newMilestone, oldDate, newDate);
         this.setState({isEditing: false});
-
     }
 
     onDeleteClick(event) {
 
         event.preventDefault();
 
-        const taskDelete=this.props.task;
-        this.props.deleteTask(taskDelete);
+        const milestoneDelete=this.props.milestone;
+        this.props.deleteMilestone(milestoneDelete);
     }
 
 }
