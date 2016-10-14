@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, IndexLink } from "react-router";
+var LandingNav = require('navbars/LandingNav.js');
 
 // import Footer from "../components/layout/Footer";
 // import Nav from "../components/layout/Nav";
@@ -8,24 +9,14 @@ export default class Layout extends React.Component {
   
   render() {
     const containerStyle = {
-      marginTop: "60px"
+      marginTop: "100px"
     };
     console.log("layout.js component");
     return (
       <div>
 
-        <header>
-            <nav className="navbar-default navbar-fixed-top clearfix" id="mainNav">
-              <div className="navbar-header">
-                        <a href="" className="navbar-brand"><img src="#" alt="#" className="img-responsive"/></a>
-                        <h1 id="siteName" className="navbar">Bubo</h1>
-                    </div>
-                <div className='navbar-right'id="signButtons">
-                    <Link to="/register" className="btn btn-primary">Sign Up</Link>
-                    <Link to="/login" className="btn btn-primary">Login</Link>
-                </div>
-            </nav>
-        </header>
+
+        <LandingNav/>
         
         <div className="container clearfix" style={containerStyle} id="layoutContain">
           <div className="row">
