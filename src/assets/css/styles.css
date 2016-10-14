@@ -1,28 +1,19 @@
 body{
-    background:url('../images/nightmountains.png') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    background:url('../images/nightmountains.png'); 
     padding-top: 30px;
     margin: 0;
     background-attachment: fixed;
     height: 2000px;
 }
 
-#signButtons {
-    display: inline-block;
-    margin-right: 20px;
+
+#logonli a {
+    color: yellow;
+    margin-top: 20px;
+    font-size: 30px;
 }
 
-#signButtons button {
-    margin-right: 10px;
-    margin-top:20px;
-    background-color: grey;
-    color: yellow;
-    /*border-color: yellow;*/
-    
-}
+
 
 #siteName{
     font-family: 'Montserrat', sans-serif;
@@ -34,7 +25,7 @@ body{
 }
 
 #mainNav {
-    height: 80px;
+    /*height: 80px;*/
     background-color: rgba(0, 0, 0, 0.7);
     
 }
@@ -42,4 +33,3 @@ body{
 #layoutContain {
     background-color: grey;
 }
-
