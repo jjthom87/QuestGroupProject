@@ -4,20 +4,35 @@ import MissionsListHeader from 'MissionsListHeader';
 import MissionsListItem from 'MissionsListItem';
 
 export default class MissionsList extends React.Component {
-    renderItems() {
-        const props = _.omit(this.props, 'missions');
-
-        return _.map(this.props.missions, (mission, index) => 
-            <MissionsListItem key={index} {...mission} {...props} />);
-    }
     render() {
+        const { missions, toggleTask } = this.props;
+
+        var renderMissions = () => {
+            return missions.map((mission, index) => {
+                return (
+                    <MissionsListItem
+                        description={mission.description}
+                        toggleTask={toggleTask}
+                        id={mission.id}
+                        key={index}
+                    />
+                );
+            });
+        }
         return (
             <table>
                 <MissionsListHeader />
                 <tbody>
-                    {this.renderItems()}
+                    {renderMissions()}
                 </tbody>
             </table>
         );
     } 
 }
+
+    // renderItems() {
+    //     const props = _.omit(this.props, 'missions');
+
+    //     return _.map(this.props.missions, (mission, index) => 
+    //         <MissionsListItem key={index} {...mission} {...props} />);
+    // }
