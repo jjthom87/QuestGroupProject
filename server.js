@@ -20,15 +20,14 @@ app.use(bodyParser.json())
 
 app.get('/home', middleware.requireAuthentication, function (req, res){
       models.User.findOne({ where: {id: req.user.get('id')}}).then(function(currentUser){
-        currentUser.getDreams().then(function(dreams){
-          var enteredDreams = [];
-
-          dreams.forEach(function(dream){
-            enteredDreams.push(dream);
+        currentUser.getMissions().then(function(missions){
+          var enteredMissions = [];
+          missions.forEach(function(mission){
+            enteredMissions.push(mission);
           })
         var data = {
           currentUser: currentUser,
-          dreams: enteredDreams
+          missions: enteredMissions
         }
         res.json(data);
       });
@@ -53,13 +52,13 @@ app.post('/users/login', function (req, res) {
   });
 });
 
-// app.delete('/users/login', middleware.requireAuthentication, function (req, res) {
-//   req.token.destroy().then(function () {
-//     res.status(204).send();
-//   }).catch(function () {
-//     res.status(500).send();
-//   });
-// });
+app.delete('/users/logout', middleware.requireAuthentication, function (req, res) {
+  req.token.destroy().then(function () {
+    res.status(204).send();
+  }).catch(function () {
+    res.status(500).send();
+  });
+});
 
 app.post('/users/create', function(req,res){
     models.User.create({
@@ -74,21 +73,19 @@ app.post('/users/create', function(req,res){
     });
 });
 
-
-
-// app.post('/dream/create', middleware.requireAuthentication, function(req, res){
-//         models.Dream.create({
-//             title: req.body.title,
-//             description: req.body.description,
-//             nightmare: req.body.nightmare
-//         }).then(function(dream){
-//         req.user.addDream(dream).then(function(success){
-//         res.json(dream);
-//       }).catch(function(err){
-//         throw err;
-//       });
-//     })
-// });
+app.post('/mission/create', middleware.requireAuthentication, function(req, res){
+  models.Mission.create({
+    description: req.body.description,
+    isCompleted: false,
+    active: false
+  }).then(function(mission){
+    req.user.addMission(mission).then(function(success){
+    res.json(mission);
+  }).catch(function(err){
+    res.json(err);
+    })
+  });
+});
 
 // app.delete('/dream/delete/:id', middleware.requireAuthentication, function(req, res){
 //   models.User.findOne({where: {id: req.user.get('id')}}).then(function(){
@@ -109,17 +106,6 @@ app.post('/users/create', function(req,res){
 //     } else {
 //       res.json(tasks);
 //     }
-//   });
-// });
-
-// app.post('/mission/create', function(req, res){
-//   models.Mission.create({
-//     task: req.body.task,
-//     isCompleted: false
-//   }).then(function(success){
-//     res.json(success);
-//   }).catch(function(err){
-//     res.json(err);
 //   });
 // });
 

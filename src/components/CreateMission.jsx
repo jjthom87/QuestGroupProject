@@ -19,9 +19,8 @@ export default class CreateMission extends React.Component {
     handleCreate(event) {
         event.preventDefault();
 
-        const createInput = this.refs.createInput;
-        const taskInput = createInput.value;
-        const validateInput = this.validateInput(taskInput);
+        const missionInput = this.refs.createMission.value;
+        const validateInput = this.validateInput(missionInput);
 
 
         if(validateInput) {
@@ -30,8 +29,8 @@ export default class CreateMission extends React.Component {
         }
 
         this.setState({ error: null });
-        this.props.createTask(taskInput);
-        this.refs.createInput.value = '';
+        this.props.createMission(missionInput);
+        this.refs.createMission.value = '';
 
     }
     validateInput(taskInput) {
@@ -48,7 +47,7 @@ export default class CreateMission extends React.Component {
             <div>
                 <h2>Form A New Mission!</h2>
                 <form onSubmit={this.handleCreate.bind(this)}>
-                    <input type="text" placeholder="Add Task" ref="createInput" />
+                    <input type="text" placeholder="Add Task" ref="createMission" />
                     <input type="submit" placeholder="Add Mission" />
                     {this.renderError()}
                 </form>

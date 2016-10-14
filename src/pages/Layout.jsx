@@ -26,7 +26,6 @@ export default class Layout extends React.Component {
                
               <hr/>
               <IndexLink to='/'>Home</IndexLink>
-              <Link to="/home"> Home </Link>
 
             </div>
           </div>

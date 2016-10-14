@@ -102,15 +102,22 @@ export default class MissionMain extends React.Component {
                     missions={this.props.missions}
                     createTask={this.createTask.bind(this)}
                 />
-                 {
-                    cloneElement(this.props.children, {
-                        missions: this.state.missions,
-                        toggleTask: this.toggleTask.bind(this),
-                        saveTask: this.saveTask.bind(this),
-                        deleteTask: this.deleteTask.bind(this)      
-                  })
-                }
+                <MissionsList
+                    missions={this.state.missions}
+                    toggleTask={this.toggleTask.bind(this)}
+                    saveTask={this.saveTask.bind(this)}
+                    deleteTask={this.deleteTask.bind(this)}
+                />
             </div>
          );
     }
 }
+
+// {
+//     cloneElement(this.props.children, {
+//     missions: this.state.missions,
+//     toggleTask: this.toggleTask.bind(this),
+//     saveTask: this.saveTask.bind(this),
+//     deleteTask: this.deleteTask.bind(this)      
+//     })
+// }
