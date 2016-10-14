@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, IndexLink } from "react-router";
-var LandingNav = require('navbars/LandingNav.js');
+import LandingNav from 'LandingNav';
 
 // import Footer from "../components/layout/Footer";
 // import Nav from "../components/layout/Nav";
