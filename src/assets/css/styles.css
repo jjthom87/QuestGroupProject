@@ -6,6 +6,18 @@ body{
     height: 2000px;
 }
 
+h1{
+    font-weight: bolder;
+}
+
+input{
+    margin-top: 8px;
+    border-radius: 5px;
+}
+
+#submitButton{
+    text-align: center;
+}
 
 #logonli a {
     color: yellow;
@@ -18,7 +30,14 @@ body{
     margin-right: 40px;
 }
 
-
+#regForm{
+    width: 192px;
+    margin-top: 30px;
+    background-color: grey;
+    padding: 20px;
+    box-shadow: 4px 4px 1px black;
+    margin: auto;
+}
 
 #siteName{
     font-family: 'Montserrat', sans-serif;
@@ -40,12 +59,13 @@ body{
 }
 
 #loginForm {
+    text-align: center;
     margin-top: 30px;
     display: inline-block;
     background-color: grey;
-    padding: 20px;
+    padding: 10px;
     box-shadow: 4px 4px 1px black;
-    margin-left: 35%
+    margin-left: 35%;
 }
 
 #loginText {

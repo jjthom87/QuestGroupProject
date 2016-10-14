@@ -39,9 +39,10 @@ export default class CreateAccount extends React.Component {
 	}
 	render() {
 		return (
-			<div>
+			<div id="regForm">
 				<form onSubmit={this.onCreateUser.bind(this)}>
 					<div>
+					<h1 id="submitButton">Create Account</h1>
 						<input type="text" ref="firstname" placeholder="Enter First Name"/>
 					</div>
 					<div>
@@ -53,7 +54,7 @@ export default class CreateAccount extends React.Component {
 					<div>
 						<input type="password" ref="password" placeholder="Enter Password"/>
 					</div>
-					<div>
+					<div id="submitButton">
 						<input className="button expanded hollow" type="submit" />
 					</div>
 				</form>
