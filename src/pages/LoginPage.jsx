@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import Login from 'Login';
 import { Router , browserHistory } from 'react-router';
 
-export default class Layout extends React.Component {
+export default class LoginPage extends React.Component {
 	constructor(...args){
 		super(...args)
 		this.state = {
 		}
 	}
 	handleNewData (creds) {
-
 		const loginUser = {
 			username: creds.username,
 			password: creds.password
@@ -34,7 +33,6 @@ export default class Layout extends React.Component {
 		})
 	}
 	render() {
-
 		return (
 			<div className="row">
 				<div className="column small-centered small-11 medium-6 large-5">

@@ -1,7 +1,7 @@
 var cryptojs = require('crypto-js');
 var models = require('./models');
 
-module.exports = function (db) {
+module.exports = function () {
 
 	return {
 		requireAuthentication: function (req, res, next) {
