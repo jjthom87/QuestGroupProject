@@ -87,16 +87,16 @@ app.post('/mission/create', middleware.requireAuthentication, function(req, res)
   });
 });
 
-// app.delete('/dream/delete/:id', middleware.requireAuthentication, function(req, res){
-//   models.User.findOne({where: {id: req.user.get('id')}}).then(function(){
-//     models.Dream.destroy({ where: { id: req.params.id }
-//     }).then(function(success){
-//       res.json(success);
-//     }).catch(function(err){
-//       throw err;
-//     })
-//   })
-// })
+app.delete('/mission/delete/:id', middleware.requireAuthentication, function(req, res){
+  models.User.findOne({where: {id: req.user.get('id')}}).then(function(){
+    models.Mission.destroy({ where: { id: req.params.id }
+    }).then(function(success){
+      res.json(success);
+    }).catch(function(err){
+      throw err;
+    })
+  })
+})
 
 // get all tasks per mission
 // app.get('/missions/all', (req, res) => {

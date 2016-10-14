@@ -9,6 +9,7 @@ export default class MissionsListItem extends React.Component {
         };
     }
     renderActionsSection() {
+        const { id, handleDeleteMission } = this.props
         if (this.state.isEditing) {
             return (
                 <td>
@@ -21,7 +22,7 @@ export default class MissionsListItem extends React.Component {
         return (
             <td>
                 <button onClick={this.onEditClick.bind(this)}> edit </button>
-                <button onClick={this.onDeleteClick.bind(this)}> delete </button>
+                <button onClick={() => handleDeleteMission(id)}> delete </button>
             </td>
         );
     }
@@ -70,13 +71,13 @@ export default class MissionsListItem extends React.Component {
         this.setState({isEditing: false});
 
     }
-    onDeleteClick(event) {
+    // onDeleteClick(event) {
 
-        event.preventDefault();
+    //     event.preventDefault();
 
-        const taskDelete=this.props.task;
-        this.props.deleteTask(taskDelete);
-    }
+    //     const taskDelete=this.props.task;
+    //     this.props.deleteTask(taskDelete);
+    // }
     render() {
         return (
                 <tr>

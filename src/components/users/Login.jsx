@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-var LandingNav = require('navbars/LandingNav.js');
+import LandingNav from 'LandingNav';
 
 export default class Login extends React.Component {
 	constructor(...args){

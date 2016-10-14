@@ -15,6 +15,7 @@ module.exports = {
             'src/components/mission',
             'src/components/quest',
             'src/components/users',
+            'src/components/navbars',
             'src/components',
             'src/pages',
             'src'

@@ -29,10 +29,27 @@ export default class Homepage extends React.Component {
         foundtask.date=newDate;
         this.setState({missions: this.state.missions});
     }
-	deleteTask(taskDelete) {
-        const removeTask=_.remove(this.state.missions, mission=> mission.task ===taskDelete);
-        this.setState({missions: this.state.missions});
-    }
+	handleDeleteMission(id){
+		const { missions } = this.state;
+
+		const deleteMission = _.remove(missions, mission => mission.id === id);
+
+		fetch(`/mission/delete/${deleteMission[0].id}`,{
+			method: 'DELETE',
+			body: JSON.stringify(deleteMission),
+			headers: {
+				Auth: localStorage.getItem('token'),
+				'content-type': 'application/json',
+				'accept': 'application/json'
+			},
+			credentials: 'include'
+		}).then((response) => response.json())
+		.then((results) => {
+			this.setState({
+				missions: missions
+			})
+		});	
+	}
 	createMission(description) {
         const { missions } = this.state;
         
@@ -95,7 +112,7 @@ export default class Homepage extends React.Component {
       				missions={missions}
       				toggleTask={this.toggleTask.bind(this)}
                 	saveTask={this.saveTask.bind(this)}
-                	deleteTask={this.deleteTask.bind(this)} 
+                	handleDeleteMission={this.handleDeleteMission.bind(this)} 
                 />
       			</div>
 		);
