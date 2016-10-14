@@ -3,22 +3,22 @@ import { Router, Route, IndexRoute, browserHistory } from "react-router";
 
 import Application from "Application"
 
-import Layout from "Layout";
+import HomePage from "HomePage";
 import MissionMain from "MissionMain";
 import QuestMain from "QuestMain";
 import CreateAccountPage from 'CreateAccountPage';
 import LoginPage from 'LoginPage';
-import Homepage from 'Homepage';
+import UserHomePage from 'UserHomePage';
 
 export default (
   	<Router history={browserHistory}>
   		<Route component={Application}>
-    		<Route path="/" component={Layout} />
+    		<Route path="/" component={HomePage} />
     		<Route path="/missionshome" component={MissionMain} />
     		<Route path="/questshome" component={QuestMain} />
-        	<Route path="/register" component={CreateAccountPage} />
-        	<Route path="/login" component={LoginPage} />
-        	<Route path="/home" component={Homepage} />
+        <Route path="/register" component={CreateAccountPage} />
+        <Route path="/login" component={LoginPage} />
+        <Route path="/home" component={UserHomePage} />
     	</Route>
   	</Router>
 );
