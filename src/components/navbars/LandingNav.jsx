@@ -5,10 +5,10 @@ export default class LandingNav extends React.Component {
     render() {
         return (
             <header>
-                <nav className="navbar navbar-default navbar-fixed-top clearfix" role="navigation" id="mainNav">
+                <nav className="navbar navbar-default navbar-fixed-top clearfix" role="navigation" id="LandNav">
 					<div className="container">
 						<div className="navbar-header">
-	                        <a href="" className="navbar-brand"><img src="#" alt="#" className="img-responsive"/></a>
+	                        <Link to="/" className="navbar-brand"><img src="#" alt="#" className="img-responsive"/></Link>
 	                            <h1 id="siteName" className="navbar">Bubo</h1>
 							<button type="button" className="navbar-toggle collapsed navbutton" data-toggle="collapse" data-target="#bubo-main-nav">
 								<span className="sr-only">Toggle navigation</span>
