@@ -14,7 +14,7 @@ router.get('/', (req,res) => {
 	res.sendFile(path.join(__dirname, '../public/index.html'));
 })
 
-router.get('/home', middleware.requireAuthentication, function (req, res){
+router.get('/home', middleware.requireAuthentication, function(req, res){
     modelController.userHome(req.user.id, function(data){
         res.json(data)
     });
@@ -24,18 +24,18 @@ router.post('/users/login', function (req, res) {
   var body = _.pick(req.body, 'username', 'password');
   var userInfo;
 
-  models.User.authenticate(body).then(function (user) {
-    var token = user.generateToken('authentication');
-    userInfo = user;
+models.User.authenticate(body).then(function (user) {
+      var token = user.generateToken('authentication');
+      userInfo = user;
 
-    return models.Token.create({
-      token: token
+      return models.Token.create({
+        token: token
+      });
+    }).then(function (tokenInstance) {
+      res.header('Auth', tokenInstance.get('token')).json(userInfo.toPublicJSON());
+    }).catch(function () {
+      res.status(401).send();
     });
-  }).then(function (tokenInstance) {
-    res.header('Auth', tokenInstance.get('token')).json(userInfo.toPublicJSON());
-  }).catch(function () {
-    res.status(401).send();
-  });
 });
 
 router.delete('/users/logout', middleware.requireAuthentication, function (req, res) {
@@ -47,66 +47,50 @@ router.delete('/users/logout', middleware.requireAuthentication, function (req, 
 });
 
 router.post('/users/create', function(req,res){
-    models.User.create({
-      firstname: req.body.firstname,
-      lastname: req.body.lastname,
-      username: req.body.username,
-      password: req.body.password
-    }).then(function(success) {
+    modelController.userCreate(
+      req.body.firstname, 
+      req.body.lastname, 
+      req.body.username, 
+      req.body.password, 
+    function(success){
       res.json(success);
-    }).catch(function(err){
-      res.json(err);
     });
 });
 
 router.post('/mission/create', middleware.requireAuthentication, function(req, res){
-  models.Mission.create({
-    description: req.body.description,
-    isCompleted: false,
-    active: false
-  }).then(function(mission){
-    req.user.addMission(mission).then(function(success){
-    res.json(mission);
-  }).catch(function(err){
-    res.json(err);
-    })
-  });
+    modelController.missionCreate(
+      req.body.description, 
+      req.user, 
+    function(success){
+      res.json(success);
+    });
 });
 
 router.post('/quest/create', middleware.requireAuthentication, function(req, res){
-  models.Quest.create({
-    description: req.body.description,
-    isCompleted: false,
-    active: false
-  }).then(function(quest){
-    req.user.addQuest(quest).then(function(success){
-    res.json(quest);
-  }).catch(function(err){
-    res.json(err);
-    })
-  });
+    modelController.questCreate(
+      req.body.description, 
+      req.user, 
+    function(success){
+      res.json(success);
+    });
 });
 
 router.delete('/mission/delete/:id', middleware.requireAuthentication, function(req, res){
-  models.User.findOne({where: {id: req.user.get('id')}}).then(function(){
-    models.Mission.destroy({ where: { id: req.params.id }
-    }).then(function(success){
+    modelController.missionDelete(
+        req.user.id,
+        req.params.id,
+    function(success){
       res.json(success);
-    }).catch(function(err){
-      throw err;
     })
-  })
 })
 
 router.delete('/quest/delete/:id', middleware.requireAuthentication, function(req, res){
-  models.User.findOne({where: {id: req.user.get('id')}}).then(function(){
-    models.Quest.destroy({ where: { id: req.params.id }
-    }).then(function(success){
+    modelController.questDelete(
+        req.user.id,
+        req.params.id,
+    function(success){
       res.json(success);
-    }).catch(function(err){
-      throw err;
     })
-  })
 })
 
 module.exports = router;
