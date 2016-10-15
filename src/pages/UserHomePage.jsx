@@ -5,6 +5,7 @@ import MissionMain from "MissionMain";
 import QuestMain from "QuestMain";
 import QuestsList from 'QuestsList';
 import Logout from 'Logout';
+import MainNav from 'MainNav';
 import { Router , browserHistory } from 'react-router';
 
 // import Footer from "../components/layout/Footer";
@@ -143,6 +144,8 @@ export default class UserHomePage extends React.Component {
         console.log(missions);
     	return (
       		<div>
+              <MainNav/>
+                <div className='container' id="homepageDiv">
       			<Logout onLogout={this.logoutHandler.bind(this)} />
       			<h1 className="text-center" id="pageTitle">Welcome Home {loginUser}</h1>
       			<div className="row">
@@ -173,6 +176,7 @@ export default class UserHomePage extends React.Component {
 		            <div className="col-md-3">
 		            </div>
 		        </div>
+                </div> 
       		</div>
 		);
 	}
