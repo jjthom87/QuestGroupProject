@@ -145,24 +145,16 @@ export default class UserHomePage extends React.Component {
       		<div>
       			<Logout onLogout={this.logoutHandler.bind(this)} />
       			<h1 className="text-center" id="pageTitle">Welcome Home {loginUser}</h1>
-      			<div className="row collapse navbar-collapse">
-      				<div className="col-md-5">
-      				</div>
-      				<div col-md-6>
-						<ul className="nav navbar-nav">
-							<li>
-								<button className="btn btn-info"><Link to="/missionshome">Create a Mission</Link></button>
-							</li>
-							<li>
-								<button className="btn btn-info"><Link to="/questshome">Create a Quest</Link></button>
-							</li>
-						</ul>
+      			<div className="row">
+      				<div className="col-lg-1 col-lg-offset-5" role="group">
+						<button className="btn btn-info"><Link to="/missionshome">Create a Mission</Link></button>
+						<button className="btn btn-info"><Link to="/questshome">Create a Quest</Link></button>
 					</div>
 				</div>
 				<div className="row">
 					<div className="col-md-3">
 					</div>
-					<div className="col-md-4">
+					<div className="col-md-3">
 						<MissionsList
 		                    missions={missions}
 		                    toggleTask={this.toggleTask.bind(this)}
@@ -170,7 +162,7 @@ export default class UserHomePage extends React.Component {
 		                    deleteMission={this.deleteMission.bind(this)}
 		                />
 		            </div>
-		           	<div className="col-md-7">
+		           	<div className="col-md-3">
 		                <QuestsList
 		                    quests={quests}
 		                    toggleMilestone={this.toggleMilestone.bind(this)}
@@ -178,7 +170,7 @@ export default class UserHomePage extends React.Component {
 		                    deleteQuest={this.deleteQuest.bind(this)}
 		                />
 		            </div>
-		            <div className="col-md-8">
+		            <div className="col-md-3">
 		            </div>
 		        </div>
       		</div>
