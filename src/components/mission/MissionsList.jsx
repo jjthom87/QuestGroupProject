@@ -5,7 +5,7 @@ import MissionsListItem from 'MissionsListItem';
 
 export default class MissionsList extends React.Component {
     render() {
-        const { missions, toggleTask, handleDeleteMission } = this.props;
+        const { missions, toggleTask, deleteMission } = this.props;
 
         var renderMissions = () => {
             return missions.map((mission, index) => {
@@ -13,19 +13,36 @@ export default class MissionsList extends React.Component {
                     <MissionsListItem
                         description={mission.description}
                         toggleTask={toggleTask}
-                        handleDeleteMission={handleDeleteMission}
+                        deleteMission={deleteMission}
                         id={mission.id}
                         key={index}
                     />
                 );
             });
         }
+        var noMissions = () => {
+            if (missions.length === 0){
+                return (
+                    <p className="noMissionsText">Please Create a Mission</p>
+                );
+            }
+        }
         return (
-            <table>
-                <tbody>
-                    {renderMissions()}
-                </tbody>
-            </table>
+            <div>
+                <div className="row">
+                    <div className = "col-md-3">
+                    </div>
+                    <div className = "col-md-4">
+                        <p className="missionsTitle">Missions</p>
+                        <div>{noMissions()}</div>
+                        <table>
+                            <tbody>
+                                {renderMissions()}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         );
     } 
 }

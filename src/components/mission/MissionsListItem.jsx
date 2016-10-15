@@ -9,7 +9,7 @@ export default class MissionsListItem extends React.Component {
         };
     }
     renderActionsSection() {
-        const { id, handleDeleteMission } = this.props
+        const { id, deleteMission } = this.props
         if (this.state.isEditing) {
             return (
                 <td>
@@ -22,7 +22,7 @@ export default class MissionsListItem extends React.Component {
         return (
             <td>
                 <button onClick={this.onEditClick.bind(this)}> edit </button>
-                <button onClick={() => handleDeleteMission(id)}> delete </button>
+                <button onClick={() => deleteMission(id)}> delete </button>
             </td>
         );
     }

@@ -21,7 +21,7 @@ export default class HomePage extends React.Component {
             </div>
           </div>
         </div>
-        <div className = "text-center mainpageTitle">
+        <div className = "text-center" id="pageTitle">
           <h1>Welcome to Bubo. Please Login and Get Started</h1>
         </div>
       </div>
