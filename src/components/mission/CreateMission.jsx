@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import CreateTask from 'CreateTask';
 
 export default class CreateMission extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
             error: null
         };
@@ -46,7 +46,7 @@ export default class CreateMission extends React.Component {
             <div>
                 <h2 className="missionTitle">Form A New Mission!</h2>
                 <form onSubmit={this.handleCreate.bind(this)}>
-                    <input type="text" placeholder="Add Task" ref="createMission" />
+                    <input type="text" placeholder="Create Mission" ref="createMission" />
                     <input type="submit" placeholder="Add Mission" />
                     {this.renderError()}
                 </form>

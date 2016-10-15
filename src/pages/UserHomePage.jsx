@@ -123,7 +123,6 @@ export default class UserHomePage extends React.Component {
         this.setState({quests: this.state.quests});
     }
   	componentWillMount(){
-  		const { missions } = this.state
 		fetch('/home', {
 			credentials: 'include',
 			headers: {
@@ -141,7 +140,7 @@ export default class UserHomePage extends React.Component {
 	}
 	render() {
 		const { loginUser, missions, quests } = this.state;
-        console.log(missions);
+
     	return (
       		<div>
               <MainNav/>

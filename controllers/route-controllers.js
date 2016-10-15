@@ -66,6 +66,22 @@ router.post('/mission/create', middleware.requireAuthentication, function(req, r
     });
 });
 
+router.post('/task/create/:id', middleware.requireAuthentication, function(req, res){
+      models.Mission.findOne({ where: {id: req.params.id}}).then(function(mission){
+        models.Task.create({
+          task: req.body.task,
+          isCompleted: false,
+          active: false
+        }).then(function(task){
+        mission.addTask(task).then(function(success){
+        res.json(task);
+      }).catch(function(err){
+        throw err;
+        });
+      });
+    })
+});
+
 router.post('/quest/create', middleware.requireAuthentication, function(req, res){
     modelController.questCreate(
       req.body.description, 
