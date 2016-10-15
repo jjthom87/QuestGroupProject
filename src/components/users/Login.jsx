@@ -40,7 +40,7 @@ export default class Login extends React.Component {
 							<input type="password" ref="password" placeholder="Enter Password"/>
 						</div>
 						<div id="submitButton">
-							<input className="button expanded hollow" type="submit" />
+							<input className="btn btn-default" type="submit" />
 						</div>
 					</form>
 				</div>
