@@ -5,7 +5,7 @@ export default class LandingNav extends React.Component {
     render() {
         return (
             <header>
-                <nav className="navbar navbar-default navbar-fixed-top clearfix" role="navigation" id="mainNav">
+                <nav className="navbar navbar-default navbar-fixed-top clearfix" role="navigation" id="LandNav">
 					<div className="container">
 						<div className="navbar-header">
 	                        <Link to="/" className="navbar-brand"><img src="#" alt="#" className="img-responsive"/></Link>
