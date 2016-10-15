@@ -103,3 +103,7 @@ input{
 .noQuestsText {
     color: white;
 }
+
+.btn-group {
+    display: inline-block;
+}
