@@ -1,5 +1,5 @@
 import React, { Component, cloneElement } from 'react';
-import { Link, indexLink } from "react-router";
+var {Link, IndexLink} = require('react-router');
 import UserHomePage from 'UserHomePage';
 import CreateMission from 'CreateMission';
 

@@ -29,19 +29,13 @@ export default class MissionsList extends React.Component {
         }
         return (
             <div>
-                <div className="row">
-                    <div className = "col-md-3">
-                    </div>
-                    <div className = "col-md-4">
-                        <p className="missionsTitle">Missions</p>
-                        <div>{noMissions()}</div>
-                        <table>
-                            <tbody>
-                                {renderMissions()}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                <p className="missionsTitle">Missions</p>
+                <div>{noMissions()}</div>
+                <table>
+                    <tbody>
+                        {renderMissions()}
+                    </tbody>
+                </table>
             </div>
         );
     } 

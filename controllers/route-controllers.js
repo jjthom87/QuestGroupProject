@@ -20,12 +20,19 @@ router.get('/home', middleware.requireAuthentication, function (req, res){
           missions.forEach(function(mission){
             enteredMissions.push(mission);
           })
+        currentUser.getQuests().then(function(quests){
+          var enteredQuests = [];
+          quests.forEach(function(quest){
+            enteredQuests.push(quest);
+          })
         var data = {
           currentUser: currentUser,
-          missions: enteredMissions
+          missions: enteredMissions,
+          quests: enteredQuests
         }
         res.json(data);
       });
+     })
    });
 });
 
@@ -82,9 +89,34 @@ router.post('/mission/create', middleware.requireAuthentication, function(req, r
   });
 });
 
+router.post('/quest/create', middleware.requireAuthentication, function(req, res){
+  models.Quest.create({
+    description: req.body.description,
+    isCompleted: false,
+    active: false
+  }).then(function(quest){
+    req.user.addQuest(quest).then(function(success){
+    res.json(quest);
+  }).catch(function(err){
+    res.json(err);
+    })
+  });
+});
+
 router.delete('/mission/delete/:id', middleware.requireAuthentication, function(req, res){
   models.User.findOne({where: {id: req.user.get('id')}}).then(function(){
     models.Mission.destroy({ where: { id: req.params.id }
+    }).then(function(success){
+      res.json(success);
+    }).catch(function(err){
+      throw err;
+    })
+  })
+})
+
+router.delete('/quest/delete/:id', middleware.requireAuthentication, function(req, res){
+  models.User.findOne({where: {id: req.user.get('id')}}).then(function(){
+    models.Quest.destroy({ where: { id: req.params.id }
     }).then(function(success){
       res.json(success);
     }).catch(function(err){

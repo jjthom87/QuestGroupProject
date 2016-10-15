@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 export default class CreateMission extends React.Component {
-
     constructor(props) {
         super(props);
 

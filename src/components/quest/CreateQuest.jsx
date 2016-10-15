@@ -18,12 +18,8 @@ export default class CreateQuest extends React.Component {
     handleCreate(event) {
         event.preventDefault();
 
-        const createInput = this.refs.createInput;
-        const milestones = createInput.value;
-        const validateInput = this.validateInput(milestones);
-
-        const createDate = this.refs.createDate;
-        const date = createDate.value;
+        const quest = this.refs.createQuest.value;
+        const validateInput = this.validateInput(quest);
 
         if(validateInput) {
             this.setState({ error: validateInput });
@@ -31,9 +27,8 @@ export default class CreateQuest extends React.Component {
         }
 
         this.setState({ error: null });
-        this.props.createMilestone(milestones, date);
-        this.refs.createInput.value = '';
-        this.refs.createDate.value = '';
+        this.props.createQuest(quest);
+        this.refs.createQuest.value = '';
     }
 
     validateInput(milestone) {
@@ -50,9 +45,8 @@ export default class CreateQuest extends React.Component {
             <div>
                 <h2> Build Your New Quest! </h2>
                 <form onSubmit={this.handleCreate.bind(this)}>
-                    <input type="text" placeholder="Add Milestone" ref="createInput"/>
-                    <input type="date" placeholder="Add Date" ref="createDate"/>
-                    <button> Add New Milestone </button>
+                    <input type="text" placeholder="Add Quest" ref="createQuest"/>
+                    <button> Add New Quest </button>
                     {this.renderError()}
                 </form>
             </div>
