@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Link, IndexLink } from "react-router";
-import MissionMain from 'MissionMain';
-import QuestMain from 'QuestMain';
+var {Link, IndexLink} = require('react-router');
+import MissionsList from 'MissionsList';
+import MissionMain from "MissionMain";
+import QuestMain from "QuestMain";
 import Logout from 'Logout';
 import { Router , browserHistory } from 'react-router';
 
@@ -29,6 +30,63 @@ export default class UserHomePage extends React.Component {
 			browserHistory.push('/');
 		});
 	}
+	deleteMission(id){
+        const { missions } = this.state;
+
+        const deleteMission = _.remove(missions, mission => mission.id === id);
+
+        fetch(`/mission/delete/${deleteMission[0].id}`,{
+            method: 'DELETE',
+            body: JSON.stringify(deleteMission),
+            headers: {
+                Auth: localStorage.getItem('token'),
+                'content-type': 'application/json',
+                'accept': 'application/json'
+            },
+            credentials: 'include'
+        }).then((response) => response.json())
+        .then((results) => {
+            this.setState({
+                missions: missions
+            })
+        }); 
+    }
+	toggleTask(task) {
+        const foundtask= _.find(this.state.missions, mission => mission.task === task);
+        foundtask.isCompleted = !foundtask.isCompleted;
+        this.setState({ missions: this.state.missions});
+    }
+    // toggleTask(taskId) {
+    //     const { missions } = this.state;
+
+    //     // find the first item in our state which has the ID we're looking for (itemId)
+    //     const foundtask = missions.find((foundTask) => foundtask._id === taskId);
+
+    //     // if we found an item w/ that id, we toggle its `isCompleted` property
+    //     if (foundtask) {
+    //         foundtask.isCompleted = !foundtask.isCompleted;
+
+    //         fetch(`/api/task/${foundtask._id}`, {
+    //             method: 'PUT',
+    //             body: JSON.stringify(foundtask),
+    //             headers: { 'content-type': 'application/json' }
+    //         }).then((response) => response.json())
+    //             .then((json) => {
+    //                 // then we update our state with the updated items array. note that
+    //                 // `item` has the item by reference, meaning that when we changed its
+    //                 // isCompleted property, the array `items` was updated as well
+    //                 this.setState({
+    //                     missions: missions
+    //                 });
+    //             });
+    //     }
+    // }
+    saveTask(oldTask, newTask, oldDate, newDate) {
+        const foundtask=_.find(this.state.missions, mission=> mission.task ===oldTask);
+        foundtask.task=newTask;
+        foundtask.date=newDate;
+        this.setState({missions: this.state.missions});
+    }
   	componentWillMount(){
   		const { missions } = this.state
 		fetch('/home', {
@@ -51,7 +109,7 @@ export default class UserHomePage extends React.Component {
     	return (
       		<div>
       			<Logout onLogout={this.logoutHandler.bind(this)} />
-      			<h1 className="homepageTitle text-center">Welcome Home {loginUser}</h1>
+      			<h1 className="text-center" id="pageTitle">Welcome Home {loginUser}</h1>
       			<div className="row collapse navbar-collapse">
       				<div className="col-md-5">
       				</div>
@@ -66,6 +124,12 @@ export default class UserHomePage extends React.Component {
 						</ul>
 					</div>
 				</div>
+				<MissionsList
+                    missions={missions}
+                    toggleTask={this.toggleTask.bind(this)}
+                    saveTask={this.saveTask.bind(this)}
+                    deleteMission={this.deleteMission.bind(this)}
+                />
       		</div>
 		);
 	}

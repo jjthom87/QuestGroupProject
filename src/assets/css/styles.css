@@ -73,12 +73,8 @@ input{
     margin-top: 0px;
     padding: none;
 }
-.mainpageTitle {
-    font-size: 24px;
-    color: yellow;
-}
 
-.homepageTitle {
+#pageTitle {
     font-size: 24px;
     color: yellow;
 }
@@ -86,4 +82,14 @@ input{
 .missionTitle {
     font-size: 20px;
     color: orange;
+}
+
+.missionsTitle {
+    font-size: 20px;
+    color: white;
+    text-transform: bold;
+}
+
+.noMissionsText {
+    color: white;
 }
