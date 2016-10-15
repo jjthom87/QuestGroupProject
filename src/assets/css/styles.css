@@ -15,6 +15,16 @@ input{
     border-radius: 5px;
 }
 
+.btn-info{
+    margin: 15px;
+}
+
+#sidePanel{
+    float: left;
+    width: 15%;
+    height: 100%;
+}
+
 #submitButton{
     text-align: center;
 }
