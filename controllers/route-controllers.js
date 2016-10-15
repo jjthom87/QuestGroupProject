@@ -7,13 +7,13 @@ var router = express.Router();
 var app = express();
 
 var models = require('../models')
-var middleware = require('../middleware.js')();
+var middleware = require('../middleware/middleware.js')();
 
 router.get('/', (req,res) => {
 	res.sendFile(path.join(__dirname, '../public/index.html'));
 })
 
-router.get('/home', middleware.requireAuthentication, function (req, res){
+router.get('/home/:id', middleware.requireAuthentication, function (req, res){
       models.User.findOne({ where: {id: req.user.get('id')}}).then(function(currentUser){
         currentUser.getMissions().then(function(missions){
           var enteredMissions = [];

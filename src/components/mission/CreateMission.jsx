@@ -45,7 +45,7 @@ export default class CreateMission extends React.Component {
     render() {
         return (
             <div>
-                <h2>Form A New Mission!</h2>
+                <h2 className="missionTitle">Form A New Mission!</h2>
                 <form onSubmit={this.handleCreate.bind(this)}>
                     <input type="text" placeholder="Add Task" ref="createMission" />
                     <input type="submit" placeholder="Add Mission" />

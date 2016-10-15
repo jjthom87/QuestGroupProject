@@ -18,6 +18,7 @@ module.exports = {
             'src/components/navbars',
             'src/components',
             'src/pages',
+            'src/auth',
             'src'
         ],
         extensions: ['', '.js', '.jsx']

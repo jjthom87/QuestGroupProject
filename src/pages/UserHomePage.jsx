@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, IndexLink } from "react-router";
-import CreateMission from 'CreateMission';
-import MissionsList from 'MissionsList';
+import MissionMain from 'MissionMain';
+import QuestMain from 'QuestMain';
 import Logout from 'Logout';
 import { Router , browserHistory } from 'react-router';
 
@@ -15,63 +15,9 @@ export default class UserHomePage extends React.Component {
 			loginUser: '',
 			fullLoginUser: '',
 			missions: [],
-			createdOn: ''
+			createdOn: '',
 		};
 	}
-	toggleTask(task) {
-        const foundtask= _.find(this.state.missions, mission => mission.task === task);
-        foundtask.isCompleted = !foundtask.isCompleted;
-        this.setState({ missions: this.state.missions});
-	}
-	saveTask(oldTask, newTask, oldDate, newDate) {
-        const foundtask=_.find(this.state.missions, mission=> mission.task ===oldTask);
-        foundtask.task=newTask;
-        foundtask.date=newDate;
-        this.setState({missions: this.state.missions});
-    }
-	handleDeleteMission(id){
-		const { missions } = this.state;
-
-		const deleteMission = _.remove(missions, mission => mission.id === id);
-
-		fetch(`/mission/delete/${deleteMission[0].id}`,{
-			method: 'DELETE',
-			body: JSON.stringify(deleteMission),
-			headers: {
-				Auth: localStorage.getItem('token'),
-				'content-type': 'application/json',
-				'accept': 'application/json'
-			},
-			credentials: 'include'
-		}).then((response) => response.json())
-		.then((results) => {
-			this.setState({
-				missions: missions
-			})
-		});	
-	}
-	createMission(description) {
-        const { missions } = this.state;
-        
-        const newMiss = {
-            description
-        }
-        fetch('/mission/create', {
-            method: 'post',
-            body: JSON.stringify(newMiss),
-			headers: {
-				Auth: localStorage.getItem('token'),
-				'content-type': 'application/json',
-				'accept': 'application/json'
-			},
-			credentials: 'include'
-        }).then((response) => response.json())
-            .then((results) => {
-                this.setState({
-                    missions: missions.concat(results)
-                });
-            });
-    }
 	logoutHandler(){
 		fetch('/users/logout', {
 			method: 'delete',
@@ -105,15 +51,22 @@ export default class UserHomePage extends React.Component {
     	return (
       		<div>
       			<Logout onLogout={this.logoutHandler.bind(this)} />
-      			<h1>Welcome Home {loginUser}</h1>
-      			<CreateMission createMission={this.createMission.bind(this)}/>
-      			<MissionsList 
-      				missions={missions}
-      				toggleTask={this.toggleTask.bind(this)}
-                	saveTask={this.saveTask.bind(this)}
-                	handleDeleteMission={this.handleDeleteMission.bind(this)} 
-                />
+      			<h1 className="homepageTitle text-center">Welcome Home {loginUser}</h1>
+      			<div className="row collapse navbar-collapse">
+      				<div className="col-md-5">
+      				</div>
+      				<div col-md-6>
+						<ul className="nav navbar-nav">
+							<li>
+								<button className="btn btn-info"><Link to="/missionshome">Create a Mission</Link></button>
+							</li>
+							<li>
+								<button className="btn btn-info"><Link to="/questshome">Create a Quest</Link></button>
+							</li>
+						</ul>
+					</div>
+				</div>
       		</div>
 		);
-		}
+	}
 }
