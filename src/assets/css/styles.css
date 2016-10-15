@@ -90,6 +90,16 @@ input{
     text-transform: bold;
 }
 
+.questsTitle {
+    font-size: 20px;
+    color: white;
+    text-transform: bold;
+}
+
 .noMissionsText {
+    color: white;
+}
+
+.noQuestsText {
     color: white;
 }

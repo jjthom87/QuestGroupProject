@@ -3,6 +3,7 @@ var {Link, IndexLink} = require('react-router');
 import MissionsList from 'MissionsList';
 import MissionMain from "MissionMain";
 import QuestMain from "QuestMain";
+import QuestsList from 'QuestsList';
 import Logout from 'Logout';
 import { Router , browserHistory } from 'react-router';
 
@@ -16,7 +17,8 @@ export default class UserHomePage extends React.Component {
 			loginUser: '',
 			fullLoginUser: '',
 			missions: [],
-			createdOn: '',
+			quests: [],
+			createdOn: ''
 		};
 	}
 	logoutHandler(){
@@ -48,6 +50,27 @@ export default class UserHomePage extends React.Component {
         .then((results) => {
             this.setState({
                 missions: missions
+            })
+        }); 
+    }
+    deleteQuest(id){
+        const { quests } = this.state;
+
+        const deleteQuest = _.remove(quests, quest => quest.id === id);
+
+        fetch(`/quest/delete/${deleteQuest[0].id}`,{
+            method: 'DELETE',
+            body: JSON.stringify(deleteQuest),
+            headers: {
+                Auth: localStorage.getItem('token'),
+                'content-type': 'application/json',
+                'accept': 'application/json'
+            },
+            credentials: 'include'
+        }).then((response) => response.json())
+        .then((results) => {
+            this.setState({
+                quests: quests
             })
         }); 
     }
@@ -87,6 +110,17 @@ export default class UserHomePage extends React.Component {
         foundtask.date=newDate;
         this.setState({missions: this.state.missions});
     }
+    toggleMilestone(milestone) {
+        const foundMilestone= _.find(this.state.quests, quest => quest.milestone === milestone);
+        foundMilestone.isCompleted = !foundMilestone.isCompleted;
+        this.setState({ quests: this.state.quests });
+    }
+    saveMilestone(oldMilestone, newMilestone, oldDate, newDate) {
+        const foundMilestone=_.find(this.state.quests, quest => quest.milestone === oldMilestone);
+        foundMilestone.milestone=newMilestone;
+        foundMilestone.date=newDate;
+        this.setState({quests: this.state.quests});
+    }
   	componentWillMount(){
   		const { missions } = this.state
 		fetch('/home', {
@@ -99,13 +133,14 @@ export default class UserHomePage extends React.Component {
 			this.setState({
 				fullLoginUser: results.currentUser,
 				loginUser: results.currentUser.firstname,
-				missions: results.missions
+				missions: results.missions,
+				quests: results.quests
 			});
 		});
 	}
 	render() {
-		const { loginUser, missions } = this.state;
-		const filtered = missions.map((mission) => mission.description);
+		const { loginUser, missions, quests } = this.state;
+
     	return (
       		<div>
       			<Logout onLogout={this.logoutHandler.bind(this)} />
@@ -124,12 +159,28 @@ export default class UserHomePage extends React.Component {
 						</ul>
 					</div>
 				</div>
-				<MissionsList
-                    missions={missions}
-                    toggleTask={this.toggleTask.bind(this)}
-                    saveTask={this.saveTask.bind(this)}
-                    deleteMission={this.deleteMission.bind(this)}
-                />
+				<div className="row">
+					<div className="col-md-3">
+					</div>
+					<div className="col-md-4">
+						<MissionsList
+		                    missions={missions}
+		                    toggleTask={this.toggleTask.bind(this)}
+		                    saveTask={this.saveTask.bind(this)}
+		                    deleteMission={this.deleteMission.bind(this)}
+		                />
+		            </div>
+		           	<div className="col-md-7">
+		                <QuestsList
+		                    quests={quests}
+		                    toggleMilestone={this.toggleMilestone.bind(this)}
+		                    saveMilestone={this.saveMilestone.bind(this)}
+		                    deleteQuest={this.deleteQuest.bind(this)}
+		                />
+		            </div>
+		            <div className="col-md-8">
+		            </div>
+		        </div>
       		</div>
 		);
 	}

@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 export default class MissionsListItem extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
             isEditing: false
         };
@@ -71,13 +70,6 @@ export default class MissionsListItem extends React.Component {
         this.setState({isEditing: false});
 
     }
-    // onDeleteClick(event) {
-
-    //     event.preventDefault();
-
-    //     const taskDelete=this.props.task;
-    //     this.props.deleteTask(taskDelete);
-    // }
     render() {
         return (
                 <tr>
