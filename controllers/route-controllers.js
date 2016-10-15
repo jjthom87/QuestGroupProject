@@ -1,7 +1,8 @@
 var express = require('express');
 var path = require('path');
 var _ = require('lodash');
-var bcrypt = require('bcryptjs');
+
+var modelController = require('./model-controllers.js');
 
 var router = express.Router();
 var app = express();
@@ -14,26 +15,9 @@ router.get('/', (req,res) => {
 })
 
 router.get('/home', middleware.requireAuthentication, function (req, res){
-      models.User.findOne({ where: {id: req.user.get('id')}}).then(function(currentUser){
-        currentUser.getMissions().then(function(missions){
-          var enteredMissions = [];
-          missions.forEach(function(mission){
-            enteredMissions.push(mission);
-          })
-        currentUser.getQuests().then(function(quests){
-          var enteredQuests = [];
-          quests.forEach(function(quest){
-            enteredQuests.push(quest);
-          })
-        var data = {
-          currentUser: currentUser,
-          missions: enteredMissions,
-          quests: enteredQuests
-        }
-        res.json(data);
-      });
-     })
-   });
+    modelController.userHome(req.user.id, function(data){
+        res.json(data)
+    });
 });
 
 router.post('/users/login', function (req, res) {
