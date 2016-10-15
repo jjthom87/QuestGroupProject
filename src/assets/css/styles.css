@@ -73,3 +73,17 @@ input{
     margin-top: 0px;
     padding: none;
 }
+.mainpageTitle {
+    font-size: 24px;
+    color: yellow;
+}
+
+.homepageTitle {
+    font-size: 24px;
+    color: yellow;
+}
+
+.missionTitle {
+    font-size: 20px;
+    color: orange;
+}

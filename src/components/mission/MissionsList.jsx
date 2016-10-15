@@ -22,7 +22,6 @@ export default class MissionsList extends React.Component {
         }
         return (
             <table>
-                <MissionsListHeader />
                 <tbody>
                     {renderMissions()}
                 </tbody>

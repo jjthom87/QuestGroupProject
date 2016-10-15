@@ -16,11 +16,9 @@ export default class Logout extends React.Component {
 	render() {
 		return (
 			<div className="row">
-				<div className = "small-10 large-10 columns">
-				</div>
-				<div className="small-2 large-2 columns">
+				<div className="col-md-1">
 					<form onSubmit={this.onFormSubmit.bind(this)}>
-						<button className="button success">Logout</button>
+						<button className="btn-danger">Logout</button>
 					</form>
 				</div>
 			</div>

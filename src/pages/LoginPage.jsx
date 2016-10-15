@@ -6,9 +6,11 @@ export default class LoginPage extends React.Component {
 	constructor(...args){
 		super(...args)
 		this.state = {
+			authenticated: true
 		}
 	}
 	handleNewData (creds) {
+		const { authenticated } = this.state;
 		const loginUser = {
 			username: creds.username,
 			password: creds.password
@@ -24,13 +26,25 @@ export default class LoginPage extends React.Component {
 			credentials: 'include'
 		}).then((response) => {
 			if (response.statusText === "OK"){
+				this.setState({
+					authenticated: !authenticated
+				})
 				localStorage.setItem('token', response.headers.get('Auth'));
 				browserHistory.push('/home');
 				response.json();
 			} else {
+				this.setState({
+					authenticated: authenticated
+				})
 				alert ('Incorrect Login Credentials');
 			}
 		})
+	}
+	authenticateLogin(){
+		  const {authenticated} = this.props;
+		  if (!authenticated){
+		    browserHistory.push('/')
+		  }
 	}
 	render() {
 		return (

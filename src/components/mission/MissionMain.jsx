@@ -2,57 +2,55 @@ import React, { Component, cloneElement } from 'react';
 import MissionsList from 'MissionsList';
 import CreateMission from 'CreateMission';
 
-// const missions = [
-// {
-//     task: 'Example Mission',
-//     date: 'date',
-//     isCompleted: false
-// },
-// {
-//     task: 'Example Mission',
-//     date: 'date',
-//     isCompleted: false
-// }
-// ];
-
 export default class MissionMain extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
             missions: []
         };
     }
-    // componentWillMount() {
-    //     fetch('/missions/all')
-    //         .then((response) => response.json())
-    //         .then((json) => {
-    //             this.setState({
-    //                 items: json
-    //             });
-    //         })
-    // }
-    createTask(task) {
+    deleteMission(id){
+        const { missions } = this.state;
+
+        const deleteMission = _.remove(missions, mission => mission.id === id);
+
+        fetch(`/mission/delete/${deleteMission[0].id}`,{
+            method: 'DELETE',
+            body: JSON.stringify(deleteMission),
+            headers: {
+                Auth: localStorage.getItem('token'),
+                'content-type': 'application/json',
+                'accept': 'application/json'
+            },
+            credentials: 'include'
+        }).then((response) => response.json())
+        .then((results) => {
+            this.setState({
+                missions: missions
+            })
+        }); 
+    }
+    createMission(description) {
         const { missions } = this.state;
         
         const newMiss = {
-            task
+            description
         }
-        console.log(newMiss)
         fetch('/mission/create', {
             method: 'post',
             body: JSON.stringify(newMiss),
             headers: {
-                'content-type': 'application/json'
-            }
+                Auth: localStorage.getItem('token'),
+                'content-type': 'application/json',
+                'accept': 'application/json'
+            },
+            credentials: 'include'
         }).then((response) => response.json())
             .then((results) => {
                 this.setState({
                     missions: missions.concat(results)
                 });
             });
-        
-        console.log(this.state.missions);
     }
     toggleTask(task) {
         const foundtask= _.find(this.state.missions, mission => mission.task === task);
@@ -90,34 +88,30 @@ export default class MissionMain extends React.Component {
         foundtask.date=newDate;
         this.setState({missions: this.state.missions});
     }
-    deleteTask(taskDelete) {
-        const removeTask=_.remove(this.state.missions, mission=> mission.task ===taskDelete);
-        this.setState({missions: this.state.missions});
-    }
+    // componentWillMount() {
+    //     fetch('/missions/all')
+    //         .then((response) => response.json())
+    //         .then((json) => {
+    //             this.setState({
+    //                 items: json
+    //             });
+    //         })
+    // }
     render() {
         return (
             <div>
                 <h1>Missions Home</h1>
                 <CreateMission
                     missions={this.props.missions}
-                    createTask={this.createTask.bind(this)}
+                    createMission={this.createMission.bind(this)}
                 />
                 <MissionsList
                     missions={this.state.missions}
                     toggleTask={this.toggleTask.bind(this)}
                     saveTask={this.saveTask.bind(this)}
-                    deleteTask={this.deleteTask.bind(this)}
+                    deleteMission={this.deleteMission.bind(this)}
                 />
             </div>
          );
     }
 }
-
-// {
-//     cloneElement(this.props.children, {
-//     missions: this.state.missions,
-//     toggleTask: this.toggleTask.bind(this),
-//     saveTask: this.saveTask.bind(this),
-//     deleteTask: this.deleteTask.bind(this)      
-//     })
-// }

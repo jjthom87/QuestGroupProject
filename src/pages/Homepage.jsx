@@ -18,18 +18,11 @@ export default class HomePage extends React.Component {
             <div className="col-lg-12">
               <hr/>  
               <hr/>
-              <div className="collapse navbar-collapse main-nav" id="bubo-main-nav">
-                <ul className="nav navbar-nav navbar-left" id="logonli">
-                  <li>
-                    <IndexLink to='/'>Home</IndexLink>
-                  </li>
-                  <li>
-                    <Link to='/home'>User's Homepage</Link>
-                  </li>
-                </ul>
-              </div>
             </div>
           </div>
+        </div>
+        <div className = "text-center mainpageTitle">
+          <h1>Welcome to Bubo. Please Login and Get Started</h1>
         </div>
       </div>
     );
