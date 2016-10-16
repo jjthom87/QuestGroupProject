@@ -3,18 +3,18 @@ var {Link, IndexLink} = require('react-router');
 import UserHomePage from 'UserHomePage';
 import CreateMission from 'CreateMission';
 import CreateTask from 'CreateTask';
-import MissionMainList from 'MissionMainList';
+import MissionMainItem from 'MissionMainItem';
 
 export default class MissionMain extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            missions: [],
+            mission: [],
             tasks: []
         };
     }
     createMission(description) {
-        const { missions } = this.state;
+        const { mission } = this.state;
         
         const newMiss = {
             description
@@ -31,7 +31,7 @@ export default class MissionMain extends React.Component {
         }).then((response) => response.json())
             .then((results) => {
                 this.setState({
-                    missions: missions.concat(results)
+                    mission: results.concat(results)
                 });
             });
     }
@@ -110,26 +110,32 @@ export default class MissionMain extends React.Component {
             credentials: 'include'
         }).then((response) => response.json())
             .then((results) => {
+                console.log(results)
                 this.setState({
                     tasks: tasks.concat(results)
                 });
             });
     }
     componentWillMount(){
-        fetch('/home', {
-            credentials: 'include',
+        const {mission} = this.state;
+        fetch('/missionhome', {
             headers: {
-                Auth: localStorage.getItem('token')
-            }
+                Auth: localStorage.getItem('token'),
+                'content-type': 'application/json',
+                'accept': 'application/json'
+            },
+            credentials: 'include'
         }).then((response) => response.json())
         .then((results) => {
-            console.log(results);
             this.setState({
-                missions: results.missions
+                mission: results.mission,
             });
         });
     }
     render() {
+
+        const { mission } = this.props;
+
         return (
             <div>
                 <div className="row">
@@ -142,11 +148,8 @@ export default class MissionMain extends React.Component {
                     missions={this.props.missions}
                     createMission={this.createMission.bind(this)}
                 />
-                <MissionMainList
-                    missions={this.state.missions}
-                    toggleTask={this.toggleTask.bind(this)}
-                    saveTask={this.saveTask.bind(this)}
-                    deleteMission={this.deleteMission.bind(this)}
+                <MissionMainItem
+                    mission={mission}
                     createTask={this.handleCreateTask.bind(this)}
                 />
             </div>

@@ -16,31 +16,32 @@ export default class CreateMission extends React.Component {
         
     }
     handleCreate(event) {
+
+        const { createdMission } = this.state;
+
         event.preventDefault();
 
         const missionInput = this.refs.createMission.value;
-        const validateInput = this.validateInput(missionInput);
-
-
-        if(validateInput) {
-            this.setState({ error: validateInput });
-            return;
+        // const validateInput = this.validateInput(missionInput);
+        // if(validateInput) {
+        //     this.setState({ error: validateInput });
+        //     return;
+        // }
+        if (missionInput.length > 0) {
+            this.refs.createMission.value = '';
         }
 
-        this.setState({ error: null });
         this.props.createMission(missionInput);
-        this.refs.createMission.value = '';
-
     }
-    validateInput(taskInput) {
-        if(!taskInput) {
-            return ("Please enter a task.");
-        } else if(_.find(this.props.missions, mission => mission.taskInput === taskInput)) {
-            return ("Duplicate task exists.");
-        } else {
-            return null;
-        }
-    }
+    // validateInput(taskInput) {
+    //     if(!taskInput) {
+    //         return ("Please enter a task.");
+    //     } else if(_.find(this.props.missions, mission => mission.taskInput === taskInput)) {
+    //         return ("Duplicate task exists.");
+    //     } else {
+    //         return null;
+    //     }
+    // }
     render() {
         return (
             <div>
