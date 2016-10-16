@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Router , browserHistory } from 'react-router';
 var {Link, IndexLink} = require('react-router');
 var _ = require('lodash');
 import MissionsList from 'MissionsList';
@@ -7,7 +8,6 @@ import QuestMain from "QuestMain";
 import QuestsList from 'QuestsList';
 import Logout from 'Logout';
 import MainNav from 'MainNav';
-import { Router , browserHistory } from 'react-router';
 
 export default class UserHomePage extends React.Component {
   	constructor(props, context) {

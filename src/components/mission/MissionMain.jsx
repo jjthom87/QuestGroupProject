@@ -151,10 +151,6 @@ export default class MissionMain extends React.Component {
                         missions={this.props.missions}
                         createMission={this.createMission.bind(this)}
                     />
-                    <MissionMainItem
-                        mission={mission}
-                        createTask={this.handleCreateTask.bind(this)}
-                    />
                 </div>
             </div>
          );
