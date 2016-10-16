@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import MainNav from 'MainNav';
+
 
 export default class CreateQuest extends React.Component {
     constructor(props) {
@@ -43,6 +45,7 @@ export default class CreateQuest extends React.Component {
     render() {
         return (
             <div>
+            <MainNav/>
                 <h2> Build Your New Quest! </h2>
                 <form onSubmit={this.handleCreate.bind(this)}>
                     <input type="text" placeholder="Add Quest" ref="createQuest"/>
