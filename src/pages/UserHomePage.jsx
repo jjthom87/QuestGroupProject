@@ -145,7 +145,6 @@ export default class UserHomePage extends React.Component {
       		<div>
               <MainNav/>
                 <div className='container' id="homepageDiv">
-      			<Logout onLogout={this.logoutHandler.bind(this)} />
       			<h1 className="text-center" id="pageTitle">Welcome Home {loginUser}</h1>
       			<div className="row">
       				<div className="col-lg-1 col-lg-offset-5" role="group">
