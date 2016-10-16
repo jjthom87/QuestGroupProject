@@ -25,6 +25,10 @@ input{
     height: 100%;
 }
 
+#separator{
+    margin-top: 100px;
+}
+
 #submitButton{
     text-align: center;
 }

@@ -4,6 +4,7 @@ import UserHomePage from 'UserHomePage';
 import CreateMission from 'CreateMission';
 import CreateTask from 'CreateTask';
 import MissionMainList from 'MissionMainList';
+import MainNav from 'MainNav';
 
 export default class MissionMain extends React.Component {
     constructor(props) {
@@ -132,23 +133,26 @@ export default class MissionMain extends React.Component {
     render() {
         return (
             <div>
-                <div className="row">
-                    <div className="col-md-1">
-                        <button className="btn btn-warning"><Link to="/home">Back Home</Link></button>
+            <MainNav />
+                <div className="container" id="separator">
+                    <div className="row">
+                        <div className="col-md-1">
+                            <button className="btn btn-warning"><Link to="/home">Back Home</Link></button>
+                        </div>
                     </div>
+                    <h1 id="pageTitle">Missions Home</h1>
+                    <CreateMission
+                        missions={this.props.missions}
+                        createMission={this.createMission.bind(this)}
+                    />
+                    <MissionMainList
+                        missions={this.state.missions}
+                        toggleTask={this.toggleTask.bind(this)}
+                        saveTask={this.saveTask.bind(this)}
+                        deleteMission={this.deleteMission.bind(this)}
+                        createTask={this.handleCreateTask.bind(this)}
+                    />
                 </div>
-                <h1 id="pageTitle">Missions Home</h1>
-                <CreateMission
-                    missions={this.props.missions}
-                    createMission={this.createMission.bind(this)}
-                />
-                <MissionMainList
-                    missions={this.state.missions}
-                    toggleTask={this.toggleTask.bind(this)}
-                    saveTask={this.saveTask.bind(this)}
-                    deleteMission={this.deleteMission.bind(this)}
-                    createTask={this.handleCreateTask.bind(this)}
-                />
             </div>
          );
     }
