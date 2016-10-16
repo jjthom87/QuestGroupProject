@@ -19,9 +19,7 @@ export default (
     		<Route path="/questshome" component={QuestMain} />
         <Route path="/register" component={CreateAccountPage} />
         <Route path="/login" component={LoginPage} />
-        <Route handler={Authentication}>
-          <Route path="/home" component={UserHomePage} />
-        </Route>
+        <Route path="/home" component={UserHomePage} />
     	</Route>
   	</Router>
 );

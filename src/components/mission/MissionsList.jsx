@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import React, { Component } from 'react';
 import MissionsListHeader from 'MissionsListHeader';
 import MissionsListItem from 'MissionsListItem';
@@ -31,11 +30,11 @@ export default class MissionsList extends React.Component {
             <div>
                 <p className="missionsTitle">Missions</p>
                 <div>{noMissions()}</div>
-                <table>
-                    <tbody>
+                <div>
+                    <p>
                         {renderMissions()}
-                    </tbody>
-                </table>
+                    </p>
+                </div>
             </div>
         );
     } 

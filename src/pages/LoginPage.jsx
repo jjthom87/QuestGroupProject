@@ -41,7 +41,7 @@ export default class LoginPage extends React.Component {
 		})
 	}
 	authenticateLogin(){
-		  const {authenticated} = this.props;
+		  const {authenticated} = this.state;;
 		  if (!authenticated){
 		    browserHistory.push('/')
 		  }
