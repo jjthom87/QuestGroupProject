@@ -38,9 +38,19 @@ var modelController = {
 			throw err;
 		});
 	},
-	missionCreate: function(description, user, cb){
+	missionCreate: function(title, task1, task2, task3, task4, task5, task6, task7, task8, taskk9, task10, user, cb){
 		models.Mission.create({
-		  description: description,
+		  title: title,
+		  task1: task1,
+		  task2: task2,
+		  task3: task3,
+		  task4: task4,
+		  task5: task5,
+		  task6: task6,
+		  task7: task7,
+		  task8: task8,
+		  task9: task9,
+		  task10: task10,
 		  isCompleted: false,
 		  active: false
 		  	  }).then(function(mission){
