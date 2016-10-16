@@ -3,7 +3,12 @@ var {Link, IndexLink} = require('react-router');
 import UserHomePage from 'UserHomePage';
 import CreateMission from 'CreateMission';
 import CreateTask from 'CreateTask';
+<<<<<<< HEAD
 import MissionMainItem from 'MissionMainItem';
+=======
+import MissionMainList from 'MissionMainList';
+import MainNav from 'MainNav';
+>>>>>>> 54dfec801f61afa7e6f2248356675d11d20dcdf3
 
 export default class MissionMain extends React.Component {
     constructor(props) {
@@ -138,11 +143,27 @@ export default class MissionMain extends React.Component {
 
         return (
             <div>
-                <div className="row">
-                    <div className="col-md-1">
-                        <button className="btn btn-warning"><Link to="/home">Back Home</Link></button>
+            <MainNav />
+                <div className="container" id="separator">
+                    <div className="row">
+                        <div className="col-md-1">
+                            <button className="btn btn-warning"><Link to="/home">Back Home</Link></button>
+                        </div>
                     </div>
+                    <h1 id="pageTitle">Missions Home</h1>
+                    <CreateMission
+                        missions={this.props.missions}
+                        createMission={this.createMission.bind(this)}
+                    />
+                    <MissionMainList
+                        missions={this.state.missions}
+                        toggleTask={this.toggleTask.bind(this)}
+                        saveTask={this.saveTask.bind(this)}
+                        deleteMission={this.deleteMission.bind(this)}
+                        createTask={this.handleCreateTask.bind(this)}
+                    />
                 </div>
+<<<<<<< HEAD
                 <h1 id="pageTitle">Missions Home</h1>
                 <CreateMission
                     missions={this.props.missions}
@@ -152,6 +173,8 @@ export default class MissionMain extends React.Component {
                     mission={mission}
                     createTask={this.handleCreateTask.bind(this)}
                 />
+=======
+>>>>>>> 54dfec801f61afa7e6f2248356675d11d20dcdf3
             </div>
          );
     }

@@ -36,6 +36,7 @@ export default class QuestMain extends React.Component {
     render() {
         return (
             <div>
+            <div className="container" id="separator">
                 <div className="row">
                     <div className="col-md-1">
                         <button className="btn btn-warning"><Link to="/home">Back Home</Link></button>
@@ -45,7 +46,8 @@ export default class QuestMain extends React.Component {
                 <CreateQuest
                     quests={this.props.quests}
                     createQuest={this.createQuest.bind(this)}
-                />       
+                />  
+            </div>     
             </div>
          )
     }
