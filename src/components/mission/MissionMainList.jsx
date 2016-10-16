@@ -7,28 +7,15 @@ export default class MissionMainList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            tasks: [],
-            missionId: ''
         };
     }
-    handleCreate(event) {
+    handleCreateTask(event) {
         event.preventDefault();
 
         const taskInput = this.refs.taskInput.value;
 
-        this.setState({
-            taskValue: taskInput
-        })
-        const validateInput = this.validateInput(taskInput);
-
-        if(validateInput) {
-            this.setState({ error: validateInput });
-            return;
-        }
-
         if (taskInput.length > 0) {
             this.refs.taskInput.value = '';
-            this.setState({ error: null });
         }
         this.props.createTask(taskInput);
     }
@@ -50,25 +37,6 @@ export default class MissionMainList extends React.Component {
                     console.log('response: ' + response)
                 })
     }
-    handleCreateTask() {
-        const { missionId, tasks } = this.state; 
-
-        fetch(`/task/create/${missionId}`, {
-            method: 'post',
-            body: JSON.stringify(this.refs.taskInput.value),
-            headers: {
-                Auth: localStorage.getItem('token'),
-                'content-type': 'application/json',
-                'accept': 'application/json'
-            },
-            credentials: 'include'
-        }).then((response) => response.json())
-            .then((results) => {
-                this.setState({
-                    tasks: tasks.concat(results)
-                });
-            });
-    }
     render() {
         const { missions, toggleTask, deleteMission } = this.props;
 
@@ -83,12 +51,10 @@ export default class MissionMainList extends React.Component {
                             id={mission.id}
                             key={index}
                         />
-                        <td>
-                            <form onSubmit={this.handleCreateTask.bind(this)}>
-                                <input type="text" placeholder="Create Task" ref="taskInput" />
-                                <input type="submit" value="Add Task"/>
-                            </form>
-                        </td>
+                        <form onSubmit={this.handleCreateTask.bind(this)}>
+                            <input type="text" placeholder="Create Task" ref="taskInput" />
+                            <input type="submit" value="Add Task"/>
+                        </form>
                     </div>
                 );
             });
@@ -96,11 +62,7 @@ export default class MissionMainList extends React.Component {
         return (
             <div>
                 <p className="missionsTitle">Missions</p>
-                <table>
-                    <tbody>
-                        {renderMissions()}
-                    </tbody>
-                </table>
+                {renderMissions()}
             </div>
         );
     } 

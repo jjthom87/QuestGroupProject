@@ -10,6 +10,8 @@ var app = express();
 var models = require('../models')
 var middleware = require('../middleware/middleware.js')();
 
+var currentMission;
+
 router.get('/', (req,res) => {
 	res.sendFile(path.join(__dirname, '../public/index.html'));
 })
@@ -58,16 +60,18 @@ router.post('/users/create', function(req,res){
 });
 
 router.post('/mission/create', middleware.requireAuthentication, function(req, res){
+    currentMission = [];
     modelController.missionCreate(
       req.body.description, 
       req.user, 
     function(success){
+      currentMission.push(success.id)
       res.json(success);
     });
 });
 
-router.post('/task/create/:id', middleware.requireAuthentication, function(req, res){
-      models.Mission.findOne({ where: {id: req.params.id}}).then(function(mission){
+router.post('/task/create/', middleware.requireAuthentication, function(req, res){
+      models.Mission.findOne({ where: {id: currentMission[0] }}).then(function(mission){
         models.Task.create({
           task: req.body.task,
           isCompleted: false,
