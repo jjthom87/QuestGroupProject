@@ -1,4 +1,5 @@
 import React, { Component, cloneElement } from 'react';
+import { Router , browserHistory } from 'react-router';
 var {Link, IndexLink} = require('react-router');
 import UserHomePage from 'UserHomePage';
 import CreateMission from 'CreateMission';
@@ -10,15 +11,24 @@ export default class MissionMain extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            mission: [],
-            tasks: []
+            missions: []
         };
     }
-    createMission(description) {
-        const { mission } = this.state;
+    createMission(creds) {
+        const { missions } = this.state;
         
         const newMiss = {
-            description
+            title: creds.title,
+            task1: creds.task1,
+            task2: creds.task2,
+            task3: creds.task3,
+            task4: creds.task4,
+            task5: creds.task5,
+            task6: creds.task6,
+            task7: creds.task7,
+            task8: creds.task8,
+            task9: creds.task9,
+            task10: creds.task10
         }
         fetch('/mission/create', {
             method: 'post',
@@ -32,8 +42,9 @@ export default class MissionMain extends React.Component {
         }).then((response) => response.json())
             .then((results) => {
                 this.setState({
-                    mission: results.concat(results)
+                    missions: missions.concat(results)
                 });
+                browserHistory.push('/home');
             });
     }
     deleteMission(id){
@@ -128,8 +139,9 @@ export default class MissionMain extends React.Component {
             credentials: 'include'
         }).then((response) => response.json())
         .then((results) => {
+            console.log(results);
             this.setState({
-                mission: results.mission,
+                missions: results
             });
         });
     }

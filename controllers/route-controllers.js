@@ -71,7 +71,17 @@ router.post('/users/create', function(req,res){
 router.post('/mission/create', middleware.requireAuthentication, function(req, res){
     currentMission = [];
     modelController.missionCreate(
-      req.body.description, 
+      req.body.title,
+      req.body.task1,
+      req.body.task2, 
+      req.body.task3, 
+      req.body.task4, 
+      req.body.task5, 
+      req.body.task6, 
+      req.body.task7, 
+      req.body.task8,  
+      req.body.task9, 
+      req.body.task10, 
       req.user, 
     function(success){
       currentMission.push(success.id)

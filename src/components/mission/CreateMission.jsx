@@ -42,7 +42,7 @@ export default class CreateMission extends React.Component {
         }
 
         if (task2Input.length > 0) {
-            this.refs.task2.value = '';
+            this.refs.task2Input.value = '';
             creds.task2Input = task2Input;
         }
 
