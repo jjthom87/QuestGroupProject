@@ -9,9 +9,6 @@ import Logout from 'Logout';
 import MainNav from 'MainNav';
 import { Router , browserHistory } from 'react-router';
 
-// import Footer from "../components/layout/Footer";
-// import Nav from "../components/layout/Nav";
-
 export default class UserHomePage extends React.Component {
   	constructor(props, context) {
 		super(props, context);
@@ -125,10 +122,12 @@ export default class UserHomePage extends React.Component {
     }
   	componentWillMount(){
 		fetch('/home', {
-			credentials: 'include',
-			headers: {
-				Auth: localStorage.getItem('token')
-			}
+            headers: {
+                Auth: localStorage.getItem('token'),
+                'content-type': 'application/json',
+                'accept': 'application/json'
+            },
+            credentials: 'include'
 		}).then((response) => response.json())
 		.then((results) => {
 			this.setState({
