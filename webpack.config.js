@@ -8,6 +8,15 @@ module.exports = {
         path: __dirname,
         filename: './public/bundle.js'
     },
+    externals: {
+        jquery: 'jQuery'
+    },
+    plugins: [
+        new webpack.ProvidePlugin({
+          '$': 'jquery',
+          'jQuery': 'jquery'
+        })
+    ],
     resolve: {
         root: __dirname,
         modulesDirectories: [

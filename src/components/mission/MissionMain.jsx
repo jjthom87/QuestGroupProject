@@ -9,7 +9,8 @@ export default class MissionMain extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            missions: []
+            missions: [],
+            tasks: []
         };
     }
     createMission(description) {
@@ -91,13 +92,14 @@ export default class MissionMain extends React.Component {
         foundtask.date=newDate;
         this.setState({missions: this.state.missions});
     }
-    handleCreateTask(task) {
+    handleCreateTask(task, id) {
+        console.log(task);
         const { tasks } = this.state;
         
         const newTask = {
             task
         }
-        fetch('/task/create/', {
+        fetch(`/task/create/`, {
             method: 'post',
             body: JSON.stringify(newTask),
             headers: {
@@ -121,6 +123,7 @@ export default class MissionMain extends React.Component {
             }
         }).then((response) => response.json())
         .then((results) => {
+            console.log(results);
             this.setState({
                 missions: results.missions
             });
@@ -144,6 +147,7 @@ export default class MissionMain extends React.Component {
                     toggleTask={this.toggleTask.bind(this)}
                     saveTask={this.saveTask.bind(this)}
                     deleteMission={this.deleteMission.bind(this)}
+                    createTask={this.handleCreateTask.bind(this)}
                 />
             </div>
          );
