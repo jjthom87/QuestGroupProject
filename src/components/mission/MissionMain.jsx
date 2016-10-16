@@ -9,7 +9,8 @@ export default class MissionMain extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            missions: []
+            missions: [],
+            tasks: []
         };
     }
     createMission(description) {
@@ -91,28 +92,29 @@ export default class MissionMain extends React.Component {
         foundtask.date=newDate;
         this.setState({missions: this.state.missions});
     }
-    handleCreateTask(task) {
-        const { tasks } = this.state;
+    // handleCreateTask(task, id) {
+    //     console.log(task);
+    //     const { tasks } = this.state;
         
-        const newTask = {
-            task
-        }
-        fetch('/task/create/', {
-            method: 'post',
-            body: JSON.stringify(newTask),
-            headers: {
-                Auth: localStorage.getItem('token'),
-                'content-type': 'application/json',
-                'accept': 'application/json'
-            },
-            credentials: 'include'
-        }).then((response) => response.json())
-            .then((results) => {
-                this.setState({
-                    tasks: tasks.concat(results)
-                });
-            });
-    }
+    //     const newTask = {
+    //         task
+    //     }
+    //     fetch(`/task/create/`, {
+    //         method: 'post',
+    //         body: JSON.stringify(newTask),
+    //         headers: {
+    //             Auth: localStorage.getItem('token'),
+    //             'content-type': 'application/json',
+    //             'accept': 'application/json'
+    //         },
+    //         credentials: 'include'
+    //     }).then((response) => response.json())
+    //         .then((results) => {
+    //             this.setState({
+    //                 tasks: tasks.concat(results)
+    //             });
+    //         });
+    // }
     componentWillMount(){
         fetch('/home', {
             credentials: 'include',
@@ -121,6 +123,7 @@ export default class MissionMain extends React.Component {
             }
         }).then((response) => response.json())
         .then((results) => {
+            console.log(results);
             this.setState({
                 missions: results.missions
             });

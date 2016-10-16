@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
 import MissionsListItem from 'MissionsListItem';
 import CreateTask from 'CreateTask';
+import { FormGroup, FormControl, ControlLabel, Checkbox, Button } from 'react-bootstrap';
 
 export default class MissionMainList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            tasks: []
+            tasks: [],
+            missionId: ''
         };
     }
     handleCreate(event) {
         event.preventDefault();
 
         const taskInput = this.refs.taskInput.value;
+
+        this.setState({
+            taskValue: taskInput
+        })
         const validateInput = this.validateInput(taskInput);
 
         if(validateInput) {
@@ -26,28 +32,43 @@ export default class MissionMainList extends React.Component {
         }
         this.props.createTask(taskInput);
     }
-    // handleCreateTask(task) {
-    //     const { tasks } = this.state;
-        
-    //     const newTask = {
-    //         task
-    //     }
-    //     fetch('/task/create/', {
-    //         method: 'post',
-    //         body: JSON.stringify(newTask),
-    //         headers: {
-    //             Auth: localStorage.getItem('token'),
-    //             'content-type': 'application/json',
-    //             'accept': 'application/json'
-    //         },
-    //         credentials: 'include'
-    //     }).then((response) => response.json())
-    //         .then((results) => {
-    //             this.setState({
-    //                 tasks: tasks.concat(results)
-    //             });
-    //         });
-    // }
+    taskSubmit(){
+        const { missionId } = this.state; 
+        $.ajax({
+            url: `/task/create/${missionId}`,
+            type: 'post',
+            data: {
+                task: JSON.stringify(this.refs.taskInput.value)
+            },
+            headers: {
+                Auth: localStorage.getItem('token'),
+                'content-type': 'application/json',
+                'accept': 'application/json'
+            },
+            credentials: 'include'
+                }).done(function(response){
+                    console.log('response: ' + response)
+                })
+    }
+    handleCreateTask() {
+        const { missionId, tasks } = this.state; 
+
+        fetch(`/task/create/${missionId}`, {
+            method: 'post',
+            body: JSON.stringify(this.refs.taskInput.value),
+            headers: {
+                Auth: localStorage.getItem('token'),
+                'content-type': 'application/json',
+                'accept': 'application/json'
+            },
+            credentials: 'include'
+        }).then((response) => response.json())
+            .then((results) => {
+                this.setState({
+                    tasks: tasks.concat(results)
+                });
+            });
+    }
     render() {
         const { missions, toggleTask, deleteMission } = this.props;
 
@@ -62,22 +83,16 @@ export default class MissionMainList extends React.Component {
                             id={mission.id}
                             key={index}
                         />
-                        <form onSubmit={this.handleCreate.bind(this)}>
-                            <input type="text" placeholder="Create Task" ref="taskInput" />
-                            <input type="hidden" name="id" value={mission.id}/>
-                            <input type="submit" value="Add Task"/>
-                        </form>
+                        <td>
+                            <form onSubmit={this.handleCreateTask.bind(this)}>
+                                <input type="text" placeholder="Create Task" ref="taskInput" />
+                                <input type="submit" value="Add Task"/>
+                            </form>
+                        </td>
                     </div>
                 );
             });
         }
-        // var noMissions = () => {
-        //     if (missions.length === 0){
-        //         return (
-        //             <p className="noMissionsText">Please Create a Mission</p>
-        //         );
-        //     }
-        // }
         return (
             <div>
                 <p className="missionsTitle">Missions</p>
