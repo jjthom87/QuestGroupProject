@@ -72,10 +72,10 @@ export default class MissionsListItem extends React.Component {
     }
     render() {
         return (
-                <div>
-                    {this.renderTaskSection()}
-                    {this.renderActionsSection()}
-                </div>
+            <div>
+                {this.renderTaskSection()}
+                {this.renderActionsSection()}
+            </div>
         );
     }
 }

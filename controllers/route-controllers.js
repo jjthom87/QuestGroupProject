@@ -22,6 +22,15 @@ router.get('/home', middleware.requireAuthentication, function(req, res){
     });
 });
 
+router.get('/missionhome', middleware.requireAuthentication, function(req,res){
+  models.Mission.findOne({ where: {id: currentMission[0]}})
+    .then(function(success){
+      res.json(success)
+    }).catch(function(err){
+      throw err;
+    });
+})
+
 router.post('/users/login', function (req, res) {
   var body = _.pick(req.body, 'username', 'password');
   var userInfo;

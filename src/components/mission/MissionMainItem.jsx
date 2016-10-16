@@ -3,7 +3,7 @@ import MissionsListItem from 'MissionsListItem';
 import CreateTask from 'CreateTask';
 import { FormGroup, FormControl, ControlLabel, Checkbox, Button } from 'react-bootstrap';
 
-export default class MissionMainList extends React.Component {
+export default class MissionMainItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -38,10 +38,10 @@ export default class MissionMainList extends React.Component {
                 })
     }
     render() {
-        const { missions, toggleTask, deleteMission } = this.props;
+        const { createdMission, toggleTask, deleteMission } = this.props;
 
         var renderMissions = () => {
-            return missions.map((mission, index) => {
+            return createdMission.map((mission, index) => {
                 return (
                     <div>
                         <MissionsListItem
@@ -52,6 +52,7 @@ export default class MissionMainList extends React.Component {
                             key={index}
                         />
                         <form onSubmit={this.handleCreateTask.bind(this)}>
+                            <input type="hidden" data-id={mission.id}/>
                             <input type="text" placeholder="Create Task" ref="taskInput" />
                             <input type="submit" value="Add Task"/>
                         </form>
