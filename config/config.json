@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "",
-    "database": "quest4_db",
+    "database": "quest5_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
