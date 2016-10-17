@@ -143,6 +143,14 @@ export default class UserHomePage extends React.Component {
 	render() {
 		const { loginUser, missions, quests, tasks } = this.state;
 
+        var dootyBall = missions.concat(tasks);
+
+        console.log(dootyBall)
+
+        var mappedDootyball = dootyBall.map((dooty) => dooty.missionName);
+
+        console.log(mappedDootyball);
+
     	return (
       		<div>
               <MainNav/>

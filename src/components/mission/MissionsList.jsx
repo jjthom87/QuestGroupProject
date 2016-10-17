@@ -8,7 +8,6 @@ export default class MissionsList extends React.Component {
 
         var renderMissions = () => {
             return missions.map((mission, index) => {
-                console.log(mission);
                 return (
                     <MissionsListItem
                         title={mission.title}

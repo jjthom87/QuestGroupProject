@@ -16,7 +16,7 @@ var modelController = {
 		        });
 		   user.getTasks().then(function(tasks){
 		          var enteredTasks = [];
-		          quests.forEach(function(task){
+		          tasks.forEach(function(task){
 		            enteredTasks.push(task);
 		        });
 		        var data = {

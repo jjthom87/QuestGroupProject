@@ -22,8 +22,7 @@ router.get('/home', middleware.requireAuthentication, function(req, res){
 
 router.get('/missionhome', middleware.requireAuthentication, function(req,res){
   models.User.findOne({ where: { id: req.user.id}}).then(function(user){
-    models.Mission.findAll({})
-      .then(function(success){
+    models.Mission.findAll({ where: {UserId: req.user.id}}).then(function(success){
         res.json(success)
       }).catch(function(err){
         throw err;
@@ -82,7 +81,7 @@ router.post('/task/create/', middleware.requireAuthentication, function(req, res
     models.User.findOne({where: {id: req.user.id}}).then(function(user){
       models.Mission.findOne({ where: {title: req.body.dropdownItem }}).then(function(mission){
         models.Task.create({
-          description: req.body.task,
+          task: req.body.task,
           missionName: req.body.dropdownItem,
           isCompleted: false,
           active: false,
