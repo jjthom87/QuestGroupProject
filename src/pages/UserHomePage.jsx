@@ -131,9 +131,10 @@ export default class UserHomePage extends React.Component {
             credentials: 'include'
 		}).then((response) => response.json())
 		.then((results) => {
+            console.log(results);
 			this.setState({
 				fullLoginUser: results.currentUser,
-				loginUser: results.currentUser.firstname,
+				loginUser: results.currentUser.name,
 				missions: results.missions,
 				quests: results.quests,
                 tasks: results.tasks

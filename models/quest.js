@@ -3,7 +3,8 @@ module.exports = function(sequelize, DataTypes) {
   var Quest = sequelize.define('Quest', {
     title: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      unique: true
     },
     description: {
       type: DataTypes.TEXT,
