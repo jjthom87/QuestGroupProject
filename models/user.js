@@ -45,6 +45,8 @@ module.exports = function (sequelize, DataTypes) {
        		 // associations can be defined here
        		 User.hasMany(models.Quest);
        		 User.hasMany(models.Mission);
+       		 User.hasMany(models.Task);
+       		 User.hasMany(models.Milestone);
       		},
 			authenticate: function(body) {
 				return new Promise(function(resolve, reject) {

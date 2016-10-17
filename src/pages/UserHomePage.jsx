@@ -17,6 +17,7 @@ export default class UserHomePage extends React.Component {
 			fullLoginUser: '',
 			missions: [],
 			quests: [],
+            tasks: [],
 			createdOn: ''
 		};
 	}
@@ -134,12 +135,13 @@ export default class UserHomePage extends React.Component {
 				fullLoginUser: results.currentUser,
 				loginUser: results.currentUser.firstname,
 				missions: results.missions,
-				quests: results.quests
+				quests: results.quests,
+                tasks: results.tasks
 			});
 		});
 	}
 	render() {
-		const { loginUser, missions, quests } = this.state;
+		const { loginUser, missions, quests, tasks } = this.state;
 
     	return (
       		<div>
@@ -158,6 +160,7 @@ export default class UserHomePage extends React.Component {
 					<div className="col-md-3 qmbox">
 						<MissionsList
 		                    missions={missions}
+                            tasks={tasks}
 		                    toggleTask={this.toggleTask.bind(this)}
 		                    saveTask={this.saveTask.bind(this)}
 		                    deleteMission={this.deleteMission.bind(this)}
