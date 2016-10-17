@@ -80,9 +80,10 @@ router.post('/mission/create', middleware.requireAuthentication, function(req, r
 });
 
 router.post('/task/create/', middleware.requireAuthentication, function(req, res){
-      models.Mission.findOne({ where: {id: currentMission[0] }}).then(function(mission){
+      console.log("task is " + req);
+      models.Mission.findOne({ where: {title: req.body.dropdownItem }}).then(function(mission){
         models.Task.create({
-          task: req.body.task,
+          description: req.body.task,
           isCompleted: false,
           active: false
         }).then(function(task){

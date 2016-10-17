@@ -13,6 +13,7 @@ export default class MissionMain extends React.Component {
         super(props);
         this.state = {
             missions: [],
+            task: '',
             dropdownItem: ''
         };
     }
@@ -102,14 +103,15 @@ export default class MissionMain extends React.Component {
         foundtask.date=newDate;
         this.setState({missions: this.state.missions});
     }
-    handleCreateTask(task, id) {
-        console.log(task);
-        const { tasks } = this.state;
+    handleCreateTask(taskInput) {
+        const { task, dropdownItem } = this.state;
         
         const newTask = {
-            task
+            task: taskInput,
+            dropdownItem: dropdownItem
         }
-        fetch(`/task/create/`, {
+        console.log(newTask)
+        fetch('/task/create/', {
             method: 'post',
             body: JSON.stringify(newTask),
             headers: {
@@ -122,7 +124,7 @@ export default class MissionMain extends React.Component {
             .then((results) => {
                 console.log(results)
                 this.setState({
-                    tasks: tasks.concat(results)
+                    tasks: task
                 });
             });
     }
@@ -179,6 +181,7 @@ export default class MissionMain extends React.Component {
                         {renderMissionDropdown()}
                     </select>
                     <p>Dropdown item is {this.state.dropdownItem}</p>
+                    <CreateTask createTask={this.handleCreateTask.bind(this)}/>
                 </div>
             </div>
          );
