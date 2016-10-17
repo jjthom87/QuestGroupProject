@@ -122,7 +122,6 @@ export default class MissionMain extends React.Component {
             credentials: 'include'
         }).then((response) => response.json())
             .then((results) => {
-                console.log(results)
                 this.setState({
                     tasks: tasks.concat(results)
                 });
@@ -139,7 +138,6 @@ export default class MissionMain extends React.Component {
             credentials: 'include'
         }).then((response) => response.json())
         .then((results) => {
-            console.log(results);
             this.setState({
                 missions: results
             });
@@ -149,11 +147,6 @@ export default class MissionMain extends React.Component {
         const { missions } = this.state; 
 
         var renderMissionDropdown = () => {
-            // if (missions.length === 0){
-            //     return (
-            //         <option>Please add Mission to add Task to</option>
-            //     );
-            // }
             return missions.map((mission, index) => {
                 return (
                     <option value={mission.title} className="dropdown-item">{mission.title}</option>
@@ -179,7 +172,6 @@ export default class MissionMain extends React.Component {
                         {renderMissionDropdown()}
                     </select>
                     <p>Dropdown item is {this.state.dropdownItem}</p>
-                    <CreateTask createTask={this.handleCreateTask.bind(this)}/>
                 </div>
             </div>
          );
