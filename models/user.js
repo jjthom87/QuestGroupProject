@@ -5,11 +5,7 @@ var cryptojs = require('crypto-js');
 
 module.exports = function (sequelize, DataTypes) {
 	var User = sequelize.define('User', {
-		firstname: {
-			type: DataTypes.STRING,
-			allowNull: false
-		},
-		lastname: {
+		name: {
 			type: DataTypes.STRING,
 			allowNull: false
 		},
@@ -46,6 +42,7 @@ module.exports = function (sequelize, DataTypes) {
        		 User.hasMany(models.Quest);
        		 User.hasMany(models.Mission);
        		 User.hasMany(models.Task);
+       		 User.hasMany(models.Milestone);
       		},
 			authenticate: function(body) {
 				return new Promise(function(resolve, reject) {
@@ -93,7 +90,7 @@ module.exports = function (sequelize, DataTypes) {
 		instanceMethods: {
 			toPublicJSON: function() {
 				var json = this.toJSON();
-				return _.pick(json, 'id', 'firstname', 'lastname', 'username', 'createdAt', 'updatedAt');
+				return _.pick(json, 'id', 'name', 'username', 'createdAt', 'updatedAt');
 			},
 			generateToken: function(type) {
 				if (!_.isString(type)) {

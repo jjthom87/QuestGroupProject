@@ -1,70 +1,77 @@
-import React, { cloneElement } from 'react';
-import MissionsList from './missions-list';
-import Createmission from './create-mission';
-
-// const missions = [
-// {
-//     task: 'Example Mission',
-//     date: 'date',
-//     isCompleted: false
-// },
-// {
-//     task: 'Example Mission',
-//     date: 'date',
-//     isCompleted: false
-// }
-// ];
+import React, { Component, cloneElement } from 'react';
+import { Router , browserHistory } from 'react-router';
+var {Link, IndexLink} = require('react-router');
+import UserHomePage from 'UserHomePage';
+import CreateMission from 'CreateMission';
+import CreateTask from 'CreateTask';
+import MissionMainItem from 'MissionMainItem';
+import MissionDropdown from 'MissionDropdown';
+import MainNav from 'MainNav';
 
 export default class MissionMain extends React.Component {
-
     constructor(props) {
         super(props);
-
         this.state = {
-            missions: []
+            missions: [],
+            tasks: [],
+            dropdownItem: ''
         };
     }
-
-    // componentWillMount() {
-    //     fetch('/missions/all')
-    //         .then((response) => response.json())
-    //         .then((json) => {
-    //             this.setState({
-    //                 items: json
-    //             });
-    //         })
-    // }
-
-    // MISSION (tasks CRUD):
-    createTask(task) {
+    handleDropdownChange(e){
+        this.setState({
+            dropdownItem: e.target.value
+        })
+    }
+    createMission(creds) {
         const { missions } = this.state;
-        
+
         const newMiss = {
-            task
+            title: creds.title,
+            description: creds.description
         }
-        console.log(newMiss)
         fetch('/mission/create', {
             method: 'post',
             body: JSON.stringify(newMiss),
             headers: {
-                'content-type': 'application/json'
-            }
+                Auth: localStorage.getItem('token'),
+                'content-type': 'application/json',
+                'accept': 'application/json'
+            },
+            credentials: 'include'
         }).then((response) => response.json())
             .then((results) => {
                 this.setState({
                     missions: missions.concat(results)
                 });
+                // browserHistory.push('/home');
             });
-        
-        console.log(this.state.missions);
     }
+    deleteMission(id){
+        const { missions } = this.state;
 
+        const deleteMission = _.remove(missions, mission => mission.id === id);
+
+        fetch(`/mission/delete/${deleteMission[0].id}`,{
+            method: 'DELETE',
+            body: JSON.stringify(deleteMission),
+            headers: {
+                Auth: localStorage.getItem('token'),
+                'content-type': 'application/json',
+                'accept': 'application/json'
+            },
+            credentials: 'include'
+        }).then((response) => response.json())
+        .then((results) => {
+            this.setState({
+                missions: missions
+            })
+        }); 
+    }
     toggleTask(task) {
         const foundtask= _.find(this.state.missions, mission => mission.task === task);
         foundtask.isCompleted = !foundtask.isCompleted;
         this.setState({ missions: this.state.missions});
     }
-
     // toggleTask(taskId) {
     //     const { missions } = this.state;
 
@@ -90,43 +97,82 @@ export default class MissionMain extends React.Component {
     //             });
     //     }
     // }
-
     saveTask(oldTask, newTask, oldDate, newDate) {
         const foundtask=_.find(this.state.missions, mission=> mission.task ===oldTask);
         foundtask.task=newTask;
         foundtask.date=newDate;
         this.setState({missions: this.state.missions});
     }
-
-    deleteTask(taskDelete) {
-        const removeTask=_.remove(this.state.missions, mission=> mission.task ===taskDelete);
-        this.setState({missions: this.state.missions});
+    handleCreateTask(taskInput) {
+        const { tasks, dropdownItem } = this.state;
+        
+        const newTask = {
+            task: taskInput,
+            dropdownItem: dropdownItem
+        }
+        fetch('/task/create/', {
+            method: 'post',
+            body: JSON.stringify(newTask),
+            headers: {
+                Auth: localStorage.getItem('token'),
+                'content-type': 'application/json',
+                'accept': 'application/json'
+            },
+            credentials: 'include'
+        }).then((response) => response.json())
+            .then((results) => {
+                this.setState({
+                    tasks: tasks.concat(results)
+                });
+            });
     }
-
+    componentWillMount(){
+        const {missions} = this.state;
+        fetch('/missionhome', {
+            headers: {
+                Auth: localStorage.getItem('token'),
+                'content-type': 'application/json',
+                'accept': 'application/json'
+            },
+            credentials: 'include'
+        }).then((response) => response.json())
+        .then((results) => {
+            this.setState({
+                missions: missions.concat(results)
+            });
+        });
+    }
     render() {
+        const { missions } = this.state; 
+
+        var renderMissionDropdown = () => {
+            return missions.map((mission, index) => {
+                return (
+                    <option value={mission.title} className="dropdown-item">{mission.title}</option>
+                );  
+            });
+        }
         return (
-
             <div>
-                <h1>Missions Home</h1>
-                <Createmission
-                    missions={this.props.missions}
-                    createTask={this.createTask.bind(this)}
-                />
-                
-
-                 {
-                    cloneElement(this.props.children, {
-
-                        missions: this.state.missions,
-                        toggleTask: this.toggleTask.bind(this),
-                        saveTask: this.saveTask.bind(this),
-                        deleteTask: this.deleteTask.bind(this)
-                     
-                  })
-                }
+            <MainNav />
+                <div className="container" id="separator">
+                    <div className="row">
+                        <div className="col-md-1">
+                            <button className="btn btn-warning"><Link to="/home">Back Home</Link></button>
+                        </div>
+                    </div>
+                    <h1 id="pageTitle">Missions Home</h1>
+                    <CreateMission
+                        missions={missions}
+                        createMission={this.createMission.bind(this)}
+                    />
+                    <select name="Please Select Mission to add Task to" value={this.state.dropdownItem} onChange={this.handleDropdownChange.bind(this)}>
+                        <option selected disabled>Choose Mission to add Task to</option>
+                        {renderMissionDropdown()}
+                    </select>
+                    <CreateTask createTask={this.handleCreateTask.bind(this)}/>
+                </div>
             </div>
-
-        );
+         );
     }
-
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import LandingNav from 'LandingNav';
 
 export default class Login extends React.Component {
 	constructor(...args){
@@ -28,17 +29,21 @@ export default class Login extends React.Component {
 	render() {
 		return (
 			<div>
-				<form onSubmit={this.onLoginSubmit.bind(this)}>
-					<div>
-						<input type="text" ref="username" placeholder="Enter Username"/>
-					</div>
-					<div>
-						<input type="password" ref="password" placeholder="Enter Password"/>
-					</div>
-					<div>
-						<input className="button expanded hollow" type="submit" />
-					</div>
-				</form>
+				<LandingNav/>
+				<div id="loginForm">
+					<form onSubmit={this.onLoginSubmit.bind(this)}>
+						<h1 id="loginText"> Login </h1>
+						<div id="submitButton">
+							<input type="text" ref="username" placeholder="Enter Username"/>
+						</div>
+						<div id="submitButton">
+							<input type="password" ref="password" placeholder="Enter Password"/>
+						</div>
+						<div id="submitButton">
+							<input className="btn btn-default" type="submit" />
+						</div>
+					</form>
+				</div>
 			</div>
 		);
 	}

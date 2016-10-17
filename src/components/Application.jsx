@@ -1,7 +1,7 @@
 import React, { Component, cloneElement } from 'react';
 // import Nav from '../Components/Nav';
 
-class Application extends Component {
+export default class Application extends React.Component {
 	render() {
 
 		return (
@@ -15,5 +15,3 @@ class Application extends Component {
 
 	}
 }
-
-export default Application;

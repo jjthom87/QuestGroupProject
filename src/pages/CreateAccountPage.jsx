@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import CreateAccount from '../components/users/CreateAccount';
+import CreateAccount from 'CreateAccount';
 import { Router , browserHistory } from 'react-router';
+import LandingNav from 'LandingNav';
 
 export default class CreateAccountPage extends React.Component {
 	handleNewData (creds) {
 		const newUser = {
-			firstname: creds.firstname,
-			lastname: creds.lastname,
+			name: creds.name,
 			username: creds.username,
 			password: creds.password
 		}
@@ -28,10 +28,11 @@ export default class CreateAccountPage extends React.Component {
 	render() {
 		return (
 			<div>
+				<LandingNav/>
 				<div className = "row">
-					<div className="column small-centered small-11 medium-6 large-5">
-						<div className="container">
-							<h1 className = "container_header text-center">Create Account</h1>
+					<div className="column small-centered small-11 medium-6 large-5 regdiv">
+						<div className="container" id="regdiv">
+							
 							<CreateAccount onCreate={this.handleNewData.bind(this)}/>
 						</div>
 					</div>
