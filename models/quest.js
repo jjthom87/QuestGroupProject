@@ -5,40 +5,9 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    milestone: {
+    description: {
       type: DataTypes.TEXT,
       allowNull: false
-    },
-    milestone2: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    milestone3: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    milestone4: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-   milestone5: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-   milestone6: {
-      type: DataTypes.TEXT
-    },
-    milestone7: {
-      type: DataTypes.TEXT
-    },
-    milestone8: {
-      type: DataTypes.TEXT
-    },
-    milestone9: {
-      type: DataTypes.TEXT
-    },
-    milestone10: {
-      type: DataTypes.TEXT
     },
     isCompleted: {
       type: DataTypes.BOOLEAN
@@ -50,6 +19,7 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         Quest.belongsTo(models.User);
+        Quest.hasMany(models.Milestone);
       }
     }
   });

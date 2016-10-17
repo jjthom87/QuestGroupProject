@@ -5,30 +5,28 @@ import UserHomePage from 'UserHomePage';
 import CreateMission from 'CreateMission';
 import CreateTask from 'CreateTask';
 import MissionMainItem from 'MissionMainItem';
+import MissionDropdown from 'MissionDropdown';
 import MainNav from 'MainNav';
 
 export default class MissionMain extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            missions: []
+            missions: [],
+            dropdownItem: ''
         };
+    }
+    handleDropdownChange(e){
+        this.setState({
+            dropdownItem: e.target.value
+        })
     }
     createMission(creds) {
         const { missions } = this.state;
-        
+
         const newMiss = {
             title: creds.title,
-            task1: creds.task1,
-            task2: creds.task2,
-            task3: creds.task3,
-            task4: creds.task4,
-            task5: creds.task5,
-            task6: creds.task6,
-            task7: creds.task7,
-            task8: creds.task8,
-            task9: creds.task9,
-            task10: creds.task10
+            description: creds.description
         }
         fetch('/mission/create', {
             method: 'post',
@@ -129,7 +127,7 @@ export default class MissionMain extends React.Component {
             });
     }
     componentWillMount(){
-        const {mission} = this.state;
+        const {missions} = this.state;
         fetch('/missionhome', {
             headers: {
                 Auth: localStorage.getItem('token'),
@@ -147,8 +145,22 @@ export default class MissionMain extends React.Component {
     }
     render() {
 
-        const { mission } = this.props;
+        const { missions } = this.state; 
 
+        var renderMissionDropdown = () => {
+            if (missions.length === 0){
+                return (
+                    <div className="dropdown open" aria-labelledby="dropdownMenuLink">
+                        <li className="dropdown-item">No Missions to Add Task To</li>
+                    </div>
+                );
+            }
+            return missions.map((mission, index) => {
+                return (
+                    <option value={mission.title} className="dropdown-item">{mission.title}</option>
+                );
+            });
+        }
         return (
             <div>
             <MainNav />
@@ -160,11 +172,23 @@ export default class MissionMain extends React.Component {
                     </div>
                     <h1 id="pageTitle">Missions Home</h1>
                     <CreateMission
-                        missions={this.props.missions}
+                        missions={missions}
                         createMission={this.createMission.bind(this)}
                     />
+                    <select className="form-control" value={this.state.dropdownItem} onChange={this.handleDropdownChange.bind(this)}>
+                        {renderMissionDropdown()}
+                    </select>
+                    <p>Dropdown item is {this.state.dropdownItem}</p>
                 </div>
             </div>
          );
     }
 }
+
+                    // <div value={this.state.dropdownItem} onChange={this.handleDropdownChange.bind(this)} className="dropdown">
+                    //     <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Missions<span className="caret"></span></button>
+                    //     <div value={this.state.dropdownItem} onChange={this.handleDropdownChange.bind(this)} className="dropdown-menu">
+                    //         {renderMissionDropdown()}
+                    //     </div>
+                    // </div>
+                    // <p>Dropdown is {this.state.dropdownItem}</p>
