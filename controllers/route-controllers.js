@@ -58,8 +58,7 @@ router.delete('/users/logout', middleware.requireAuthentication, function (req, 
 
 router.post('/users/create', function(req,res){
     modelController.userCreate(
-      req.body.firstname, 
-      req.body.lastname, 
+      req.body.name, 
       req.body.username, 
       req.body.password, 
     function(success){

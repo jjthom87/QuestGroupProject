@@ -3,11 +3,15 @@ module.exports = function(sequelize, DataTypes) {
   var Mission = sequelize.define('Mission', {
     title: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      uniquie: true
     },
     description: {
       type: DataTypes.TEXT,
       allowNull: false
+    },
+    missionName: {
+      type: DataTypes.STRING
     },
     isCompleted: {
       type: DataTypes.BOOLEAN

@@ -33,10 +33,9 @@ var modelController = {
 	  		});
     	});
   	},
-  	userCreate: function(firstname, lastname, username, password, cb){
+  	userCreate: function(name, username, password, cb){
 	  	models.User.create({
-	      firstname: firstname,
-	      lastname: lastname,
+	  	  name: name,
 	      username: username,
 	      password: password
 	    }).then(function(success) {

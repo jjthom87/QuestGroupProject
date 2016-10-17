@@ -6,8 +6,7 @@ import LandingNav from 'LandingNav';
 export default class CreateAccountPage extends React.Component {
 	handleNewData (creds) {
 		const newUser = {
-			firstname: creds.firstname,
-			lastname: creds.lastname,
+			name: creds.name,
 			username: creds.username,
 			password: creds.password
 		}
