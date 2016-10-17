@@ -110,7 +110,6 @@ export default class MissionMain extends React.Component {
             task: taskInput,
             dropdownItem: dropdownItem
         }
-        console.log(newTask)
         fetch('/task/create/', {
             method: 'post',
             body: JSON.stringify(newTask),
@@ -139,7 +138,7 @@ export default class MissionMain extends React.Component {
         }).then((response) => response.json())
         .then((results) => {
             this.setState({
-                missions: results
+                missions: missions.concat(results)
             });
         });
     }
@@ -171,7 +170,7 @@ export default class MissionMain extends React.Component {
                         <option selected disabled>Choose Mission to add Task to</option>
                         {renderMissionDropdown()}
                     </select>
-                    <p>Dropdown item is {this.state.dropdownItem}</p>
+                    <CreateTask createTask={this.handleCreateTask.bind(this)}/>
                 </div>
             </div>
          );
