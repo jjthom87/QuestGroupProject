@@ -23,7 +23,7 @@ router.get('/home', middleware.requireAuthentication, function(req, res){
 });
 
 router.get('/missionhome', middleware.requireAuthentication, function(req,res){
-  models.Mission.findOne({ where: {id: currentMission[0]}})
+  models.Mission.findAll({})
     .then(function(success){
       res.json(success)
     }).catch(function(err){
@@ -69,22 +69,12 @@ router.post('/users/create', function(req,res){
 });
 
 router.post('/mission/create', middleware.requireAuthentication, function(req, res){
-    currentMission = [];
+    console.log(req.body);
     modelController.missionCreate(
       req.body.title,
-      req.body.task1,
-      req.body.task2, 
-      req.body.task3, 
-      req.body.task4, 
-      req.body.task5, 
-      req.body.task6, 
-      req.body.task7, 
-      req.body.task8,  
-      req.body.task9, 
-      req.body.task10, 
+      req.body.description,
       req.user, 
     function(success){
-      currentMission.push(success.id)
       res.json(success);
     });
 });
@@ -107,6 +97,7 @@ router.post('/task/create/', middleware.requireAuthentication, function(req, res
 
 router.post('/quest/create', middleware.requireAuthentication, function(req, res){
     modelController.questCreate(
+      req.body.title,
       req.body.description, 
       req.user, 
     function(success){

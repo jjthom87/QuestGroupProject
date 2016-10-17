@@ -38,19 +38,10 @@ var modelController = {
 			throw err;
 		});
 	},
-	missionCreate: function(title, task1, task2, task3, task4, task5, task6, task7, task8, taskk9, task10, user, cb){
+	missionCreate: function(title, description, user, cb){
 		models.Mission.create({
 		  title: title,
-		  task1: task1,
-		  task2: task2,
-		  task3: task3,
-		  task4: task4,
-		  task5: task5,
-		  task6: task6,
-		  task7: task7,
-		  task8: task8,
-		  task9: task9,
-		  task10: task10,
+		  description: description,
 		  isCompleted: false,
 		  active: false
 		  	  }).then(function(mission){
@@ -61,8 +52,9 @@ var modelController = {
 			})
 		})
 	},
-	questCreate: function(description, user, cb){
+	questCreate: function(title, description, user, cb){
 		models.Quest.create({
+		  title: title,	
 		  description: description,
 		  isCompleted: false,
 		  active: false

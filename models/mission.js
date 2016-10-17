@@ -5,40 +5,9 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    task1: {
+    description: {
       type: DataTypes.TEXT,
       allowNull: false
-    },
-    task2: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    task3: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    task4: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    task5: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    task6: {
-      type: DataTypes.TEXT
-    },
-    task7: {
-      type: DataTypes.TEXT
-    },
-    task8: {
-      type: DataTypes.TEXT
-    },
-    task9: {
-      type: DataTypes.TEXT
-    },
-    task10: {
-      type: DataTypes.TEXT
     },
     isCompleted: {
       type: DataTypes.BOOLEAN
@@ -50,6 +19,7 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         Mission.belongsTo(models.User);
+        Mission.hasMany(models.Task);
       }
     }
   });

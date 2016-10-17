@@ -8,8 +8,10 @@ export default class MissionsList extends React.Component {
 
         var renderMissions = () => {
             return missions.map((mission, index) => {
+                console.log(mission);
                 return (
                     <MissionsListItem
+                        title={mission.title}
                         description={mission.description}
                         toggleTask={toggleTask}
                         deleteMission={deleteMission}
@@ -29,12 +31,8 @@ export default class MissionsList extends React.Component {
         return (
             <div>
                 <p className="missionsTitle">Missions</p>
-                <div>{noMissions()}</div>
-                <div>
-                    <p>
-                        {renderMissions()}
-                    </p>
-                </div>
+                {noMissions()}
+                {renderMissions()}
             </div>
         );
     } 
