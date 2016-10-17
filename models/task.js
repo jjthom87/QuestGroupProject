@@ -5,6 +5,9 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: false
     },
+    missionName: {
+      type: DataTypes.STRING
+    },
     isCompleted: {
       type: DataTypes.BOOLEAN
     },

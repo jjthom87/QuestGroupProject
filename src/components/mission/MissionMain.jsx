@@ -13,7 +13,7 @@ export default class MissionMain extends React.Component {
         super(props);
         this.state = {
             missions: [],
-            task: '',
+            tasks: [],
             dropdownItem: ''
         };
     }
@@ -43,7 +43,7 @@ export default class MissionMain extends React.Component {
                 this.setState({
                     missions: missions.concat(results)
                 });
-                browserHistory.push('/home');
+                // browserHistory.push('/home');
             });
     }
     deleteMission(id){
@@ -104,7 +104,7 @@ export default class MissionMain extends React.Component {
         this.setState({missions: this.state.missions});
     }
     handleCreateTask(taskInput) {
-        const { task, dropdownItem } = this.state;
+        const { tasks, dropdownItem } = this.state;
         
         const newTask = {
             task: taskInput,
@@ -124,7 +124,7 @@ export default class MissionMain extends React.Component {
             .then((results) => {
                 console.log(results)
                 this.setState({
-                    tasks: task
+                    tasks: tasks.concat(results)
                 });
             });
     }
@@ -146,21 +146,18 @@ export default class MissionMain extends React.Component {
         });
     }
     render() {
-
         const { missions } = this.state; 
 
         var renderMissionDropdown = () => {
-            if (missions.length === 0){
-                return (
-                    <div className="dropdown open" aria-labelledby="dropdownMenuLink">
-                        <li className="dropdown-item">No Missions to Add Task To</li>
-                    </div>
-                );
-            }
+            // if (missions.length === 0){
+            //     return (
+            //         <option>Please add Mission to add Task to</option>
+            //     );
+            // }
             return missions.map((mission, index) => {
                 return (
                     <option value={mission.title} className="dropdown-item">{mission.title}</option>
-                );
+                );  
             });
         }
         return (
@@ -177,7 +174,8 @@ export default class MissionMain extends React.Component {
                         missions={missions}
                         createMission={this.createMission.bind(this)}
                     />
-                    <select className="form-control" value={this.state.dropdownItem} onChange={this.handleDropdownChange.bind(this)}>
+                    <select name="Please Select Mission to add Task to" value={this.state.dropdownItem} onChange={this.handleDropdownChange.bind(this)}>
+                        <option selected disabled>Choose Mission to add Task to</option>
                         {renderMissionDropdown()}
                     </select>
                     <p>Dropdown item is {this.state.dropdownItem}</p>
@@ -187,11 +185,3 @@ export default class MissionMain extends React.Component {
          );
     }
 }
-
-                    // <div value={this.state.dropdownItem} onChange={this.handleDropdownChange.bind(this)} className="dropdown">
-                    //     <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Missions<span className="caret"></span></button>
-                    //     <div value={this.state.dropdownItem} onChange={this.handleDropdownChange.bind(this)} className="dropdown-menu">
-                    //         {renderMissionDropdown()}
-                    //     </div>
-                    // </div>
-                    // <p>Dropdown is {this.state.dropdownItem}</p>

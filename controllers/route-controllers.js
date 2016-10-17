@@ -10,8 +10,6 @@ var app = express();
 var models = require('../models')
 var middleware = require('../middleware/middleware.js')();
 
-var currentMission;
-
 router.get('/', (req,res) => {
 	res.sendFile(path.join(__dirname, '../public/index.html'));
 })
@@ -23,13 +21,15 @@ router.get('/home', middleware.requireAuthentication, function(req, res){
 });
 
 router.get('/missionhome', middleware.requireAuthentication, function(req,res){
-  models.Mission.findAll({})
-    .then(function(success){
-      res.json(success)
-    }).catch(function(err){
-      throw err;
-    });
-})
+  models.User.findOne({ where: { id: req.user.id}}).then(function(user){
+    models.Mission.findAll({})
+      .then(function(success){
+        res.json(success)
+      }).catch(function(err){
+        throw err;
+      });
+   });
+});
 
 router.post('/users/login', function (req, res) {
   var body = _.pick(req.body, 'username', 'password');
@@ -69,7 +69,6 @@ router.post('/users/create', function(req,res){
 });
 
 router.post('/mission/create', middleware.requireAuthentication, function(req, res){
-    console.log(req.body);
     modelController.missionCreate(
       req.body.title,
       req.body.description,
@@ -80,12 +79,14 @@ router.post('/mission/create', middleware.requireAuthentication, function(req, r
 });
 
 router.post('/task/create/', middleware.requireAuthentication, function(req, res){
-      console.log("task is " + req);
+    models.User.findOne({where: {id: req.user.id}}).then(function(user){
       models.Mission.findOne({ where: {title: req.body.dropdownItem }}).then(function(mission){
         models.Task.create({
           description: req.body.task,
+          missionName: req.body.dropdownItem,
           isCompleted: false,
-          active: false
+          active: false,
+          UserId: req.user.id
         }).then(function(task){
         mission.addTask(task).then(function(success){
         res.json(task);
@@ -93,7 +94,8 @@ router.post('/task/create/', middleware.requireAuthentication, function(req, res
         throw err;
         });
       });
-    })
+    });
+  });
 });
 
 router.post('/quest/create', middleware.requireAuthentication, function(req, res){

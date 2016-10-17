@@ -14,17 +14,24 @@ var modelController = {
 		          quests.forEach(function(quest){
 		            enteredQuests.push(quest);
 		        });
+		   user.getTasks().then(function(tasks){
+		          var enteredTasks = [];
+		          quests.forEach(function(task){
+		            enteredTasks.push(task);
+		        });
 		        var data = {
 		          currentUser: user,
 		          missions: enteredMissions,
-		          quests: enteredQuests
+		          quests: enteredQuests,
+		          tasks: enteredTasks
 		        }
 		        cb(data);
 				}).catch(function(err){
 					throw err;
-				})
-	  		})
-    	})
+				});
+			  });
+	  		});
+    	});
   	},
   	userCreate: function(firstname, lastname, username, password, cb){
 	  	models.User.create({
