@@ -166,7 +166,7 @@ export default class UserHomePage extends React.Component {
 				<div className="row">
 					<div className="col-md-3">
 					</div>
-					<div className="col-md-3 qmbox">
+					<div className="panel panel-success col-md-3 qmbox">
 						<MissionsList
 		                    missions={missions}
                             tasks={tasks}
@@ -175,7 +175,7 @@ export default class UserHomePage extends React.Component {
 		                    deleteMission={this.deleteMission.bind(this)}
 		                />
 		            </div>
-		           	<div className="col-md-3 qmbox">
+		           	<div className="panel panel-success col-md-3 qmbox">
 		                <QuestsList
 		                    quests={quests}
 		                    toggleMilestone={this.toggleMilestone.bind(this)}
