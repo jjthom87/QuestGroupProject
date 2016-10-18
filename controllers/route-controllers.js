@@ -1,3 +1,4 @@
+// DEPENDENCIES
 var express = require('express');
 var path = require('path');
 var _ = require('lodash');
@@ -9,30 +10,33 @@ var modelController = require('./model-controllers.js');
 
 var middleware = require('../middleware/middleware.js')();
 
+// ROUTES
+
+// Setting root ('/') path to index.html
 router.get('/', (req,res) => {
 	res.sendFile(path.join(__dirname, '../public/index.html'));
 })
 
+// Setting homepage to authenticated users only
 router.get('/home', middleware.requireAuthentication, function(req, res){
     modelController.userHome(req.user.id, function(data){
         res.json(data)
     });
 });
 
+// Setting mission homepage to authenticated users only
 router.get('/missionhome', middleware.requireAuthentication, function(req,res){
-  models.User.findOne({ where: { id: req.user.id}}).then(function(user){
-    models.Mission.findAll({ where: {UserId: req.user.id}}).then(function(success){
-        res.json(success)
-      }).catch(function(err){
-        throw err;
-      });
-   });
+    modelController.missionMain(req.user.id, function(data){
+      res.json(data)
+    })
 });
 
+// Sign-in: Setting user login route
 router.post('/users/login', function (req, res) {
   var body = _.pick(req.body, 'username', 'password');
   var userInfo;
 
+// Generates JSON Web Token once user is signed-in
 models.User.authenticate(body).then(function (user) {
       var token = user.generateToken('authentication');
       userInfo = user;
@@ -47,6 +51,7 @@ models.User.authenticate(body).then(function (user) {
     });
 });
 
+// Sign-out: Deletes user's JSON Web Token once logged out
 router.delete('/users/logout', middleware.requireAuthentication, function (req, res) {
   req.token.destroy().then(function () {
     res.status(204).send();
@@ -55,6 +60,7 @@ router.delete('/users/logout', middleware.requireAuthentication, function (req, 
   });
 });
 
+// Registration: Creates a new user record in the database based on the 'user' model
 router.post('/users/create', function(req,res){
     modelController.userCreate(
       req.body.name, 
@@ -77,35 +83,31 @@ router.post('/mission/create', middleware.requireAuthentication, function(req, r
 
 router.post('/task/create/', middleware.requireAuthentication, function(req, res){
     models.User.findOne({where: {id: req.user.id}}).then(function(user){
-      models.Mission.findOne({ where: {title: req.body.dropdownItem }}).then(function(mission){
-        models.Task.create({
-          task: req.body.task,
-          missionName: req.body.dropdownItem,
-          isCompleted: false,
-          active: false,
-          UserId: req.user.id,
-          MissionId: mission.id
-        }).then(function(task){
-        mission.addTask(task).then(function(success){
-        res.json(task); 
-      }).catch(function(err){
-        throw err;
+        models.Mission.findOne({ where: {title: req.body.dropdownItem }}).then(function(mission){
+          models.Task.create({
+            task: req.body.task,
+            missionName: req.body.dropdownItem,
+            isCompleted: false,
+            active: false,
+            UserId: req.user.id,
+            MissionId: mission.id
+          }).then(function(task){
+          mission.addTask(task).then(function(success){
+           res.json(task); 
+        }).catch(function(err){
+          throw err;
+          });
         });
       });
     });
-  });
 });
 
 router.put('/task/toggle/:id', middleware.requireAuthentication, function(req, res){
-  console.log(req.body);
-  models.Task.findOne({ where: { uuid: req.params.id}}).then(function(success){
-        console.log(success);
-        success.set('isCompleted', true);
-        success.save();
-        res.json(success);
-      }).catch(function(err){
-        throw err
-      })
+  modelController.taskToggle(
+    req.params.id,
+    function(success){
+      res.json(success)
+    });
 });
 
 router.post('/quest/create', middleware.requireAuthentication, function(req, res){

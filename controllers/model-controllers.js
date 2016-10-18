@@ -58,6 +58,22 @@ var modelController = {
 			})
 		})
 	},
+	missionMain: function(id, cb){
+	    models.Mission.findAll({ where: {UserId: id}}).then(function(success){
+	        cb(success);
+	    }).catch(function(err){
+	    	throw err;
+	    });
+	},
+	taskToggle: function(uuid, cb){
+	  models.Task.findOne({ where: { uuid: uuid}}).then(function(success){
+	        success.set('isCompleted', true);
+	        success.save();
+	          cb(success);
+	      }).catch(function(err){
+	        throw err
+	      })	
+	},
 	questCreate: function(title, description, user, cb){
 		models.Quest.create({
 		  title: title,	
