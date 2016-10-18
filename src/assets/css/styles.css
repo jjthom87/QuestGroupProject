@@ -154,6 +154,11 @@ input{
     padding: none;
 }
 
+#submitButton input {
+    margin-left: 5px;
+    margin-top: 10px;
+}
+
 #pageTitle {
     font-size: 24px;
     color: yellow;
