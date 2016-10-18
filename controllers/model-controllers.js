@@ -1,7 +1,10 @@
+// Model-Controller: Contains functions to add, delete, or update items in the database
+
 var models = require('../models');
 models.sequelize.sync();
 
 var modelController = {
+	// For that authenticated user's ID, returns all Missions, Quests, and Tasks in the database
 	userHome: function(id, cb){
 		models.User.findOne({ where: {id: id}}).then(function(user){
 	        user.getMissions().then(function(missions){
