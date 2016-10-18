@@ -4,7 +4,7 @@ var moment = require('moment');
 export default class MissionAndTaskItem extends React.Component {
 	render(){
 		const { id, uuid, title, deleteMission, description, toggleTask, tasks, createdOn, isCompleted, active } = this.props;
-		console.log(id);
+		
 		var singleTask = () => {
 			return tasks.map((task, index) => {
 				return (
