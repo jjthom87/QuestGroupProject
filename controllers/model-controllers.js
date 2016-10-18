@@ -4,7 +4,7 @@ var models = require('../models');
 models.sequelize.sync();
 
 var modelController = {
-	// For that authenticated user's ID, returns all Missions, Quests, and Tasks in the database
+	// Returns all Missions, Quests, and Tasks in the database
 	userHome: function(id, cb){
 		models.User.findOne({ where: {id: id}}).then(function(user){
 	        user.getMissions().then(function(missions){
@@ -36,7 +36,7 @@ var modelController = {
 	  		});
     	});
   	},
-  	// Creates a new user record to the user database based on user input received
+  	// Creates a new User record to the database (See route 'users/create')
   	userCreate: function(name, username, password, cb){
 	  	models.User.create({
 	  	  name: name,
@@ -48,6 +48,25 @@ var modelController = {
 			throw err;
 		});
 	},
+	// Updates the 'isCompleted' property for the User's specific Task(s) in the database
+	taskToggle: function(uuid, cb){
+	  models.Task.findOne({ where: { uuid: uuid}}).then(function(success){
+	        success.set('isCompleted', true);
+	        success.save();
+	          cb(success);
+	      }).catch(function(err){
+	        throw err
+	      })	
+	},
+	// Retrieves all Missions for matching User (See route '/missionhome')
+	missionMain: function(id, cb){
+	    models.Mission.findAll({ where: {UserId: id}}).then(function(success){
+	        cb(success);
+	    }).catch(function(err){
+	    	throw err;
+	    });
+	},
+	// Creates a new Mission record to the database (See route 'mission/create')
 	missionCreate: function(title, description, user, cb){
 		models.Mission.create({
 		  title: title,
@@ -62,22 +81,7 @@ var modelController = {
 			})
 		})
 	},
-	missionMain: function(id, cb){
-	    models.Mission.findAll({ where: {UserId: id}}).then(function(success){
-	        cb(success);
-	    }).catch(function(err){
-	    	throw err;
-	    });
-	},
-	taskToggle: function(uuid, cb){
-	  models.Task.findOne({ where: { uuid: uuid}}).then(function(success){
-	        success.set('isCompleted', true);
-	        success.save();
-	          cb(success);
-	      }).catch(function(err){
-	        throw err
-	      })	
-	},
+	// Creates a new Quest record to the database (See route '/quest/create')
 	questCreate: function(title, description, user, cb){
 		models.Quest.create({
 		  title: title,	
@@ -92,6 +96,7 @@ var modelController = {
 			  	})
 		})
 	},
+	// Removes an existing Mission from the database (See route '/mission/delete/:id')
 	missionDelete: function(userId, paramsId, cb){
 		models.User.findOne({where: {id: userId}}).then(function(){
 		    models.Mission.destroy({ where: { id: paramsId }
@@ -102,6 +107,7 @@ var modelController = {
 		    })
 	 	})
 	},
+	// Removes an existing Quest from the database (See route '/quest/delete/:id')
 	questDelete: function(userId, paramsId, cb){
 		models.User.findOne({where: {id: userId}}).then(function(){
 		    models.Quest.destroy({ where: { id: paramsId }
