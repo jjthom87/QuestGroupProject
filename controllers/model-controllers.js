@@ -117,7 +117,17 @@ var modelController = {
 		      throw err;
 		    })
 	 	})
-	}
+	},
+	taskDelete: function(userId, paramsId, cb){
+		models.User.findOne({where: {id: userId}}).then(function(){
+		    models.Task.destroy({ where: { uuid: paramsId }
+		    }).then(function(success){
+		      cb(success);
+		    }).catch(function(err){
+		      throw err;
+		    })
+	 	})
+	},
 }
 
 module.exports = modelController;

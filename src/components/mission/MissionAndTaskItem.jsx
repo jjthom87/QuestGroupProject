@@ -11,7 +11,7 @@ export default class MissionAndTaskItem extends React.Component {
     }
 	render(){
 
-		const { id, uuid, title, deleteMission, description, percent, toggleTask, tasks, createdOn, isCompleted, active } = this.props;
+		const { id, uuid, title, deleteMission, deleteTask, description, percent, toggleTask, tasks, createdOn, isCompleted, active } = this.props;
 
 		var completedTasks = tasks.filter((task) => task.isCompleted);
 
@@ -29,6 +29,7 @@ export default class MissionAndTaskItem extends React.Component {
 					  			onChange={() => toggleTask(task.uuid)}
 				  			/>
 							<p className={taskClassName}>{task.task}</p>
+							<button onClick={() => deleteTask(task.uuid)}>X</button>
 						</li>
 					</div>
 				)
@@ -57,7 +58,7 @@ export default class MissionAndTaskItem extends React.Component {
 					{singleTask()}
 				</div>
 				<div>
-					<button onClick={() => deleteMission(id)}>Delete</button>
+					<button onClick={() => deleteMission(id)}>Delete Mission</button>
 				</div>
 				<Line percent={percentage} strokeWidth="4" strokeColor="#3FC7FA"/>
 				<p>You are {percentage}% done with this mission</p>

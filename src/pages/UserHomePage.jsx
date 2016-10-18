@@ -106,6 +106,27 @@ export default class UserHomePage extends React.Component {
                 });
         }
     }
+    deleteTask(taskId){
+        const { tasks } = this.state;
+
+        const foundTask = _.remove(tasks, task => task.uuid === taskId);
+
+        fetch(`/task/delete/${foundTask[0].uuid}`,{
+            method: 'DELETE',
+            body: JSON.stringify(foundTask),
+            headers: {
+                Auth: localStorage.getItem('token'),
+                'content-type': 'application/json',
+                'accept': 'application/json'
+            },
+            credentials: 'include'
+        }).then((response) => response.json())
+            .then((results) => {
+                this.setState({
+                    tasks: tasks
+               });
+        });
+    }
     toggleMilestone(milestone) {
         const foundMilestone= _.find(this.state.quests, quest => quest.milestone === milestone);
         foundMilestone.isCompleted = !foundMilestone.isCompleted;
@@ -173,6 +194,7 @@ export default class UserHomePage extends React.Component {
                                 tasks={filteredTasks}
                                 toggleTask={this.toggleTask.bind(this)}
                                 deleteMission={this.deleteMission.bind(this)}
+                                deleteTask={this.deleteTask.bind(this)}
                             />
                         </div>
                         <div className="panel panel-success col-md-3 qmbox">

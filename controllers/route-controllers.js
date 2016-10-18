@@ -137,6 +137,15 @@ router.delete('/mission/delete/:id', middleware.requireAuthentication, function(
     })
 })
 
+router.delete('/task/delete/:id', middleware.requireAuthentication, function(req, res){
+    modelController.taskDelete(
+        req.user.id,
+        req.params.id,
+    function(success){
+      res.json(success);
+    })
+})
+
 // Allows users to delete a Quest
 router.delete('/quest/delete/:id', middleware.requireAuthentication, function(req, res){
     modelController.questDelete(

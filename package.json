@@ -9,8 +9,16 @@
     "build": "webpack --config webpack.config.js",
     "build:watch": "webpack --watch --config webpack.config.js"
   },
-  "keywords": [],
-  "author": "Eric Mok",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjthom87/QuestGroupProject.git"
+  },
+  "author": "Team Bubo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jjthom87/QuestGroupProject/issues"
+  },
+  "homepage": "https://github.com/jjthom87/QuestGroupProject#readme",
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
     "bcryptjs": "^2.3.0",
