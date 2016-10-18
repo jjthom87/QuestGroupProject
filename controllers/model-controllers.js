@@ -65,26 +65,6 @@ var modelController = {
 	    	throw err;
 	    });
 	},
-	taskCreate: function(id, dropdownMiss, task, dropdownItem, UserId, MissionId, cb){
-	    models.User.findOne({where: {id: id}}).then(function(user){
-	      models.Mission.findOne({ where: {title: dropdownMiss }}).then(function(mission){
-	        models.Task.create({
-	          task: task,
-	          missionName: dropdownItem,
-	          isCompleted: false,
-	          active: false,
-	          UserId: UserId,
-	          MissionId: MissionId
-	        }).then(function(task){
-	        mission.addTask(task).then(function(success){
-	         cb(task); 
-	      }).catch(function(err){
-	        throw err;
-	        });
-	      });
-	    });
-	  });
-	},
 	taskToggle: function(uuid, cb){
 	  models.Task.findOne({ where: { uuid: uuid}}).then(function(success){
 	        success.set('isCompleted', true);
