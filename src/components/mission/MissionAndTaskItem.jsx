@@ -2,39 +2,34 @@ import React, { Component } from 'react';
 var moment = require('moment');
 import { Line } from 'rc-progress'; 
 
-export default class MissionAndTaskItem extends React.Component {
+export default class MissionAndTaskItem extends React.Component { 
     constructor(props) {
         super(props);
         this.state = {
-        	color: '#37C7FA',
-        	percent: ''
+        	color: '#37C7FA'
         };
-    }
-    changeLine(){
-    	const { tasks } = this.props
-    	var completedTasks = tasks.filter((task) => !isCompleted);
-    	this.setState({
-    		percent: completedTasks.length/tasks.length
-    	})
     }
 	render(){
 
 		const { id, uuid, title, deleteMission, description, percent, toggleTask, tasks, createdOn, isCompleted, active } = this.props;
 
-		var completedTasks = tasks.filter((task) => !isCompleted);
+		var completedTasks = tasks.filter((task) => task.isCompleted);
 
-		const percentage = completedTasks.length/tasks.length
+		const percentage = ((completedTasks.length/tasks.length) * 100);
 
 		var singleTask = () => {
 			return tasks.map((task, index) => {
+				var taskClassName = task.isCompleted ? 'task-completed' : 'task-notCompleted';
 				return (
 					<div>
-						<input
-				  			type="checkbox"
-				  			checked={isCompleted}
-				  			onChange={() => toggleTask(task.uuid)}
-			  			/>
-						<p>{task.task}</p>
+						<li>
+							<input
+					  			type="checkbox"
+					  			checked={isCompleted}
+					  			onChange={() => toggleTask(task.uuid)}
+				  			/>
+							<p className={taskClassName}>{task.task}</p>
+						</li>
 					</div>
 				)
 			})
@@ -65,6 +60,7 @@ export default class MissionAndTaskItem extends React.Component {
 					<button onClick={() => deleteMission(id)}>Delete</button>
 				</div>
 				<Line percent={percentage} strokeWidth="4" strokeColor="#3FC7FA"/>
+				<p>You are {percentage}% done with this mission</p>
 			</div>
 		)
 	}
