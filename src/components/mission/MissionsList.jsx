@@ -6,9 +6,7 @@ import MissionAndTaskItem from 'MissionAndTaskItem';
 export default class MissionsList extends React.Component {
     render() {
         const { missions, tasks, toggleTask, deleteMission } = this.props;
-
-        const singleTask = tasks.map((task) => task.task);
-
+        
         var renderMissions = () => {
             return missions.map((mission, index) => {
                 return (

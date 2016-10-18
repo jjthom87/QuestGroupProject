@@ -84,16 +84,12 @@ export default class UserHomePage extends React.Component {
     toggleTask(taskId) {
         const { tasks } = this.state;
 
-        console.log(tasks);
-
-        const foundtask = tasks.find((task) => task.id === taskId);
-
-        console.log(foundtask);
+        const foundtask = tasks.find((task) => task.uuid === taskId);
 
         if (foundtask) {
             foundtask.isCompleted = !foundtask.isCompleted;
 
-            fetch(`/task/toggle/${foundtask.id}`, {
+            fetch(`/task/toggle/${foundtask.uuid}`, {
                 method: 'PUT',
                 body: JSON.stringify(foundtask),
                 headers: {
