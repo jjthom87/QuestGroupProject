@@ -1,3 +1,4 @@
+// CONFIG: Setting up Application's Back-End environment
 {
   "development": {
     "username": "root",
