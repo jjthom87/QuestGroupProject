@@ -1,7 +1,7 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var Task = sequelize.define('Task', {
-	task: {
+	  task: {
       type: DataTypes.TEXT,
       allowNull: false
     },

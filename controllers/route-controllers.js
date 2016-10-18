@@ -13,11 +13,11 @@ router.get('/', (req,res) => {
 	res.sendFile(path.join(__dirname, '../public/index.html'));
 })
 
-// router.get('/home', middleware.requireAuthentication, function(req, res){
-//     modelController.userHome(req.user.id, function(data){
-//         res.json(data)
-//     });
-// });
+router.get('/home', middleware.requireAuthentication, function(req, res){
+    modelController.userHome(req.user.id, function(data){
+        res.json(data)
+    });
+});
 
 router.get('/missionhome', middleware.requireAuthentication, function(req,res){
   models.User.findOne({ where: { id: req.user.id}}).then(function(user){
@@ -27,28 +27,6 @@ router.get('/missionhome', middleware.requireAuthentication, function(req,res){
         throw err;
       });
    });
-});
-
-router.get('/mission/user', middleware.requireAuthentication, function(req, res){
-    var pickedMission;
-    var missionTasks = [];
-    var data;
-    models.User.findOne({where: {id: req.user.id}}).then(function(user){
-      user.Mission.findOne({ where: {title: req.body.dropdownMission }}).then(function(mission){
-        mission = pickedMission;
-        models.Task.findAll({ where: {missionName: req.body.dropdownItem }}).then(function(tasks){
-          missionTasks.push(tasks);
-          data = {
-            mission: pickedMission,
-            tasks: missionTasks
-          }
-        res.json(data);
-      }).catch(function(err){
-        throw err;
-        });
-      });
-    });
-  });
 });
 
 router.post('/users/login', function (req, res) {
@@ -105,16 +83,29 @@ router.post('/task/create/', middleware.requireAuthentication, function(req, res
           missionName: req.body.dropdownItem,
           isCompleted: false,
           active: false,
-          UserId: req.user.id
+          UserId: req.user.id,
+          MissionId: mission.id
         }).then(function(task){
         mission.addTask(task).then(function(success){
-        res.json(task);
+        res.json(task); 
       }).catch(function(err){
         throw err;
         });
       });
     });
   });
+});
+
+router.put('/task/toggle/:id', middleware.requireAuthentication, function(req, res){
+  console.log(req.body);
+  models.Task.findOne({ where: { id: req.params.id}}).then(function(success){
+        console.log(success);
+        success.set('isCompleted', true);
+        success.save();
+        res.json(success);
+      }).catch(function(err){
+        throw err
+      })
 });
 
 router.post('/quest/create', middleware.requireAuthentication, function(req, res){

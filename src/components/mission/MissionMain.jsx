@@ -5,7 +5,6 @@ import UserHomePage from 'UserHomePage';
 import CreateMission from 'CreateMission';
 import CreateTask from 'CreateTask';
 import MissionMainItem from 'MissionMainItem';
-import MissionDropdown from 'MissionDropdown';
 import MainNav from 'MainNav';
 
 export default class MissionMain extends React.Component {

@@ -18,9 +18,16 @@ export default class UserHomePage extends React.Component {
 			missions: [],
 			quests: [],
             tasks: [],
-			createdOn: ''
+            dropdownMission: '',
+			createdOn: '',
+            oneMissionAndTasks: [],
 		};
 	}
+    handleDropdownMission(e){
+        this.setState({
+            dropdownMission: e.target.value
+        })
+    }
 	logoutHandler(){
 		fetch('/users/logout', {
 			method: 'delete',
@@ -74,36 +81,35 @@ export default class UserHomePage extends React.Component {
             })
         }); 
     }
-	toggleTask(task) {
-        const foundtask= _.find(this.state.missions, mission => mission.task === task);
-        foundtask.isCompleted = !foundtask.isCompleted;
-        this.setState({ missions: this.state.missions});
+    toggleTask(taskId) {
+        const { tasks } = this.state;
+
+        console.log(tasks);
+
+        const foundtask = tasks.find((task) => task.id === taskId);
+
+        console.log(foundtask);
+
+        if (foundtask) {
+            foundtask.isCompleted = !foundtask.isCompleted;
+
+            fetch(`/task/toggle/${foundtask.id}`, {
+                method: 'PUT',
+                body: JSON.stringify(foundtask),
+                headers: {
+                    Auth: localStorage.getItem('token'),
+                    'content-type': 'application/json',
+                    'accept': 'application/json'
+                },
+                credentials: 'include'
+            }).then((response) => response.json())
+                .then((json) => {
+                    this.setState({
+                        tasks: tasks
+                    });
+                });
+        }
     }
-    // toggleTask(taskId) {
-    //     const { missions } = this.state;
-
-    //     // find the first item in our state which has the ID we're looking for (itemId)
-    //     const foundtask = missions.find((foundTask) => foundtask._id === taskId);
-
-    //     // if we found an item w/ that id, we toggle its `isCompleted` property
-    //     if (foundtask) {
-    //         foundtask.isCompleted = !foundtask.isCompleted;
-
-    //         fetch(`/api/task/${foundtask._id}`, {
-    //             method: 'PUT',
-    //             body: JSON.stringify(foundtask),
-    //             headers: { 'content-type': 'application/json' }
-    //         }).then((response) => response.json())
-    //             .then((json) => {
-    //                 // then we update our state with the updated items array. note that
-    //                 // `item` has the item by reference, meaning that when we changed its
-    //                 // isCompleted property, the array `items` was updated as well
-    //                 this.setState({
-    //                     missions: missions
-    //                 });
-    //             });
-    //     }
-    // }
     saveTask(oldTask, newTask, oldDate, newDate) {
         const foundtask=_.find(this.state.missions, mission=> mission.task ===oldTask);
         foundtask.task=newTask;
@@ -131,7 +137,6 @@ export default class UserHomePage extends React.Component {
             credentials: 'include'
 		}).then((response) => response.json())
 		.then((results) => {
-            console.log(results);
 			this.setState({
 				fullLoginUser: results.currentUser,
 				loginUser: results.currentUser.name,
@@ -142,16 +147,18 @@ export default class UserHomePage extends React.Component {
 		});
 	}
 	render() {
-		const { loginUser, missions, quests, tasks } = this.state;
+		const { loginUser, missions, quests, tasks, dropdownMission } = this.state;
 
-        var dootyBall = missions.concat(tasks);
+        const filteredMission = missions.filter((mission) => dropdownMission === mission.title);
+        const filteredTasks = tasks.filter((task) => dropdownMission === task.missionName);
 
-        console.log(dootyBall)
-
-        var mappedDootyball = dootyBall.map((dooty) => dooty.missionName);
-
-        console.log(mappedDootyball);
-
+        var renderMissionDropdown = () => {
+            return missions.map((mission, index) => {
+                return (
+                    <option value={mission.title} className="dropdown-item">{mission.title}</option>
+                );  
+            });
+        }
     	return (
       		<div>
               <MainNav/>
@@ -163,29 +170,33 @@ export default class UserHomePage extends React.Component {
 						<button className="btn btn-info"><Link to="/questshome">Create a Quest</Link></button>
 					</div>
 				</div>
-				<div className="row">
-					<div className="col-md-3">
-					</div>
-					<div className="panel panel-success col-md-3 qmbox">
-						<MissionsList
-		                    missions={missions}
-                            tasks={tasks}
-		                    toggleTask={this.toggleTask.bind(this)}
-		                    saveTask={this.saveTask.bind(this)}
-		                    deleteMission={this.deleteMission.bind(this)}
-		                />
-		            </div>
-		           	<div className="panel panel-success col-md-3 qmbox">
-		                <QuestsList
-		                    quests={quests}
-		                    toggleMilestone={this.toggleMilestone.bind(this)}
-		                    saveMilestone={this.saveMilestone.bind(this)}
-		                    deleteQuest={this.deleteQuest.bind(this)}
-		                />
-		            </div>
-		            <div className="col-md-3">
-		            </div>
-		        </div>
+    				<div className="row">
+    					<div className="col-md-3">
+    					</div>
+                            <select name="Please Select Mission to add Task to" value={this.state.dropdownMission} onChange={this.handleDropdownMission.bind(this)}>
+                                <option selected disabled>Find Mission</option>
+                                {renderMissionDropdown()}
+                            </select>
+                        <div className="panel panel-success col-md-3 qmbox">
+                            <MissionsList
+                                missions={filteredMission}
+                                tasks={filteredTasks}
+                                toggleTask={this.toggleTask.bind(this)}
+                                saveTask={this.saveTask.bind(this)}
+                                deleteMission={this.deleteMission.bind(this)}
+                            />
+                        </div>
+                        <div className="panel panel-success col-md-3 qmbox">
+                            <QuestsList
+                                quests={quests}
+                                toggleMilestone={this.toggleMilestone.bind(this)}
+                                saveMilestone={this.saveMilestone.bind(this)}
+                                deleteQuest={this.deleteQuest.bind(this)}
+                            />
+                        </div>
+    		            <div className="col-md-3">
+    		            </div>
+    		        </div>
                 </div> 
       		</div>
 		);
