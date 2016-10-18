@@ -1,3 +1,5 @@
+// USER: Dictates the data fields when storing User records
+// Contains User's hashed password to be referenced with token after authentication
 var bcrypt = require('bcryptjs');
 var _ = require('underscore');
 var jwt = require('jsonwebtoken');

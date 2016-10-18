@@ -107,15 +107,6 @@ router.post('/task/create/', middleware.requireAuthentication, function(req, res
     });
 });
 
-// Toggles a Task for completion
-router.put('/task/toggle/:id', middleware.requireAuthentication, function(req, res){
-  modelController.taskToggle(
-    req.params.id,
-    function(success){
-      res.json(success)
-    });
-});
-
 // Allows users to add a Quest
 router.post('/quest/create', middleware.requireAuthentication, function(req, res){
     modelController.questCreate(
@@ -124,6 +115,15 @@ router.post('/quest/create', middleware.requireAuthentication, function(req, res
       req.user, 
     function(success){
       res.json(success);
+    });
+});
+
+// Toggles a Task for completion
+router.put('/task/toggle/:id', middleware.requireAuthentication, function(req, res){
+  modelController.taskToggle(
+    req.params.id,
+    function(success){
+      res.json(success)
     });
 });
 
