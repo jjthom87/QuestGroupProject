@@ -2,23 +2,22 @@ var express = require('express');
 var path = require('path');
 var _ = require('lodash');
 
+var router = express.Router();
+
+var models = require('../models');
 var modelController = require('./model-controllers.js');
 
-var router = express.Router();
-var app = express();
-
-var models = require('../models')
 var middleware = require('../middleware/middleware.js')();
 
 router.get('/', (req,res) => {
 	res.sendFile(path.join(__dirname, '../public/index.html'));
 })
 
-router.get('/home', middleware.requireAuthentication, function(req, res){
-    modelController.userHome(req.user.id, function(data){
-        res.json(data)
-    });
-});
+// router.get('/home', middleware.requireAuthentication, function(req, res){
+//     modelController.userHome(req.user.id, function(data){
+//         res.json(data)
+//     });
+// });
 
 router.get('/missionhome', middleware.requireAuthentication, function(req,res){
   models.User.findOne({ where: { id: req.user.id}}).then(function(user){
@@ -28,6 +27,28 @@ router.get('/missionhome', middleware.requireAuthentication, function(req,res){
         throw err;
       });
    });
+});
+
+router.get('/mission/user', middleware.requireAuthentication, function(req, res){
+    var pickedMission;
+    var missionTasks = [];
+    var data;
+    models.User.findOne({where: {id: req.user.id}}).then(function(user){
+      user.Mission.findOne({ where: {title: req.body.dropdownMission }}).then(function(mission){
+        mission = pickedMission;
+        models.Task.findAll({ where: {missionName: req.body.dropdownItem }}).then(function(tasks){
+          missionTasks.push(tasks);
+          data = {
+            mission: pickedMission,
+            tasks: missionTasks
+          }
+        res.json(data);
+      }).catch(function(err){
+        throw err;
+        });
+      });
+    });
+  });
 });
 
 router.post('/users/login', function (req, res) {
