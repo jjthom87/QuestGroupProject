@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CreateTask from 'CreateTask';
+import MainNav from 'MainNav';
 
 export default class CreateMission extends React.Component {
     constructor(props) {

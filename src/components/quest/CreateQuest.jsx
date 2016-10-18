@@ -5,7 +5,6 @@ import MainNav from 'MainNav';
 export default class CreateQuest extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
             error: null
         };
@@ -20,36 +19,45 @@ export default class CreateQuest extends React.Component {
     handleCreate(event) {
         event.preventDefault();
 
-        const quest = this.refs.createQuest.value;
-        const validateInput = this.validateInput(quest);
+        const creds = {};
+        const title = this.refs.title.value;
+        const description = this.refs.description.value;
 
-        if(validateInput) {
-            this.setState({ error: validateInput });
-            return;
+        if (title.length > 0) {
+            this.refs.title.value = '';
+            creds.title = title;
         }
 
-        this.setState({ error: null });
-        this.props.createQuest(quest);
-        this.refs.createQuest.value = '';
-    }
-
-    validateInput(milestone) {
-        if(!milestone) {
-            return ("Please enter a milestones.");
-        } else if(_.find(this.props.quests, quest => quest.milestone === milestone)) {
-            return ("Duplicate milestones exists.");
-        } else {
-            return null;
+        if (description.length > 0) {
+            this.refs.description.value = '';
+            creds.description = description;
         }
+
+        this.props.createMission(creds);
     }
+    // validateInput(milestone) {
+    //     if(!milestone) {
+    //         return ("Please enter a milestones.");
+    //     } else if(_.find(this.props.quests, quest => quest.milestone === milestone)) {
+    //         return ("Duplicate milestones exists.");
+    //     } else {
+    //         return null;
+    //     }
+    // }
     render() {
         return (
             <div>
-            <MainNav/>
-                <h2> Build Your New Quest! </h2>
+                <h2 className="missionTitle">Form A New Quest!</h2>
                 <form onSubmit={this.handleCreate.bind(this)}>
-                    <input type="text" placeholder="Add Quest" ref="createQuest"/>
-                    <button> Add New Quest </button>
+                    <div>
+                        <input type="text" placeholder="Quest Title" ref="title" />
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Quest Description" ref="description" />
+                    </div>
+                    <div>
+                        <input type="submit" placeholder="Add Quest" />
+                    </div>
                     {this.renderError()}
                 </form>
             </div>
