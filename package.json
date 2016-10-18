@@ -1,12 +1,13 @@
 {
-  "name": "react-todos",
+  "name": "bubo",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "postinstall": "npm run bundle",
-    "bundle": "webpack --watch --config webpack.config.js --progress"
+    "build": "webpack --config webpack.config.js",
+    "build:watch": "webpack --watch --config webpack.config.js"
   },
   "keywords": [],
   "author": "Eric Mok",
