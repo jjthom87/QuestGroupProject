@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "build": "webpack --watch --config webpack.config.js"
+    "postinstall":"npm run bundle",
+    "bundle": "webpack --watch --config webpack.config.js --progress"
   },
   "keywords": [],
   "author": "Eric Mok",
