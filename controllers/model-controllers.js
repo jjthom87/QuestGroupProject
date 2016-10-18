@@ -58,6 +58,42 @@ var modelController = {
 			})
 		})
 	},
+	missionMain: function(id, cb){
+	    models.Mission.findAll({ where: {UserId: id}}).then(function(success){
+	        cb(success);
+	    }).catch(function(err){
+	    	throw err;
+	    });
+	},
+	taskCreate: function(id, dropdownMiss, task, dropdownItem, UserId, MissionId, cb){
+	    models.User.findOne({where: {id: id}}).then(function(user){
+	      models.Mission.findOne({ where: {title: dropdownMiss }}).then(function(mission){
+	        models.Task.create({
+	          task: task,
+	          missionName: dropdownItem,
+	          isCompleted: false,
+	          active: false,
+	          UserId: UserId,
+	          MissionId: MissionId
+	        }).then(function(task){
+	        mission.addTask(task).then(function(success){
+	         cb(task); 
+	      }).catch(function(err){
+	        throw err;
+	        });
+	      });
+	    });
+	  });
+	},
+	taskToggle: function(uuid, cb){
+	  models.Task.findOne({ where: { uuid: uuid}}).then(function(success){
+	        success.set('isCompleted', true);
+	        success.save();
+	          cb(success);
+	      }).catch(function(err){
+	        throw err
+	      })	
+	},
 	questCreate: function(title, description, user, cb){
 		models.Quest.create({
 		  title: title,	

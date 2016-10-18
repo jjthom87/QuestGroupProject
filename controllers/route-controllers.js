@@ -20,13 +20,9 @@ router.get('/home', middleware.requireAuthentication, function(req, res){
 });
 
 router.get('/missionhome', middleware.requireAuthentication, function(req,res){
-  models.User.findOne({ where: { id: req.user.id}}).then(function(user){
-    models.Mission.findAll({ where: {UserId: req.user.id}}).then(function(success){
-        res.json(success)
-      }).catch(function(err){
-        throw err;
-      });
-   });
+    modelController.missionMain(req.user.id, function(data){
+      res.json(data)
+    })
 });
 
 router.post('/users/login', function (req, res) {
@@ -76,36 +72,24 @@ router.post('/mission/create', middleware.requireAuthentication, function(req, r
 });
 
 router.post('/task/create/', middleware.requireAuthentication, function(req, res){
-    models.User.findOne({where: {id: req.user.id}}).then(function(user){
-      models.Mission.findOne({ where: {title: req.body.dropdownItem }}).then(function(mission){
-        models.Task.create({
-          task: req.body.task,
-          missionName: req.body.dropdownItem,
-          isCompleted: false,
-          active: false,
-          UserId: req.user.id,
-          MissionId: mission.id
-        }).then(function(task){
-        mission.addTask(task).then(function(success){
-        res.json(task); 
-      }).catch(function(err){
-        throw err;
-        });
-      });
-    });
-  });
+    modelController.taskCreate(
+      req.user.id,
+      req.body.dropdownItem,
+      req.body.task,
+      req.body.dropdownItem,
+      req.user.id,
+      mission.id,
+      function(success){
+        res.json(success)
+      })
 });
 
 router.put('/task/toggle/:id', middleware.requireAuthentication, function(req, res){
-  console.log(req.body);
-  models.Task.findOne({ where: { uuid: req.params.id}}).then(function(success){
-        console.log(success);
-        success.set('isCompleted', true);
-        success.save();
-        res.json(success);
-      }).catch(function(err){
-        throw err
-      })
+  modelController.taskToggle(
+    req.params.id,
+    function(success){
+      res.json(success)
+    });
 });
 
 router.post('/quest/create', middleware.requireAuthentication, function(req, res){
