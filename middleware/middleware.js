@@ -22,6 +22,7 @@ module.exports = function () {
 				req.token = tokenInstance;
 				return models.User.findByToken(token);
 			}).then(function (user) {
+			// Find User based on matching JSON Web Token
 				req.user = user;
 				next();
 			}).catch(function () {
