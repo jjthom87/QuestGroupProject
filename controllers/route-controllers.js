@@ -18,7 +18,7 @@ router.get('/', (req,res) => {
 	res.sendFile(path.join(__dirname, '../public/index.html'));
 })
 
-// Registration: Creates a new user record in the database based on the 'user' model
+// Registration: Allows users to create new user based on model input
 router.post('/users/create', function(req,res){
     modelController.userCreate(
       req.body.name, 
