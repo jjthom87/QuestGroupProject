@@ -98,7 +98,7 @@ router.post('/task/create/', middleware.requireAuthentication, function(req, res
 
 router.put('/task/toggle/:id', middleware.requireAuthentication, function(req, res){
   console.log(req.body);
-  models.Task.findOne({ where: { id: req.params.id}}).then(function(success){
+  models.Task.findOne({ where: { uuid: req.params.id}}).then(function(success){
         console.log(success);
         success.set('isCompleted', true);
         success.save();

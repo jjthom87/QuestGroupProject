@@ -3,16 +3,16 @@ var moment = require('moment');
 
 export default class MissionAndTaskItem extends React.Component {
 	render(){
-		const { id, title, deleteMission, description, toggleTask, tasks, createdOn, isCompleted, active } = this.props;
-
+		const { id, uuid, title, deleteMission, description, toggleTask, tasks, createdOn, isCompleted, active } = this.props;
+		
 		var singleTask = () => {
-			return tasks.map((task) => {
+			return tasks.map((task, index) => {
 				return (
 					<div>
 						<input
 				  			type="checkbox"
 				  			checked={isCompleted}
-				  			onChange={() => toggleTask(id)}
+				  			onChange={() => toggleTask(task.uuid)}
 			  			/>
 						<p>{task.task}</p>
 					</div>
