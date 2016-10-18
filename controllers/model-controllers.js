@@ -36,6 +36,7 @@ var modelController = {
 	  		});
     	});
   	},
+  	// Creates a new user record to the user database based on user input received
   	userCreate: function(name, username, password, cb){
 	  	models.User.create({
 	  	  name: name,
