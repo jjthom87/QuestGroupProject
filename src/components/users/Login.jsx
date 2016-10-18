@@ -34,10 +34,10 @@ export default class Login extends React.Component {
 					<form onSubmit={this.onLoginSubmit.bind(this)}>
 						<h1 id="loginText"> Login </h1>
 						<div id="submitButton">
-							<input type="text" ref="username" placeholder="Enter Username"/>
+							<span className="glyphicon glyphicon-user"><input type="text" ref="username" placeholder="Enter Username"/></span>
 						</div>
 						<div id="submitButton">
-							<input type="password" ref="password" placeholder="Enter Password"/>
+							<span className="glyphicon glyphicon-lock"><input type="password" ref="password" placeholder="Enter Password"/></span>
 						</div>
 						<div id="submitButton">
 							<input className="btn btn-default" type="submit" />
