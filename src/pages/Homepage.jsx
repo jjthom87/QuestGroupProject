@@ -11,8 +11,11 @@ export default class HomePage extends React.Component {
       marginTop: "100px"
     };
     return (
-      <div>
-        <LandingNav/>
+      <div id="starsIMG" data-stellar-background-ratio="0.3">
+
+
+        <LandingNav />
+
         <div className="container clearfix" style={containerStyle} id="layoutContain">
           <div className="row">
             <div className="col-lg-12">
@@ -22,7 +25,9 @@ export default class HomePage extends React.Component {
           </div>
         </div>
         <div className = "text-center" id="pageTitle">
-          <h1>Welcome to Bubo. Please Login and Get Started</h1>
+
+          <h1>Welcome! Sign In To Continue.</h1>
+
         </div>
       </div>
     );
