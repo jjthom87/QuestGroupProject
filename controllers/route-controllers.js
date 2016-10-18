@@ -1,3 +1,4 @@
+// DEPENDENCIES
 var express = require('express');
 var path = require('path');
 var _ = require('lodash');
@@ -9,26 +10,33 @@ var modelController = require('./model-controllers.js');
 
 var middleware = require('../middleware/middleware.js')();
 
+// ROUTES
+
+// Setting root ('/') path to index.html
 router.get('/', (req,res) => {
 	res.sendFile(path.join(__dirname, '../public/index.html'));
 })
 
+// Setting homepage to authenticated users only
 router.get('/home', middleware.requireAuthentication, function(req, res){
     modelController.userHome(req.user.id, function(data){
         res.json(data)
     });
 });
 
+// Setting mission homepage to authenticated users only
 router.get('/missionhome', middleware.requireAuthentication, function(req,res){
     modelController.missionMain(req.user.id, function(data){
       res.json(data)
     })
 });
 
+// Sign-in: Setting user login route
 router.post('/users/login', function (req, res) {
   var body = _.pick(req.body, 'username', 'password');
   var userInfo;
 
+// Generates JSON Web Token once user is signed-in
 models.User.authenticate(body).then(function (user) {
       var token = user.generateToken('authentication');
       userInfo = user;
@@ -43,6 +51,7 @@ models.User.authenticate(body).then(function (user) {
     });
 });
 
+// Sign-out: Deletes user's JSON Web Token once logged out
 router.delete('/users/logout', middleware.requireAuthentication, function (req, res) {
   req.token.destroy().then(function () {
     res.status(204).send();
@@ -51,6 +60,7 @@ router.delete('/users/logout', middleware.requireAuthentication, function (req, 
   });
 });
 
+// Registration: Creates a new user record in the database based on the 'user' model
 router.post('/users/create', function(req,res){
     modelController.userCreate(
       req.body.name, 
