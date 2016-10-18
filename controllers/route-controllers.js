@@ -2,12 +2,11 @@ var express = require('express');
 var path = require('path');
 var _ = require('lodash');
 
+var router = express.Router();
+
+var models = require('../models');
 var modelController = require('./model-controllers.js');
 
-var router = express.Router();
-var app = express();
-
-var models = require('../models')
 var middleware = require('../middleware/middleware.js')();
 
 router.get('/', (req,res) => {
@@ -84,16 +83,29 @@ router.post('/task/create/', middleware.requireAuthentication, function(req, res
           missionName: req.body.dropdownItem,
           isCompleted: false,
           active: false,
-          UserId: req.user.id
+          UserId: req.user.id,
+          MissionId: mission.id
         }).then(function(task){
         mission.addTask(task).then(function(success){
-        res.json(task);
+        res.json(task); 
       }).catch(function(err){
         throw err;
         });
       });
     });
   });
+});
+
+router.put('/task/toggle/:id', middleware.requireAuthentication, function(req, res){
+  console.log(req.body);
+  models.Task.findOne({ where: { uuid: req.params.id}}).then(function(success){
+        console.log(success);
+        success.set('isCompleted', true);
+        success.save();
+        res.json(success);
+      }).catch(function(err){
+        throw err
+      })
 });
 
 router.post('/quest/create', middleware.requireAuthentication, function(req, res){

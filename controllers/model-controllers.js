@@ -14,7 +14,7 @@ var modelController = {
 		          quests.forEach(function(quest){
 		            enteredQuests.push(quest);
 		        });
-		   user.getTasks().then(function(tasks){
+		    user.getTasks().then(function(tasks){
 		          var enteredTasks = [];
 		          tasks.forEach(function(task){
 		            enteredTasks.push(task);
