@@ -1,15 +1,25 @@
+// QUEST: Dictates data fields for 'Quest' table
+// A 'Quest' can contain multiple 'Milestones' items
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var Quest = sequelize.define('Quest', {
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true
+    },
     description: {
       type: DataTypes.TEXT,
-      allowNull: false,
-     },
+      allowNull: false
+    },
+    questName: {
+      type: DataTypes.STRING
+    },
     isCompleted: {
       type: DataTypes.BOOLEAN
-     },
+    },
     active: {
-    type: DataTypes.BOOLEAN
+      type: DataTypes.BOOLEAN
     }
   }, {
     classMethods: {

@@ -6,9 +6,19 @@ body{
     height: 2000px;
 }
 
+#starsIMG{
+    background:url('../images/stars.png');
+    padding-top: 30px;
+    margin: 0;
+    background-attachment: fixed;
+    height: 2000px;
+    opacity: 0.9;
+}
+
 h1{
     font-weight: bolder;
 }
+
 
 input{
     margin-top: 8px;
@@ -25,6 +35,10 @@ input{
     height: 100%;
 }
 
+#separator{
+    margin-top: 100px;
+}
+
 #submitButton{
     text-align: center;
 }
@@ -35,9 +49,8 @@ input{
     display: inline-block; 
     padding: 20px; 
     margin-right: 30px;
-
+    word-wrap:break-word;
 }
-
 
 #regForm{
     width: 250px;
@@ -188,4 +201,8 @@ input{
 
 #homepageDiv a {
     color:white;
+}
+
+.task-completed {
+    text-decoration: line-through;
 }

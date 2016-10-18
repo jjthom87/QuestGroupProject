@@ -10,19 +10,13 @@ export default class CreateAccount extends React.Component {
 		e.preventDefault();
 
 		var creds = {};
-		var firstname = this.refs.firstname.value;
-		var lastname = this.refs.lastname.value;
+		var name = this.refs.name.value;
 		var username = this.refs.username.value;
 		var password = this.refs.password.value;
 
-		if (firstname.length > 0) {
-			this.refs.firstname.value = '';
-			creds.firstname = firstname;
-		}
-
-		if (lastname.length > 0) {
-			this.refs.lastname.value = '';
-			creds.lastname = lastname;
+		if (name.length > 0) {
+			this.refs.name.value = '';
+			creds.name = name;
 		}
 
 		if (username.length > 0) {
@@ -42,11 +36,10 @@ export default class CreateAccount extends React.Component {
 			<div id="regForm">
 				<form onSubmit={this.onCreateUser.bind(this)}>
 					<div>
-					<h1 id="submitButton">Create Account</h1>
-						<input type="text" ref="firstname" placeholder="Enter First Name"/>
+						<h1 id="submitButton">Create Account</h1>
 					</div>
 					<div>
-						<input type="text" ref="lastname" placeholder="Enter Last Name"/>
+						<input type="text" ref="name" placeholder="Enter Name/Nickname"/>
 					</div>
 					<div>
 						<input type="text" ref="username" placeholder="Enter Username"/>

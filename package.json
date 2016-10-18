@@ -1,11 +1,13 @@
 {
-  "name": "react-todos",
+  "name": "bubo",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "build": "webpack --watch --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "build:watch": "webpack --watch --config webpack.config.js"
   },
   "keywords": [],
   "author": "Eric Mok",
@@ -27,8 +29,6 @@
     "lodash": "^4.2.1",
     "mysql": "^2.11.1",
     "npm-scripts": "^1.4.0",
-    "passport": "^0.3.2",
-    "passport-local": "^1.0.0",
     "react": "^0.14.8",
     "react-bootstrap": "^0.30.3",
     "react-dom": "^0.14.8",
@@ -46,6 +46,8 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "jquery": "^3.1.1",
+    "moment": "^2.15.1",
+    "rc-progress": "^2.0.1",
     "react-bootstrap": "^0.30.5",
     "react-hot-loader": "^1.3.0",
     "webpack": "^1.13.2",

@@ -1,23 +1,30 @@
 import React, { Component, cloneElement } from 'react';
+import { Router , browserHistory } from 'react-router';
 var {Link, IndexLink} = require('react-router');
-import UserHomePage from 'UserHomePage';
 import CreateMission from 'CreateMission';
 import CreateTask from 'CreateTask';
-import MissionMainList from 'MissionMainList';
+import MainNav from 'MainNav';
 
 export default class MissionMain extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             missions: [],
-            tasks: []
+            tasks: [],
+            dropdownItem: ''
         };
     }
-    createMission(description) {
+    handleDropdownChange(e){
+        this.setState({
+            dropdownItem: e.target.value
+        })
+    }
+    createMission(creds) {
         const { missions } = this.state;
-        
+
         const newMiss = {
-            description
+            title: creds.title,
+            description: creds.description
         }
         fetch('/mission/create', {
             method: 'post',
@@ -56,50 +63,14 @@ export default class MissionMain extends React.Component {
             })
         }); 
     }
-    toggleTask(task) {
-        const foundtask= _.find(this.state.missions, mission => mission.task === task);
-        foundtask.isCompleted = !foundtask.isCompleted;
-        this.setState({ missions: this.state.missions});
-    }
-    // toggleTask(taskId) {
-    //     const { missions } = this.state;
-
-    //     // find the first item in our state which has the ID we're looking for (itemId)
-    //     const foundtask = missions.find((foundTask) => foundtask._id === taskId);
-
-    //     // if we found an item w/ that id, we toggle its `isCompleted` property
-    //     if (foundtask) {
-    //         foundtask.isCompleted = !foundtask.isCompleted;
-
-    //         fetch(`/api/task/${foundtask._id}`, {
-    //             method: 'PUT',
-    //             body: JSON.stringify(foundtask),
-    //             headers: { 'content-type': 'application/json' }
-    //         }).then((response) => response.json())
-    //             .then((json) => {
-    //                 // then we update our state with the updated items array. note that
-    //                 // `item` has the item by reference, meaning that when we changed its
-    //                 // isCompleted property, the array `items` was updated as well
-    //                 this.setState({
-    //                     missions: missions
-    //                 });
-    //             });
-    //     }
-    // }
-    saveTask(oldTask, newTask, oldDate, newDate) {
-        const foundtask=_.find(this.state.missions, mission=> mission.task ===oldTask);
-        foundtask.task=newTask;
-        foundtask.date=newDate;
-        this.setState({missions: this.state.missions});
-    }
-    handleCreateTask(task, id) {
-        console.log(task);
-        const { tasks } = this.state;
+    handleCreateTask(taskInput) {
+        const { tasks, dropdownItem } = this.state;
         
         const newTask = {
-            task
+            task: taskInput,
+            dropdownItem: dropdownItem
         }
-        fetch(`/task/create/`, {
+        fetch('/task/create/', {
             method: 'post',
             body: JSON.stringify(newTask),
             headers: {
@@ -116,39 +87,51 @@ export default class MissionMain extends React.Component {
             });
     }
     componentWillMount(){
-        fetch('/home', {
-            credentials: 'include',
+        const {missions} = this.state;
+        fetch('/missionhome', {
             headers: {
-                Auth: localStorage.getItem('token')
-            }
+                Auth: localStorage.getItem('token'),
+                'content-type': 'application/json',
+                'accept': 'application/json'
+            },
+            credentials: 'include'
         }).then((response) => response.json())
         .then((results) => {
-            console.log(results);
             this.setState({
-                missions: results.missions
+                missions: missions.concat(results)
             });
         });
     }
     render() {
+        const { missions } = this.state; 
+
+        var renderMissionDropdown = () => {
+            return missions.map((mission, index) => {
+                return (
+                    <option value={mission.title} className="dropdown-item">{mission.title}</option>
+                );  
+            });
+        }
         return (
             <div>
-                <div className="row">
-                    <div className="col-md-1">
-                        <button className="btn btn-warning"><Link to="/home">Back Home</Link></button>
+            <MainNav />
+                <div className="container" id="separator">
+                    <div className="row">
+                        <div className="col-md-1">
+                            <button className="btn btn-warning"><Link to="/home">Back Home</Link></button>
+                        </div>
                     </div>
+                    <h1 id="pageTitle">Missions Home</h1>
+                    <CreateMission
+                        missions={missions}
+                        createMission={this.createMission.bind(this)}
+                    />
+                    <select name="Please Select Mission to add Task to" value={this.state.dropdownItem} onChange={this.handleDropdownChange.bind(this)}>
+                        <option selected disabled>Choose Mission to add Task to</option>
+                        {renderMissionDropdown()}
+                    </select>
+                    <CreateTask createTask={this.handleCreateTask.bind(this)}/>
                 </div>
-                <h1 id="pageTitle">Missions Home</h1>
-                <CreateMission
-                    missions={this.props.missions}
-                    createMission={this.createMission.bind(this)}
-                />
-                <MissionMainList
-                    missions={this.state.missions}
-                    toggleTask={this.toggleTask.bind(this)}
-                    saveTask={this.saveTask.bind(this)}
-                    deleteMission={this.deleteMission.bind(this)}
-                    createTask={this.handleCreateTask.bind(this)}
-                />
             </div>
          );
     }

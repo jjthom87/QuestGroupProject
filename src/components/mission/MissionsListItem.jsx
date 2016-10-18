@@ -26,7 +26,7 @@ export default class MissionsListItem extends React.Component {
         );
     }
     renderTaskSection() {
-        const { description , isCompleted, date } = this.props;
+        const { title, description , isCompleted, date } = this.props;
 
         const missionsStyle = {
             color: isCompleted ? 'green' : 'red',
@@ -37,6 +37,7 @@ export default class MissionsListItem extends React.Component {
             return(
                 <div>
                     <form onSubmit={this.onSaveClick.bind(this)}>
+                        <input type="text" defaultValue={title} ref="editInput" />
                         <input type="text" defaultValue={description} ref="editInput" />
                         <input type="date" defaultValue={date} ref="editDate" />
                     </form>
@@ -45,9 +46,10 @@ export default class MissionsListItem extends React.Component {
         }
         return (
             <div style={missionsStyle}
-                onClick={this.props.toggleTask.bind(this, description)}
+                onClick={this.props.toggleTask.bind(this, title)}
             >
-                {description} {date}
+                {title} {date}
+                {description}
             </div>
         );  
     }
@@ -72,10 +74,10 @@ export default class MissionsListItem extends React.Component {
     }
     render() {
         return (
-                <div>
-                    {this.renderTaskSection()}
-                    {this.renderActionsSection()}
-                </div>
+            <div>
+                {this.renderTaskSection()}
+                {this.renderActionsSection()}
+            </div>
         );
     }
 }

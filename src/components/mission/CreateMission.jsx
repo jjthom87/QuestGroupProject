@@ -18,36 +18,45 @@ export default class CreateMission extends React.Component {
     handleCreate(event) {
         event.preventDefault();
 
-        const missionInput = this.refs.createMission.value;
-        const validateInput = this.validateInput(missionInput);
+        const creds = {};
+        const title = this.refs.title.value;
+        const description = this.refs.description.value;
 
-
-        if(validateInput) {
-            this.setState({ error: validateInput });
-            return;
+        if (title.length > 0) {
+            this.refs.title.value = '';
+            creds.title = title;
         }
 
-        this.setState({ error: null });
-        this.props.createMission(missionInput);
-        this.refs.createMission.value = '';
-
-    }
-    validateInput(taskInput) {
-        if(!taskInput) {
-            return ("Please enter a task.");
-        } else if(_.find(this.props.missions, mission => mission.taskInput === taskInput)) {
-            return ("Duplicate task exists.");
-        } else {
-            return null;
+        if (description.length > 0) {
+            this.refs.description.value = '';
+            creds.description = description;
         }
+
+        this.props.createMission(creds);
     }
+    // validateInput(taskInput) {
+    //     if(!taskInput) {
+    //         return ("Please enter a task.");
+    //     } else if(_.find(this.props.missions, mission => mission.taskInput === taskInput)) {
+    //         return ("Duplicate task exists.");
+    //     } else {
+    //         return null;
+    //     }
+    // }
     render() {
         return (
             <div>
                 <h2 className="missionTitle">Form A New Mission!</h2>
                 <form onSubmit={this.handleCreate.bind(this)}>
-                    <input type="text" placeholder="Create Mission" ref="createMission" />
-                    <input type="submit" placeholder="Add Mission" />
+                    <div>
+                        <input type="text" placeholder="Mission Title" ref="title" />
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Mission Description" ref="description" />
+                    </div>
+                    <div>
+                        <input type="submit" placeholder="Add Mission" />
+                    </div>
                     {this.renderError()}
                 </form>
             </div>

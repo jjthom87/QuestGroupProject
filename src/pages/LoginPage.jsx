@@ -41,7 +41,7 @@ export default class LoginPage extends React.Component {
 		})
 	}
 	authenticateLogin(){
-		  const {authenticated} = this.props;
+		  const {authenticated} = this.state;;
 		  if (!authenticated){
 		    browserHistory.push('/')
 		  }
@@ -51,7 +51,6 @@ export default class LoginPage extends React.Component {
 			<div className="row">
 				<div className="column small-centered small-11 medium-6 large-5">
 					<div className="container">
-						<h1 className="container_header text-center">Login</h1>
 						<Login onLogin={this.handleNewData.bind(this)}/>
 					</div>
 				</div>

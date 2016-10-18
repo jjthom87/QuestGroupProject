@@ -1,53 +1,60 @@
 import React, { Component } from 'react';
+import { FormGroup, FormControl, ControlLabel, Checkbox, Button } from 'react-bootstrap';
 
 export default class CreateTask extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-        	error: ''
         };
     }
-    renderError() {
-        if(!this.state.error) {
-            return null;
-        }
-        return <div style={{color:'red'}}> { this.state.error } </div>;
-    }
-    handleCreate(event) {
+    // handleDropdownChange(e){
+    //     this.setState({
+    //         dropdownItem: e.target.value
+    //     })
+    // }
+    handleCreateTask(event) {
         event.preventDefault();
 
-        const taskInput = this.refs.taskInput.value;
-        const validateInput = this.validateInput(taskInput);
+        const task = this.refs.task.value;
 
-        if(validateInput) {
-            this.setState({ error: validateInput });
-            return;
+        if (task.length > 0) {
+            this.refs.task.value = '';
         }
-
-        if (taskInput.length > 0) {
-			this.refs.taskInput.value = '';
-			this.setState({ error: null });
-		}
-        this.props.createTask(taskInput);
-    }
-    validateInput(taskInput) {
-        if(!taskInput) {
-            return ("Please enter a task.");
-        } else if(_.find(this.props.tasks, task => task.taskInput === taskInput)) {
-            return ("Duplicate task exists.");
-        } else {
-            return null;
-        }
+        this.props.createTask(task);
     }
     render() {
+        // const { missions } = this.props; 
+
+        // var renderMissionDropdown = () => {
+        //     if (missions.length === 0){
+        //         return (
+        //             <div className="dropdown open" aria-labelledby="dropdownMenuLink">
+        //                 <li className="dropdown-item">No Missions to Add Task To</li>
+        //             </div>
+        //         );
+        //     }
+        //     return missions.map((mission, index) => {
+        //         return (
+        //             <option value={mission.title} className="dropdown-item">{mission.title}</option>
+        //         );
+        //     });
+        // }
+        const { dropdownItem } = this.props
+        var renderTaskForm = () => {
+                return (
+                    <div>
+                        <form onSubmit={this.handleCreateTask.bind(this)}>
+                            <input type="text" placeholder="Create Task For Mission" ref="task" />
+                            <input type="hidden" value={dropdownItem} placeholder="Mission Name"/>
+                            <input type="submit" value="Add Task"/>
+                        </form>
+                    </div>
+                );
+        }
         return (
             <div>
-	            <form onSubmit={this.handleCreate.bind(this)}>
-	                <input type="text" placeholder="Create Task" ref="taskInput" />
-	                <input type="submit" placeholder="Add Task" />
-	                {this.renderError()}
-	            </form>
+                {renderTaskForm()}
             </div>
         );
-    }
+    } 
 }
