@@ -106,12 +106,6 @@ export default class UserHomePage extends React.Component {
                 });
         }
     }
-    saveTask(oldTask, newTask, oldDate, newDate) {
-        const foundtask=_.find(this.state.missions, mission=> mission.task ===oldTask);
-        foundtask.task=newTask;
-        foundtask.date=newDate;
-        this.setState({missions: this.state.missions});
-    }
     toggleMilestone(milestone) {
         const foundMilestone= _.find(this.state.quests, quest => quest.milestone === milestone);
         foundMilestone.isCompleted = !foundMilestone.isCompleted;

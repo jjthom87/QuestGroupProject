@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 var moment = require('moment');
+import { Line } from 'rc-progress'; 
 
 export default class MissionAndTaskItem extends React.Component {
 	render(){
@@ -45,6 +46,7 @@ export default class MissionAndTaskItem extends React.Component {
 				<div>
 					<button onClick={() => deleteMission(id)}>Delete</button>
 				</div>
+				<Line percent="10" strokeWidth="4" strokeColor="D3D3D3"/>
 			</div>
 		)
 	}

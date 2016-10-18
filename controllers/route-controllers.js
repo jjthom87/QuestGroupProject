@@ -72,16 +72,24 @@ router.post('/mission/create', middleware.requireAuthentication, function(req, r
 });
 
 router.post('/task/create/', middleware.requireAuthentication, function(req, res){
-    modelController.taskCreate(
-      req.user.id,
-      req.body.dropdownItem,
-      req.body.task,
-      req.body.dropdownItem,
-      req.user.id,
-      mission.id,
-      function(success){
-        res.json(success)
-      })
+    models.User.findOne({where: {id: req.user.id}}).then(function(user){
+        models.Mission.findOne({ where: {title: req.body.dropdownItem }}).then(function(mission){
+          models.Task.create({
+            task: req.body.task,
+            missionName: req.body.dropdownItem,
+            isCompleted: false,
+            active: false,
+            UserId: req.user.id,
+            MissionId: mission.id
+          }).then(function(task){
+          mission.addTask(task).then(function(success){
+           res.json(task); 
+        }).catch(function(err){
+          throw err;
+          });
+        });
+      });
+    });
 });
 
 router.put('/task/toggle/:id', middleware.requireAuthentication, function(req, res){
