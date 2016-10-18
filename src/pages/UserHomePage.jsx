@@ -20,7 +20,7 @@ export default class UserHomePage extends React.Component {
             tasks: [],
             dropdownMission: '',
 			createdOn: '',
-            oneMissionAndTasks: [],
+            oneMissionAndTasks: []
 		};
 	}
     handleDropdownMission(e){
@@ -101,7 +101,7 @@ export default class UserHomePage extends React.Component {
             }).then((response) => response.json())
                 .then((json) => {
                     this.setState({
-                        tasks: tasks
+                        tasks: tasks,
                     });
                 });
         }
@@ -172,7 +172,6 @@ export default class UserHomePage extends React.Component {
                                 missions={filteredMission}
                                 tasks={filteredTasks}
                                 toggleTask={this.toggleTask.bind(this)}
-                                saveTask={this.saveTask.bind(this)}
                                 deleteMission={this.deleteMission.bind(this)}
                             />
                         </div>

@@ -3,9 +3,28 @@ var moment = require('moment');
 import { Line } from 'rc-progress'; 
 
 export default class MissionAndTaskItem extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+        	color: '#37C7FA',
+        	percent: ''
+        };
+    }
+    changeLine(){
+    	const { tasks } = this.props
+    	var completedTasks = tasks.filter((task) => !isCompleted);
+    	this.setState({
+    		percent: completedTasks.length/tasks.length
+    	})
+    }
 	render(){
-		const { id, uuid, title, deleteMission, description, toggleTask, tasks, createdOn, isCompleted, active } = this.props;
-		
+
+		const { id, uuid, title, deleteMission, description, percent, toggleTask, tasks, createdOn, isCompleted, active } = this.props;
+
+		var completedTasks = tasks.filter((task) => !isCompleted);
+
+		const percentage = completedTasks.length/tasks.length
+
 		var singleTask = () => {
 			return tasks.map((task, index) => {
 				return (
@@ -20,7 +39,6 @@ export default class MissionAndTaskItem extends React.Component {
 				)
 			})
 		}
-
 		var renderDate = () => {
 			var message = "Added on ";
 			var timestamp = createdOn
@@ -46,7 +64,7 @@ export default class MissionAndTaskItem extends React.Component {
 				<div>
 					<button onClick={() => deleteMission(id)}>Delete</button>
 				</div>
-				<Line percent="10" strokeWidth="4" strokeColor="D3D3D3"/>
+				<Line percent={percentage} strokeWidth="4" strokeColor="#3FC7FA"/>
 			</div>
 		)
 	}
