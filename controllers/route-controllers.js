@@ -10,25 +10,23 @@ var modelController = require('./model-controllers.js');
 
 var middleware = require('../middleware/middleware.js')();
 
-// ROUTES
 
+// ROUTES
+// NON-authenticated Users=================================================
 // Setting root ('/') path to index.html
 router.get('/', (req,res) => {
 	res.sendFile(path.join(__dirname, '../public/index.html'));
 })
 
-// Setting homepage to authenticated users only
-router.get('/home', middleware.requireAuthentication, function(req, res){
-    modelController.userHome(req.user.id, function(data){
-        res.json(data)
+// Registration: Creates a new user record in the database based on the 'user' model
+router.post('/users/create', function(req,res){
+    modelController.userCreate(
+      req.body.name, 
+      req.body.username, 
+      req.body.password, 
+    function(success){
+      res.json(success);
     });
-});
-
-// Setting mission homepage to authenticated users only
-router.get('/missionhome', middleware.requireAuthentication, function(req,res){
-    modelController.missionMain(req.user.id, function(data){
-      res.json(data)
-    })
 });
 
 // Sign-in: Setting user login route
@@ -36,6 +34,7 @@ router.post('/users/login', function (req, res) {
   var body = _.pick(req.body, 'username', 'password');
   var userInfo;
 
+// AUTHENTICATED Users=====================================================
 // Generates JSON Web Token once user is signed-in
 models.User.authenticate(body).then(function (user) {
       var token = user.generateToken('authentication');
@@ -51,6 +50,20 @@ models.User.authenticate(body).then(function (user) {
     });
 });
 
+// Setting homepage to authenticated users only
+router.get('/home', middleware.requireAuthentication, function(req, res){
+    modelController.userHome(req.user.id, function(data){
+        res.json(data)
+    });
+});
+
+// Setting mission homepage
+router.get('/missionhome', middleware.requireAuthentication, function(req,res){
+    modelController.missionMain(req.user.id, function(data){
+      res.json(data)
+    })
+});
+
 // Sign-out: Deletes user's JSON Web Token once logged out
 router.delete('/users/logout', middleware.requireAuthentication, function (req, res) {
   req.token.destroy().then(function () {
@@ -60,17 +73,8 @@ router.delete('/users/logout', middleware.requireAuthentication, function (req, 
   });
 });
 
-// Registration: Creates a new user record in the database based on the 'user' model
-router.post('/users/create', function(req,res){
-    modelController.userCreate(
-      req.body.name, 
-      req.body.username, 
-      req.body.password, 
-    function(success){
-      res.json(success);
-    });
-});
 
+// Allows users to create a Mission
 router.post('/mission/create', middleware.requireAuthentication, function(req, res){
     modelController.missionCreate(
       req.body.title,
@@ -81,6 +85,7 @@ router.post('/mission/create', middleware.requireAuthentication, function(req, r
     });
 });
 
+// Allows users to add Tasks to a Mission
 router.post('/task/create/', middleware.requireAuthentication, function(req, res){
     models.User.findOne({where: {id: req.user.id}}).then(function(user){
         models.Mission.findOne({ where: {title: req.body.dropdownItem }}).then(function(mission){
@@ -102,6 +107,7 @@ router.post('/task/create/', middleware.requireAuthentication, function(req, res
     });
 });
 
+// Toggles a Task for completion
 router.put('/task/toggle/:id', middleware.requireAuthentication, function(req, res){
   modelController.taskToggle(
     req.params.id,
@@ -110,6 +116,7 @@ router.put('/task/toggle/:id', middleware.requireAuthentication, function(req, r
     });
 });
 
+// Allows users to add a Quest
 router.post('/quest/create', middleware.requireAuthentication, function(req, res){
     modelController.questCreate(
       req.body.title,
@@ -120,6 +127,7 @@ router.post('/quest/create', middleware.requireAuthentication, function(req, res
     });
 });
 
+// Allows users to delete a Mission
 router.delete('/mission/delete/:id', middleware.requireAuthentication, function(req, res){
     modelController.missionDelete(
         req.user.id,
@@ -129,6 +137,7 @@ router.delete('/mission/delete/:id', middleware.requireAuthentication, function(
     })
 })
 
+// Allows users to delete a Quest
 router.delete('/quest/delete/:id', middleware.requireAuthentication, function(req, res){
     modelController.questDelete(
         req.user.id,
