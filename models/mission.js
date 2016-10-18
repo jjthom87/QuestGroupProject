@@ -1,3 +1,5 @@
+// MISSION: Dictates data fields for Mission' item
+// 'Missions' can contain multiple 'Task' items
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var Mission = sequelize.define('Mission', {

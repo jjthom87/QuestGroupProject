@@ -1,3 +1,5 @@
+// MILESTONE: Dicates data fields for 'Milestone' item
+// Multiple 'Milestones' can exist under a single 'Quest' item
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var Milestone = sequelize.define('Milestone', {
