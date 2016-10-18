@@ -15,6 +15,9 @@ module.exports = function(sequelize, DataTypes) {
     missionName: {
       type: DataTypes.STRING
     },
+    milestoneName:{
+      type: DataTypes.STRING
+    },
     isCompleted: {
       type: DataTypes.BOOLEAN
     },
@@ -25,6 +28,7 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
        	Task.belongsTo(models.Mission);
+        Task.belongsTo(models.Milestone);
       }
     }
   });

@@ -1,9 +1,8 @@
-// CONFIG: Setting up Application's Back-End environment
 {
   "development": {
     "username": "root",
     "password": "",
-    "database": "quest16_db",
+    "database": "quest18_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
