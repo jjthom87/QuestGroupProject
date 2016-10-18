@@ -197,3 +197,7 @@ input{
 #homepageDiv a {
     color:white;
 }
+
+.task-completed {
+    text-decoration: line-through;
+}
