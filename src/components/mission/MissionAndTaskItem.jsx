@@ -22,15 +22,16 @@ export default class MissionAndTaskItem extends React.Component {
 				var taskClassName = task.isCompleted ? 'task-completed' : 'task-notCompleted';
 				return (
 					<div>
-						<li>
+						<span>
 							<input
 					  			type="checkbox"
 					  			checked={isCompleted}
 					  			onChange={() => toggleTask(task.uuid)}
 				  			/>
-							<p className={taskClassName}>{task.task}</p>
+							<p className={taskClassName} id="taskText">{task.task}</p>
 							<button onClick={() => deleteTask(task.uuid)}>X</button>
-						</li>
+						</span>
+						
 					</div>
 				)
 			})
@@ -43,18 +44,15 @@ export default class MissionAndTaskItem extends React.Component {
 		}
 		return (
 			<div>
+
 				<div>
-					<p>Mission Title</p>
+					<span><p><strong>Mission:</strong> {title}</p></span>
 				</div>
 				<div>
-					<p>{title}</p>
+					<p><strong>Description:</strong>{description}</p>
 				</div>
 				<div>
-					<p>Mission description</p>
-				</div>
-					<p>{description}</p>
-				<div>
-					<p>Tasks</p>
+					<p><strong>Tasks</strong></p>
 					{singleTask()}
 				</div>
 				<div>

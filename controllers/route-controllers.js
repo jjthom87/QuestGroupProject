@@ -101,7 +101,8 @@ router.post('/task/create/', middleware.requireAuthentication, function(req, res
             isCompleted: false,
             active: false,
             UserId: req.user.id,
-            MissionId: mission.id
+            MissionId: mission.id,
+            dateTask: req.body.dateTask
           }).then(function(task){
           mission.addTask(task).then(function(success){
            res.json(task); 

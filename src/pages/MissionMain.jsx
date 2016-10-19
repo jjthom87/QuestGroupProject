@@ -43,10 +43,11 @@ export default class MissionMain extends React.Component {
             });
     }
     handleCreateTask(taskInput) {
-        const { tasks, dropdownItem } = this.state;
-        
+        const { tasks, dropdownItem} = this.state;
+        console.log(taskInput);
         const newTask = {
-            task: taskInput,
+            task: taskInput.task,
+            dateTask: taskInput.dateTask,
             dropdownItem: dropdownItem
         }
         fetch('/task/create/', {
