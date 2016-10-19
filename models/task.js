@@ -23,6 +23,9 @@ module.exports = function(sequelize, DataTypes) {
     },
     active: {
       type: DataTypes.BOOLEAN
+    },
+    dateTask: {
+      type: DataTypes.TEXT
     }
   }, {
     classMethods: {
