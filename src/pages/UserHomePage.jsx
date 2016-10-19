@@ -136,7 +136,7 @@ export default class UserHomePage extends React.Component {
     toggleMilestone(milestoneId) {
         const { milestones } = this.state;
 
-        const foundmilestone = milestone.find((milestone) => milestone.uuid === milestoneId);
+        const foundmilestone = milestones.find((milestone) => milestone.uuid === milestoneId);
 
         if (foundmilestone) {
             foundmilestone.isCompleted = !foundmilestone.isCompleted;
@@ -169,7 +169,7 @@ export default class UserHomePage extends React.Component {
             headers: {
                 Auth: localStorage.getItem('token'),
                 'content-type': 'application/json',
-                'accept': 'application/json'
+                'accept': 'application/json' 
             },
             credentials: 'include'
         }).then((response) => response.json())
@@ -201,8 +201,6 @@ export default class UserHomePage extends React.Component {
 	}
 	render() {
 		const { loginUser, missions, quests, tasks, milestones, dropdownMission, dropdownQuest } = this.state;
-
-        console.log(milestones);
 
         const filteredMission = missions.filter((mission) => dropdownMission === mission.title);
         const filteredTasks = tasks.filter((task) => dropdownMission === task.missionName);
@@ -238,11 +236,11 @@ export default class UserHomePage extends React.Component {
     				<div className="row">
     					<div className="col-md-3">
     					</div>
+                        <div className="panel panel-success col-md-3 qmbox">
                             <select name="Please Select Mission" value={this.state.dropdownMission} onChange={this.handleDropdownMission.bind(this)}>
                                 <option selected disabled>Find Mission</option>
                                 {renderMissionDropdown()}
                             </select>
-                        <div className="panel panel-success col-md-3 qmbox">
                             <MissionsList
                                 missions={filteredMission}
                                 tasks={filteredTasks}
