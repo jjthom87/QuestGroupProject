@@ -16,6 +16,7 @@ import QuestMain from "QuestMain";
 import CreateAccountPage from 'CreateAccountPage';
 import LoginPage from 'LoginPage';
 import UserHomePage from 'UserHomePage';
+import SearchAllPage from 'SearchAllPage';
 import Authentication from 'Authentication';
 
 // COMPONENT ROUTES============================================================
@@ -28,6 +29,7 @@ export default (
         <Route path="/register" component={CreateAccountPage} />
         <Route path="/login" component={LoginPage} />
         <Route path="/home" component={UserHomePage} />
+        <Route path="/searchall" component={SearchAllPage} />
     	</Route>
   	</Router>
 );

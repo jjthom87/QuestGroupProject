@@ -64,8 +64,16 @@ router.get('/missionhome', middleware.requireAuthentication, function(req,res){
     })
 });
 
+// Setting quest homepage
 router.get('/questhome', middleware.requireAuthentication, function(req,res){
     modelController.questMain(req.user.id, function(data){
+      res.json(data)
+    })
+});
+
+// Retrieving all Bubo Missions and Quests
+router.get('/searchall', middleware.requireAuthentication, function(req,res){
+    modelController.allMain(req.user.id, function(data){
       res.json(data)
     })
 });

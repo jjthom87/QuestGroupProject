@@ -82,8 +82,23 @@ var modelController = {
 	    	throw err;
 	    });
 	},
+	// Retrieves all Missions for matching User (See route '/questhome')
 	questMain: function(id, cb){
 	    models.Quest.findAll({ where: {UserId: id}}).then(function(success){
+	        cb(success);
+	    }).catch(function(err){
+	    	throw err;
+	    });
+	},
+	// Retreives all Bubo Missions and Quests that exist in database (See route '/searchall')
+	allMain: function(id, cb){
+	    models.Mission.findAll().then(function(success){
+	        cb(success);
+	    }).catch(function(err){
+	    	throw err;
+	    });
+	    
+	    models.Quest.findAll().then(function(success){
 	        cb(success);
 	    }).catch(function(err){
 	    	throw err;
