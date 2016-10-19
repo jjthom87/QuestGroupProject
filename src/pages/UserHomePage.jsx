@@ -202,8 +202,6 @@ export default class UserHomePage extends React.Component {
 	render() {
 		const { loginUser, missions, quests, tasks, milestones, dropdownMission, dropdownQuest } = this.state;
 
-        console.log(milestones);
-
         const filteredMission = missions.filter((mission) => dropdownMission === mission.title);
         const filteredTasks = tasks.filter((task) => dropdownMission === task.missionName);
         const filteredQuest = quests.filter((quest) => dropdownQuest === quest.title);
