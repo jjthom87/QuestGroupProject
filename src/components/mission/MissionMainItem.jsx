@@ -63,7 +63,9 @@ export default class MissionMainItem extends React.Component {
         return (
             <div>
                 <p className="missionsTitle">Missions</p>
+                <div className="panel-group" id="accordion"> 
                 {renderMissions()}
+                </div>
             </div>
         );
     } 
