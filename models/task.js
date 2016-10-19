@@ -26,6 +26,9 @@ module.exports = function(sequelize, DataTypes) {
     },
     dateTask: {
       type: DataTypes.TEXT
+    },
+    timeTask: {
+      type: DataTypes.TEXT
     }
   }, {
     classMethods: {
