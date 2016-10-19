@@ -33,7 +33,7 @@ export default class CreateQuest extends React.Component {
             creds.description = description;
         }
 
-        this.props.createMission(creds);
+        this.props.createQuest(creds);
     }
     // validateInput(milestone) {
     //     if(!milestone) {

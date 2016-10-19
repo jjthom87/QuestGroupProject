@@ -16,11 +16,17 @@ export default class CreateTask extends React.Component {
         event.preventDefault();
 
         const task = this.refs.task.value;
-
+        const dateTask = this.refs.dateTask.value;
         if (task.length > 0) {
             this.refs.task.value = '';
+            this.refs.dateTask.value = '';
         }
-        this.props.createTask(task);
+
+        const taskInput = { 
+            task,
+            dateTask
+        };
+        this.props.createTask(taskInput);
     }
     render() {
         // const { missions } = this.props; 
@@ -44,7 +50,8 @@ export default class CreateTask extends React.Component {
                 return (
                     <div>
                         <form onSubmit={this.handleCreateTask.bind(this)}>
-                            <input type="text" placeholder="Create Task For Mission" ref="task" />
+                            <input type="text" placeholder="Add a Task to your Mission" ref="task" />
+                            <input type="date" placeholder="Set your Date of Achievement" ref="dateTask" />
                             <input type="hidden" value={dropdownItem} placeholder="Mission Name"/>
                             <input type="submit" value="Add Task"/>
                         </form>

@@ -42,32 +42,12 @@ export default class MissionMain extends React.Component {
                 });
             });
     }
-    deleteMission(id){
-        const { missions } = this.state;
-
-        const deleteMission = _.remove(missions, mission => mission.id === id);
-
-        fetch(`/mission/delete/${deleteMission[0].id}`,{
-            method: 'DELETE',
-            body: JSON.stringify(deleteMission),
-            headers: {
-                Auth: localStorage.getItem('token'),
-                'content-type': 'application/json',
-                'accept': 'application/json'
-            },
-            credentials: 'include'
-        }).then((response) => response.json())
-        .then((results) => {
-            this.setState({
-                missions: missions
-            })
-        }); 
-    }
     handleCreateTask(taskInput) {
-        const { tasks, dropdownItem } = this.state;
-        
+        const { tasks, dropdownItem} = this.state;
+        console.log(taskInput);
         const newTask = {
-            task: taskInput,
+            task: taskInput.task,
+            dateTask: taskInput.dateTask,
             dropdownItem: dropdownItem
         }
         fetch('/task/create/', {
@@ -114,7 +94,7 @@ export default class MissionMain extends React.Component {
         }
         return (
             <div>
-            <MainNav />
+                <MainNav />
                 <div className="container" id="separator">
                     <div className="row">
                         <div className="col-md-1">

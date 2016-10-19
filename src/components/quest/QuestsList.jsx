@@ -1,17 +1,19 @@
-import _ from 'lodash';
 import React, { Component } from 'react';
 import QuestsListHeader from 'QuestsListHeader';
-import QuestsListItem from 'QuestsListItem';
+import QuestAndMilestoneItem from 'QuestAndMilestoneItem';
 
 export default class QuestsList extends React.Component {
     render() {
-        const { quests, toggleMilestone, deleteQuest } = this.props;
+        const { quests, milestones, toggleMilestone, deleteQuest, deleteMilestone } = this.props;
 
         var renderQuests = () => {
             return quests.map((quest, index) => {
                 return (
-                    <QuestsListItem
+                    <QuestAndMilestoneItem
+                        title={quest.title}
                         description={quest.description}
+                        milestones={milestones}
+                        deleteMilestone={deleteMilestone}
                         toggleMilestone={toggleMilestone}
                         deleteQuest={deleteQuest}
                         id={quest.id}
@@ -23,19 +25,15 @@ export default class QuestsList extends React.Component {
         var noQuests = () => {
             if (quests.length === 0){
                 return (
-                    <p className="noQuestsText">Please Create a Quest</p>
+                    <p className="noQuestsText">Select a Quest from the Dropdown</p>
                 );
             }
         }
         return (
             <div>
                 <p className="questsTitle">Quests</p>
-                <div>{noQuests()}</div>
-                <table>
-                    <tbody>
-                        {renderQuests()}
-                    </tbody>
-                </table>
+                {noQuests()}
+                {renderQuests()}
             </div>
         );
     } 
