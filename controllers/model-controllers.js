@@ -22,18 +22,25 @@ var modelController = {
 		          tasks.forEach(function(task){
 		            enteredTasks.push(task);
 		        });
+		    user.getMilestones().then(function(milestones){
+		    	  var enteredMilestones = [];
+		    	  milestones.forEach(function(milestone){
+		    	  	enteredMilestones.push(milestone)
+		    	  });
 		        var data = {
 		          currentUser: user,
 		          missions: enteredMissions,
 		          quests: enteredQuests,
-		          tasks: enteredTasks
+		          tasks: enteredTasks,
+		          milestones: enteredMilestones
 		        }
 		        cb(data);
 				}).catch(function(err){
 					throw err;
 				});
 			  });
-	  		});
+			});
+	  	  });
     	});
   	},
   	// Creates a new User record to the database (See route 'users/create')
@@ -58,9 +65,25 @@ var modelController = {
 	        throw err
 	      })	
 	},
+	milestoneToggle: function(uuid, cb){
+	  models.Milestone.findOne({ where: { uuid: uuid}}).then(function(success){
+	        success.set('isCompleted', true);
+	        success.save();
+	          cb(success);
+	      }).catch(function(err){
+	        throw err
+	      })	
+	},
 	// Retrieves all Missions for matching User (See route '/missionhome')
 	missionMain: function(id, cb){
 	    models.Mission.findAll({ where: {UserId: id}}).then(function(success){
+	        cb(success);
+	    }).catch(function(err){
+	    	throw err;
+	    });
+	},
+	questMain: function(id, cb){
+	    models.Quest.findAll({ where: {UserId: id}}).then(function(success){
 	        cb(success);
 	    }).catch(function(err){
 	    	throw err;
@@ -121,6 +144,16 @@ var modelController = {
 	taskDelete: function(userId, paramsId, cb){
 		models.User.findOne({where: {id: userId}}).then(function(){
 		    models.Task.destroy({ where: { uuid: paramsId }
+		    }).then(function(success){
+		      cb(success);
+		    }).catch(function(err){
+		      throw err;
+		    })
+	 	})
+	},
+	milestoneDelete: function(userId, paramsId, cb){
+		models.User.findOne({where: {id: userId}}).then(function(){
+		    models.Milestone.destroy({ where: { uuid: paramsId }
 		    }).then(function(success){
 		      cb(success);
 		    }).catch(function(err){
