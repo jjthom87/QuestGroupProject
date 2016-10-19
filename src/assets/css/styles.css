@@ -163,6 +163,18 @@ input{
      margin-left:5px;
      margin-right: 5px;
  }
+
+ .panel-heading a:after {
+    font-family:'Glyphicons Halflings';
+    content:"\e114";
+    float: right;
+    color:black;
+}
+.panel-heading a.collapsed:after {
+    content:"\e080";
+}
+
+
 #pageTitle {
     font-size: 24px;
     color: yellow;
@@ -203,10 +215,15 @@ input{
     margin-top: 80px;
 }
 
-#homepageDiv a {
+/*#homepageDiv a {
     color:white;
-}
+}*/
 
 .task-completed {
     text-decoration: line-through;
+}
+
+
+#taskTitle {
+    color: black;
 }
