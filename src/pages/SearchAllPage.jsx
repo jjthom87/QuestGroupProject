@@ -82,27 +82,34 @@ export default class SearchAllPage extends React.Component {
 
     	return (
       		<div className="row">
-                        <div className="col-md-3">
+                        <div className="row">
+                            <div className="col-md-1">
+                                <Link to="/home"><button className="btn btn-warning">Back Home</button></Link>
+                            </div>
                         </div>
-                        <div className="panel panel-success col-md-3 qmbox">
-                            <select name="Please Select Mission" value={this.state.dropdownMission} onChange={this.handleDropdownMission.bind(this)}>
-                                <option selected disabled>Find Mission</option>
-                                {renderMissionDropdown()}
-                            </select>
-                            <MissionsList
-                                missions={missions}
-                            />
+                        <div className="row">
+                            <div className="panel panel-success col-md-3 qmbox">
+                                <select name="Please Select Mission" value={this.state.dropdownMission} onChange={this.handleDropdownMission.bind(this)}>
+                                    <option selected disabled>Find Mission</option>
+                                    {renderMissionDropdown()}
+                                </select>
+                                <MissionsList
+                                    missions={missions}
+                                />
+                            </div>
                         </div>
-                        <div className="panel panel-success col-md-3 qmbox">
-                            <select name="Please Select Quest" value={this.state.dropdownQuest} onChange={this.handleDropdownQuest.bind(this)}>
-                                <option selected disabled>Find Quest</option>
-                                {renderQuestDropdown()}
-                            </select>
-                            <QuestsList
-                                quests={quests}
-                                milestones={milestones}
-                                milestonetasks={milestonetasks}
-                            />
+                        <div className="row">
+                            <div className="panel panel-success col-md-3 qmbox">
+                                <select name="Please Select Quest" value={this.state.dropdownQuest} onChange={this.handleDropdownQuest.bind(this)}>
+                                    <option selected disabled>Find Quest</option>
+                                    {renderQuestDropdown()}
+                                </select>
+                                <QuestsList
+                                    quests={quests}
+                                    milestones={milestones}
+                                    milestonetasks={milestonetasks}
+                                />
+                            </div>
                         </div>
                         <div className="col-md-3">
                         </div>
