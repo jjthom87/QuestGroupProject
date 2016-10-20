@@ -8,8 +8,9 @@ import QuestMain from "QuestMain";
 import QuestsList from 'QuestsList';
 import Logout from 'Logout';
 import MainNav from 'MainNav';
-import searchMissionQuestList from 'searchMissionQuestList';
 import MissionAndTaskItem from 'MissionAndTaskItem';
+import MissionSearchItem from 'MissionSearchItem';
+import QuestSearchItem from 'QuestSearchItem';
 
 export default class SearchAllPage extends React.Component {
   	constructor(props) {
@@ -84,7 +85,7 @@ export default class SearchAllPage extends React.Component {
       		<div className="row">
                         <div className="row">
                             <div className="col-md-1">
-                                <Link to="/home"><button className="btn btn-warning">Back Home</button></Link>
+                                <button className="btn btn-warning"><Link to="/home">Back Home</Link></button>
                             </div>
                         </div>
                         <div className="row">
@@ -95,6 +96,7 @@ export default class SearchAllPage extends React.Component {
                                 </select>
                                 <MissionsList
                                     missions={missions}
+                                    missiontasks={missiontasks}
                                 />
                             </div>
                         </div>
