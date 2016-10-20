@@ -30,7 +30,7 @@ export default class MissionAndTaskItem extends React.Component {
 					  			onChange={() => toggleMissionTask(task.uuid)}
 				  			/>
 							<p className={taskClassName} id="taskText">{task.task}</p>
-							<button onClick={() => deleteMissionTask(task.uuid)}>X</button>
+							<span className="glyphicon glyphicon-remove-circle" onClick={() => deleteMissionTask(task.uuid)}></span>
 						</span>
 						
 					</div>
