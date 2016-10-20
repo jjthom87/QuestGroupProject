@@ -44,7 +44,7 @@ export default class MissionMain extends React.Component {
         if (foundtask) {
             foundtask.isCompleted = !foundtask.isCompleted;
 
-            fetch(`/task/toggle/${foundtask.uuid}`, {
+            fetch(`/missiontask/toggle/${foundtask.uuid}`, {
                 method: 'PUT',
                 body: JSON.stringify(foundtask),
                 headers: {
@@ -66,7 +66,7 @@ export default class MissionMain extends React.Component {
 
         const foundTask = _.remove(missiontasks, task => task.uuid === taskId);
 
-        fetch(`/task/delete/${foundTask[0].uuid}`,{
+        fetch(`/missiontask/delete/${foundTask[0].uuid}`,{
             method: 'DELETE',
             body: JSON.stringify(foundTask),
             headers: {
@@ -149,8 +149,8 @@ export default class MissionMain extends React.Component {
         }).then((response) => response.json())
         .then((results) => {
             this.setState({
-                missions: missions.concat(results),
-                missiontasks: missiontasks.concat(results)
+                missions: results.missions,
+                missiontasks: results.missiontasks
             });
         });
     }
@@ -185,9 +185,9 @@ export default class MissionMain extends React.Component {
                     </select>
                     <CreateMissionTask createTask={this.handleCreateMissionTask.bind(this)}/>
                 </div>
-                <MissionListforMM missions = {filteredMission} tasks = {filteredTasks} toggleTask={this.toggleMissionTask.bind(this)}
+                <MissionListforMM missions = {filteredMission} missiontasks = {filteredTasks} toggleMissionTask={this.toggleMissionTask.bind(this)}
                                 deleteMission={this.deleteMission.bind(this)}
-                                deleteTask={this.deleteMissionTask.bind(this)}/>
+                                deleteMissionTask={this.deleteMissionTask.bind(this)}/>
             </div>
          );
     }
