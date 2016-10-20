@@ -72,14 +72,14 @@ router.get('/questhome', middleware.requireAuthentication, function(req,res){
 });
 
 // Retrieving all Bubo Missions and Quests
-router.get('/searchall', middleware.requireAuthentication, function(req,res){
-    modelController.allMain(req.user.id, function(data){
+router.get('/search', middleware.requireAuthentication, function(req,res){
+    modelController.allMain(function(data){
       res.json(data)
     })
 });
 
 // Sign-out: Deletes user's JSON Web Token once logged out
-router.delete('/users/logout', middleware.requireAuthentication, function (req, res) {
+router.delete('/users/logout', function (req, res) {
   req.token.destroy().then(function () {
     res.status(204).send();
   }).catch(function () {

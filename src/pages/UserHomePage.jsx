@@ -231,7 +231,8 @@ export default class UserHomePage extends React.Component {
       				<div className="col-lg-1 col-lg-offset-5" role="group">
 						<button className="btn btn-info"><Link to="/missionshome">Create a Mission</Link></button>
 						<button className="btn btn-info"><Link to="/questshome">Create a Quest</Link></button>
-					</div>
+                        <button className="btn btn-info"><Link to="/searchall">Find a Mission or Quest</Link></button>			
+                    </div>
 				</div>
     				<div className="row">
     					<div className="col-md-3">
