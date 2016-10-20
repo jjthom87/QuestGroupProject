@@ -59,7 +59,8 @@ router.get('/home', middleware.requireAuthentication, function(req, res){
 
 // Setting mission homepage
 router.get('/missionhome', middleware.requireAuthentication, function(req,res){
-    modelController.missionMain(req.user.id, function(data){
+    modelController.missionMain(req.user.id, 
+      function(data){
       res.json(data)
     })
 });
