@@ -278,9 +278,12 @@ export default class UserHomePage extends React.Component {
       			<h1 className="text-center" id="pageTitle">Welcome Home {loginUser}</h1>
       			<div className="row">
       				<div className="col-lg-1 col-lg-offset-5" role="group">
-						<Link to="/missionshome"><button className="btn btn-info">Create a Mission</button></Link>
-						<Link to="/questshome"><button className="btn btn-info">Create a Quest</button></Link>
-					</div>
+
+						<button className="btn btn-info"><Link to="/missionshome">Create a Mission</Link></button>
+						<button className="btn btn-info"><Link to="/questshome">Create a Quest</Link></button>
+                        <button className="btn btn-info"><Link to="/searchall">Find a Mission or Quest</Link></button>			
+                    </div>
+
 				</div>
     				<div className="row">
     					<div className="col-md-3">

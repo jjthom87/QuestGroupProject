@@ -27,6 +27,7 @@ module.exports = {
             'src/components/navbars',
             'src/components/tasks',
             'src/components/milestones',
+            'src/components/search',
             'src/components',
             'src/pages',
             'src/auth',
