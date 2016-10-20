@@ -111,6 +111,16 @@ input{
     margin-bottom: 0px;
 }
 
+#loginText{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    padding: none;
+    margin-top:0;
+    color: yellow;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
 #logonli a {
     color: yellow;
     margin-top: 20px;
