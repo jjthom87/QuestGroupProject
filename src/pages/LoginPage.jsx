@@ -50,8 +50,10 @@ export default class LoginPage extends React.Component {
 		return (
 			<div className="row">
 				<div className="column small-centered small-11 medium-6 large-5">
+
 					<div className="container">
 						<Login onLogin={this.handleNewData.bind(this)}/>
+						<p className="animated fadeInDown" id="loginText">If you haven't registered yet please go to the Sign Up Page!</p>
 					</div>
 				</div>
 			</div>

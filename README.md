@@ -1,5 +1,17 @@
-# QuestGroupProject
+## QuestGroupProject
 
-![alt text](https://github.com/jjthom87/QuestGroupProject/blob/master/readme/bubohome.png "App Home Page")
+Bubo is an app that will help you to keep track of your daily routines as well as your long time advantures to become a better you.
 
-https://floating-tor-96581.herokuapp.com/
+![alt text](https://github.com/jjthom87/QuestGroupProject/blob/master/readme/buboHome1.png "App Home Page")
+
+## [Run Demo](https://floating-tor-96581.herokuapp.com/)
+
+
+
+
+
+
+
+
+### Automation tools used
+- [Webpack](https://webpack.github.io/)
