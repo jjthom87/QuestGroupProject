@@ -261,3 +261,12 @@ input{
 .publicSelect {
     color: orange;
 }
+
+#createmissbutton {
+    margin-left:30%;
+}
+
+#createquestbutton { 
+    float:right;
+    margin-right: 30%;
+}
