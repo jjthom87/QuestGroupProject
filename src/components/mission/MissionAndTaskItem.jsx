@@ -64,8 +64,7 @@ export default class MissionAndTaskItem extends React.Component {
 						<div>
 							<button onClick={() => deleteMission(id)}>Delete Mission</button>
 						</div>
-						<Line percent={percentage} strokeWidth="4" strokeColor="#3FC7FA"/>
-						<p>You are {percentage}% done with this mission</p>
+						
 						</div>
 					</div>
 			</div>
