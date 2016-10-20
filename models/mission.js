@@ -6,7 +6,6 @@ module.exports = function(sequelize, DataTypes) {
     title: {
       type: DataTypes.STRING,
       allowNull: false,
-      uniquie: true
     },
     description: {
       type: DataTypes.TEXT,
@@ -18,6 +17,12 @@ module.exports = function(sequelize, DataTypes) {
     isCompleted: {
       type: DataTypes.BOOLEAN
     },
+    likes: {
+      type: DataTypes.INTEGER
+    },
+    public: {
+      type: DataTypes.STRING
+    },
     active: {
       type: DataTypes.BOOLEAN
     }
@@ -25,7 +30,7 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         Mission.belongsTo(models.User);
-        Mission.hasMany(models.Task);
+        Mission.hasMany(models.Missiontask);
       }
     }
   });

@@ -11,14 +11,15 @@ export default class MissionAndTaskItem extends React.Component {
     }
 	render(){
 
-		const { id, uuid, title, deleteMission, deleteTask, description, percent, toggleTask, tasks, createdOn, isCompleted, active } = this.props;
+		const { id, uuid, title, deleteMission, deleteMissionTask, description, percent, toggleMissionTask, missiontasks, createdOn, isCompleted, active } = this.props;
 
-		var completedTasks = tasks.filter((task) => task.isCompleted);
+		var completedTasks = missiontasks.filter((task) => task.isCompleted);
 
-		const percentage = ((completedTasks.length/tasks.length) * 100);
+		const doit = ((completedTasks.length/missiontasks.length) * 100);
+		const percentage = parseInt(doit);
 
 		var singleTask = () => {
-			return tasks.map((task, index) => {
+			return missiontasks.map((task, index) => {
 				var taskClassName = task.isCompleted ? 'task-completed' : 'task-notCompleted';
 				return (
 					<div>
@@ -26,10 +27,10 @@ export default class MissionAndTaskItem extends React.Component {
 							<input
 					  			type="checkbox"
 					  			checked={isCompleted}
-					  			onChange={() => toggleTask(task.uuid)}
+					  			onChange={() => toggleMissionTask(task.uuid)}
 				  			/>
 							<p className={taskClassName} id="taskText">{task.task}</p>
-							<button onClick={() => deleteTask(task.uuid)}>X</button>
+							<button onClick={() => deleteMissionTask(task.uuid)}>X</button>
 						</span>
 						
 					</div>
@@ -48,9 +49,11 @@ export default class MissionAndTaskItem extends React.Component {
 				<div className="panel-heading">
 					<span> <a data-toggle="collapse" data-target="#collapseOne" 
            href="#collapseOne"><strong>Mission:</strong> {title}</a></span>
+		   <Line percent={percentage} strokeWidth="4" strokeColor="#3FC7FA"/>
 				</div>
 				<div id="collapseOne" className="panel-collapse collapse in">
 					<div className="panel-body">
+						<strong><p>You are {percentage}% done with this mission</p></strong>
 						<div>
 							<p><strong>Description:</strong>{description}</p>
 						</div>
@@ -61,8 +64,7 @@ export default class MissionAndTaskItem extends React.Component {
 						<div>
 							<button onClick={() => deleteMission(id)}>Delete Mission</button>
 						</div>
-						<Line percent={percentage} strokeWidth="4" strokeColor="#3FC7FA"/>
-						<p>You are {percentage}% done with this mission</p>
+						
 						</div>
 					</div>
 			</div>

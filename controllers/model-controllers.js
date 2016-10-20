@@ -17,22 +17,28 @@ var modelController = {
 		          quests.forEach(function(quest){
 		            enteredQuests.push(quest);
 		        });
-		    user.getTasks().then(function(tasks){
-		          var enteredTasks = [];
-		          tasks.forEach(function(task){
-		            enteredTasks.push(task);
+		    user.getMissiontasks().then(function(missiontasks){
+		          var enteredMissiontasks = [];
+		          missiontasks.forEach(function(missiontask){
+		            enteredMissiontasks.push(missiontask);
 		        });
 		    user.getMilestones().then(function(milestones){
 		    	  var enteredMilestones = [];
 		    	  milestones.forEach(function(milestone){
 		    	  	enteredMilestones.push(milestone)
 		    	  });
+		   	user.getMilestonetasks().then(function(milestonetasks){
+		   		var enteredMilestonetasks = [];
+		   			milestonetasks.forEach(function(milestonetask){
+		   				enteredMilestonetasks.push(milestonetask)
+		   			});
 		        var data = {
 		          currentUser: user,
 		          missions: enteredMissions,
 		          quests: enteredQuests,
-		          tasks: enteredTasks,
-		          milestones: enteredMilestones
+		          missiontasks: enteredMissiontasks,
+		          milestones: enteredMilestones,
+		          milestonetasks: enteredMilestonetasks
 		        }
 		        cb(data);
 				}).catch(function(err){
@@ -42,6 +48,7 @@ var modelController = {
 			});
 	  	  });
     	});
+	  });
   	},
   	// Creates a new User record to the database (See route 'users/create')
   	userCreate: function(name, username, password, cb){
@@ -56,8 +63,8 @@ var modelController = {
 		});
 	},
 	// Updates the 'isCompleted' property for the User's specific Task(s) in the database
-	taskToggle: function(uuid, cb){
-	  models.Task.findOne({ where: { uuid: uuid}}).then(function(success){
+	missionTaskToggle: function(uuid, cb){
+	  models.Missiontask.findOne({ where: { uuid: uuid}}).then(function(success){
 	        success.set('isCompleted', true);
 	        success.save();
 	          cb(success);
@@ -67,6 +74,15 @@ var modelController = {
 	},
 	milestoneToggle: function(uuid, cb){
 	  models.Milestone.findOne({ where: { uuid: uuid}}).then(function(success){
+	        success.set('isCompleted', true);
+	        success.save();
+	          cb(success);
+	      }).catch(function(err){
+	        throw err
+	      })	
+	},
+	milestoneTaskToggle: function(uuid, cb){
+	  models.Milestonetask.findOne({ where: { uuid: uuid}}).then(function(success){
 	        success.set('isCompleted', true);
 	        success.save();
 	          cb(success);
@@ -84,11 +100,21 @@ var modelController = {
 	},
 	// Retrieves all Missions for matching User (See route '/questhome')
 	questMain: function(id, cb){
+		var quests;
+		var milestones;
 	    models.Quest.findAll({ where: {UserId: id}}).then(function(success){
-	        cb(success);
+	        quests = success;
+	    models.Milestone.findAll({ where: {UserId: id}}).then(function(success){
+	    	milestones=success
+	    	var data = {
+	    		quests: quests,
+	    		milestones: milestones
+	    	}
+	    	cb(data);
 	    }).catch(function(err){
 	    	throw err;
 	    });
+	  });
 	},
 	// Retreives all Bubo Missions and Quests that exist in database (See route '/searchall')
 	allMain: function(id, cb){
@@ -113,12 +139,13 @@ var modelController = {
     	});
     },
 	// Creates a new Mission record to the database (See route 'mission/create')
-	missionCreate: function(title, description, user, cb){
+	missionCreate: function(title, description, public, user, cb){
 		models.Mission.create({
 		  title: title,
 		  description: description,
 		  isCompleted: false,
-		  active: false
+		  active: false,
+		  public: public
 		  	  }).then(function(mission){
 			      user.addMission(mission).then(function(success){
 			    	cb(mission);
@@ -128,12 +155,13 @@ var modelController = {
 		})
 	},
 	// Creates a new Quest record to the database (See route '/quest/create')
-	questCreate: function(title, description, user, cb){
+	questCreate: function(title, description, public, user, cb){
 		models.Quest.create({
 		  title: title,	
 		  description: description,
 		  isCompleted: false,
-		  active: false
+		  active: false,
+		  public: public
 			  }).then(function(quest){
 			    user.addQuest(quest).then(function(success){
 				    cb(quest);
@@ -164,9 +192,19 @@ var modelController = {
 		    })
 	 	})
 	},
-	taskDelete: function(userId, paramsId, cb){
+	missionTaskDelete: function(userId, paramsId, cb){
 		models.User.findOne({where: {id: userId}}).then(function(){
-		    models.Task.destroy({ where: { uuid: paramsId }
+		    models.Missiontask.destroy({ where: { uuid: paramsId }
+		    }).then(function(success){
+		      cb(success);
+		    }).catch(function(err){
+		      throw err;
+		    })
+	 	})
+	},
+	milestoneTaskDelete: function(userId, paramsId, cb){
+		models.User.findOne({where: {id: userId}}).then(function(){
+		    models.Milestonetask.destroy({ where: { uuid: paramsId }
 		    }).then(function(success){
 		      cb(success);
 		    }).catch(function(err){

@@ -17,7 +17,8 @@ export default class UserHomePage extends React.Component {
 			fullLoginUser: '',
 			missions: [],
 			quests: [],
-            tasks: [],
+            missiontasks: [],
+            milestonetasks: [],
             milestones: [],
             dropdownQuest: '',
             dropdownMission: '',
@@ -87,15 +88,15 @@ export default class UserHomePage extends React.Component {
             })
         }); 
     }
-    toggleTask(taskId) {
-        const { tasks } = this.state;
+    toggleMissionTask(taskId) {
+        const { missiontasks } = this.state;
 
-        const foundtask = tasks.find((task) => task.uuid === taskId);
+        const foundtask = missiontasks.find((task) => task.uuid === taskId);
 
         if (foundtask) {
             foundtask.isCompleted = !foundtask.isCompleted;
 
-            fetch(`/task/toggle/${foundtask.uuid}`, {
+            fetch(`/missiontask/toggle/${foundtask.uuid}`, {
                 method: 'PUT',
                 body: JSON.stringify(foundtask),
                 headers: {
@@ -107,17 +108,17 @@ export default class UserHomePage extends React.Component {
             }).then((response) => response.json())
                 .then((json) => {
                     this.setState({
-                        tasks: tasks,
+                        missiontasks: missiontasks
                     });
                 });
         }
     }
-    deleteTask(taskId){
-        const { tasks } = this.state;
+    deleteMissionTask(taskId){
+        const { missiontasks } = this.state;
 
-        const foundTask = _.remove(tasks, task => task.uuid === taskId);
+        const foundTask = _.remove(missiontasks, task => task.uuid === taskId);
 
-        fetch(`/task/delete/${foundTask[0].uuid}`,{
+        fetch(`/missiontask/delete/${foundTask[0].uuid}`,{
             method: 'DELETE',
             body: JSON.stringify(foundTask),
             headers: {
@@ -129,7 +130,7 @@ export default class UserHomePage extends React.Component {
         }).then((response) => response.json())
             .then((results) => {
                 this.setState({
-                    tasks: tasks
+                    missiontasks: missiontasks
                });
         });
     }
@@ -153,7 +154,7 @@ export default class UserHomePage extends React.Component {
             }).then((response) => response.json())
                 .then((json) => {
                     this.setState({
-                        milestones: milestones,
+                        milestones: milestones
                     });
                 });
         }
@@ -179,6 +180,52 @@ export default class UserHomePage extends React.Component {
                });
         });
     }
+    toggleMilestoneTask(milestoneTaskId) {
+        const { milestonetasks } = this.state;
+
+        const foundmilestonetask = milestonetasks.find((milestonetask) => milestonetask.uuid === milestoneTaskId);
+
+        if (foundmilestonetask) {
+            foundmilestonetask.taskCompleted = !foundmilestonetask.taskCompleted;
+
+            fetch(`/milestonetask/toggle/${foundmilestonetask.uuid}`, {
+                method: 'PUT',
+                body: JSON.stringify(foundmilestonetask),
+                headers: {
+                    Auth: localStorage.getItem('token'),
+                    'content-type': 'application/json',
+                    'accept': 'application/json'
+                },
+                credentials: 'include'
+            }).then((response) => response.json())
+                .then((json) => {
+                    this.setState({
+                        milestonetasks: milestonetasks
+                    });
+                });
+        }
+    }
+    deleteMilestoneTask(milestonetaskId){
+        const { milestonetasks } = this.state;
+
+        const foundmilestonetask = _.remove(milestonetasks, milestonetask => milestonetask.uuid === milestonetaskId);
+
+        fetch(`/milestonetask/delete/${foundmilestonetask[0].uuid}`,{
+            method: 'DELETE',
+            body: JSON.stringify(foundmilestonetask),
+            headers: {
+                Auth: localStorage.getItem('token'),
+                'content-type': 'application/json',
+                'accept': 'application/json' 
+            },
+            credentials: 'include'
+        }).then((response) => response.json())
+            .then((results) => {
+                this.setState({
+                    milestonetasks: milestonetasks
+               });
+        });
+    }
   	componentWillMount(){
 		fetch('/home', {
             headers: {
@@ -194,18 +241,20 @@ export default class UserHomePage extends React.Component {
 				loginUser: results.currentUser.name,
 				missions: results.missions,
 				quests: results.quests,
-                tasks: results.tasks,
-                milestones: results.milestones
+                missiontasks: results.missiontasks,
+                milestones: results.milestones,
+                milestonetasks: results.milestonetasks
 			});
 		});
 	}
 	render() {
-		const { loginUser, missions, quests, tasks, milestones, dropdownMission, dropdownQuest } = this.state;
+		const { loginUser, missions, quests, missiontasks, milestones, dropdownMission, dropdownQuest, milestonetasks, deleteMilestoneTask, toggleMilestoneTask } = this.state;
 
         const filteredMission = missions.filter((mission) => dropdownMission === mission.title);
-        const filteredTasks = tasks.filter((task) => dropdownMission === task.missionName);
+        const filteredTasks = missiontasks.filter((task) => dropdownMission === task.missionName);
         const filteredQuest = quests.filter((quest) => dropdownQuest === quest.title);
         const filteredMilestones = milestones.filter((milestone) => dropdownQuest === milestone.questName);
+        const filteredMilestoneTasks = milestonetasks.filter((milestonetask) => dropdownQuest === milestonetask.questName);
 
         var renderMissionDropdown = () => {
             return missions.map((mission, index) => {
@@ -229,10 +278,12 @@ export default class UserHomePage extends React.Component {
       			<h1 className="text-center" id="pageTitle">Welcome Home {loginUser}</h1>
       			<div className="row">
       				<div className="col-lg-1 col-lg-offset-5" role="group">
+
 						<button className="btn btn-info"><Link to="/missionshome">Create a Mission</Link></button>
 						<button className="btn btn-info"><Link to="/questshome">Create a Quest</Link></button>
                         <button className="btn btn-info"><Link to="/searchall">Find a Mission or Quest</Link></button>			
                     </div>
+
 				</div>
     				<div className="row">
     					<div className="col-md-3">
@@ -244,10 +295,10 @@ export default class UserHomePage extends React.Component {
                             </select>
                             <MissionsList
                                 missions={filteredMission}
-                                tasks={filteredTasks}
-                                toggleTask={this.toggleTask.bind(this)}
+                                missiontasks={filteredTasks}
+                                toggleMissionTask={this.toggleMissionTask.bind(this)}
                                 deleteMission={this.deleteMission.bind(this)}
-                                deleteTask={this.deleteTask.bind(this)}
+                                deleteMissionTask={this.deleteMissionTask.bind(this)}
                             />
                         </div>
                         <div className="panel panel-success col-md-3 qmbox">
@@ -258,9 +309,12 @@ export default class UserHomePage extends React.Component {
                             <QuestsList
                                 quests={filteredQuest}
                                 milestones={filteredMilestones}
+                                milestonetasks={filteredMilestoneTasks}
                                 toggleMilestone={this.toggleMilestone.bind(this)}
                                 deleteQuest={this.deleteQuest.bind(this)}
                                 deleteMilestone={this.deleteMilestone.bind(this)}
+                                toggleMilestoneTask={this.toggleMilestoneTask.bind(this)}
+                                deleteMilestoneTask={this.deleteMilestoneTask.bind(this)}
                             />
                         </div>
     		            <div className="col-md-3">

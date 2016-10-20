@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
-import MissionsListHeader from 'MissionsListHeader';
-import MissionsListItem from 'MissionsListItem';
+import React, { Component } from 'react'; 
 import MissionAndTaskItem from 'MissionAndTaskItem';
 
 export default class MissionsList extends React.Component {
     render() {
-        const { missions, tasks, toggleTask, deleteMission, deleteTask } = this.props;
+        const { missions, missiontasks, toggleMissionTask, deleteMission, deleteMissionTask } = this.props;
         
         var renderMissions = () => {
             return missions.map((mission, index) => {
@@ -14,9 +12,9 @@ export default class MissionsList extends React.Component {
                         title={mission.title}
                         description={mission.description}
                         deleteMission={deleteMission}
-                        deleteTask={deleteTask}
-                        toggleTask={toggleTask}
-                        tasks={tasks}
+                        deleteMissionTask={deleteMissionTask}
+                        toggleMissionTask={toggleMissionTask}
+                        missiontasks={missiontasks}
                         id={mission.id}
                         key={index}
                     />
