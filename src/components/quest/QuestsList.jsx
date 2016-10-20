@@ -4,7 +4,7 @@ import QuestAndMilestoneItem from 'QuestAndMilestoneItem';
 
 export default class QuestsList extends React.Component {
     render() {
-        const { quests, milestones, toggleMilestone, deleteQuest, deleteMilestone } = this.props;
+        const { quests, milestones, milestonetasks, toggleMilestone, deleteQuest, deleteMilestone, toggleMilestoneTask, deleteMilestoneTask } = this.props;
 
         var renderQuests = () => {
             return quests.map((quest, index) => {
@@ -13,6 +13,9 @@ export default class QuestsList extends React.Component {
                         title={quest.title}
                         description={quest.description}
                         milestones={milestones}
+                        milestonetasks={milestonetasks}
+                        toggleMilestoneTask={toggleMilestoneTask}
+                        deleteMilestoneTask={deleteMilestoneTask}
                         deleteMilestone={deleteMilestone}
                         toggleMilestone={toggleMilestone}
                         deleteQuest={deleteQuest}

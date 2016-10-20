@@ -2,7 +2,7 @@ import React, { Component, cloneElement } from 'react';
 import { Router , browserHistory } from 'react-router';
 var {Link, IndexLink} = require('react-router');
 import CreateMission from 'CreateMission';
-import CreateTask from 'CreateTask';
+import CreateMissionTask from 'CreateMissionTask';
 import MainNav from 'MainNav';
 import MissionListforMM from 'MissionListforMM';
 
@@ -11,8 +11,8 @@ export default class MissionMain extends React.Component {
         super(props, context);
         this.state = {
             missions: [],
-            tasks: [],
-            dropdownItem: ''
+            missiontasks: [],
+            dropdownMission: ''
         };
     }
     deleteMission(id){
@@ -36,10 +36,10 @@ export default class MissionMain extends React.Component {
             })
         }); 
     }
-    toggleTask(taskId) {
-        const { tasks } = this.state;
+    toggleMissionTask(taskId) {
+        const { missiontasks } = this.state;
 
-        const foundtask = tasks.find((task) => task.uuid === taskId);
+        const foundtask = missiontasks.find((task) => task.uuid === taskId);
 
         if (foundtask) {
             foundtask.isCompleted = !foundtask.isCompleted;
@@ -56,15 +56,15 @@ export default class MissionMain extends React.Component {
             }).then((response) => response.json())
                 .then((json) => {
                     this.setState({
-                        tasks: tasks,
+                        missiontasks: missiontasks,
                     });
                 });
         }
     }
-    deleteTask(taskId){
-        const { tasks } = this.state;
+    deleteMissionTask(taskId){
+        const { missiontasks } = this.state;
 
-        const foundTask = _.remove(tasks, task => task.uuid === taskId);
+        const foundTask = _.remove(missiontasks, task => task.uuid === taskId);
 
         fetch(`/task/delete/${foundTask[0].uuid}`,{
             method: 'DELETE',
@@ -78,13 +78,13 @@ export default class MissionMain extends React.Component {
         }).then((response) => response.json())
             .then((results) => {
                 this.setState({
-                    tasks: tasks
+                    missiontasks: missiontasks
                });
         });
     }
     handleDropdownChange(e){
         this.setState({
-            dropdownItem: e.target.value
+            dropdownMission: e.target.value
         })
     }
     createMission(creds) {
@@ -111,14 +111,14 @@ export default class MissionMain extends React.Component {
                 });
             });
     }
-    handleCreateTask(taskInput) {
-        const { tasks, dropdownItem} = this.state;
+    handleCreateMissionTask(taskInput) {
+        const { missiontasks, dropdownMission} = this.state;
         console.log(taskInput);
         const newTask = {
             task: taskInput.task,
             dateTask: taskInput.dateTask,
             timeTask: taskInput.timeTask,
-            dropdownItem: dropdownItem
+            dropdownMission: dropdownMission
         }
         fetch('/missiontask/create/', {
             method: 'post',
@@ -132,12 +132,12 @@ export default class MissionMain extends React.Component {
         }).then((response) => response.json())
             .then((results) => {
                 this.setState({
-                    tasks: tasks.concat(results)
+                    missiontasks: missiontasks.concat(results)
                 });
             });
     }
     componentWillMount(){
-        const {missions, tasks} = this.state;
+        const {missions, missiontasks} = this.state;
         
         fetch('/missionhome', {
             headers: {
@@ -148,19 +148,16 @@ export default class MissionMain extends React.Component {
             credentials: 'include'
         }).then((response) => response.json())
         .then((results) => {
-            console.log(results);
             this.setState({
-            
                 missions: missions.concat(results),
-                tasks: tasks.concat(results)
-
+                missiontasks: missiontasks.concat(results)
             });
         });
     }
     render() {
-        const {missions, tasks, dropdownItem } = this.state; 
-        const filteredMission = missions.filter((mission) => dropdownItem === mission.title);
-        const filteredTasks = tasks.filter((task) => dropdownItem === task.missionName);
+        const {missions, missiontasks, dropdownMission } = this.state; 
+        const filteredMission = missions.filter((mission) => dropdownMission === mission.title);
+        const filteredTasks = missiontasks.filter((task) => dropdownMission === task.missionName);
         var renderMissionDropdown = () => {
             return missions.map((mission, index) => {
                 return (
@@ -182,15 +179,15 @@ export default class MissionMain extends React.Component {
                         missions={missions}
                         createMission={this.createMission.bind(this)}
                     />
-                    <select name="Please Select Mission to add Task to" value={this.state.dropdownItem} onChange={this.handleDropdownChange.bind(this)}>
+                    <select name="Please Select Mission to add Task to" value={this.state.dropdownMission} onChange={this.handleDropdownChange.bind(this)}>
                         <option selected disabled>Choose Mission to add Task to</option>
                         {renderMissionDropdown()}
                     </select>
-                    <CreateTask createTask={this.handleCreateTask.bind(this)}/>
+                    <CreateMissionTask createTask={this.handleCreateMissionTask.bind(this)}/>
                 </div>
-                <MissionListforMM missions = {filteredMission} tasks = {filteredTasks} toggleTask={this.toggleTask.bind(this)}
+                <MissionListforMM missions = {filteredMission} tasks = {filteredTasks} toggleTask={this.toggleMissionTask.bind(this)}
                                 deleteMission={this.deleteMission.bind(this)}
-                                deleteTask={this.deleteTask.bind(this)}/>
+                                deleteTask={this.deleteMissionTask.bind(this)}/>
             </div>
          );
     }

@@ -3,6 +3,7 @@ var {Link, IndexLink} = require('react-router');
 import QuestsList from 'QuestsList';
 import CreateQuest from 'CreateQuest';
 import CreateMilestone from 'CreateMilestone';
+import CreateMilestoneTask from 'CreateMilestoneTask';
 import MainNav from 'MainNav';
 
 export default class QuestMain extends React.Component {
@@ -11,12 +12,19 @@ export default class QuestMain extends React.Component {
         this.state = {
             quests: [],
             milestones: [],
-            dropdownItem: ''
+            dropdownQuest: '',
+            milestonetasks: [],
+            dropdownMilestone: ''
         };
     }
-    handleDropdownChange(e){
+    handleDropdownQuestChange(e){
         this.setState({
-            dropdownItem: e.target.value
+            dropdownQuest: e.target.value
+        })
+    }
+    handleDropdownMilestoneChange(e){
+        this.setState({
+            dropdownMilestone: e.target.value
         })
     }
     createQuest(creds) {
@@ -24,7 +32,8 @@ export default class QuestMain extends React.Component {
         
         const newQuest = {
             title: creds.title,
-            description: creds.description
+            description: creds.description,
+            selection: creds.selection
         }
         fetch('/quest/create', {
             method: 'post',
@@ -43,11 +52,11 @@ export default class QuestMain extends React.Component {
             });
     }
     handleCreateMilestone(milestoneInput){
-        const { milestones, dropdownItem } = this.state;
+        const { milestones, dropdownQuest } = this.state;
 
         const newMilestone = {
             milestone: milestoneInput,
-            dropdownItem: dropdownItem
+            dropdownQuest: dropdownQuest
         }
         fetch('/milestone/create/', {
             method: 'post',
@@ -65,8 +74,32 @@ export default class QuestMain extends React.Component {
                 });
             });
     }
+    handleCreateMilestoneTask(milestoneTaskInput){
+        const { milestonetasks, dropdownQuest, dropdownMilestone } = this.state;
+
+        const newMilestoneTask = {
+            milestonetask: milestoneTaskInput.task,
+            dropdownMilestone: dropdownMilestone,
+            dropdownQuest: dropdownQuest
+        }
+        fetch('/milestonetask/create/', {
+            method: 'post',
+            body: JSON.stringify(newMilestoneTask),
+            headers: {
+                Auth: localStorage.getItem('token'),
+                'content-type': 'application/json',
+                'accept': 'application/json'
+            },
+            credentials: 'include'
+        }).then((response) => response.json())
+            .then((results) => {
+                this.setState({
+                    milestonetasks: milestonetasks.concat(results)
+                });
+            });
+    }
     componentWillMount(){
-        const { quests } = this.state;
+        const { quests, milestones, milestonetasks } = this.state;
 
         fetch('/questhome', {
             headers: {
@@ -77,13 +110,17 @@ export default class QuestMain extends React.Component {
             credentials: 'include'
         }).then((response) => response.json())
         .then((results) => {
+            console.log(results);
             this.setState({
-                quests: quests.concat(results)
+                quests: results.quests,
+                milestones: results.milestones
             });
         });   
     }
     render() {
-        const { quests } = this.state; 
+        const { quests, milestones, milestonetasks, dropdownQuest } = this.state;
+
+        const filteredMilestones = milestones.filter((milestone) => dropdownQuest === milestone.questName); 
 
         var renderQuestDropdown = () => {
             return quests.map((quest, index) => {
@@ -91,6 +128,14 @@ export default class QuestMain extends React.Component {
                     <option value={quest.title} className="dropdown-item">{quest.title}</option>
                 );  
             });
+        }
+
+        var renderMilestoneDropdown = () => {
+            return filteredMilestones.map((milestone, index) => {
+                return (
+                    <option value={milestone.milestone} className="dropdown-item">{milestone.milestone}</option>
+                );
+            })
         }
         return (
             <div>
@@ -106,11 +151,16 @@ export default class QuestMain extends React.Component {
                         quests={quests}
                         createQuest={this.createQuest.bind(this)}
                     />
-                    <select name="Please Select Quest to add Milestone to" value={this.state.dropdownItem} onChange={this.handleDropdownChange.bind(this)}>
+                    <select name="Please Select Quest to add Milestone to" value={this.state.dropdownQuest} onChange={this.handleDropdownQuestChange.bind(this)}>
                         <option selected disabled>Choose Quest to add Milestone to</option>
                         {renderQuestDropdown()}
                     </select>
-                    <CreateMilestone createMilestone={this.handleCreateMilestone.bind(this)}/>
+                    <CreateMilestone milestones={milestones} createMilestone={this.handleCreateMilestone.bind(this)}/>
+                    <select name="Please Select Milestone to add Task to" value={this.state.dropdownMilestone} onChange={this.handleDropdownMilestoneChange.bind(this)}>
+                        <option selected disabled>Choose Milestone to Add Task to</option>
+                        {renderMilestoneDropdown()}
+                    </select>
+                    <CreateMilestoneTask createMilestoneTask={this.handleCreateMilestoneTask.bind(this)}/>
                 </div>
             </div>
          );

@@ -10,10 +10,13 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: DataTypes.UUIDV1,
       primaryKey: true
     },
+    questName: {
+      type: DataTypes.STRING
+    },
     milestoneName: {
       type: DataTypes.STRING
     },
-    isCompleted: {
+    taskCompleted: {
       type: DataTypes.BOOLEAN
     },
     active: {
@@ -29,6 +32,7 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         Milestonetask.belongsTo(models.Milestone);
+        Milestonetask.belongsTo(models.Quest);
       }
     }
   });
