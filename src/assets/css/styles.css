@@ -237,3 +237,17 @@ input{
 #taskTitle {
     color: black;
 }
+
+.publicSelection {
+    p {
+        color: yellow;
+    }
+}
+
+.publicText {
+    color: yellow;
+}
+
+.publicSelect {
+    color: orange;
+}

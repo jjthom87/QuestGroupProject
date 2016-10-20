@@ -6,8 +6,14 @@ export default class CreateQuest extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            error: null
+            error: null,
+            selection: ''
         };
+    }
+    handleRadio(e){
+        this.setState({
+            selection: e.target.value
+        })
     }
     renderError() {
         if(!this.state.error) {
@@ -19,6 +25,8 @@ export default class CreateQuest extends React.Component {
     handleCreate(event) {
         event.preventDefault();
 
+        const { selection } = this.state;
+
         const creds = {};
         const title = this.refs.title.value;
         const description = this.refs.description.value;
@@ -26,11 +34,21 @@ export default class CreateQuest extends React.Component {
         if (title.length > 0) {
             this.refs.title.value = '';
             creds.title = title;
+        } else {
+            alert('Enter Quest Title');
         }
 
         if (description.length > 0) {
             this.refs.description.value = '';
             creds.description = description;
+        } else {
+            alert('Enter Quest Description');
+        }
+
+        if(selection){
+            creds.selection = selection
+        } else {
+            alert('Please choose an option for public');
         }
 
         this.props.createQuest(creds);
@@ -54,6 +72,28 @@ export default class CreateQuest extends React.Component {
                     </div>
                     <div>
                         <input type="text" placeholder="Quest Description" ref="description" />
+                    </div>
+                    <div className="publicSelection">
+                        <p className="publicText">Public</p>
+                            <p className="publicSelect">Yes
+                            <input 
+                                className="yesPublic" 
+                                type="radio" 
+                                value="Yes" 
+                                name="publicChoice"
+                                checked={this.state.selection === "Yes"} 
+                                onChange={this.handleRadio.bind(this)}
+                            />
+                            No
+                            <input 
+                                className="noPublic" 
+                                type="radio" 
+                                value="No" 
+                                name ="publicChoice"
+                                checked={this.state.selection === "No"} 
+                                onChange={this.handleRadio.bind(this)}
+                            />
+                            </p>
                     </div>
                     <div>
                         <input type="submit" placeholder="Add Quest" />
