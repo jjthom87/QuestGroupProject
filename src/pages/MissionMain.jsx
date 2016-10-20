@@ -93,7 +93,7 @@ export default class MissionMain extends React.Component {
         const newMiss = {
             title: creds.title,
             description: creds.description,
-            public: creds.selection
+            selection: creds.selection
         }
         fetch('/mission/create', {
             method: 'post',
