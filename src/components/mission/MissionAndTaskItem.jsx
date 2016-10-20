@@ -43,23 +43,28 @@ export default class MissionAndTaskItem extends React.Component {
 			return message + moment(timestamp).format('MMM Do YYYY @ h:mm a')
 		}
 		return (
-			<div>
+			<div className="panel panel-default" id="panel1">
 
-				<div>
-					<span><p><strong>Mission:</strong> {title}</p></span>
+				<div className="panel-heading">
+					<span> <a data-toggle="collapse" data-target="#collapseOne" 
+           href="#collapseOne"><strong>Mission:</strong> {title}</a></span>
 				</div>
-				<div>
-					<p><strong>Description:</strong>{description}</p>
-				</div>
-				<div>
-					<p><strong>Tasks</strong></p>
-					{singleTask()}
-				</div>
-				<div>
-					<button onClick={() => deleteMission(id)}>Delete Mission</button>
-				</div>
-				<Line percent={percentage} strokeWidth="4" strokeColor="#3FC7FA"/>
-				<p>You are {percentage}% done with this mission</p>
+				<div id="collapseOne" className="panel-collapse collapse in">
+					<div className="panel-body">
+						<div>
+							<p><strong>Description:</strong>{description}</p>
+						</div>
+						<div>
+							<p><strong>Tasks</strong></p>
+							{singleTask()}
+						</div>
+						<div>
+							<button onClick={() => deleteMission(id)}>Delete Mission</button>
+						</div>
+						<Line percent={percentage} strokeWidth="4" strokeColor="#3FC7FA"/>
+						<p>You are {percentage}% done with this mission</p>
+						</div>
+					</div>
 			</div>
 		)
 	}

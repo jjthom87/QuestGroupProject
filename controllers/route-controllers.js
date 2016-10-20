@@ -64,8 +64,22 @@ router.get('/missionhome', middleware.requireAuthentication, function(req,res){
     })
 });
 
+// Setting quest homepage
+router.get('/questhome', middleware.requireAuthentication, function(req,res){
+    modelController.questMain(req.user.id, function(data){
+      res.json(data)
+    })
+});
+
+// Retrieving all Bubo Missions and Quests
+router.get('/search', middleware.requireAuthentication, function(req,res){
+    modelController.allMain(function(data){
+      res.json(data)
+    })
+});
+
 // Sign-out: Deletes user's JSON Web Token once logged out
-router.delete('/users/logout', middleware.requireAuthentication, function (req, res) {
+router.delete('/users/logout', function (req, res) {
   req.token.destroy().then(function () {
     res.status(204).send();
   }).catch(function () {
@@ -95,10 +109,32 @@ router.post('/task/create/', middleware.requireAuthentication, function(req, res
             isCompleted: false,
             active: false,
             UserId: req.user.id,
-            MissionId: mission.id
+            MissionId: mission.id,
+            dateTask: req.body.dateTask,
+            timeTask: req.body.timeTask
           }).then(function(task){
           mission.addTask(task).then(function(success){
            res.json(task); 
+        }).catch(function(err){
+          throw err;
+          });
+        });
+      });
+    });
+});
+
+router.post('/milestone/create/', middleware.requireAuthentication, function(req, res){
+    models.User.findOne({where: {id: req.user.id}}).then(function(user){
+        models.Quest.findOne({ where: {title: req.body.dropdownItem }}).then(function(quest){
+          models.Milestone.create({
+            milestone: req.body.milestone,
+            questName: req.body.dropdownItem,
+            isCompleted: false,
+            active: false,
+            UserId: req.user.id
+          }).then(function(milestone){
+             quest.addMilestone(milestone).then(function(success){
+           res.json(milestone); 
         }).catch(function(err){
           throw err;
           });
@@ -127,6 +163,14 @@ router.put('/task/toggle/:id', middleware.requireAuthentication, function(req, r
     });
 });
 
+router.put('/milestone/toggle/:id', middleware.requireAuthentication, function(req, res){
+  modelController.milestoneToggle(
+    req.params.id,
+    function(success){
+      res.json(success)
+    });
+});
+
 // Allows users to delete a Mission
 router.delete('/mission/delete/:id', middleware.requireAuthentication, function(req, res){
     modelController.missionDelete(
@@ -149,6 +193,15 @@ router.delete('/task/delete/:id', middleware.requireAuthentication, function(req
 // Allows users to delete a Quest
 router.delete('/quest/delete/:id', middleware.requireAuthentication, function(req, res){
     modelController.questDelete(
+        req.user.id,
+        req.params.id,
+    function(success){
+      res.json(success);
+    })
+})
+
+router.delete('/milestone/delete/:id', middleware.requireAuthentication, function(req, res){
+    modelController.milestoneDelete(
         req.user.id,
         req.params.id,
     function(success){
