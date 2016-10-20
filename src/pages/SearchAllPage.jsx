@@ -82,39 +82,42 @@ export default class SearchAllPage extends React.Component {
         }
 
     	return (
-      		<div className="row">
-                        <div className="row">
-                            <div className="col-md-1">
-                                <button className="btn btn-warning"><Link to="/home">Back Home</Link></button>
+            <div className="container">
+            <MainNav/>
+          		<div className="row" id="separator">
+                            <div className="row">
+                                <div className="col-md-1">
+                                    <button className="btn btn-warning"><Link to="/home">Back Home</Link></button>
+                                </div>
                             </div>
-                        </div>
-                        <div className="row">
-                            <div className="panel panel-success col-md-3 qmbox">
-                                <select name="Please Select Mission" value={this.state.dropdownMission} onChange={this.handleDropdownMission.bind(this)}>
-                                    <option selected disabled>Find Mission</option>
-                                    {renderMissionDropdown()}
-                                </select>
-                                <MissionsList
-                                    missions={missions}
-                                    missiontasks={missiontasks}
-                                />
+                            <div className="row">
+                                <div className="panel panel-success col-md-3 qmbox">
+                                    <select name="Please Select Mission" value={this.state.dropdownMission} onChange={this.handleDropdownMission.bind(this)}>
+                                        <option selected disabled>Find Mission</option>
+                                        {renderMissionDropdown()}
+                                    </select>
+                                    <MissionsList
+                                        missions={missions}
+                                        missiontasks={missiontasks}
+                                    />
+                                </div>
                             </div>
-                        </div>
-                        <div className="row">
-                            <div className="panel panel-success col-md-3 qmbox">
-                                <select name="Please Select Quest" value={this.state.dropdownQuest} onChange={this.handleDropdownQuest.bind(this)}>
-                                    <option selected disabled>Find Quest</option>
-                                    {renderQuestDropdown()}
-                                </select>
-                                <QuestsList
-                                    quests={quests}
-                                    milestones={milestones}
-                                    milestonetasks={milestonetasks}
-                                />
+                            <div className="row">
+                                <div className="panel panel-success col-md-3 qmbox">
+                                    <select name="Please Select Quest" value={this.state.dropdownQuest} onChange={this.handleDropdownQuest.bind(this)}>
+                                        <option selected disabled>Find Quest</option>
+                                        {renderQuestDropdown()}
+                                    </select>
+                                    <QuestsList
+                                        quests={quests}
+                                        milestones={milestones}
+                                        milestonetasks={milestonetasks}
+                                    />
+                                </div>
                             </div>
-                        </div>
-                        <div className="col-md-3">
-                        </div>
+                            <div className="col-md-3">
+                            </div>
+                </div>
             </div>
 		);
 	}
