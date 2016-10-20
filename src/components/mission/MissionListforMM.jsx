@@ -14,8 +14,8 @@ export default class MissionListforMM extends React.Component {
                         title={mission.title}
                         description={mission.description}
                         deleteMission={deleteMission}
-                        deleteMissionTask={deleteTask}
-                        toggleMissionTask={toggleTask}
+                        deleteMissionTask={deleteMissionTask}
+                        toggleMissionTask={toggleMissionTask}
                         missiontasks={missiontasks}
                         id={mission.id}
                         key={index}
