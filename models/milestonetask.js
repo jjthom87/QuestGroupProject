@@ -1,9 +1,7 @@
-// MILESTONE: Dicates data fields for 'Milestone' item
-// Multiple 'Milestones' can exist under a single 'Quest' item
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var Milestone = sequelize.define('Milestone', {
-    milestone: {
+  var Milestonetask = sequelize.define('Milestonetask', {
+	  task: {
       type: DataTypes.TEXT,
       allowNull: false
     },
@@ -12,10 +10,7 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: DataTypes.UUIDV1,
       primaryKey: true
     },
-    questName: {
-      type: DataTypes.STRING
-    },
-    taskName: {
+    milestoneName: {
       type: DataTypes.STRING
     },
     isCompleted: {
@@ -23,14 +18,19 @@ module.exports = function(sequelize, DataTypes) {
     },
     active: {
       type: DataTypes.BOOLEAN
+    },
+    dateTask: {
+      type: DataTypes.TEXT
+    },
+    timeTask: {
+      type: DataTypes.TEXT
     }
   }, {
     classMethods: {
       associate: function(models) {
-        Milestone.belongsTo(models.Quest);
-        Milestone.hasMany(models.Milestonetask);
+        Milestonetask.belongsTo(models.Milestone);
       }
     }
   });
-  return Milestone;
+  return Milestonetask;
 };

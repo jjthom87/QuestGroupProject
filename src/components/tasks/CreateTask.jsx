@@ -23,6 +23,8 @@ export default class CreateTask extends React.Component {
             this.refs.task.value = '';
             this.refs.dateTask.value = '';
             this.refs.timeTask.value = '';
+        } else {
+            alert('Please Input Task');
         }
 
         const taskInput = { 

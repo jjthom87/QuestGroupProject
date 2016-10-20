@@ -2,7 +2,7 @@
 // Multiple 'Tasks' can exist under a single 'Mission' item
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var Task = sequelize.define('Task', {
+  var Missiontask = sequelize.define('Missiontask', {
 	  task: {
       type: DataTypes.TEXT,
       allowNull: false
@@ -13,9 +13,6 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true
     },
     missionName: {
-      type: DataTypes.STRING
-    },
-    milestoneName:{
       type: DataTypes.STRING
     },
     isCompleted: {
@@ -33,10 +30,9 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-       	Task.belongsTo(models.Mission);
-        Task.belongsTo(models.Milestone);
+       	Missiontask.belongsTo(models.Mission);
       }
     }
   });
-  return Task;
+  return Missiontask;
 };

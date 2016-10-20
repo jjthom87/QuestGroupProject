@@ -17,7 +17,7 @@ export default class UserHomePage extends React.Component {
 			fullLoginUser: '',
 			missions: [],
 			quests: [],
-            tasks: [],
+            missiontasks: [],
             milestones: [],
             dropdownQuest: '',
             dropdownMission: '',
@@ -87,15 +87,15 @@ export default class UserHomePage extends React.Component {
             })
         }); 
     }
-    toggleTask(taskId) {
-        const { tasks } = this.state;
+    toggleMissionTask(taskId) {
+        const { missiontasks } = this.state;
 
-        const foundtask = tasks.find((task) => task.uuid === taskId);
+        const foundtask = missiontasks.find((task) => task.uuid === taskId);
 
         if (foundtask) {
             foundtask.isCompleted = !foundtask.isCompleted;
 
-            fetch(`/task/toggle/${foundtask.uuid}`, {
+            fetch(`/missiontask/toggle/${foundtask.uuid}`, {
                 method: 'PUT',
                 body: JSON.stringify(foundtask),
                 headers: {
@@ -107,17 +107,17 @@ export default class UserHomePage extends React.Component {
             }).then((response) => response.json())
                 .then((json) => {
                     this.setState({
-                        tasks: tasks,
+                        missiontasks: missiontasks
                     });
                 });
         }
     }
-    deleteTask(taskId){
-        const { tasks } = this.state;
+    deleteMissionTask(taskId){
+        const { missiontasks } = this.state;
 
-        const foundTask = _.remove(tasks, task => task.uuid === taskId);
+        const foundTask = _.remove(missiontasks, task => task.uuid === taskId);
 
-        fetch(`/task/delete/${foundTask[0].uuid}`,{
+        fetch(`/missiontask/delete/${foundTask[0].uuid}`,{
             method: 'DELETE',
             body: JSON.stringify(foundTask),
             headers: {
@@ -129,7 +129,7 @@ export default class UserHomePage extends React.Component {
         }).then((response) => response.json())
             .then((results) => {
                 this.setState({
-                    tasks: tasks
+                    missiontasks: missiontasks
                });
         });
     }
@@ -153,7 +153,7 @@ export default class UserHomePage extends React.Component {
             }).then((response) => response.json())
                 .then((json) => {
                     this.setState({
-                        milestones: milestones,
+                        milestones: milestones
                     });
                 });
         }
@@ -194,16 +194,16 @@ export default class UserHomePage extends React.Component {
 				loginUser: results.currentUser.name,
 				missions: results.missions,
 				quests: results.quests,
-                tasks: results.tasks,
+                missiontasks: results.missiontasks,
                 milestones: results.milestones
 			});
 		});
 	}
 	render() {
-		const { loginUser, missions, quests, tasks, milestones, dropdownMission, dropdownQuest } = this.state;
+		const { loginUser, missions, quests, missiontasks, milestones, dropdownMission, dropdownQuest } = this.state;
 
         const filteredMission = missions.filter((mission) => dropdownMission === mission.title);
-        const filteredTasks = tasks.filter((task) => dropdownMission === task.missionName);
+        const filteredTasks = missiontasks.filter((task) => dropdownMission === task.missionName);
         const filteredQuest = quests.filter((quest) => dropdownQuest === quest.title);
         const filteredMilestones = milestones.filter((milestone) => dropdownQuest === milestone.questName);
 
@@ -243,10 +243,10 @@ export default class UserHomePage extends React.Component {
                             </select>
                             <MissionsList
                                 missions={filteredMission}
-                                tasks={filteredTasks}
-                                toggleTask={this.toggleTask.bind(this)}
+                                missiontasks={filteredTasks}
+                                toggleMissionTask={this.toggleMissionTask.bind(this)}
                                 deleteMission={this.deleteMission.bind(this)}
-                                deleteTask={this.deleteTask.bind(this)}
+                                deleteMissionTask={this.deleteMissionTask.bind(this)}
                             />
                         </div>
                         <div className="panel panel-success col-md-3 qmbox">
