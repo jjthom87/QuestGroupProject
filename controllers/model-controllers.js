@@ -27,12 +27,18 @@ var modelController = {
 		    	  milestones.forEach(function(milestone){
 		    	  	enteredMilestones.push(milestone)
 		    	  });
+		   	user.getMilestonetasks().then(function(milestonetasks){
+		   		var enteredMilestonetasks = [];
+		   			milestonetasks.forEach(function(milestonetask){
+		   				enteredMilestonetasks.push(milestonetask)
+		   			});
 		        var data = {
 		          currentUser: user,
 		          missions: enteredMissions,
 		          quests: enteredQuests,
 		          missiontasks: enteredMissiontasks,
-		          milestones: enteredMilestones
+		          milestones: enteredMilestones,
+		          milestonetasks: enteredMilestonetasks
 		        }
 		        cb(data);
 				}).catch(function(err){
@@ -42,6 +48,7 @@ var modelController = {
 			});
 	  	  });
     	});
+	  });
   	},
   	// Creates a new User record to the database (See route 'users/create')
   	userCreate: function(name, username, password, cb){
@@ -74,6 +81,15 @@ var modelController = {
 	        throw err
 	      })	
 	},
+	milestoneTaskToggle: function(uuid, cb){
+	  models.Milestonetask.findOne({ where: { uuid: uuid}}).then(function(success){
+	        success.set('isCompleted', true);
+	        success.save();
+	          cb(success);
+	      }).catch(function(err){
+	        throw err
+	      })	
+	},
 	// Retrieves all Missions for matching User (See route '/missionhome')
 	missionMain: function(id, cb){
 	    models.Mission.findAll({ where: {UserId: id}}).then(function(success){
@@ -84,11 +100,21 @@ var modelController = {
 	},
 	// Retrieves all Missions for matching User (See route '/questhome')
 	questMain: function(id, cb){
+		var quests;
+		var milestones;
 	    models.Quest.findAll({ where: {UserId: id}}).then(function(success){
-	        cb(success);
+	        quests = success;
+	    models.Milestone.findAll({ where: {UserId: id}}).then(function(success){
+	    	milestones=success
+	    	var data = {
+	    		quests: quests,
+	    		milestones: milestones
+	    	}
+	    	cb(data);
 	    }).catch(function(err){
 	    	throw err;
 	    });
+	  });
 	},
 	// Retreives all Bubo Missions and Quests that exist in database (See route '/searchall')
 	allMain: function(id, cb){
@@ -161,6 +187,16 @@ var modelController = {
 	missionTaskDelete: function(userId, paramsId, cb){
 		models.User.findOne({where: {id: userId}}).then(function(){
 		    models.Missiontask.destroy({ where: { uuid: paramsId }
+		    }).then(function(success){
+		      cb(success);
+		    }).catch(function(err){
+		      throw err;
+		    })
+	 	})
+	},
+	milestoneTaskDelete: function(userId, paramsId, cb){
+		models.User.findOne({where: {id: userId}}).then(function(){
+		    models.Milestonetask.destroy({ where: { uuid: paramsId }
 		    }).then(function(success){
 		      cb(success);
 		    }).catch(function(err){
