@@ -4,15 +4,83 @@ var {Link, IndexLink} = require('react-router');
 import CreateMission from 'CreateMission';
 import CreateTask from 'CreateTask';
 import MainNav from 'MainNav';
+import MissionListforMM from 'MissionListforMM';
 
 export default class MissionMain extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor(props, context) {
+        super(props, context);
         this.state = {
             missions: [],
             tasks: [],
             dropdownItem: ''
         };
+    }
+    deleteMission(id){
+        const { missions } = this.state;
+
+        const deleteMission = _.remove(missions, mission => mission.id === id);
+
+        fetch(`/mission/delete/${deleteMission[0].id}`,{
+            method: 'DELETE',
+            body: JSON.stringify(deleteMission),
+            headers: {
+                Auth: localStorage.getItem('token'),
+                'content-type': 'application/json',
+                'accept': 'application/json'
+            },
+            credentials: 'include'
+        }).then((response) => response.json())
+        .then((results) => {
+            this.setState({
+                missions: missions
+            })
+        }); 
+    }
+    toggleTask(taskId) {
+        const { tasks } = this.state;
+
+        const foundtask = tasks.find((task) => task.uuid === taskId);
+
+        if (foundtask) {
+            foundtask.isCompleted = !foundtask.isCompleted;
+
+            fetch(`/task/toggle/${foundtask.uuid}`, {
+                method: 'PUT',
+                body: JSON.stringify(foundtask),
+                headers: {
+                    Auth: localStorage.getItem('token'),
+                    'content-type': 'application/json',
+                    'accept': 'application/json'
+                },
+                credentials: 'include'
+            }).then((response) => response.json())
+                .then((json) => {
+                    this.setState({
+                        tasks: tasks,
+                    });
+                });
+        }
+    }
+    deleteTask(taskId){
+        const { tasks } = this.state;
+
+        const foundTask = _.remove(tasks, task => task.uuid === taskId);
+
+        fetch(`/task/delete/${foundTask[0].uuid}`,{
+            method: 'DELETE',
+            body: JSON.stringify(foundTask),
+            headers: {
+                Auth: localStorage.getItem('token'),
+                'content-type': 'application/json',
+                'accept': 'application/json'
+            },
+            credentials: 'include'
+        }).then((response) => response.json())
+            .then((results) => {
+                this.setState({
+                    tasks: tasks
+               });
+        });
     }
     handleDropdownChange(e){
         this.setState({
@@ -69,7 +137,8 @@ export default class MissionMain extends React.Component {
             });
     }
     componentWillMount(){
-        const {missions} = this.state;
+        const {missions, tasks} = this.state;
+        
         fetch('/missionhome', {
             headers: {
                 Auth: localStorage.getItem('token'),
@@ -79,14 +148,19 @@ export default class MissionMain extends React.Component {
             credentials: 'include'
         }).then((response) => response.json())
         .then((results) => {
+            console.log(results);
             this.setState({
-                missions: missions.concat(results)
+            
+                missions: missions.concat(results),
+                tasks: tasks.concat(results)
+
             });
         });
     }
     render() {
-        const { missions } = this.state; 
-
+        const {missions, tasks, dropdownItem } = this.state; 
+        const filteredMission = missions.filter((mission) => dropdownItem === mission.title);
+        const filteredTasks = tasks.filter((task) => dropdownItem === task.missionName);
         var renderMissionDropdown = () => {
             return missions.map((mission, index) => {
                 return (
@@ -114,6 +188,9 @@ export default class MissionMain extends React.Component {
                     </select>
                     <CreateTask createTask={this.handleCreateTask.bind(this)}/>
                 </div>
+                <MissionListforMM missions = {filteredMission} tasks = {filteredTasks} toggleTask={this.toggleTask.bind(this)}
+                                deleteMission={this.deleteMission.bind(this)}
+                                deleteTask={this.deleteTask.bind(this)}/>
             </div>
          );
     }
