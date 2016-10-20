@@ -118,13 +118,13 @@ var modelController = {
 	},
 	// Retreives all Bubo Missions and Quests that exist in database (See route '/searchall')
 	allMain: function(id, cb){
-        var missionsArray = [];
-        var questsArray = [];
         models.Mission.findAll().then(function(missions){
+        var missionsArray = [];
             missions.forEach(function(mission){
                 missionsArray.push(mission);
             });
         models.Quest.findAll().then(function(quests){
+        var questsArray = [];
             quests.forEach(function(quest){
                 questsArray.push(quest);
             });
@@ -132,7 +132,7 @@ var modelController = {
                 missions: missionsArray,
                 quests: questsArray
             }
-            cb(data)
+            cb(data);
         }).catch(function(err){
             throw err;
         });
