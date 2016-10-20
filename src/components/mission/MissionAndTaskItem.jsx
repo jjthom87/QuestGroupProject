@@ -11,14 +11,15 @@ export default class MissionAndTaskItem extends React.Component {
     }
 	render(){
 
-		const { id, uuid, title, deleteMission, deleteTask, description, percent, toggleTask, tasks, createdOn, isCompleted, active } = this.props;
+		const { id, uuid, title, deleteMission, deleteMissionTask, description, percent, toggleMissionTask, missiontasks, createdOn, isCompleted, active } = this.props;
 
-		var completedTasks = tasks.filter((task) => task.isCompleted);
+		var completedTasks = missiontasks.filter((task) => task.isCompleted);
 
-		const percentage = ((completedTasks.length/tasks.length) * 100);
+		const doit = ((completedTasks.length/missiontasks.length) * 100);
+		const percentage = parseInt(doit);
 
 		var singleTask = () => {
-			return tasks.map((task, index) => {
+			return missiontasks.map((task, index) => {
 				var taskClassName = task.isCompleted ? 'task-completed' : 'task-notCompleted';
 				return (
 					<div>
@@ -26,10 +27,10 @@ export default class MissionAndTaskItem extends React.Component {
 							<input
 					  			type="checkbox"
 					  			checked={isCompleted}
-					  			onChange={() => toggleTask(task.uuid)}
+					  			onChange={() => toggleMissionTask(task.uuid)}
 				  			/>
 							<p className={taskClassName} id="taskText">{task.task}</p>
-							<button onClick={() => deleteTask(task.uuid)}>X</button>
+							<button onClick={() => deleteMissionTask(task.uuid)}>X</button>
 						</span>
 						
 					</div>

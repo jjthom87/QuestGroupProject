@@ -24,7 +24,8 @@ export default class MissionMain extends React.Component {
 
         const newMiss = {
             title: creds.title,
-            description: creds.description
+            description: creds.description,
+            public: creds.selection
         }
         fetch('/mission/create', {
             method: 'post',
@@ -51,7 +52,7 @@ export default class MissionMain extends React.Component {
             timeTask: taskInput.timeTask,
             dropdownItem: dropdownItem
         }
-        fetch('/task/create/', {
+        fetch('/missiontask/create/', {
             method: 'post',
             body: JSON.stringify(newTask),
             headers: {
