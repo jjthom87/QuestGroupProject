@@ -44,6 +44,7 @@
     "react-dom": "^0.14.8",
     "react-modal-es6": "^0.1.1",
     "react-router": "^2.8.1",
+    "react-search": "^2.0.4",
     "sequelize": "^3.24.3",
     "sequelize-cli": "^2.4.0",
     "underscore": "^1.8.3",

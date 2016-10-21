@@ -41,21 +41,19 @@ export default class MissionTaskSearchItem extends React.Component {
 			<div className="panel panel-default" id="panel1">
 
 				<div className="panel-heading">
-					<span> <a data-toggle="collapse" data-target="#collapseOne" 
-           href="#collapseOne"><strong>Mission Searched:</strong> {title}</a></span>
-		   <Line percent={percentage} strokeWidth="4" strokeColor="#3FC7FA"/>
+					<span> <strong>{title}</strong> </span>
+		  			<Line percent={percentage} strokeWidth="4" strokeColor="#3FC7FA"/>
+		  			<p>Achievement: <strong> {percentage}%</strong></p>
 				</div>
-				<div id="collapseOne" className="panel-collapse collapse in">
 					<div className="panel-body">
-						<strong><p>You are {percentage}% done with this mission</p></strong>
 						<div>
 							<p><strong>Description:</strong>{description}</p>
 						</div>
 						<div>
-							<p><strong>Tasks</strong></p>
-							{singleTask()}
-						</div>
-						
+							<p>
+								<strong><u>Tasks</u></strong>
+							</p>
+							<ul>{singleTask()}</ul>
 						</div>
 					</div>
 			</div>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Search from 'react-search'
 import { Router , browserHistory } from 'react-router';
 var {Link, IndexLink} = require('react-router');
 var _ = require('lodash');
@@ -7,9 +8,11 @@ import Logout from 'Logout';
 import MainNav from 'MainNav';
 import MissionTaskSearchItem from 'MissionTaskSearchItem';
 import MissionSearchList from 'MissionSearchList';
+import SearchBar from 'SearchBar';
 
 export default class SearchAllPage extends React.Component {
-  	constructor(props) {
+  	
+    constructor(props) {
 		super(props);
 		this.state = {
 			loginUser: '',
@@ -50,6 +53,10 @@ export default class SearchAllPage extends React.Component {
 		});
 	}
 
+    HiItems(items) {
+        console.log(items);
+    }
+
 	render() {
 
         const { missions, quests, missiontasks, dropdownMission } = this.state;
@@ -57,23 +64,27 @@ export default class SearchAllPage extends React.Component {
         var renderMissionDropdown = () => {
             return missions.map((mission, index) => {
                 return (
-                    <option value={mission.title} className="dropdown-item">{mission.title}</option>
+                    <h1>{mission.title}</h1>
                 );  
             });
         }
 
+        let items = [
+          { id: 0, value: 'ruby' },
+          { id: 1, value: 'javascript' },
+          { id: 2, value: 'lua' },
+          { id: 3, value: 'go' },
+          { id: 4, value: 'julia' }
+        ]
+
     	return (
       		<div className="row">
+                
                 <div className="row">
                     <div className="col-md-1">
                         <button className="btn btn-warning"><Link to="/home">Back Home</Link></button>
                     </div>
                 </div>
-
-                <select name="Please Select Mission to add Task to" value={this.state.dropdownMission} onChange={this.handleDropdownChange.bind(this)}>
-                    <option selected disabled>Choose Mission to add Task to</option>
-                    {renderMissionDropdown()}
-                </select>
 
                 <div className="row">
                     <div className="panel panel-success col-md-3 qmbox">
@@ -82,8 +93,14 @@ export default class SearchAllPage extends React.Component {
                             missiontasks={missiontasks}
                         />
                     </div>
-
                 </div>
+                <Search items={items} />
+ 
+                <Search items={items}
+                    placeholder='Pick your language'
+                    maxSelected={3}
+                    multiple={true}
+                    onItemsChanged={this.HiItems.bind(this)} />
             </div>
 		);
 	}
