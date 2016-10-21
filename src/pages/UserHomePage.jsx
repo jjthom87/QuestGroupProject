@@ -285,14 +285,13 @@ export default class UserHomePage extends React.Component {
                     </div>
 
 				</div>
-                 <Link to="/missionshome"><button className="btn btn-info" id="createmissbutton">Create a Mission</button></Link>
-                 <Link to="/questshome"><button className="btn btn-info" id="createquestbutton">Create a Quest</button></Link>
     				<div className="row">
-                        <div className="panel panel-success col-md-3 qmbox">
+                        <div className="panel panel-success col-md-3 qmbox col-md-offset-3">
                             <select name="Please Select Mission" value={this.state.dropdownMission} onChange={this.handleDropdownMission.bind(this)}>
                                 <option selected disabled>Find Mission</option>
                                 {renderMissionDropdown()}
                             </select>
+                            <Link to="/missionshome"><button className="btn btn-info" id="missionAdd"><span className="glyphicon glyphicon-plus" ></span></button></Link>
                             <MissionsList
                                 missions={filteredMission}
                                 missiontasks={filteredTasks}
@@ -306,6 +305,7 @@ export default class UserHomePage extends React.Component {
                                 <option selected disabled>Find Quest</option>
                                 {renderQuestDropdown()}
                             </select>
+                            <Link to="/questshome"><button className="btn btn-info" id="missionAdd"><span className="glyphicon glyphicon-plus" ></span></button></Link>
                             <QuestsList
                                 quests={filteredQuest}
                                 milestones={filteredMilestones}
