@@ -166,9 +166,9 @@ export default class MissionMain extends React.Component {
             });
         }
         return (
-            <div>
+            <div className="container">
                 <MainNav />
-                <div className="container" id="separator">
+                <div className="row" id="separator">
                     <div className="row">
                         <div className="col-md-1">
                             <Link to="/home"><button className="btn btn-warning">Back Home</button></Link>

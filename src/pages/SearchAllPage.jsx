@@ -87,9 +87,13 @@ export default class SearchAllPage extends React.Component {
           		<div className="row" id="separator">
                             <div className="row">
                                 <div className="col-md-1">
-                                    <button className="btn btn-warning"><Link to="/home">Back Home</Link></button>
+                                    <Link to="/home"><button className="btn btn-warning">Back Home</button></Link>
                                 </div>
                             </div>
+
+                            <div className="col-md-3">
+                            </div>
+
                             <div className="row">
                                 <div className="panel panel-success col-md-3 qmbox">
                                     <select name="Please Select Mission" value={this.state.dropdownMission} onChange={this.handleDropdownMission.bind(this)}>
@@ -102,6 +106,10 @@ export default class SearchAllPage extends React.Component {
                                     />
                                 </div>
                             </div>
+
+                            <div className="col-md-3">
+                            </div>
+
                             <div className="row">
                                 <div className="panel panel-success col-md-3 qmbox">
                                     <select name="Please Select Quest" value={this.state.dropdownQuest} onChange={this.handleDropdownQuest.bind(this)}>
