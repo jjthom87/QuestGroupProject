@@ -9,7 +9,8 @@ import MissionTaskSearchItem from 'MissionTaskSearchItem';
 import MissionSearchList from 'MissionSearchList';
 
 export default class SearchAllPage extends React.Component {
-  	constructor(props) {
+  	
+    constructor(props) {
 		super(props);
 		this.state = {
 			loginUser: '',
