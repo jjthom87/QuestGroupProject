@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Search from 'react-search'
 import { Router , browserHistory } from 'react-router';
 var {Link, IndexLink} = require('react-router');
@@ -23,7 +23,8 @@ export default class SearchAllPage extends React.Component {
             milestones: [],
             dropdownQuest: '',
             dropdownMission: '',
-            createdOn: ''
+            createdOn: '',
+            searchFetch: ''
         };
     }
 
@@ -53,13 +54,7 @@ export default class SearchAllPage extends React.Component {
         });
     }
 
-    HiItems(items) {
-        console.log(items);
-    }
-
-	render() {
-
-
+    render() {
         const { missions, quests, missiontasks, dropdownMission } = this.state;
 
         var renderMissionDropdown = () => {
@@ -69,14 +64,6 @@ export default class SearchAllPage extends React.Component {
                 );  
             });
         }
-
-        let items = [
-          { id: 0, value: 'ruby' },
-          { id: 1, value: 'javascript' },
-          { id: 2, value: 'lua' },
-          { id: 3, value: 'go' },
-          { id: 4, value: 'julia' }
-        ]
 
     	return (
       		<div className="row">
@@ -97,13 +84,10 @@ export default class SearchAllPage extends React.Component {
                         />
                     </div>
                 </div>
-                <Search items={items} />
- 
-                <Search items={items}
-                    placeholder='Pick your language'
-                    maxSelected={3}
-                    multiple={true}
-                    onItemsChanged={this.HiItems.bind(this)} />
+
+                <SearchBar />
+
+                
             </div>
         );
     }
