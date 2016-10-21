@@ -8,6 +8,7 @@ import QuestMain from "QuestMain";
 import QuestsList from 'QuestsList';
 import Logout from 'Logout';
 import MainNav from 'MainNav';
+var moment = require('moment');
 
 export default class UserHomePage extends React.Component {
   	constructor(props, context) {
@@ -270,6 +271,18 @@ export default class UserHomePage extends React.Component {
                     <option value={quest.title} className="dropdown-item">{quest.title}</option>
                 );  
             });
+        }
+
+        var renderDate = () => {
+            var message = "Quest Due ";
+            const filteredDateQuest = filteredQuest.map((date) => date.dateQuest);
+            const dated = filteredDateQuest.join('').split('-').join('');
+
+            if(!filteredDateQuest){
+                return ''
+            } else {
+            return message + moment(dated, "YYYYMMDD").fromNow();
+            }
         }
     	return (
       		<div>

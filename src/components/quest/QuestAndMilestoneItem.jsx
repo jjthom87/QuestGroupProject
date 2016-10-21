@@ -11,8 +11,8 @@ export default class QuestAndMilestoneItem extends React.Component {
     }
 	render(){
 
-		const { id, uuid, title, deleteQuest, deleteMilestone, description, toggleMilestone, milestones, createdOn, isCompleted, taskCompleted, active, milestonetasks, deleteMilestoneTask, toggleMilestoneTask } = this.props;
-
+		const { id, title, dateQuest, deleteQuest, deleteMilestone, description, toggleMilestone, milestones, createdOn, isCompleted, taskCompleted, active, milestonetasks, deleteMilestoneTask, toggleMilestoneTask } = this.props;
+		console.log(dateQuest);
 		var completedMilestones = milestones.filter((milestone) => milestone.isCompleted);
 		var completedMilestoneTasks = milestonetasks.filter((milestonetask) => milestonetask.taskCompleted);
 
@@ -23,8 +23,8 @@ export default class QuestAndMilestoneItem extends React.Component {
 			return milestones.map((milestone, index) => {
 				var filteredMilestoneTasks = milestonetasks.filter((milestonetask) => milestonetask.MilestoneUuid === milestone.uuid);
 				var milestoneClassName = milestone.isCompleted ? 'task-completed' : 'task-notCompleted';
-				var milestoneTaskClassName = filteredMilestoneTasks.taskCompleted ? 'task-completed' : 'task-notCompleted';
 				return filteredMilestoneTasks.map((milestonetask, index) => {
+					var milestoneTaskClassName = milestonetask.taskCompleted ? 'task-completed' : 'task-notCompleted';
 				return (
 					<div>
 						<li>
@@ -34,30 +34,28 @@ export default class QuestAndMilestoneItem extends React.Component {
 					  			onChange={() => toggleMilestone(milestone.uuid)}
 				  			/>
 							<p className={milestoneClassName}>{milestone.milestone}</p>
+								<li>
+									<input
+							  			type="checkbox"
+							  			checked={taskCompleted}
+							  			onChange={() => toggleMilestoneTask(milestonetask.uuid)}
+						  			/>
+									<p className={milestoneTaskClassName}>{milestonetask.task}</p>
+									<button onClick={() => deleteMilestoneTask(milestonetask.uuid)}>X</button>
+								</li>
 							<button onClick={() => deleteMilestone(milestone.uuid)}>X</button>
 						</li>
-						<ul>
-							<li>
-								<input
-						  			type="checkbox"
-						  			checked={taskCompleted}
-						  			onChange={() => toggleMilestoneTask(milestonetask.uuid)}
-					  			/>
-								<p className={milestoneTaskClassName}>{milestonetask.task}</p>
-								<button onClick={() => deleteMilestoneTask(milestonetask.uuid)}>X</button>
-							</li>
-						</ul>
 					</div>
 				)
 			  })
 			})
 		}
-		var renderDate = () => {
-			var message = "Added on ";
-			var timestamp = createdOn
+        var renderDate = () => {
+            var message = "Quest Due ";
+            const dated = dateQuest.split('-').join('');
 
-			return message + moment(timestamp).format('MMM Do YYYY @ h:mm a')
-		}
+            return message + moment(dated, "YYYYMMDD").fromNow();
+        }
 		return (
 			<div>
 				<div>
@@ -79,6 +77,7 @@ export default class QuestAndMilestoneItem extends React.Component {
 				</div>
 				<Line percent={percentage} strokeWidth="4" strokeColor="#3FC7FA"/>
 				<p>You are {percentage}% done with this quest</p>
+				<p>{renderDate()}</p>
 			</div>
 		)
 	}

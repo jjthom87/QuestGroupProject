@@ -33,8 +33,10 @@ export default class QuestMain extends React.Component {
         const newQuest = {
             title: creds.title,
             description: creds.description,
-            selection: creds.selection
+            selection: creds.selection,
+            dateQuest: creds.dateQuest
         }
+        console.log(newQuest)
         fetch('/quest/create', {
             method: 'post',
             body: JSON.stringify(newQuest),

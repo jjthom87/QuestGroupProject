@@ -14,6 +14,9 @@ module.exports = function(sequelize, DataTypes) {
     questName: {
       type: DataTypes.STRING
     },
+    dateQuest: {
+      type: DataTypes.STRING
+    },
     isCompleted: {
       type: DataTypes.BOOLEAN
     },

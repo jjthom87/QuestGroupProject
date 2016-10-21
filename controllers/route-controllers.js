@@ -176,6 +176,7 @@ router.post('/quest/create', middleware.requireAuthentication, function(req, res
       req.body.title,
       req.body.description,
       req.body.selection,
+      req.body.dateQuest,
       req.user, 
     function(success){
       res.json(success);
