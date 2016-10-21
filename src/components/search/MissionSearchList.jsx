@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
-import MissionSearchItem from 'MissionTaskSearchItem';
+import MissionTaskSearchItem from 'MissionTaskSearchItem';
 
 export default class MissionSearchList extends React.Component {
     render() {
         const { missions, missiontasks } = this.props;
         
         var renderMissions = () => {
-            return missions.map((mission, index) => {
+            return missions.map((mission) => {
                 return (
                     <MissionTaskSearchItem
                         title={mission.title}
                         description={mission.description}
                         missiontasks={missiontasks}
-                        key={index}
                     />
                 );
             });
