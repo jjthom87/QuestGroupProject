@@ -180,13 +180,14 @@ var modelController = {
 		})
 	},
 	// Creates a new Quest record to the database (See route '/quest/create')
-	questCreate: function(title, description, public, user, cb){
+	questCreate: function(title, description, public, dateQuest, user, cb){
 		models.Quest.create({
 		  title: title,	
 		  description: description,
 		  isCompleted: false,
 		  active: false,
-		  public: public
+		  public: public,
+		  dateQuest: dateQuest
 			  }).then(function(quest){
 			    user.addQuest(quest).then(function(success){
 				    cb(quest);

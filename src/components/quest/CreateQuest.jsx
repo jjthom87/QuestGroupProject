@@ -30,6 +30,7 @@ export default class CreateQuest extends React.Component {
         const creds = {};
         const title = this.refs.title.value;
         const description = this.refs.description.value;
+        const dateQuest = this.refs.dateQuest.value;
 
         if (title.length > 0) {
             this.refs.title.value = '';
@@ -50,6 +51,8 @@ export default class CreateQuest extends React.Component {
         } else {
             alert('Please choose an option for public');
         }
+
+        creds.dateQuest = dateQuest;
 
         this.props.createQuest(creds);
     }
@@ -72,6 +75,10 @@ export default class CreateQuest extends React.Component {
                     </div>
                     <div>
                         <input type="text" placeholder="Quest Description" ref="description" />
+                    </div>
+                    <div>
+                        <p className="publicSelection">Expected Completion Date</p>
+                        <input type="date" ref="dateQuest" />
                     </div>
                     <div className="publicSelection">
                         <p className="publicText">Public</p>

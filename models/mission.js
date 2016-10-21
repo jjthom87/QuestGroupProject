@@ -14,6 +14,9 @@ module.exports = function(sequelize, DataTypes) {
     missionName: {
       type: DataTypes.STRING
     },
+    dateMission: {
+      type: DataTypes.STRING
+    },
     isCompleted: {
       type: DataTypes.BOOLEAN
     },
