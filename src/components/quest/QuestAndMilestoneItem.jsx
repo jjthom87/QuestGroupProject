@@ -52,24 +52,6 @@ export default class QuestAndMilestoneItem extends React.Component {
 			  })
 			})
 		}
-		var singleMilestoneTask = () => {
-			return milestonetasks.map((milestonetask, index) =>{
-				var milestoneTaskClassName = milestonetask.isCompleted ? 'task-completed' : 'task-notCompleted';
-				return (
-					<div>
-						<li>
-							<input
-					  			type="checkbox"
-					  			checked={isCompleted}
-					  			onChange={() => toggleMilestoneTask(milestonetask.uuid)}
-				  			/>
-							<p className={milestoneTaskClassName}>{milestonetask.task}</p>
-							<button onClick={() => deleteMilestoneTask(milestonetask.uuid)}>X</button>
-						</li>
-					</div>
-				)
-			})
-		}
 		var renderDate = () => {
 			var message = "Added on ";
 			var timestamp = createdOn

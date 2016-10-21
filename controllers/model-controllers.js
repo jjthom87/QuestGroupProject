@@ -92,13 +92,23 @@ var modelController = {
 	},
 	// Retrieves all Missions for matching User (See route '/missionhome')
 	missionMain: function(id, cb){
+		var missions;
+		var missiontasks;
 	    models.Mission.findAll({ where: {UserId: id}}).then(function(success){
-	        cb(success);
+	        missions = success;
+	   	models.Missiontask.findAll({ where: {UserId: id}}).then(function(success){
+	   		missiontasks = success;
+	   		var data = {
+	   			missions: missions,
+	   			missiontasks: missiontasks
+	   		}
+	   		cb(data);
 	    }).catch(function(err){
 	    	throw err;
 	    });
+	  });
 	},
-	// Retrieves all Missions for matching User (See route '/questhome')
+	// Retrieves all Quests for matching User (See route '/questhome')
 	questMain: function(id, cb){
 		var quests;
 		var milestones;
@@ -117,7 +127,7 @@ var modelController = {
 	  });
 	},
 	// Retreives all Bubo Missions and Quests that exist in database (See route '/searchall')
-	allMain: function(id, cb){
+	allMain: function(cb){
         models.Mission.findAll().then(function(missions){
         var missionsArray = [];
             missions.forEach(function(mission){
@@ -128,15 +138,30 @@ var modelController = {
             quests.forEach(function(quest){
                 questsArray.push(quest);
             });
+		models.Milestone.findAll().then(function(milestones){
+        var milestonesArray = [];
+            milestones.forEach(function(milestone){
+                milestonesArray.push(milestone);
+            });
+		models.Missiontask.findAll().then(function(missiontasks){
+        var missiontaskArray = [];
+            missiontasks.forEach(function(missiontask){
+            	missiontaskArray.push(missiontask);
+            });
+
          var data = {
                 missions: missionsArray,
-                quests: questsArray
+                quests: questsArray,
+                missiontasks: missiontaskArray,
+                milestones: milestonesArray
             }
             cb(data);
         }).catch(function(err){
             throw err;
-        });
-    	});
+      	});
+     });
+	});
+   });
     },
 	// Creates a new Mission record to the database (See route 'mission/create')
 	missionCreate: function(title, description, public, user, cb){
