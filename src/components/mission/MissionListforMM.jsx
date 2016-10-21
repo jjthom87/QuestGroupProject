@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import MissionsListHeader from 'MissionsListHeader';
 import MissionsListItem from 'MissionsListItem';
 import MissionAndTaskItem from 'MissionAndTaskItem';
 

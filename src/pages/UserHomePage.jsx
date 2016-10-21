@@ -286,8 +286,7 @@ export default class UserHomePage extends React.Component {
 
 				</div>
     				<div className="row">
-    					<div className="col-md-3">
-    					</div>
+    					
                         <div className="panel panel-success col-md-3 qmbox">
                             <select name="Please Select Mission" value={this.state.dropdownMission} onChange={this.handleDropdownMission.bind(this)}>
                                 <option selected disabled>Find Mission</option>
