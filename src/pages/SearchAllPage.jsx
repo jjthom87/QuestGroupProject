@@ -9,21 +9,21 @@ import MissionTaskSearchItem from 'MissionTaskSearchItem';
 import MissionSearchList from 'MissionSearchList';
 
 export default class SearchAllPage extends React.Component {
-  	
+    
     constructor(props) {
-		super(props);
-		this.state = {
-			loginUser: '',
-			fullLoginUser: '',
-			missions: [],
-			quests: [],
+        super(props);
+        this.state = {
+            loginUser: '',
+            fullLoginUser: '',
+            missions: [],
+            quests: [],
             tasks: [],
             milestones: [],
             dropdownQuest: '',
             dropdownMission: '',
-			createdOn: ''
-		};
-	}
+            createdOn: ''
+        };
+    }
 
     handleDropdownChange(e){
         this.setState({
@@ -31,27 +31,27 @@ export default class SearchAllPage extends React.Component {
         })
     }
 
-  	componentWillMount(){
-		fetch('/search', {
+    componentWillMount(){
+        fetch('/search', {
             headers: {
                 Auth: localStorage.getItem('token'),
                 'content-type': 'application/json',
                 'accept': 'application/json'
             },
             credentials: 'include'
-		}).then((response) => response.json())
-		.then((results) => {
-			this.setState({
+        }).then((response) => response.json())
+        .then((results) => {
+            this.setState({
                 missions: results.missions,
                 quests: results.quests,
                 missiontasks: results.missiontasks,
                 milestones: results.milestones,
                 milestonetasks: results.milestonetasks
-			});
-		});
-	}
+            });
+        });
+    }
 
-	render() {
+    render() {
 
         const { missions, quests, missiontasks, dropdownMission } = this.state;
 
@@ -63,53 +63,8 @@ export default class SearchAllPage extends React.Component {
             });
         }
 
-    	return (
-<<<<<<< HEAD
-            <div className="container">
-            <MainNav/>
-          		<div className="row" id="separator">
-                            <div className="row">
-                                <div className="col-md-1">
-                                    <Link to="/home"><button className="btn btn-warning">Back Home</button></Link>
-                                </div>
-                            </div>
-
-                            <div className="col-md-3">
-                            </div>
-
-                            <div className="row">
-                                <div className="panel panel-success col-md-3 qmbox">
-                                    <select name="Please Select Mission" value={this.state.dropdownMission} onChange={this.handleDropdownMission.bind(this)}>
-                                        <option selected disabled>Find Mission</option>
-                                        {renderMissionDropdown()}
-                                    </select>
-                                    <MissionsList
-                                        missions={missions}
-                                        missiontasks={missiontasks}
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="col-md-3">
-                            </div>
-
-                            <div className="row">
-                                <div className="panel panel-success col-md-3 qmbox">
-                                    <select name="Please Select Quest" value={this.state.dropdownQuest} onChange={this.handleDropdownQuest.bind(this)}>
-                                        <option selected disabled>Find Quest</option>
-                                        {renderQuestDropdown()}
-                                    </select>
-                                    <QuestsList
-                                        quests={quests}
-                                        milestones={milestones}
-                                        milestonetasks={milestonetasks}
-                                    />
-                                </div>
-                            </div>
-                            <div className="col-md-3">
-                            </div>
-=======
-      		<div className="row">
+        return (
+            <div className="row">
                 <div className="row">
                     <div className="col-md-1">
                         <button className="btn btn-warning"><Link to="/home">Back Home</Link></button>
@@ -123,9 +78,8 @@ export default class SearchAllPage extends React.Component {
                             missiontasks={missiontasks}
                         />
                     </div>
->>>>>>> 10db475ba309aa4bbeac27307bc74f681f6115a2
                 </div>
             </div>
-		);
-	}
+        );
+    }
 }
