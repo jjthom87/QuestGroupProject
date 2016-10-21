@@ -2,18 +2,15 @@ import React, { Component } from 'react';
 import { Router , browserHistory } from 'react-router';
 var {Link, IndexLink} = require('react-router');
 var _ = require('lodash');
-import MissionsList from 'MissionsList';
-import MissionMain from "MissionMain";
 import QuestMain from "QuestMain";
-import QuestsList from 'QuestsList';
 import Logout from 'Logout';
 import MainNav from 'MainNav';
-import MissionAndTaskItem from 'MissionAndTaskItem';
-import MissionSearchItem from 'MissionSearchItem';
-import QuestSearchItem from 'QuestSearchItem';
+import MissionTaskSearchItem from 'MissionTaskSearchItem';
+import MissionSearchList from 'MissionSearchList';
 
 export default class SearchAllPage extends React.Component {
-  	constructor(props) {
+  	
+    constructor(props) {
 		super(props);
 		this.state = {
 			loginUser: '',
@@ -28,14 +25,9 @@ export default class SearchAllPage extends React.Component {
 		};
 	}
 
-    handleDropdownMission(e){
+    handleDropdownChange(e){
         this.setState({
             dropdownMission: e.target.value
-        })
-    }
-    handleDropdownQuest(e){
-        this.setState({
-            dropdownQuest: e.target.value
         })
     }
 
@@ -50,8 +42,6 @@ export default class SearchAllPage extends React.Component {
 		}).then((response) => response.json())
 		.then((results) => {
 			this.setState({
-				fullLoginUser: results.currentUser,
-                loginUser: results.currentUser.name,
                 missions: results.missions,
                 quests: results.quests,
                 missiontasks: results.missiontasks,
@@ -63,25 +53,18 @@ export default class SearchAllPage extends React.Component {
 
 	render() {
 
-        const { id, index, missions, quests, missiontasks, milestones, dropdownMission, dropdownQuest, milestonetasks} = this.state;
+        const { missions, quests, missiontasks, dropdownMission } = this.state;
 
         var renderMissionDropdown = () => {
             return missions.map((mission, index) => {
                 return (
-                    <option value={mission.title} className="dropdown-item">{mission.title}</option>
-                );  
-            });
-        }
-
-        var renderQuestDropdown = () => {
-            return quests.map((quest, index) => {
-                return (
-                    <option value={quest.title} className="dropdown-item">{quest.title}</option>
+                    <h1>{mission.title}</h1>
                 );  
             });
         }
 
     	return (
+<<<<<<< HEAD
             <div className="container">
             <MainNav/>
           		<div className="row" id="separator">
@@ -125,6 +108,22 @@ export default class SearchAllPage extends React.Component {
                             </div>
                             <div className="col-md-3">
                             </div>
+=======
+      		<div className="row">
+                <div className="row">
+                    <div className="col-md-1">
+                        <button className="btn btn-warning"><Link to="/home">Back Home</Link></button>
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="panel panel-success col-md-3 qmbox">
+                        <MissionSearchList
+                            missions={missions}
+                            missiontasks={missiontasks}
+                        />
+                    </div>
+>>>>>>> 10db475ba309aa4bbeac27307bc74f681f6115a2
                 </div>
             </div>
 		);
