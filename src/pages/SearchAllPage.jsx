@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Search from 'react-search'
 import { Router , browserHistory } from 'react-router';
 var {Link, IndexLink} = require('react-router');
 var _ = require('lodash');
@@ -7,6 +8,7 @@ import Logout from 'Logout';
 import MainNav from 'MainNav';
 import MissionTaskSearchItem from 'MissionTaskSearchItem';
 import MissionSearchList from 'MissionSearchList';
+import SearchBar from 'SearchBar';
 
 export default class SearchAllPage extends React.Component {
     
@@ -51,7 +53,12 @@ export default class SearchAllPage extends React.Component {
         });
     }
 
-    render() {
+    HiItems(items) {
+        console.log(items);
+    }
+
+	render() {
+
 
         const { missions, quests, missiontasks, dropdownMission } = this.state;
 
@@ -63,8 +70,19 @@ export default class SearchAllPage extends React.Component {
             });
         }
 
-        return (
-            <div className="row">
+        let items = [
+          { id: 0, value: 'ruby' },
+          { id: 1, value: 'javascript' },
+          { id: 2, value: 'lua' },
+          { id: 3, value: 'go' },
+          { id: 4, value: 'julia' }
+        ]
+
+    	return (
+      		<div className="row">
+                
+
+
                 <div className="row">
                     <div className="col-md-1">
                         <button className="btn btn-warning"><Link to="/home">Back Home</Link></button>
@@ -79,6 +97,13 @@ export default class SearchAllPage extends React.Component {
                         />
                     </div>
                 </div>
+                <Search items={items} />
+ 
+                <Search items={items}
+                    placeholder='Pick your language'
+                    maxSelected={3}
+                    multiple={true}
+                    onItemsChanged={this.HiItems.bind(this)} />
             </div>
         );
     }
