@@ -138,15 +138,30 @@ var modelController = {
             quests.forEach(function(quest){
                 questsArray.push(quest);
             });
+		models.Milestone.findAll().then(function(milestones){
+        var milestonesArray = [];
+            milestones.forEach(function(milestone){
+                milestonesArray.push(milestone);
+            });
+		models.Missiontask.findAll().then(function(missiontasks){
+        var missiontaskArray = [];
+            missiontasks.forEach(function(missiontask){
+            	missiontaskArray.push(missiontask);
+            });
+
          var data = {
                 missions: missionsArray,
-                quests: questsArray
+                quests: questsArray,
+                missiontasks: missiontaskArray,
+                milestones: milestonesArray
             }
             cb(data);
         }).catch(function(err){
             throw err;
-        });
+      	});
      });
+	});
+   });
     },
 	// Creates a new Mission record to the database (See route 'mission/create')
 	missionCreate: function(title, description, public, user, cb){

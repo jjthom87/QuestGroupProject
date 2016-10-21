@@ -292,20 +292,19 @@ export default class UserHomePage extends React.Component {
       			<div className="row">
       				<div className="col-lg-1 col-lg-offset-5" role="group">
 
-						<button className="btn btn-info"><Link to="/missionshome">Create a Mission</Link></button>
-						<button className="btn btn-info"><Link to="/questshome">Create a Quest</Link></button>
-                        <button className="btn btn-info"><Link to="/searchall">Find a Mission or Quest</Link></button>			
+						
+						
+                        <Link to="/searchall"><button className="btn btn-info">Find a Mission or Quest</button></Link>			
                     </div>
 
 				</div>
     				<div className="row">
-    					<div className="col-md-3">
-    					</div>
-                        <div className="panel panel-success col-md-3 qmbox">
+                        <div className="panel panel-success col-md-3 qmbox col-md-offset-3">
                             <select name="Please Select Mission" value={this.state.dropdownMission} onChange={this.handleDropdownMission.bind(this)}>
                                 <option selected disabled>Find Mission</option>
                                 {renderMissionDropdown()}
                             </select>
+                            <Link to="/missionshome"><button className="btn btn-info" id="missionAdd"><span className="glyphicon glyphicon-plus" ></span></button></Link>
                             <MissionsList
                                 missions={filteredMission}
                                 missiontasks={filteredTasks}
@@ -319,6 +318,7 @@ export default class UserHomePage extends React.Component {
                                 <option selected disabled>Find Quest</option>
                                 {renderQuestDropdown()}
                             </select>
+                            <Link to="/questshome"><button className="btn btn-info" id="missionAdd"><span className="glyphicon glyphicon-plus" ></span></button></Link>
                             <QuestsList
                                 quests={filteredQuest}
                                 milestones={filteredMilestones}

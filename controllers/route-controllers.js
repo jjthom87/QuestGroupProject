@@ -10,7 +10,6 @@ var modelController = require('./model-controllers.js');
 
 var middleware = require('../middleware/middleware.js')();
 
-
 // ROUTES
 // NON-authenticated Users=================================================
 // Setting root ('/') path to index.html

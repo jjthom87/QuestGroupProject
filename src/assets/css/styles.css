@@ -261,3 +261,43 @@ input{
 .publicSelect {
     color: orange;
 }
+
+#createmissbutton {
+    margin-left:30%;
+}
+
+#createquestbutton { 
+    float:right;
+    margin-right: 30%;
+}
+
+#missionForm {
+     background-color: rgba(192,192,192,.5);
+     padding-bottom: 10px; 
+     margin-top: 10px;
+}
+
+#missionlistdiv{
+    background-color: rgba(192,192,192,.5);
+     padding-bottom: 10px;
+     padding-top: 20px;
+     margin-top: 10px;
+}
+
+select {
+    background-color: rgba(192,192,192,.5);
+    color:white; 
+    text:15px; 
+}
+
+ option {
+    opacity: 0.1;
+    color: black;
+}
+
+#missionAdd {
+    float: right;
+    color: black;
+    margin:0px;
+
+}
