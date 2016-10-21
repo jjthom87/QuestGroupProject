@@ -82,6 +82,7 @@ export default class SearchAllPage extends React.Component {
                             missiontasks={missiontasks}
                         />
                     </div>
+
                 </div>
             </div>
 		);
