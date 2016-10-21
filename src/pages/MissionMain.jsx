@@ -168,26 +168,32 @@ export default class MissionMain extends React.Component {
         return (
             <div>
                 <MainNav />
-                <div className="container" id="separator">
-                    <div className="row">
-                        <div className="col-md-1">
-                            <Link to="/home"><button className="btn btn-warning">Back Home</button></Link>
+                    <div className="container" id="separator">
+                        <div className="row">
+                            <div className="col-md-1">
+                                <Link to="/home"><button className="btn btn-warning">Back Home</button></Link>
+                            </div>
                         </div>
-                    </div>
-                    <h1 id="pageTitle">Missions Home</h1>
-                    <CreateMission
-                        missions={missions}
-                        createMission={this.createMission.bind(this)}
-                    />
-                    <select name="Please Select Mission to add Task to" value={this.state.dropdownMission} onChange={this.handleDropdownChange.bind(this)}>
-                        <option selected disabled>Choose Mission to add Task to</option>
-                        {renderMissionDropdown()}
-                    </select>
-                    <CreateMissionTask createTask={this.handleCreateMissionTask.bind(this)}/>
-                </div>
-                <MissionListforMM missions = {filteredMission} missiontasks = {filteredTasks} toggleMissionTask={this.toggleMissionTask.bind(this)}
+                            <h1 id="pageTitle">Missions Home</h1>
+                        <div className="row">
+                            <div className="col-md-5 col-md-offset-1" id="missionForm">
+                                <CreateMission
+                                    missions={missions}
+                                    createMission={this.createMission.bind(this)}/>
+                                    <select name="Please Select Mission to add Task to" value={this.state.dropdownMission} onChange={this.handleDropdownChange.bind(this)}>
+                                    <option selected disabled>Choose Mission to add Task to</option>
+                                    {renderMissionDropdown()}
+                                    </select>
+                                    <CreateMissionTask createTask={this.handleCreateMissionTask.bind(this)}/>
+                            </div>
+                        
+                            <div className="col-md-4 col-md-offset-1" id="missionlistdiv">
+                                <MissionListforMM missions = {filteredMission} missiontasks = {filteredTasks} toggleMissionTask={this.toggleMissionTask.bind(this)}
                                 deleteMission={this.deleteMission.bind(this)}
                                 deleteMissionTask={this.deleteMissionTask.bind(this)}/>
+                            </div>
+                            </div>
+                    </div>
             </div>
          );
     }
