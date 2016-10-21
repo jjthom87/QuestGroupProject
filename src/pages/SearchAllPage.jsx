@@ -58,7 +58,7 @@ export default class SearchAllPage extends React.Component {
         var renderMissionDropdown = () => {
             return missions.map((mission, index) => {
                 return (
-                    <option value={mission.title} className="dropdown-item">{mission.title}</option>
+                    <h1>{mission.title}</h1>
                 );  
             });
         }
@@ -70,11 +70,6 @@ export default class SearchAllPage extends React.Component {
                         <button className="btn btn-warning"><Link to="/home">Back Home</Link></button>
                     </div>
                 </div>
-
-                <select name="Please Select Mission to add Task to" value={this.state.dropdownMission} onChange={this.handleDropdownChange.bind(this)}>
-                    <option selected disabled>Choose Mission to add Task to</option>
-                    {renderMissionDropdown()}
-                </select>
 
                 <div className="row">
                     <div className="panel panel-success col-md-3 qmbox">
