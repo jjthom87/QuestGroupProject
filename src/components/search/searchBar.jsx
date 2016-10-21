@@ -1,31 +1,47 @@
-import Search from 'react-search';
-import React, { Component, PropTypes } from 'react';
+import Search from 'react-search'
+import ReactDOM from 'react-dom'
+import React, { Component, PropTypes } from 'react'
  
-export default class SearchBar extends React.Component {
+export default class SearchBar extends Component {
  
+  constructor (props) {
+    super(props)
+    this.state = { searchResults: [] }
+  }
+ 
+
   HiItems(items) {
-    console.log(items);
+    console.log(items)
+  }
+
+  // Goal: To fetch /search when user enter search
+  // Pulling only missions for now.  Just to get something searched.
+  getItemsAsync(searchValue, cb) {
+    fetch('/search', {
+      headers: {
+                Auth: localStorage.getItem('token'),
+                'content-type': 'application/json',
+                'accept': 'application/json'
+            },
+            credentials: 'include'
+      }).then((response) => response.json())
+      .then((results) => {
+      if(results.items != undefined){
+        let items = results.items.map( (res, i) => { return { id: i, value: 'missions' } })
+        this.setState({ searchResults: items })
+        cb(searchValue);
+      }
+    });
   }
  
   render () {
-    let items = [
-      { id: 0, value: 'ruby' },
-      { id: 1, value: 'javascript' },
-      { id: 2, value: 'lua' },
-      { id: 3, value: 'go' },
-      { id: 4, value: 'julia' }
-    ]
- 
     return (
       <div>
-        <Search items={items} />
- 
-        <Search items={items}
-                placeholder='Pick your language'
-                maxSelected={3}
+        <Search items={this.state.searchResults}
                 multiple={true}
+                getItemsAsync={this.getItemsAsync.bind(this)}
                 onItemsChanged={this.HiItems.bind(this)} />
       </div>
-    );
+    )
   }
 }
