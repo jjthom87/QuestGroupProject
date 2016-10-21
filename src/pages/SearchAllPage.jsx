@@ -11,21 +11,21 @@ import MissionSearchList from 'MissionSearchList';
 import SearchBar from 'SearchBar';
 
 export default class SearchAllPage extends React.Component {
-  	
+    
     constructor(props) {
-		super(props);
-		this.state = {
-			loginUser: '',
-			fullLoginUser: '',
-			missions: [],
-			quests: [],
+        super(props);
+        this.state = {
+            loginUser: '',
+            fullLoginUser: '',
+            missions: [],
+            quests: [],
             tasks: [],
             milestones: [],
             dropdownQuest: '',
             dropdownMission: '',
-			createdOn: ''
-		};
-	}
+            createdOn: ''
+        };
+    }
 
     handleDropdownChange(e){
         this.setState({
@@ -33,31 +33,32 @@ export default class SearchAllPage extends React.Component {
         })
     }
 
-  	componentWillMount(){
-		fetch('/search', {
+    componentWillMount(){
+        fetch('/search', {
             headers: {
                 Auth: localStorage.getItem('token'),
                 'content-type': 'application/json',
                 'accept': 'application/json'
             },
             credentials: 'include'
-		}).then((response) => response.json())
-		.then((results) => {
-			this.setState({
+        }).then((response) => response.json())
+        .then((results) => {
+            this.setState({
                 missions: results.missions,
                 quests: results.quests,
                 missiontasks: results.missiontasks,
                 milestones: results.milestones,
                 milestonetasks: results.milestonetasks
-			});
-		});
-	}
+            });
+        });
+    }
 
     HiItems(items) {
         console.log(items);
     }
 
 	render() {
+
 
         const { missions, quests, missiontasks, dropdownMission } = this.state;
 
@@ -80,6 +81,8 @@ export default class SearchAllPage extends React.Component {
     	return (
       		<div className="row">
                 
+
+
                 <div className="row">
                     <div className="col-md-1">
                         <button className="btn btn-warning"><Link to="/home">Back Home</Link></button>
@@ -102,6 +105,6 @@ export default class SearchAllPage extends React.Component {
                     multiple={true}
                     onItemsChanged={this.HiItems.bind(this)} />
             </div>
-		);
-	}
+        );
+    }
 }
