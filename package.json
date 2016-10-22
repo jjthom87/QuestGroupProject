@@ -30,7 +30,7 @@
     "connect-session-sequelize": "^3.1.0",
     "cookie-parser": "^1.4.3",
     "crypto-js": "^3.1.7",
-    "d3": "^4.2.6",
+    "d3": "^4.2.8",
     "express": "^4.14.0",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.14.1",
@@ -45,7 +45,7 @@
     "react-modal-es6": "^0.1.1",
     "react-router": "^2.8.1",
     "react-search": "^2.0.4",
-    "sequelize": "^3.24.3",
+    "sequelize": "^3.24.5",
     "sequelize-cli": "^2.4.0",
     "underscore": "^1.8.3",
     "vue": "^1.0.27"
