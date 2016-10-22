@@ -98,9 +98,9 @@ export default class UserHomePage extends React.Component {
     completeMission(missionId){
         const { missions } = this.state;
 
-        const foundMission = missions.find((mission) => mission.id === missionId);
+        const completeMission = _.remove(missions, mission => mission.id === missionId);
 
-        fetch(`/mission/complete/${completeMission.id}`,{
+        fetch(`/mission/complete/${completeMission[0].id}`,{
             method: 'PUT',
             body: JSON.stringify(completeMission),
             headers: {
@@ -119,9 +119,9 @@ export default class UserHomePage extends React.Component {
     completeQuest(questId){
         const { quests } = this.state;
 
-        const foundQuest = quests.find((quest) => quest.id === questId);
+        const completeQuest = _.remove(quests, quest => quest.id === questId);
 
-        fetch(`/quest/complete/${completeQuest.id}`,{
+        fetch(`/quest/complete/${completeQuest[0].id}`,{
             method: 'PUT',
             body: JSON.stringify(completeQuest),
             headers: {
@@ -303,7 +303,7 @@ export default class UserHomePage extends React.Component {
         const filteredTasks = missiontasks.filter((task) => dropdownMission === task.missionName);
         const filteredQuest = quests.filter((quest) => dropdownQuest === quest.title);
         const filteredMilestones = milestones.filter((milestone) => dropdownQuest === milestone.questName);
-        const filteredMilestoneTasks = milestonetasks.filter((milestonetask) => dropdownMilestone === milestonetask.questName);
+        const filteredMilestoneTasks = milestonetasks.filter((milestonetask) => dropdownMilestone === milestonetask.milestoneName);
 
         var renderMissionDropdown = () => {
             return missions.map((mission, index) => {

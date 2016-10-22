@@ -13,7 +13,6 @@ export default class QuestAndMilestoneItem extends React.Component {
 
 		const { id, title, dateQuest, deleteQuest, completeQuest, deleteMilestone, description, toggleMilestone, milestones, createdOn, isCompleted, taskCompleted, active, milestonetasks, deleteMilestoneTask, toggleMilestoneTask } = this.props;
 		console.log(dateQuest);
-		var completedMilestones = milestones.filter((milestone) => milestone.isCompleted);
 		var completedMilestoneTasks = milestonetasks.filter((milestonetask) => milestonetask.taskCompleted);
 
 		const doit = ((completedMilestoneTasks.length)/milestonetasks.length * 100);
@@ -35,7 +34,6 @@ export default class QuestAndMilestoneItem extends React.Component {
 							<p className={milestoneTaskClassName}>{milestonetask.task}</p>
 							<button onClick={() => deleteMilestoneTask(milestonetask.uuid)}>X</button>
 						</li>
-						<button onClick={() => deleteMilestone(milestone.uuid)}>X</button>
 					</div>
 				)
 			  })
@@ -60,7 +58,7 @@ export default class QuestAndMilestoneItem extends React.Component {
 				</div>
 					<p>{description}</p>
 				<div>
-					<p>Milestones</p>
+					<p>Tasks</p>
 					{singleMilestone()}
 				</div>
 				<div>

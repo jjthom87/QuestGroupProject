@@ -11,7 +11,7 @@ export default class MissionAndTaskItem extends React.Component {
     }
 	render(){
 
-		const { id, uuid, title, deleteMission, deleteMissionTask, completetMission, description, percent, toggleMissionTask, missiontasks, createdOn, isCompleted, active } = this.props;
+		const { id, uuid, title, deleteMission, deleteMissionTask, completeMission, description, percent, toggleMissionTask, missiontasks, createdOn, isCompleted, active } = this.props;
 
 		var completedTasks = missiontasks.filter((task) => task.isCompleted);
 

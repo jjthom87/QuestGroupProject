@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import Search from 'react-search'
+// import Search from 'react-search'
 import { Router , browserHistory } from 'react-router';
 var {Link, IndexLink} = require('react-router');
 var _ = require('lodash');
@@ -8,7 +8,7 @@ import Logout from 'Logout';
 import MainNav from 'MainNav';
 import MissionTaskSearchItem from 'MissionTaskSearchItem';
 import MissionSearchList from 'MissionSearchList';
-import SearchBar from 'SearchBar';
+// import SearchBar from 'SearchBar';
 
 export default class SearchAllPage extends React.Component {
     
