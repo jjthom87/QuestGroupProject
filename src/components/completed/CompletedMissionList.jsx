@@ -1,4 +1,5 @@
 import React, { Component } from 'react'; 
+
 import CompletedMissionItem from 'CompletedMissionItem';
 
 export default class CompletedMissionList extends React.Component {
@@ -7,7 +8,7 @@ export default class CompletedMissionList extends React.Component {
         
         var renderMissions = () => {
             return missions.map((mission, index) => {
-            	var filteredMissiontask = missiontasks.filter((missiontask) => missiontask.missionName === mission.title);
+            	var filteredMissiontask = missiontasks.filter((missiontask) => missiontask.MissionId === mission.id);
                 return (
                     <CompletedMissionItem
                     	missions={missions}

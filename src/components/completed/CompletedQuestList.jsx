@@ -7,8 +7,8 @@ export default class CompletedQuestList extends React.Component {
         
         var renderQuests = () => {
             return quests.map((quest, index) => {
-            	var filteredMilestone = milestones.filter((milestone) => milestone.questName === quest.title);
-            	var filteredMilestonetasks = milestonetasks.filter((milestonetask) => milestonetask.questName === quest.title)
+            	var filteredMilestone = milestones.filter((milestone) => milestone.QuestId === quest.id);
+            	var filteredMilestonetasks = milestonetasks.filter((milestonetask) => milestonetask.QuestId === quest.id)
                 return (
                     <CompletedQuestItem
                     	quests={quests}
