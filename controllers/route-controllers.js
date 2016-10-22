@@ -13,9 +13,7 @@ var middleware = require('../middleware/middleware.js')();
 // ROUTES
 // NON-authenticated Users=================================================
 // Setting root ('/') path to index.html
-router.get('/', (req,res) => {
-	res.sendFile(path.join(__dirname, '../public/index.html'));
-})
+
 
 // Registration: Allows users to create new user based on model input
 router.post('/api/users/create', function(req,res){
@@ -285,6 +283,10 @@ router.delete('/api/milestone/delete/:id', middleware.requireAuthentication, fun
     function(success){
       res.json(success);
     })
+})
+
+router.get('*', (req,res) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'));
 })
 
 module.exports = router;

@@ -26,7 +26,7 @@ export default class UserAllPage extends React.Component {
 		};
 	}
 	logoutHandler(){
-		fetch('/users/logout', {
+		fetch('/api/users/logout', {
 			method: 'delete',
 			headers: {
 				Auth: localStorage.getItem('token'),
