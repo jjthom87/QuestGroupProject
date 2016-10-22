@@ -39,7 +39,6 @@ export default class QuestMain extends React.Component {
             dateQuest: creds.dateQuest,
             createdOn: moment().format('MMM Do YYYY @ h:mm a')
         }
-        console.log(newQuest)
         fetch('/quest/create', {
             method: 'post',
             body: JSON.stringify(newQuest),

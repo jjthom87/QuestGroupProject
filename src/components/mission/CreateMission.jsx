@@ -29,7 +29,6 @@ export default class CreateMission extends React.Component {
         const creds = {};
         const title = this.refs.title.value;
         const description = this.refs.description.value;
-        const missionTime = this.refs.missionTime.value;
 
         if (title.length > 0) {
             this.refs.title.value = '';
@@ -43,11 +42,6 @@ export default class CreateMission extends React.Component {
             creds.description = description;
         } else {
             alert('Enter Mission Description');
-        }
-
-        if (missionTime.match(/^[0-9]*$/)){
-            this.refs.missionTime.value='';
-            creds.missionTime = missionTime
         }
 
         if(selection){
@@ -80,10 +74,6 @@ export default class CreateMission extends React.Component {
                     </div>
                     <div>
                         <input type="text" placeholder="Mission Description" ref="description" />
-                    </div>
-                    <div>
-                        <p className="publicSelection">Expected Completion Time</p>
-                        <input type="text" placeholder="Enter Time in Seconds" ref="missionTime" />
                     </div>
                     <div className="publicSelection">
                         <p className="publicText">Public</p>

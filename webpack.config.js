@@ -29,6 +29,7 @@ module.exports = {
             'src/components/milestones',
             'src/components/search',
             'src/components/completed',
+            'src/components/countdown',
             'src/components',
             'src/pages',
             'src/auth',

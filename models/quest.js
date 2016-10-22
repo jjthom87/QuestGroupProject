@@ -30,7 +30,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN
     },
     createdOn: {
-      type: DataTypes.BOOLEAN
+      type: DataTypes.STRING
     },
     completedOn: {
       type: DataTypes.STRING
