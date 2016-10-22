@@ -13,6 +13,7 @@ export default class QuestsList extends React.Component {
                         title={quest.title}
                         description={quest.description}
                         dateQuest={quest.dateQuest}
+                        milestones={milestones}
                         milestonetasks={milestonetasks}
                         toggleMilestoneTask={toggleMilestoneTask}
                         deleteMilestoneTask={deleteMilestoneTask}

@@ -187,7 +187,7 @@ var modelController = {
 		  title: title,
 		  description: description,
 		  isCompleted: false,
-		  active: false,
+		  missionCompleted: false,
 		  public: public
 		  	  }).then(function(mission){
 			      user.addMission(mission).then(function(success){
@@ -203,7 +203,7 @@ var modelController = {
 		  title: title,	
 		  description: description,
 		  isCompleted: false,
-		  active: false,
+		  questCompleted: false,
 		  public: public,
 		  dateQuest: dateQuest
 			  }).then(function(quest){

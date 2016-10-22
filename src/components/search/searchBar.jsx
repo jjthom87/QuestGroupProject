@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-import React, { Component, PropTypes } from 'react';
-=======
-import Search from 'react-search'
+// import Search from 'react-search'
 import ReactDOM from 'react-dom'
 import React, { Component, PropTypes } from 'react'
->>>>>>> 2b67d75da51c546eb00eb853b2b5254682bc9ecb
- 
+
 export default class SearchBar extends Component {
  
   constructor (props) {
