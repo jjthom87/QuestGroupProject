@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import { Router , browserHistory } from 'react-router';
 var {Link, IndexLink} = require('react-router');
-var _ = require('lodash');
+
 import MissionsList from 'MissionsList';
 import MissionMain from "MissionMain";
 import QuestMain from "QuestMain";
 import QuestsList from 'QuestsList';
 import Logout from 'Logout';
 import MainNav from 'MainNav';
+import Clock from 'Clock';
+import CountdownForm from 'CountdownForm';
+import Controls from 'Controls';
+
+var _ = require('lodash');
 var moment = require('moment');
 
 export default class UserHomePage extends React.Component {
@@ -26,8 +31,54 @@ export default class UserHomePage extends React.Component {
             dropdownMilestone: '',
 			createdOn: '',
             completedOn: '',
+            count: 0,
+            countdownStatus: 'stopped'
 		};
 	}
+    handleSetCountdown(seconds){
+        console.log(seconds);
+        this.setState({
+            count: seconds,
+            countdownStatus: 'started'
+        });
+    }
+    componentDidUpdate(prevProps, prevState){
+        if (this.state.countdownStatus !== prevState.countdownStatus) {
+            switch(this.state.countdownStatus){
+                case 'started':
+                    this.startTimer();
+                    break;
+                case 'stopped':
+                    this.setState({count: 0});
+                case 'paused':
+                    clearInterval(this.timer)
+                    this.timer = undefined;
+                    break;
+            }
+        }
+    }
+    componentWillUnmount() {
+        console.log('componentWillUnmount');
+        clearInterval(this.timer);
+        this.timer = undefined;
+    }
+    startTimer(){
+        this.timer = setInterval(() => {
+            var newCount = this.state.count - 1;
+            this.setState({
+                count: newCount >= 0 ? newCount : 0
+            });
+            if (newCount === 0){
+                this.setState({countdownStatus: 'stopped'});
+            }
+        }, 1000)
+
+    }
+    handleStatusChange(newStatus){
+        this.setState({
+            countdownStatus: newStatus
+        })
+    }
     handleDropdownMission(e){
         this.setState({
             dropdownMission: e.target.value
@@ -307,13 +358,14 @@ export default class UserHomePage extends React.Component {
 		});
 	}
 	render() {
-		const { loginUser, missions, quests, missiontasks, milestones, dropdownMission, dropdownQuest, dropdownMilestone, milestonetasks, deleteMilestoneTask, toggleMilestoneTask } = this.state;
+		const { loginUser, missions, quests, missiontasks, milestones, dropdownMission, dropdownQuest, dropdownMilestone, milestonetasks, deleteMilestoneTask, toggleMilestoneTask, count, countdownStatus } = this.state;
 
         const filteredMission = missions.filter((mission) => dropdownMission === mission.title);
         const filteredTasks = missiontasks.filter((task) => dropdownMission === task.missionName);
         const filteredQuest = quests.filter((quest) => dropdownQuest === quest.title);
         const filteredMilestones = milestones.filter((milestone) => dropdownQuest === milestone.questName);
         const filteredMilestoneTasks = milestonetasks.filter((milestonetask) => dropdownQuest === milestonetask.questName);
+
 
         var renderMissionDropdown = () => {
             return missions.map((mission, index) => {
@@ -338,6 +390,15 @@ export default class UserHomePage extends React.Component {
                 );  
             });
         }
+
+        var renderControlArea = () => {
+            if (countdownStatus !== 'stopped') {
+                return <Controls countdownStatus={countdownStatus} onStatusChange={this.handleStatusChange.bind(this)}/>
+            } else {
+                return <CountdownForm onSetCountdown={this.handleSetCountdown.bind(this)} />
+            }
+        };
+
     	return (
       		<div>
               <MainNav/>
@@ -367,6 +428,11 @@ export default class UserHomePage extends React.Component {
                                 completeMission={this.completeMission.bind(this)}
                                 deleteMissionTask={this.deleteMissionTask.bind(this)}
                             />
+                            <div>
+                                <h1 className="page-title">Countdown</h1>
+                                <Clock totalSeconds={count}/>
+                                {renderControlArea()}
+                            </div>
                         </div>
                         <div className="panel panel-success col-md-4 qmbox">
                             <select name="Please Select Quest" value={this.state.dropdownQuest} onChange={this.handleDropdownQuest.bind(this)}>
