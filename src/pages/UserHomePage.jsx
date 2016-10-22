@@ -415,7 +415,7 @@ export default class UserHomePage extends React.Component {
 
 				</div>
     				<div className="row">
-                        <div className="panel panel-success col-md-4 qmbox col-md-offset-2">
+                        <div className="panel panel-success col-md-5 qmbox col-md-offset-1">
                             <select name="Please Select Mission" value={this.state.dropdownMission} onChange={this.handleDropdownMission.bind(this)}>
                                 <option selected disabled>Find Mission</option>
                                 {renderMissionDropdown()}
@@ -435,7 +435,7 @@ export default class UserHomePage extends React.Component {
                                 {renderControlArea()}
                             </div>
                         </div>
-                        <div className="panel panel-success col-md-4 qmbox">
+                        <div className="panel panel-success col-md-5 qmbox">
                             <select name="Please Select Quest" value={this.state.dropdownQuest} onChange={this.handleDropdownQuest.bind(this)}>
                                 <option selected disabled>Find Quest</option>
                                 {renderQuestDropdown()}

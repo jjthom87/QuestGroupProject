@@ -27,15 +27,18 @@ export default class QuestAndMilestoneItem extends React.Component {
 				var filteredMilestonetask = milestonetasks.filter((milestonetask) => milestonetask.milestoneName === milestone.milestone);
 				return (
 					<div>
-						<li>
+						<span>
+					
+							
 							<input
 					  			type="checkbox"
 					  			checked={isCompleted}
 					  			onChange={() => toggleMilestone(milestone.uuid)}
 				  			/>
-							<p className={milestoneClassName}>{milestone.milestone}</p>
-							<button onClick={() => deleteMilestone(milestone.uuid)}>Delete Milestone</button>
-						</li>
+							<p className={milestoneClassName}><strong> MileStone: </strong>{milestone.milestone}</p>
+							<span className="glyphicon glyphicon-remove-circle" onClick={() => deleteMilestone(milestone.uuid)}></span>
+						
+						</span>
 							<MilestoneAndTaskItem 
 								milestonetasks={filteredMilestonetask}
                         		toggleMilestoneTask={toggleMilestoneTask}
@@ -73,29 +76,30 @@ export default class QuestAndMilestoneItem extends React.Component {
             return message + moment(dated, "YYYYMMDD").fromNow();
         }
 		return (
-			<div>
-				<div>
-					<p>Quest Title</p>
+			<div className="panel panel-default" id="panel1">
+				<div className="panel-heading">
+						<span> <a data-toggle="collapse" data-target="#collapseOne" href="#collapseOne"><strong>Quest: </strong> {title} </a></span>
+						<Line percent={percentage} strokeWidth="4" strokeColor="#3FC7FA"/>
 				</div>
-				<div>
-					<p>{title}</p>
+				<div id="collapseOne" className="panel-collapse collapse in">
+				<div className="panel-body">
+					<div>
+						<p>You are {percentage}% done with this quest</p>
+					</div>
+					<div>
+						<p><strong>Description:</strong>{description}</p>
+						<p>{createdOn}</p>
+					</div>
+					<div>
+						{singleMilestone()}
+					</div>
+					<div>
+						<button onClick={() => deleteQuest(id)}>Delete Quest</button>
+						<button onClick={() => completeQuest(id)}>Complete Quest</button>
+					</div>
+					<p>{renderDate()}</p>
 				</div>
-				<div>
-					<p>Quest description</p>
 				</div>
-					<p>{description}</p>
-					<p>{createdOn}</p>
-				<div>
-					<p>Milestones</p>
-					{singleMilestone()}
-				</div>
-				<div>
-					<button onClick={() => deleteQuest(id)}>Delete Quest</button>
-					<button onClick={() => completeQuest(id)}>Complete Quest</button>
-				</div>
-				<Line percent={percentage} strokeWidth="4" strokeColor="#3FC7FA"/>
-				<p>You are {percentage}% done with this quest</p>
-				<p>{renderDate()}</p>
 			</div>
 		)
 	}
