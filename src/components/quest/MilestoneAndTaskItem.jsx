@@ -11,11 +11,10 @@ export default class MilestoneAndTaskItem extends React.Component {
     }
 	render(){
 
-		const { id, title, dateQuest, deleteQuest, completeQuest, deleteMilestone, milestones, createdOn, taskCompleted, milestonetasks, deleteMilestoneTask, toggleMilestoneTask } = this.props;
-
+		const { id, title, dateQuest, deleteQuest, completeQuest, deleteMilestone, milestones, taskCompleted, milestonetasks, deleteMilestoneTask, toggleMilestoneTask } = this.props;
 		var singleMilestoneTask = () => {
 			milestonetasks.map((milestonetask, index) => {
-					var milestoneTaskClassName = milestonetask.taskCompleted ? 'task-completed' : 'task-notCompleted';
+				var milestoneTaskClassName = milestonetask.taskCompleted ? 'task-completed' : 'task-notCompleted';
 				return (
 					<div>
 						<li>
@@ -34,7 +33,7 @@ export default class MilestoneAndTaskItem extends React.Component {
 		return (
 			<div>
 				<p>Tasks</p>
-				{singleMilestoneTask()}
+				<p>{singleMilestoneTask()}</p>
 			</div>
 		)
 	}
