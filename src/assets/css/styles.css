@@ -5,15 +5,6 @@ body{
     height: 2000px;
 }
 
-#starsIMG{
-    background:url('../images/stars.png');
-    padding-top: 30px;
-    margin: 0;
-    background-attachment: fixed;
-    height: 2000px;
-    opacity: 0.9;
-}
-
 h1{
     font-weight: bolder;
 }
@@ -22,6 +13,26 @@ h1{
 input{
     margin-top: 8px;
     border-radius: 5px;
+}
+
+select {
+    background-color: rgba(192,192,192,.5);
+    color:white; 
+    text:15px; 
+}
+
+ option {
+    opacity: 0.1;
+    color: black;
+}
+
+#starsIMG{
+    background:url('../images/stars.png');
+    padding-top: 30px;
+    margin: 0;
+    background-attachment: fixed;
+    height: 2000px;
+    opacity: 0.9;
 }
 
 .btn-info{
@@ -54,18 +65,12 @@ input{
 #regForm{
     width: 250px;
     margin-top: 30px;
-   background-color: rgba(192,192,192,.5);
+    background-color: rgba(192,192,192,.5);
     padding: 20px;
     box-shadow: 4px 4px 1px black;
     margin: auto;
     border: 20px;
 }
-
-#regdiv {
-    margin-top: 180px;
-    
-}
-
 
 /*nav bar styling*/
 
@@ -99,6 +104,16 @@ input{
 
 .landNavitem a {
     display: inline-block
+}
+
+#accountForm {
+    text-align: center;
+    margin-top: 150px;
+    display: inline-block;
+    background-color: rgba(192,192,192,.5);
+    padding: 10px;
+    box-shadow: 4px 4px 1px black;
+    margin-left: 35%;
 }
 
 #siteName{
@@ -282,17 +297,6 @@ input{
      padding-bottom: 10px;
      padding-top: 20px;
      margin-top: 10px;
-}
-
-select {
-    background-color: rgba(192,192,192,.5);
-    color:white; 
-    text:15px; 
-}
-
- option {
-    opacity: 0.1;
-    color: black;
 }
 
 #missionAdd {
