@@ -213,11 +213,13 @@ select {
 #pageTitle {
     font-size: 24px;
     color: yellow;
+    text-align: center;
 }
 
 .missionTitle {
     font-size: 20px;
-    color: orange;
+    color:yellow;
+    text-align: center;
 }
 
 .missionsTitle {
@@ -264,19 +266,36 @@ select {
 }
 
 .publicSelection {
-    p {
-        color: yellow;
-    }
+    margin-top: 10px; 
+    
 }
+.publicSelection p input {
+    display: inline-block;
+    
+}
+
 
 .publicText {
     color: yellow;
+    display:inline-block;
+    
 }
 
 .publicSelect {
-    color: orange;
+    color:#007B93;
+    display: inline-block;
+    margin-left: 5px;
+    
 }
 
+.publicSelection input {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+#pubselectDiv{
+    background-color: rgba(192,192,192,.5);
+    padding: 2px;
+}
 #createmissbutton {
     margin-left:30%;
 }

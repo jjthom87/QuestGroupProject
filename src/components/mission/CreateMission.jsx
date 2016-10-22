@@ -86,6 +86,7 @@ export default class CreateMission extends React.Component {
                         <input type="text" placeholder="Enter Time in Seconds" ref="missionTime" />
                     </div>
                     <div className="publicSelection">
+                        <span id="pubselectDiv">
                         <p className="publicText">Public</p>
                             <p className="publicSelect">Yes
                             <input 
@@ -106,6 +107,7 @@ export default class CreateMission extends React.Component {
                                 onChange={this.handleRadio.bind(this)}
                             />
                             </p>
+                            </span>
                     </div>
                     <div>
                         <input type="submit" placeholder="Add Mission" />
