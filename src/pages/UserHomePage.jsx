@@ -23,6 +23,7 @@ export default class UserHomePage extends React.Component {
             milestones: [],
             dropdownQuest: '',
             dropdownMission: '',
+            dropdownMilestone: '',
 			createdOn: ''
 		};
 	}
@@ -34,6 +35,11 @@ export default class UserHomePage extends React.Component {
     handleDropdownQuest(e){
         this.setState({
             dropdownQuest: e.target.value
+        })
+    }
+    handleDropdownMilestone(e){
+        this.setState({
+            dropdownMilestone: e.target.value
         })
     }
 	logoutHandler(){
@@ -76,6 +82,48 @@ export default class UserHomePage extends React.Component {
         fetch(`/quest/delete/${deleteQuest[0].id}`,{
             method: 'DELETE',
             body: JSON.stringify(deleteQuest),
+            headers: {
+                Auth: localStorage.getItem('token'),
+                'content-type': 'application/json',
+                'accept': 'application/json'
+            },
+            credentials: 'include'
+        }).then((response) => response.json())
+        .then((results) => {
+            this.setState({
+                quests: quests
+            })
+        }); 
+    }
+    completeMission(missionId){
+        const { missions } = this.state;
+
+        const foundMission = missions.find((mission) => mission.id === missionId);
+
+        fetch(`/mission/complete/${completeMission.id}`,{
+            method: 'PUT',
+            body: JSON.stringify(completeMission),
+            headers: {
+                Auth: localStorage.getItem('token'),
+                'content-type': 'application/json',
+                'accept': 'application/json'
+            },
+            credentials: 'include'
+        }).then((response) => response.json())
+        .then((results) => {
+            this.setState({
+                missions: missions
+            })
+        }); 
+    }
+    completeQuest(questId){
+        const { quests } = this.state;
+
+        const foundQuest = quests.find((quest) => quest.id === questId);
+
+        fetch(`/quest/complete/${completeQuest.id}`,{
+            method: 'PUT',
+            body: JSON.stringify(completeQuest),
             headers: {
                 Auth: localStorage.getItem('token'),
                 'content-type': 'application/json',
@@ -249,13 +297,13 @@ export default class UserHomePage extends React.Component {
 		});
 	}
 	render() {
-		const { loginUser, missions, quests, missiontasks, milestones, dropdownMission, dropdownQuest, milestonetasks, deleteMilestoneTask, toggleMilestoneTask } = this.state;
+		const { loginUser, missions, quests, missiontasks, milestones, dropdownMission, dropdownQuest, dropdownMilestone, milestonetasks, deleteMilestoneTask, toggleMilestoneTask } = this.state;
 
         const filteredMission = missions.filter((mission) => dropdownMission === mission.title);
         const filteredTasks = missiontasks.filter((task) => dropdownMission === task.missionName);
         const filteredQuest = quests.filter((quest) => dropdownQuest === quest.title);
         const filteredMilestones = milestones.filter((milestone) => dropdownQuest === milestone.questName);
-        const filteredMilestoneTasks = milestonetasks.filter((milestonetask) => dropdownQuest === milestonetask.questName);
+        const filteredMilestoneTasks = milestonetasks.filter((milestonetask) => dropdownMilestone === milestonetask.questName);
 
         var renderMissionDropdown = () => {
             return missions.map((mission, index) => {
@@ -273,16 +321,12 @@ export default class UserHomePage extends React.Component {
             });
         }
 
-        var renderDate = () => {
-            var message = "Quest Due ";
-            const filteredDateQuest = filteredQuest.map((date) => date.dateQuest);
-            const dated = filteredDateQuest.join('').split('-').join('');
-
-            if(!filteredDateQuest){
-                return ''
-            } else {
-            return message + moment(dated, "YYYYMMDD").fromNow();
-            }
+        var renderMilestoneDropdown = () => {
+            return filteredMilestones.map((milestone, index) => {
+                return (
+                    <option value={milestone.milestone} className="dropdown-item">{milestone.milestone}</option>
+                );  
+            });
         }
     	return (
       		<div>
@@ -293,7 +337,7 @@ export default class UserHomePage extends React.Component {
       				<div className="col-lg-1 col-lg-offset-5" role="group">
 
 						
-						
+						<Link to="/completed"><button className="btn btn-info">See Completed Missions and Quests</button></Link>
                         <Link to="/searchall"><button className="btn btn-info">Find a Mission or Quest</button></Link>			
                     </div>
 
@@ -310,6 +354,7 @@ export default class UserHomePage extends React.Component {
                                 missiontasks={filteredTasks}
                                 toggleMissionTask={this.toggleMissionTask.bind(this)}
                                 deleteMission={this.deleteMission.bind(this)}
+                                completeMission={this.completeMission.bind(this)}
                                 deleteMissionTask={this.deleteMissionTask.bind(this)}
                             />
                         </div>
@@ -318,13 +363,17 @@ export default class UserHomePage extends React.Component {
                                 <option selected disabled>Find Quest</option>
                                 {renderQuestDropdown()}
                             </select>
+                            <select name="Please Select Milestone" value={this.state.dropdownMilestone} onChange={this.handleDropdownMilestone.bind(this)}>
+                                <option selected disabled>Find Milestone</option>
+                                {renderMilestoneDropdown()}
+                            </select>
                             <Link to="/questshome"><button className="btn btn-info" id="missionAdd"><span className="glyphicon glyphicon-plus" ></span></button></Link>
                             <QuestsList
                                 quests={filteredQuest}
                                 milestones={filteredMilestones}
                                 milestonetasks={filteredMilestoneTasks}
-                                toggleMilestone={this.toggleMilestone.bind(this)}
                                 deleteQuest={this.deleteQuest.bind(this)}
+                                completeQuest={this.completeQuest.bind(this)}
                                 deleteMilestone={this.deleteMilestone.bind(this)}
                                 toggleMilestoneTask={this.toggleMilestoneTask.bind(this)}
                                 deleteMilestoneTask={this.deleteMilestoneTask.bind(this)}

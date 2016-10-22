@@ -79,7 +79,7 @@ router.get('/search', middleware.requireAuthentication, function(req,res){
 });
 
 // Sign-out: Deletes user's JSON Web Token once logged out
-router.delete('/users/logout', function (req, res) {
+router.delete('/users/logout', middleware.requireAuthentication, function (req, res) {
   req.token.destroy().then(function () {
     res.status(204).send();
   }).catch(function () {
@@ -201,6 +201,22 @@ router.put('/milestonetask/toggle/:id', middleware.requireAuthentication, functi
 
 router.put('/milestone/toggle/:id', middleware.requireAuthentication, function(req, res){
   modelController.milestoneToggle(
+    req.params.id,
+    function(success){
+      res.json(success)
+    });
+});
+
+router.put('/quest/complete/:id', middleware.requireAuthentication, function(req, res){
+  modelController.questComplete(
+    req.params.id,
+    function(success){
+      res.json(success)
+    });
+});
+
+router.put('/mission/complete/:id', middleware.requireAuthentication, function(req, res){
+  modelController.missionComplete(
     req.params.id,
     function(success){
       res.json(success)

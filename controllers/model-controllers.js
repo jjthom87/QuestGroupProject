@@ -7,12 +7,12 @@ var modelController = {
 	// Returns all Missions, Quests, and Tasks in the database
 	userHome: function(id, cb){
 		models.User.findOne({ where: {id: id}}).then(function(user){
-	        user.getMissions().then(function(missions){
+	        user.getMissions({ where: {missionCompleted: false}}).then(function(missions){
 		        var enteredMissions = [];
 		        missions.forEach(function(mission){
 		            enteredMissions.push(mission);
 		        });
-		    user.getQuests().then(function(quests){
+		    user.getQuests({ where: {questCompleted: false}}).then(function(quests){
 		          var enteredQuests = [];
 		          quests.forEach(function(quest){
 		            enteredQuests.push(quest);
@@ -75,6 +75,24 @@ var modelController = {
 	milestoneToggle: function(uuid, cb){
 	  models.Milestone.findOne({ where: { uuid: uuid}}).then(function(success){
 	        success.set('isCompleted', true);
+	        success.save();
+	          cb(success);
+	      }).catch(function(err){
+	        throw err
+	      })	
+	},
+	questComplete: function(id, cb){
+	  models.Quest.findOne({ where: { id: id}}).then(function(success){
+	        success.set('questCompleted', true);
+	        success.save();
+	          cb(success);
+	      }).catch(function(err){
+	        throw err
+	      })	
+	},
+	missionComplete: function(id, cb){
+	  models.Mission.findOne({ where: { id: id}}).then(function(success){
+	        success.set('missionCompleted', true);
 	        success.save();
 	          cb(success);
 	      }).catch(function(err){
@@ -247,7 +265,7 @@ var modelController = {
 		      throw err;
 		    })
 	 	})
-	},
+	}
 }
 
 module.exports = modelController;

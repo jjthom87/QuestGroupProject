@@ -77,7 +77,7 @@ export default class CreateMission extends React.Component {
                     </div>
                     <div>
                         <p className="publicSelection">Expected Completion Time</p>
-                        <input type="text" placeholder="Mission Description" ref="description" />
+                        <input type="text" placeholder="Mission Description" ref="dateMission" />
                     </div>
                     <div className="publicSelection">
                         <p className="publicText">Public</p>

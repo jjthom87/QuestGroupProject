@@ -1,0 +1,367 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'react-search' ]
+2 info using npm@2.15.8
+3 info using node@v4.4.7
+4 verbose install initial load of C:\Users\JT\desktop\bootcamp\QuestGroupProject\package.json
+5 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\babel-core\package.json
+6 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\babel-loader\package.json
+7 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\babel-preset-es2015\package.json
+8 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\babel-preset-react\package.json
+9 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\babel-preset-stage-0\package.json
+10 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\bcrypt-nodejs\package.json
+11 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\bcryptjs\package.json
+12 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\body-parser\package.json
+13 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\connect-ensure-login\package.json
+14 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\connect-flash\package.json
+15 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\connect-session-sequelize\package.json
+16 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\cookie-parser\package.json
+17 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\crypto-js\package.json
+18 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\d3\package.json
+19 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\express\package.json
+20 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\express-handlebars\package.json
+21 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\express-session\package.json
+22 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\http\package.json
+23 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\jquery\package.json
+24 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\jsonwebtoken\package.json
+25 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\lodash\package.json
+26 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\moment\package.json
+27 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\mysql\package.json
+28 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\npm-scripts\package.json
+29 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\passport\package.json
+30 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\passport-local\package.json
+31 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\rc-progress\package.json
+32 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\react\package.json
+33 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\react-bootstrap\package.json
+34 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\react-dom\package.json
+35 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\react-hot-loader\package.json
+36 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\react-modal-es6\package.json
+37 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\react-router\package.json
+38 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\react-search\package.json
+39 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\sequelize\package.json
+40 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\sequelize-cli\package.json
+41 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\underscore\package.json
+42 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\vue\package.json
+43 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\webpack\package.json
+44 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\webpack-dev-server\package.json
+45 info package.json bcrypt-nodejs@0.0.3 No license field.
+46 info package.json connect-flash@0.1.1 No license field.
+47 info package.json connect-ensure-login@0.1.1 No license field.
+48 info package.json http@0.0.0 http is also the name of a node core module.
+49 info package.json http@0.0.0 No description
+50 info package.json http@0.0.0 No repository field.
+51 info package.json passport-local@1.0.0 No license field.
+52 info package.json rc-progress@2.0.1 No license field.
+53 verbose readDependencies loading dependencies from C:\Users\JT\desktop\bootcamp\QuestGroupProject\package.json
+54 verbose install react-search is installed as 2.0.4
+55 silly cache add args [ 'react-search@^2.0.4', null ]
+56 verbose cache add spec react-search@^2.0.4
+57 silly cache add parsed spec Result {
+57 silly cache add   raw: 'react-search@^2.0.4',
+57 silly cache add   scope: null,
+57 silly cache add   name: 'react-search',
+57 silly cache add   rawSpec: '^2.0.4',
+57 silly cache add   spec: '>=2.0.4 <3.0.0',
+57 silly cache add   type: 'range' }
+58 silly addNamed react-search@>=2.0.4 <3.0.0
+59 verbose addNamed ">=2.0.4 <3.0.0" is a valid semver range for react-search
+60 silly addNameRange { name: 'react-search', range: '>=2.0.4 <3.0.0', hasData: false }
+61 silly mapToRegistry name react-search
+62 silly mapToRegistry using default registry
+63 silly mapToRegistry registry https://registry.npmjs.org/
+64 silly mapToRegistry data Result {
+64 silly mapToRegistry   raw: 'react-search',
+64 silly mapToRegistry   scope: null,
+64 silly mapToRegistry   name: 'react-search',
+64 silly mapToRegistry   rawSpec: '',
+64 silly mapToRegistry   spec: 'latest',
+64 silly mapToRegistry   type: 'tag' }
+65 silly mapToRegistry uri https://registry.npmjs.org/react-search
+66 verbose addNameRange registry:https://registry.npmjs.org/react-search not in flight; fetching
+67 verbose request uri https://registry.npmjs.org/react-search
+68 verbose request no auth needed
+69 info attempt registry request try #1 at 1:19:49 PM
+70 verbose request id e488641fe9c0c5c6
+71 verbose etag "7PE9JS76OV3QQB40S3PS0Y8ZU"
+72 http request GET https://registry.npmjs.org/react-search
+73 http 304 https://registry.npmjs.org/react-search
+74 verbose headers { date: 'Fri, 21 Oct 2016 17:19:28 GMT',
+74 verbose headers   via: '1.1 varnish',
+74 verbose headers   'cache-control': 'max-age=300',
+74 verbose headers   etag: '"7PE9JS76OV3QQB40S3PS0Y8ZU"',
+74 verbose headers   age: '57',
+74 verbose headers   connection: 'keep-alive',
+74 verbose headers   'x-served-by': 'cache-jfk8144-JFK',
+74 verbose headers   'x-cache': 'HIT',
+74 verbose headers   'x-cache-hits': '1',
+74 verbose headers   'x-timer': 'S1477070368.477811,VS0,VE0',
+74 verbose headers   vary: 'Accept-Encoding' }
+75 silly get cb [ 304,
+75 silly get   { date: 'Fri, 21 Oct 2016 17:19:28 GMT',
+75 silly get     via: '1.1 varnish',
+75 silly get     'cache-control': 'max-age=300',
+75 silly get     etag: '"7PE9JS76OV3QQB40S3PS0Y8ZU"',
+75 silly get     age: '57',
+75 silly get     connection: 'keep-alive',
+75 silly get     'x-served-by': 'cache-jfk8144-JFK',
+75 silly get     'x-cache': 'HIT',
+75 silly get     'x-cache-hits': '1',
+75 silly get     'x-timer': 'S1477070368.477811,VS0,VE0',
+75 silly get     vary: 'Accept-Encoding' } ]
+76 verbose etag https://registry.npmjs.org/react-search from cache
+77 verbose get saving react-search to C:\Users\JT\AppData\Roaming\npm-cache\registry.npmjs.org\react-search\.cache.json
+78 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+79 silly addNameRange number 2 { name: 'react-search', range: '>=2.0.4 <3.0.0', hasData: true }
+80 silly addNameRange versions [ 'react-search',
+80 silly addNameRange   [ '0.0.1',
+80 silly addNameRange     '0.0.3',
+80 silly addNameRange     '0.0.4',
+80 silly addNameRange     '0.0.5',
+80 silly addNameRange     '0.0.6',
+80 silly addNameRange     '0.0.7',
+80 silly addNameRange     '0.0.10',
+80 silly addNameRange     '0.0.12',
+80 silly addNameRange     '1.0.0',
+80 silly addNameRange     '1.0.2',
+80 silly addNameRange     '1.0.3',
+80 silly addNameRange     '1.0.5',
+80 silly addNameRange     '1.0.6',
+80 silly addNameRange     '1.0.7',
+80 silly addNameRange     '1.0.8',
+80 silly addNameRange     '1.0.9',
+80 silly addNameRange     '1.0.10',
+80 silly addNameRange     '2.0.0',
+80 silly addNameRange     '2.0.1',
+80 silly addNameRange     '2.0.2',
+80 silly addNameRange     '2.0.3',
+80 silly addNameRange     '2.0.4' ] ]
+81 silly addNamed react-search@2.0.4
+82 verbose addNamed "2.0.4" is a plain semver version for react-search
+83 silly cache afterAdd react-search@2.0.4
+84 verbose afterAdd C:\Users\JT\AppData\Roaming\npm-cache\react-search\2.0.4\package\package.json not in flight; writing
+85 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+86 verbose afterAdd C:\Users\JT\AppData\Roaming\npm-cache\react-search\2.0.4\package\package.json written
+87 silly install resolved [ { name: 'react-search',
+87 silly install resolved     version: '2.0.4',
+87 silly install resolved     description: 'a simple Search Autocomplete component',
+87 silly install resolved     main: 'lib/Search.js',
+87 silly install resolved     repository:
+87 silly install resolved      { type: 'git',
+87 silly install resolved        url: 'git+https://github.com/StevenIseki/react-search.git' },
+87 silly install resolved     author: { name: 'Steven Iseki', email: 'stevenisekimartin@gmail.com' },
+87 silly install resolved     license: 'MIT',
+87 silly install resolved     peerDependencies: { react: '^15.3.1', 'react-dom': '^15.3.1' },
+87 silly install resolved     devDependencies:
+87 silly install resolved      { 'babel-cli': '^6.9.0',
+87 silly install resolved        'babel-core': '^6.9.1',
+87 silly install resolved        'babel-loader': '^6.2.4',
+87 silly install resolved        'babel-preset-es2015': '^6.6.0',
+87 silly install resolved        'babel-preset-react': '^6.5.0',
+87 silly install resolved        'babel-preset-stage-0': '^6.5.0',
+87 silly install resolved        'babel-register': '^6.9.0',
+87 silly install resolved        enzyme: '^2.3.0',
+87 silly install resolved        expect: '^1.20.1',
+87 silly install resolved        express: '^4.13.4',
+87 silly install resolved        jsdom: '^9.2.1',
+87 silly install resolved        react: '^15.3.1',
+87 silly install resolved        'react-addons-test-utils': '^15.1.0',
+87 silly install resolved        'react-dom': '^15.3.1',
+87 silly install resolved        tape: '^4.5.1',
+87 silly install resolved        webpack: '^1.13.1' },
+87 silly install resolved     scripts:
+87 silly install resolved      { build: 'babel src --out-dir lib',
+87 silly install resolved        example: 'webpack --config ./example/webpack.config.js',
+87 silly install resolved        serve: 'node ./example/server.js',
+87 silly install resolved        start: 'npm run example && npm run serve',
+87 silly install resolved        test: 'tape test/index.js' },
+87 silly install resolved     keywords:
+87 silly install resolved      [ 'javascript',
+87 silly install resolved        'react',
+87 silly install resolved        'reactjs',
+87 silly install resolved        'react-component',
+87 silly install resolved        'autocomplete',
+87 silly install resolved        'search autocomplete',
+87 silly install resolved        'auto complete',
+87 silly install resolved        'search',
+87 silly install resolved        'react-search',
+87 silly install resolved        'react search',
+87 silly install resolved        'react-search-box',
+87 silly install resolved        'react searchbox',
+87 silly install resolved        'react search box',
+87 silly install resolved        'search control',
+87 silly install resolved        'searchbox',
+87 silly install resolved        'search-box' ],
+87 silly install resolved     gitHead: 'f835d0c4f3c3ffa41a0194a39043630d091c3ab0',
+87 silly install resolved     bugs: { url: 'https://github.com/StevenIseki/react-search/issues' },
+87 silly install resolved     homepage: 'https://github.com/StevenIseki/react-search#readme',
+87 silly install resolved     _id: 'react-search@2.0.4',
+87 silly install resolved     _shasum: '927c9864aae1d07f00bf0f736611243533482930',
+87 silly install resolved     _from: 'react-search@>=2.0.4 <3.0.0',
+87 silly install resolved     _npmVersion: '3.10.7',
+87 silly install resolved     _nodeVersion: '6.7.0',
+87 silly install resolved     _npmUser: { name: 'steveniseki', email: 'stevenisekimartin@gmail.com' },
+87 silly install resolved     dist:
+87 silly install resolved      { shasum: '927c9864aae1d07f00bf0f736611243533482930',
+87 silly install resolved        tarball: 'https://registry.npmjs.org/react-search/-/react-search-2.0.4.tgz' },
+87 silly install resolved     maintainers: [ [Object] ],
+87 silly install resolved     _npmOperationalInternal:
+87 silly install resolved      { host: 'packages-16-east.internal.npmjs.com',
+87 silly install resolved        tmp: 'tmp/react-search-2.0.4.tgz_1476353526296_0.30797343445010483' },
+87 silly install resolved     directories: {},
+87 silly install resolved     _resolved: 'https://registry.npmjs.org/react-search/-/react-search-2.0.4.tgz',
+87 silly install resolved     readme: 'ERROR: No README data found!' } ]
+88 info install react-search@2.0.4 into C:\Users\JT\desktop\bootcamp\QuestGroupProject
+89 info installOne react-search@2.0.4
+90 verbose installOne of react-search to C:\Users\JT\desktop\bootcamp\QuestGroupProject not in flight; installing
+91 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+92 verbose lock using C:\Users\JT\AppData\Roaming\npm-cache\_locks\react-search-1401c1fa590a50bd.lock for C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\react-search
+93 silly install write writing react-search 2.0.4 to C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\react-search
+94 verbose unbuild node_modules\react-search
+95 info preuninstall react-search@2.0.4
+96 info uninstall react-search@2.0.4
+97 verbose unbuild rmStuff react-search@2.0.4 from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules
+98 info postuninstall react-search@2.0.4
+99 silly gentlyRm C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\react-search is being purged from base C:\Users\JT\desktop\bootcamp\QuestGroupProject
+100 verbose gentlyRm don't care about contents; nuking C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\react-search
+101 silly vacuum-fs purging C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\react-search
+102 silly vacuum-fs quitting because other entries in C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules
+103 verbose tar unpack C:\Users\JT\AppData\Roaming\npm-cache\react-search\2.0.4\package.tgz
+104 verbose tar unpacking to C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\react-search
+105 silly gentlyRm C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\react-search is being purged
+106 verbose gentlyRm don't care about contents; nuking C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\react-search
+107 silly gunzTarPerm modes [ '777', '666' ]
+108 silly gunzTarPerm extractEntry package.json
+109 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+110 silly gunzTarPerm extractEntry .npmignore
+111 silly gunzTarPerm modified mode [ '.npmignore', 493, 511 ]
+112 silly gunzTarPerm extractEntry README.md
+113 silly gunzTarPerm modified mode [ 'README.md', 493, 511 ]
+114 silly gunzTarPerm extractEntry .babelrc
+115 silly gunzTarPerm modified mode [ '.babelrc', 420, 438 ]
+116 silly gunzTarPerm extractEntry example/example.js
+117 silly gunzTarPerm modified mode [ 'example/example.js', 420, 438 ]
+118 silly gunzTarPerm extractEntry example/server.js
+119 silly gunzTarPerm modified mode [ 'example/server.js', 420, 438 ]
+120 silly gunzTarPerm extractEntry example/webpack.config.js
+121 silly gunzTarPerm modified mode [ 'example/webpack.config.js', 420, 438 ]
+122 silly gunzTarPerm extractEntry example/index.html
+123 silly gunzTarPerm modified mode [ 'example/index.html', 420, 438 ]
+124 silly gunzTarPerm extractEntry example/public/bundle.js
+125 silly gunzTarPerm modified mode [ 'example/public/bundle.js', 420, 438 ]
+126 silly gunzTarPerm extractEntry example/public/react-search.css
+127 silly gunzTarPerm modified mode [ 'example/public/react-search.css', 420, 438 ]
+128 silly gunzTarPerm extractEntry example/screenshot.gif
+129 silly gunzTarPerm modified mode [ 'example/screenshot.gif', 420, 438 ]
+130 silly gunzTarPerm extractEntry lib/Search.js
+131 silly gunzTarPerm modified mode [ 'lib/Search.js', 420, 438 ]
+132 silly gunzTarPerm extractEntry lib/react-search.css
+133 silly gunzTarPerm modified mode [ 'lib/react-search.css', 420, 438 ]
+134 silly gunzTarPerm extractEntry src/Search.js
+135 silly gunzTarPerm modified mode [ 'src/Search.js', 420, 438 ]
+136 silly gunzTarPerm extractEntry test/Search.spec.js
+137 silly gunzTarPerm modified mode [ 'test/Search.spec.js', 493, 511 ]
+138 silly gunzTarPerm extractEntry test/index.js
+139 silly gunzTarPerm modified mode [ 'test/index.js', 420, 438 ]
+140 silly gunzTarPerm extractEntry test/jsdom.js
+141 silly gunzTarPerm modified mode [ 'test/jsdom.js', 420, 438 ]
+142 verbose write writing to C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\react-search\package.json
+143 info preinstall react-search@2.0.4
+144 verbose readDependencies loading dependencies from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\react-search\package.json
+145 silly prepareForInstallMany adding react@^15.3.1 from react-search peerDependencies
+146 silly prepareForInstallMany adding react-dom@^15.3.1 from react-search peerDependencies
+147 warn peerDependencies The peer dependency react@^15.3.1 included from react-search will no
+148 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+149 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+150 warn peerDependencies The peer dependency react-dom@^15.3.1 included from react-search will no
+151 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+152 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+153 verbose readDependencies loading dependencies from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\react-search\package.json
+154 silly install resolved []
+155 verbose about to build C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\react-search
+156 info build C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\react-search
+157 info linkStuff react-search@2.0.4
+158 silly linkStuff react-search@2.0.4 has C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules as its parent node_modules
+159 verbose linkBins react-search@2.0.4
+160 verbose linkMans react-search@2.0.4
+161 verbose rebuildBundles react-search@2.0.4
+162 info install react-search@2.0.4
+163 info postinstall react-search@2.0.4
+164 verbose readDependencies loading dependencies from C:\Users\JT\desktop\bootcamp\QuestGroupProject\package.json
+165 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\babel-core\package.json
+166 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\babel-loader\package.json
+167 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\babel-preset-es2015\package.json
+168 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\babel-preset-react\package.json
+169 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\babel-preset-stage-0\package.json
+170 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\bcrypt-nodejs\package.json
+171 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\bcryptjs\package.json
+172 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\body-parser\package.json
+173 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\connect-ensure-login\package.json
+174 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\connect-flash\package.json
+175 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\connect-session-sequelize\package.json
+176 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\cookie-parser\package.json
+177 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\crypto-js\package.json
+178 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\d3\package.json
+179 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\express\package.json
+180 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\express-handlebars\package.json
+181 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\express-session\package.json
+182 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\http\package.json
+183 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\jquery\package.json
+184 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\jsonwebtoken\package.json
+185 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\lodash\package.json
+186 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\moment\package.json
+187 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\mysql\package.json
+188 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\npm-scripts\package.json
+189 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\passport\package.json
+190 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\passport-local\package.json
+191 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\rc-progress\package.json
+192 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\react\package.json
+193 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\react-bootstrap\package.json
+194 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\react-dom\package.json
+195 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\react-hot-loader\package.json
+196 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\react-modal-es6\package.json
+197 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\react-router\package.json
+198 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\react-search\package.json
+199 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\sequelize\package.json
+200 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\sequelize-cli\package.json
+201 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\underscore\package.json
+202 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\vue\package.json
+203 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\webpack\package.json
+204 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\webpack-dev-server\package.json
+205 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\.bin\ns\package.json
+206 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\.bin\ns.cmd\package.json
+207 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\.bin\sequelize\package.json
+208 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\.bin\sequelize.cmd\package.json
+209 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\.bin\webpack\package.json
+210 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\.bin\webpack-dev-server\package.json
+211 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\.bin\webpack-dev-server.cmd\package.json
+212 verbose targetResolver reading package data from C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\.bin\webpack.cmd\package.json
+213 verbose already installed skipping react@^15.3.1 C:\Users\JT\desktop\bootcamp\QuestGroupProject
+214 verbose already installed skipping react-dom@^15.3.1 C:\Users\JT\desktop\bootcamp\QuestGroupProject
+215 silly install resolved []
+216 verbose unlock done using C:\Users\JT\AppData\Roaming\npm-cache\_locks\react-search-1401c1fa590a50bd.lock for C:\Users\JT\desktop\bootcamp\QuestGroupProject\node_modules\react-search
+217 verbose validateInstall loading C:\Users\JT\desktop\bootcamp\QuestGroupProject\package.json for validation
+218 verbose stack Error: The package react@0.14.8 does not satisfy its siblings' peerDependencies requirements!
+218 verbose stack     at C:\Program Files\nodejs\node_modules\npm\lib\install.js:125:32
+218 verbose stack     at C:\Program Files\nodejs\node_modules\npm\lib\install.js:268:7
+218 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:142:5
+218 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
+218 verbose stack     at cb (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\async-map.js:47:24)
+218 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
+218 verbose stack     at cb (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\async-map.js:47:24)
+218 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
+218 verbose stack     at cb (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\async-map.js:47:24)
+218 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
+219 verbose cwd C:\Users\JT\desktop\bootcamp\QuestGroupProject
+220 error Windows_NT 10.0.14393
+221 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "react-search"
+222 error node v4.4.7
+223 error npm  v2.15.8
+224 error code EPEERINVALID
+225 error peerinvalid The package react@0.14.8 does not satisfy its siblings' peerDependencies requirements!
+225 error peerinvalid Peer react-bootstrap@0.30.5 wants react@>=0.14.0
+225 error peerinvalid Peer react-dom@0.14.8 wants react@^0.14.8
+225 error peerinvalid Peer react-router@2.8.1 wants react@^0.14.0 || ^15.0.0
+225 error peerinvalid Peer react-search@2.0.4 wants react@^15.3.1
+226 verbose exit [ 1, true ]

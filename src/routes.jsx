@@ -18,6 +18,7 @@ import LoginPage from 'LoginPage';
 import UserHomePage from 'UserHomePage';
 import SearchAllPage from 'SearchAllPage';
 import Authentication from 'Authentication';
+import Completed from 'Completed';
 
 // COMPONENT ROUTES============================================================
 export default (
@@ -30,6 +31,7 @@ export default (
         <Route path="/login" component={LoginPage} />
         <Route path="/home" component={UserHomePage} />
         <Route path="/searchall" component={SearchAllPage} />
+        <Route path="/completed" component={Completed} />
     	</Route>
   	</Router>
 );
