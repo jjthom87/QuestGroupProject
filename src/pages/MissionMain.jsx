@@ -223,7 +223,7 @@ export default class MissionMain extends React.Component {
                                 completeMission={this.completeMission.bind(this)}
                             />
                             </div>
-                            </div>
+                        </div>
                     </div>
             </div>
          );

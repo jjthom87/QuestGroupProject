@@ -152,20 +152,24 @@ export default class QuestMain extends React.Component {
                         </div>
                     </div>
                     <h1 id="pageTitle">Quests Home</h1>
-                    <CreateQuest
-                        quests={quests}
-                        createQuest={this.createQuest.bind(this)}
-                    />
-                    <select name="Please Select Quest to add Milestone to" value={this.state.dropdownQuest} onChange={this.handleDropdownQuestChange.bind(this)}>
-                        <option selected disabled>Choose Quest to add Milestone to</option>
-                        {renderQuestDropdown()}
-                    </select>
-                    <CreateMilestone milestones={milestones} createMilestone={this.handleCreateMilestone.bind(this)}/>
-                    <select name="Please Select Milestone to add Task to" value={this.state.dropdownMilestone} onChange={this.handleDropdownMilestoneChange.bind(this)}>
-                        <option selected disabled>Choose Milestone to Add Task to</option>
-                        {renderMilestoneDropdown()}
-                    </select>
-                    <CreateMilestoneTask createMilestoneTask={this.handleCreateMilestoneTask.bind(this)}/>
+                        <div className="row">    
+                            <div className="col-md-5 col-md-offset-1" id="missionForm">
+                                <CreateQuest
+                                    quests={quests}
+                                    createQuest={this.createQuest.bind(this)}
+                                />
+                                <select name="Please Select Quest to add Milestone to" value={this.state.dropdownQuest} onChange={this.handleDropdownQuestChange.bind(this)}>
+                                    <option selected disabled>Choose Quest to add Milestone to</option>
+                                    {renderQuestDropdown()}
+                                </select>
+                                <CreateMilestone milestones={milestones} createMilestone={this.handleCreateMilestone.bind(this)}/>
+                                <select name="Please Select Milestone to add Task to" value={this.state.dropdownMilestone} onChange={this.handleDropdownMilestoneChange.bind(this)}>
+                                    <option selected disabled>Choose Milestone to Add Task to</option>
+                                    {renderMilestoneDropdown()}
+                                </select>
+                                <CreateMilestoneTask createMilestoneTask={this.handleCreateMilestoneTask.bind(this)}/>
+                            </div>
+                        </div>
                 </div>
             </div>
          );
