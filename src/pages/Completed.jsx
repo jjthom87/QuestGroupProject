@@ -8,6 +8,7 @@ import Logout from 'Logout';
 import MainNav from 'MainNav';
 
 import CompletedMissionList from 'CompletedMissionList';
+import CompletedQuestList from 'CompletedQuestList';
 
 export default class Completed extends React.Component {
   	constructor(props, context) {
@@ -61,7 +62,7 @@ export default class Completed extends React.Component {
 	}
 	render() {
 
-		const { loginUser, missions, missiontasks } = this.state;
+		const { loginUser, missions, missiontasks, quests, milestones, milestonetasks } = this.state;
 
     	return (
       		<div>
@@ -76,10 +77,25 @@ export default class Completed extends React.Component {
                         <Link to="/missionshome"><button className="btn btn-info" id="missionAdd">Create Another Mission</button></Link>			
                     </div>
 				</div>
-	            <CompletedMissionList
-                    missions={missions}
-                    missiontasks={missiontasks}
-                />
+				<div className="row">
+					<div className="col-md-3">
+					</div>
+					<div className="col-md-4">
+			            <CompletedMissionList
+		                    missions={missions}
+		                    missiontasks={missiontasks}
+		                />
+		            </div>
+		            <div className="col-md-7">
+		           		<CompletedQuestList
+		                    quests={quests}
+		                    milestones={milestones}
+		                    milestonetasks={milestonetasks}
+		                />
+		            </div>
+		            <div className="col-md-8">
+		            </div>
+		        </div>
       		</div>
 		);
 	}
