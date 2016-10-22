@@ -81,21 +81,24 @@ export default class Completed extends React.Component {
 		                    	</div>
 							</div>
 							<div className="row">
-									<div className="col-md-3">
+									<div className="col-md-1">
 									</div>
-										<div className="col-md-4">
+
+									<div className="panel panel-success col-md-4 qmboxCompleted">
 								            <CompletedMissionList
 							                    missions={missions}
 							                    missiontasks={missiontasks}
 							                />
-							            </div>
-							            <div className="col-md-7">
+							        </div>
+
+							        <div className="panel panel-success col-md-4 qmboxCompleted">
 							           		<CompletedQuestList
 							                    quests={quests}
 							                    milestones={milestones}
 							                    milestonetasks={milestonetasks}
 							                />
-							            </div>
+							        </div>
+
 				            	<div className="col-md-8">
 				            	</div>
 				        	</div>
