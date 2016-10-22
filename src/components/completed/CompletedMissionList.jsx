@@ -1,7 +1,7 @@
 import React, { Component } from 'react'; 
 import CompletedMissionItem from 'CompletedMissionItem';
 
-export default class MissionsList extends React.Component {
+export default class CompletedMissionList extends React.Component {
     render() {
         const { missions, missiontasks } = this.props;
         
