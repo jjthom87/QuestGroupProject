@@ -11,30 +11,48 @@ export default class MilestoneAndTaskItem extends React.Component {
     }
 	render(){
 
-		const { id, title, dateQuest, deleteQuest, completeQuest, deleteMilestone, milestones, createdOn, taskCompleted, milestonetasks, deleteMilestoneTask, toggleMilestoneTask } = this.props;
-
-		var singleMilestoneTask = () => {
-			milestonetasks.map((milestonetask, index) => {
-					var milestoneTaskClassName = milestonetask.taskCompleted ? 'task-completed' : 'task-notCompleted';
-				return (
-					<div>
-						<li>
-							<input
-					  			type="checkbox"
-					  			checked={taskCompleted}
-					  			onChange={() => toggleMilestoneTask(milestonetask.uuid)}
-				  			/>
-							<p className={milestoneTaskClassName}>{milestonetask.task}</p>
-							<button onClick={() => deleteMilestoneTask(milestonetask.uuid)}>X</button>
-						</li>
-					</div>
-				)
-			})
-		}
+		const { id, title, dateQuest, deleteQuest, completeQuest, deleteMilestone, milestones, taskCompleted, milestonetasks, deleteMilestoneTask, toggleMilestoneTask } = this.props;
+		// var singleMilestoneTask = () => {
+		// 	milestonetasks.map((milestonetask, index) => {
+		// 		console.log(milestonetask);
+		// 		var milestoneTaskClassName = milestonetask.taskCompleted ? 'task-completed' : 'task-notCompleted';
+		// 		return (
+		// 			<div>
+		// 				<ul>
+		// 					<li>
+		// 						<input
+		// 				  			type="checkbox"
+		// 				  			checked={taskCompleted}
+		// 				  			onChange={() => toggleMilestoneTask(milestonetask.uuid)}
+		// 			  			/>
+		// 						<p className={milestoneTaskClassName}>{milestonetask.task}</p>
+		// 						<button onClick={() => deleteMilestoneTask(milestonetask.uuid)}>X</button>
+		// 					</li>
+		// 				</ul>
+		// 			</div>
+		// 		)
+		// 	})
+		// }
+		const renderMilestonetasks = milestonetasks.map(milestonetask => {
+			var milestoneTaskClassName = milestonetask.taskCompleted ? 'task-completed' : 'task-notCompleted';
+			return (
+				<div>
+					<li>
+						<input
+							type="checkbox"
+							checked={taskCompleted}
+							onChange={() => toggleMilestoneTask(milestonetask.uuid)}
+						/>
+						<p className={milestoneTaskClassName}>{milestonetask.task}</p>
+						<button onClick={() => deleteMilestoneTask(milestonetask.uuid)}>X</button>
+					</li>
+				</div>
+			)
+		})
 		return (
 			<div>
 				<p>Tasks</p>
-				{singleMilestoneTask()}
+				<ul>{renderMilestonetasks}</ul>
 			</div>
 		)
 	}

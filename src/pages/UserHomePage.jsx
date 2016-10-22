@@ -313,7 +313,7 @@ export default class UserHomePage extends React.Component {
         const filteredTasks = missiontasks.filter((task) => dropdownMission === task.missionName);
         const filteredQuest = quests.filter((quest) => dropdownQuest === quest.title);
         const filteredMilestones = milestones.filter((milestone) => dropdownQuest === milestone.questName);
-        const filteredMilestoneTasks = milestonetasks.filter((milestonetask) => dropdownMilestone === milestonetask.milestoneName);
+        const filteredMilestoneTasks = milestonetasks.filter((milestonetask) => dropdownQuest === milestonetask.questName);
 
         var renderMissionDropdown = () => {
             return missions.map((mission, index) => {

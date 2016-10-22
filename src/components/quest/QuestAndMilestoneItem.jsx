@@ -13,7 +13,7 @@ export default class QuestAndMilestoneItem extends React.Component {
 	render(){
 
 		const { id, title, dateQuest, deleteQuest, completeQuest, deleteMilestone, description, toggleMilestone, milestones, createdOn, isCompleted, taskCompleted, active, milestonetasks, deleteMilestoneTask, toggleMilestoneTask } = this.props;
-		console.log(dateQuest);
+
 		var completedMilestones = milestones.filter((milestone) => milestone.isCompleted);
 
 		const doit = ((completedMilestones.length)/milestones.length * 100);
@@ -22,6 +22,7 @@ export default class QuestAndMilestoneItem extends React.Component {
 		var singleMilestone = () => {
 			return milestones.map((milestone, index) => {
 				var milestoneClassName = milestone.isCompleted ? 'task-completed' : 'task-notCompleted';
+				var filteredMilestonetask = milestonetasks.filter((milestonetask) => milestonetask.milestoneName === milestone.milestone);
 				return (
 					<div>
 						<li>
@@ -32,15 +33,15 @@ export default class QuestAndMilestoneItem extends React.Component {
 				  			/>
 							<p className={milestoneClassName}>{milestone.milestone}</p>
 							<button onClick={() => deleteMilestone(milestone.uuid)}>Delete Milestone</button>
+						</li>
 							<MilestoneAndTaskItem 
-								milestonetasks={milestonetasks}
+								milestonetasks={filteredMilestonetask}
                         		toggleMilestoneTask={toggleMilestoneTask}
                         		deleteMilestoneTask={deleteMilestoneTask}
                         	/>
-						</li>
 					</div>
 				)
-			  })
+			})
 		}
 		// var singleMilestone = () => {
 		// 	return milestones.map((milestone, index) => {
@@ -69,12 +70,6 @@ export default class QuestAndMilestoneItem extends React.Component {
 
             return message + moment(dated, "YYYYMMDD").fromNow();
         }
-        var renderCreatedDate = () => {
-			var message = "Added on ";
-			var timestamp = createdOn
-
-			return message + moment(timestamp).format('MMM Do YYYY @ h:mm a')
-		}
 		return (
 			<div>
 				<div>
@@ -87,9 +82,9 @@ export default class QuestAndMilestoneItem extends React.Component {
 					<p>Quest description</p>
 				</div>
 					<p>{description}</p>
-					<p>{renderCreatedDate()}</p>
+					<p>{createdOn}</p>
 				<div>
-					<p>Tasks</p>
+					<p>Milestones</p>
 					{singleMilestone()}
 				</div>
 				<div>

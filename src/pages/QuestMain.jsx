@@ -36,7 +36,8 @@ export default class QuestMain extends React.Component {
             title: creds.title,
             description: creds.description,
             selection: creds.selection,
-            dateQuest: creds.dateQuest
+            dateQuest: creds.dateQuest,
+            createdOn: moment().format('MMM Do YYYY @ h:mm a')
         }
         console.log(newQuest)
         fetch('/quest/create', {
@@ -61,7 +62,6 @@ export default class QuestMain extends React.Component {
         const newMilestone = {
             milestone: milestoneInput,
             dropdownQuest: dropdownQuest,
-            createdOn: moment().format('MMM Do YYYY @ h:mm a')
         }
         fetch('/milestone/create/', {
             method: 'post',
