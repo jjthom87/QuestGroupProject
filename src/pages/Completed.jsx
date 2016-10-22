@@ -28,7 +28,7 @@ export default class Completed extends React.Component {
 		};
 	}
 	logoutHandler(){
-		fetch('/users/logout', {
+		fetch('/api/users/logout', {
 			method: 'delete',
 			headers: {
 				Auth: localStorage.getItem('token'),
@@ -39,7 +39,7 @@ export default class Completed extends React.Component {
 		});
 	}
   	componentWillMount(){
-		fetch('/completed', {
+		fetch('/api/completed', {
             headers: {
                 Auth: localStorage.getItem('token'),
                 'content-type': 'application/json',

@@ -22,9 +22,6 @@ export default class UserAllPage extends React.Component {
             missiontasks: [],
             milestonetasks: [],
             milestones: [],
-            dropdownQuest: '',
-            dropdownMission: '',
-            dropdownMilestone: '',
 			createdOn: ''
 		};
 	}
@@ -43,7 +40,6 @@ export default class UserAllPage extends React.Component {
 		fetch(`/api/userall/${this.props.params.id}`)
 		.then((response) => response.json())
 		.then((results) => {
-			console.log(results);
 			this.setState({
 				fullLoginUser: results.currentUser,
 				loginUser: results.currentUser.name,
@@ -60,10 +56,10 @@ export default class UserAllPage extends React.Component {
 
 		const { loginUser, missions, missiontasks, quests, milestones, milestonetasks } = this.state;
 
-		incompleteMissions = missions.filter((mission) => !mission.missionCompleted);
-		completeMissions = missions.filter((mission) => mission.missionCompleted);
-		incompleteQuests = quests.filter((quest) => !quest.questCompleted);
-		completeQuests = missions.filter((quest) => quest.questCompleted);
+		const incompleteMissions = missions.filter((mission) => !mission.missionCompleted);
+		const completeMissions = missions.filter((mission) => mission.missionCompleted);
+		const incompleteQuests = quests.filter((quest) => !quest.questCompleted);
+		const completeQuests = quests.filter((quest) => quest.questCompleted);
 
     	return (
       		<div>
@@ -78,11 +74,11 @@ export default class UserAllPage extends React.Component {
 							</div>
 							<div className="row">
 								<div className="col-md-3">
-										<p>Incomplete Missions</p>
-										<AllMissionList
-						                    missions={incompleteMissions}
-						                    missiontasks={missiontasks}
-						                />
+									<p>Incomplete Missions</p>
+									<AllMissionList
+					                    missions={incompleteMissions}
+					                    missiontasks={missiontasks}
+					                />
 								</div>
 								<div className="col-md-3">
 									<p>Completed Missions</p>

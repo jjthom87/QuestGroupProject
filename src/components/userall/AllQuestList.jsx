@@ -11,7 +11,7 @@ export default class AllQuestList extends React.Component {
             	var filteredMilestone = milestones.filter((milestone) => milestone.QuestId === quest.id);
             	var filteredMilestonetasks = milestonetasks.filter((milestonetask) => milestonetask.QuestId === quest.id)
                 return (
-                    <CompletedQuestItem
+                    <AllQuestItem
                     	quests={quests}
                         title={quest.title}
                         description={quest.description}

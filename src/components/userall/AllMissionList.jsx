@@ -10,7 +10,7 @@ export default class AllMissionList extends React.Component {
             return missions.map((mission, index) => {
             	var filteredMissiontask = missiontasks.filter((missiontask) => missiontask.MissionId === mission.id);
                 return (
-                    <CompletedMissionItem
+                    <AllMissionItem
                     	missions={missions}
                         title={mission.title}
                         description={mission.description}
