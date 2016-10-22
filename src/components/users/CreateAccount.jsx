@@ -33,24 +33,28 @@ export default class CreateAccount extends React.Component {
 	}
 	render() {
 		return (
-			<div id="regForm">
-				<form onSubmit={this.onCreateUser.bind(this)}>
-					<div>
-						<h1 id="submitButton">Create Account</h1>
-					</div>
-					<div>
-						<input type="text" ref="name" placeholder="Enter Name/Nickname"/>
-					</div>
-					<div>
-						<input type="text" ref="username" placeholder="Enter Username"/>
-					</div>
-					<div>
-						<input type="password" ref="password" placeholder="Enter Password"/>
-					</div>
-					<div id="submitButton">
-						<input className="button expanded hollow" type="submit" />
-					</div>
-				</form>
+			<div>
+				<div id="accountForm">
+					<form onSubmit={this.onCreateUser.bind(this)}>
+						<div>
+							<h1 id="loginText">Create Account</h1>
+						</div>
+						<div id="submitButton">
+						<div>
+							<span className="glyphicon glyphicon-sunglasses"><input type="text" ref="name" placeholder="Enter Name/Nickname"/></span>
+						</div>
+						<div>
+							<span className="glyphicon glyphicon-user"><input type="text" ref="username" placeholder="Enter Username"/></span>
+						</div>
+						<div>
+							<span className="glyphicon glyphicon-lock"><input type="password" ref="password" placeholder="Enter Password"/></span>
+						</div>
+						<div id="submitButton">
+							<input className="btn btn-default" type="submit" />
+						</div>
+						</div>
+					</form>
+				</div>
 			</div>
 		);
 	}

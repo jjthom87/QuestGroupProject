@@ -34,6 +34,7 @@ export default class CreateAccountPage extends React.Component {
 						<div className="container" id="regdiv">
 							
 							<CreateAccount onCreate={this.handleNewData.bind(this)}/>
+							<p className="animated fadeInDown" id="loginText">Already have an account? Please login</p>
 						</div>
 					</div>
 
