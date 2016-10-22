@@ -47,7 +47,7 @@ export default class CreateMission extends React.Component {
 
         if (missionTime.match(/^[0-9]*$/)){
             this.refs.missionTime.value='';
-            this.props.onSetCountdown(parseInt(missionTime, 10));
+            creds.missionTime = missionTime
         }
 
         if(selection){
