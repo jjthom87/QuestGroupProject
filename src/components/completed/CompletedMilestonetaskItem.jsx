@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-var moment = require('moment');
 
 export default class CompletedMilestonetaskItem extends React.Component { 
     constructor(props) {

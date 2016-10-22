@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 var moment = require('moment');
 
-export default class MissionAndTaskItem extends React.Component { 
+export default class CompletedMissionItem extends React.Component { 
     constructor(props) {
         super(props);
         this.state = {

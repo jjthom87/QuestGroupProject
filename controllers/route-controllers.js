@@ -62,7 +62,7 @@ router.get('/api/completed', middleware.requireAuthentication, function(req, res
     });
 });
 
-router.get('/api/userall/:id', middleware.requireAuthentication, function(req, res){
+router.get('/api/userall/:id', function(req, res){
     modelController.userAll(
       req.params.id, 
       function(data){
