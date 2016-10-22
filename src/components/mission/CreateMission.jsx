@@ -45,13 +45,21 @@ export default class CreateMission extends React.Component {
             alert('Enter Mission Description');
         }
 
+        if (dateMission.length > 0) {
+            this.refs.dateMission.value = '';
+            creds.dateMission = dateMission;
+        } else {
+            alert('Enter Completion time(in hours) of Mission');
+        }
+
         if(selection){
-            creds.selection = selection
+            creds.selection = selection;
+            this.setState({
+                selection: ''
+            })
         } else {
             alert('Please choose an option for public');
         }
-
-        creds.dateMission = dateMission;
 
         this.props.createMission(creds);
     }
@@ -77,7 +85,7 @@ export default class CreateMission extends React.Component {
                     </div>
                     <div>
                         <p className="publicSelection">Expected Completion Time</p>
-                        <input type="text" placeholder="Mission Description" ref="dateMission" />
+                        <input type="text" placeholder="How many hours to complete?" ref="dateMission" />
                     </div>
                     <div className="publicSelection">
                         <p className="publicText">Public</p>

@@ -24,7 +24,8 @@ export default class UserHomePage extends React.Component {
             dropdownQuest: '',
             dropdownMission: '',
             dropdownMilestone: '',
-			createdOn: ''
+			createdOn: '',
+            completedOn: '',
 		};
 	}
     handleDropdownMission(e){
@@ -100,9 +101,13 @@ export default class UserHomePage extends React.Component {
 
         const completeMission = _.remove(missions, mission => mission.id === missionId);
 
+        const data = {
+            completeMission,
+            completedOn: moment().format('MMM Do YYYY @ h:mm a')
+        }
         fetch(`/mission/complete/${completeMission[0].id}`,{
             method: 'PUT',
-            body: JSON.stringify(completeMission),
+            body: JSON.stringify(data),
             headers: {
                 Auth: localStorage.getItem('token'),
                 'content-type': 'application/json',
@@ -121,9 +126,14 @@ export default class UserHomePage extends React.Component {
 
         const completeQuest = _.remove(quests, quest => quest.id === questId);
 
+        const data = {
+            completeQuest,
+            completedOn: moment().format('MMM Do YYYY @ h:mm a')
+        }
+
         fetch(`/quest/complete/${completeQuest[0].id}`,{
             method: 'PUT',
-            body: JSON.stringify(completeQuest),
+            body: JSON.stringify(data),
             headers: {
                 Auth: localStorage.getItem('token'),
                 'content-type': 'application/json',
@@ -363,10 +373,6 @@ export default class UserHomePage extends React.Component {
                                 <option selected disabled>Find Quest</option>
                                 {renderQuestDropdown()}
                             </select>
-                            <select name="Please Select Milestone" value={this.state.dropdownMilestone} onChange={this.handleDropdownMilestone.bind(this)}>
-                                <option selected disabled>Find Milestone</option>
-                                {renderMilestoneDropdown()}
-                            </select>
                             <Link to="/questshome"><button className="btn btn-info" id="missionAdd"><span className="glyphicon glyphicon-plus" ></span></button></Link>
                             <QuestsList
                                 quests={filteredQuest}
@@ -374,6 +380,7 @@ export default class UserHomePage extends React.Component {
                                 milestonetasks={filteredMilestoneTasks}
                                 deleteQuest={this.deleteQuest.bind(this)}
                                 completeQuest={this.completeQuest.bind(this)}
+                                toggleMilestone={this.toggleMilestone.bind(this)}
                                 deleteMilestone={this.deleteMilestone.bind(this)}
                                 toggleMilestoneTask={this.toggleMilestoneTask.bind(this)}
                                 deleteMilestoneTask={this.deleteMilestoneTask.bind(this)}
@@ -387,3 +394,8 @@ export default class UserHomePage extends React.Component {
 		);
 	}
 }
+
+                            // <select name="Please Select Milestone" value={this.state.dropdownMilestone} onChange={this.handleDropdownMilestone.bind(this)}>
+                            //     <option selected disabled>Find Milestone</option>
+                            //     {renderMilestoneDropdown()}
+                            // </select>

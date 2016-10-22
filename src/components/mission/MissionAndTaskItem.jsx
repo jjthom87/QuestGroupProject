@@ -56,6 +56,7 @@ export default class MissionAndTaskItem extends React.Component {
 						<strong><p>You are {percentage}% done with this mission</p></strong>
 						<div>
 							<p><strong>Description:</strong>{description}</p>
+							<p>{renderDate()}</p>
 						</div>
 						<div>
 							<p><strong>Tasks</strong></p>

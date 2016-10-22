@@ -28,6 +28,12 @@ module.exports = function(sequelize, DataTypes) {
     },
     questCompleted: {
       type: DataTypes.BOOLEAN
+    },
+    createdOn: {
+      type: DataTypes.BOOLEAN
+    },
+    completedOn: {
+      type: DataTypes.STRING
     }
   }, {
     classMethods: {

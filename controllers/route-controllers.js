@@ -56,6 +56,12 @@ router.get('/home', middleware.requireAuthentication, function(req, res){
     });
 });
 
+router.get('/completed', middleware.requireAuthentication, function(req, res){
+    modelController.userCompleted(req.user.id, function(data){
+        res.json(data)
+    });
+});
+
 // Setting mission homepage
 router.get('/missionhome', middleware.requireAuthentication, function(req,res){
     modelController.missionMain(req.user.id, 
@@ -94,6 +100,7 @@ router.post('/mission/create', middleware.requireAuthentication, function(req, r
       req.body.title,
       req.body.description,
       req.body.selection,
+      req.body.createdOn,
       req.user, 
     function(success){
       res.json(success);
@@ -176,6 +183,7 @@ router.post('/quest/create', middleware.requireAuthentication, function(req, res
       req.body.description,
       req.body.selection,
       req.body.dateQuest,
+      req.body.createdOn,
       req.user, 
     function(success){
       res.json(success);
@@ -210,6 +218,7 @@ router.put('/milestone/toggle/:id', middleware.requireAuthentication, function(r
 router.put('/quest/complete/:id', middleware.requireAuthentication, function(req, res){
   modelController.questComplete(
     req.params.id,
+    req.body.completedOn,
     function(success){
       res.json(success)
     });
@@ -218,6 +227,7 @@ router.put('/quest/complete/:id', middleware.requireAuthentication, function(req
 router.put('/mission/complete/:id', middleware.requireAuthentication, function(req, res){
   modelController.missionComplete(
     req.params.id,
+    req.body.completedOn,
     function(success){
       res.json(success)
     });
