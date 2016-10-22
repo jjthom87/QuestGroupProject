@@ -35,7 +35,7 @@ export default class SearchAllPage extends React.Component {
     }
 
     componentWillMount(){
-        fetch('/search', {
+        fetch('/api/search', {
             headers: {
                 Auth: localStorage.getItem('token'),
                 'content-type': 'application/json',

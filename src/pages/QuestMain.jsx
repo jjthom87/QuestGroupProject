@@ -39,7 +39,7 @@ export default class QuestMain extends React.Component {
             dateQuest: creds.dateQuest,
             createdOn: moment().format('MMM Do YYYY @ h:mm a')
         }
-        fetch('/quest/create', {
+        fetch('/api/quest/create', {
             method: 'post',
             body: JSON.stringify(newQuest),
             headers: {
@@ -62,7 +62,7 @@ export default class QuestMain extends React.Component {
             milestone: milestoneInput,
             dropdownQuest: dropdownQuest,
         }
-        fetch('/milestone/create/', {
+        fetch('/api/milestone/create/', {
             method: 'post',
             body: JSON.stringify(newMilestone),
             headers: {
@@ -86,7 +86,7 @@ export default class QuestMain extends React.Component {
             dropdownMilestone: dropdownMilestone,
             dropdownQuest: dropdownQuest
         }
-        fetch('/milestonetask/create/', {
+        fetch('/api/milestonetask/create/', {
             method: 'post',
             body: JSON.stringify(newMilestoneTask),
             headers: {
@@ -105,7 +105,7 @@ export default class QuestMain extends React.Component {
     componentWillMount(){
         const { quests, milestones, milestonetasks } = this.state;
 
-        fetch('/questhome', {
+        fetch('/api/questhome', {
             headers: {
                 Auth: localStorage.getItem('token'),
                 'content-type': 'application/json',

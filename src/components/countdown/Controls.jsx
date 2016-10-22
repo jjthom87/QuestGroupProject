@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 export default class Controls extends React.Component {
-	propTypes: {
+	propTypes = {
 		countdownStatus: React.PropTypes.string.isRequired,
 		onStatusChange: React.PropTypes.func.isRequired
 	}
@@ -10,9 +10,6 @@ export default class Controls extends React.Component {
 			this.props.onStatusChange(newStatus);
 		}
 	}
-	// componentWillReceiveProps: function(newProps) {
-	// 	console.log('componentWillReceiveProps', newProps.countdownStatus);
-	// },
 	render() {
 		var {countdownStatus} = this.props;
 		var renderStartStopButton = () => {
@@ -22,7 +19,6 @@ export default class Controls extends React.Component {
 				return <button className="button primary" onClick={this.onStatusChange('started')}>Start</button>
 			}
 		};
-
 		return (
 			<div className="controls">
 				{renderStartStopButton()}

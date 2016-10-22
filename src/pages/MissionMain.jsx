@@ -22,7 +22,7 @@ export default class MissionMain extends React.Component {
 
         const deleteMission = _.remove(missions, mission => mission.id === id);
 
-        fetch(`/mission/delete/${deleteMission[0].id}`,{
+        fetch(`/api/mission/delete/${deleteMission[0].id}`,{
             method: 'DELETE',
             body: JSON.stringify(deleteMission),
             headers: {
@@ -47,7 +47,7 @@ export default class MissionMain extends React.Component {
             completeMission,
             completedOn: moment().format('MMM Do YYYY @ h:mm a')
         }
-        fetch(`/mission/complete/${completeMission[0].id}`,{
+        fetch(`/api/mission/complete/${completeMission[0].id}`,{
             method: 'PUT',
             body: JSON.stringify(data),
             headers: {
@@ -71,7 +71,7 @@ export default class MissionMain extends React.Component {
         if (foundtask) {
             foundtask.isCompleted = !foundtask.isCompleted;
 
-            fetch(`/missiontask/toggle/${foundtask.uuid}`, {
+            fetch(`/api/missiontask/toggle/${foundtask.uuid}`, {
                 method: 'PUT',
                 body: JSON.stringify(foundtask),
                 headers: {
@@ -93,7 +93,7 @@ export default class MissionMain extends React.Component {
 
         const foundTask = _.remove(missiontasks, task => task.uuid === taskId);
 
-        fetch(`/missiontask/delete/${foundTask[0].uuid}`,{
+        fetch(`/api/missiontask/delete/${foundTask[0].uuid}`,{
             method: 'DELETE',
             body: JSON.stringify(foundTask),
             headers: {
@@ -123,7 +123,7 @@ export default class MissionMain extends React.Component {
             selection: creds.selection,
             createdOn: moment().format('MMM Do YYYY @ h:mm a')
         }
-        fetch('/mission/create', {
+        fetch('/api/mission/create', {
             method: 'post',
             body: JSON.stringify(newMiss),
             headers: {
@@ -148,7 +148,7 @@ export default class MissionMain extends React.Component {
             timeTask: taskInput.timeTask,
             dropdownMission: dropdownMission
         }
-        fetch('/missiontask/create/', {
+        fetch('/api/missiontask/create/', {
             method: 'post',
             body: JSON.stringify(newTask),
             headers: {
@@ -167,7 +167,7 @@ export default class MissionMain extends React.Component {
     componentWillMount(){
         const {missions, missiontasks} = this.state;
         
-        fetch('/missionhome', {
+        fetch('/api/missionhome', {
             headers: {
                 Auth: localStorage.getItem('token'),
                 'content-type': 'application/json',

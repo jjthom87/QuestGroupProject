@@ -10,7 +10,7 @@ export default class CreateAccountPage extends React.Component {
 			username: creds.username,
 			password: creds.password
 		}
-		fetch('/users/create', {
+		fetch('/api/users/create', {
 			method: 'post',
 			body: JSON.stringify(newUser),
 			headers: {
