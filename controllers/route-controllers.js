@@ -18,7 +18,7 @@ router.get('/', (req,res) => {
 })
 
 // Registration: Allows users to create new user based on model input
-router.post('/users/create', function(req,res){
+router.post('/api/users/create', function(req,res){
     modelController.userCreate(
       req.body.name, 
       req.body.username, 
@@ -29,7 +29,7 @@ router.post('/users/create', function(req,res){
 });
 
 // Sign-in: Setting user login route
-router.post('/users/login', function (req, res) {
+router.post('/api/users/login', function (req, res) {
   var body = _.pick(req.body, 'username', 'password');
   var userInfo;
 
@@ -50,20 +50,28 @@ models.User.authenticate(body).then(function (user) {
 });
 
 // Setting homepage to authenticated users only
-router.get('/home', middleware.requireAuthentication, function(req, res){
-    modelController.userHome(req.user.id, function(data){
+router.get('/api/home', middleware.requireAuthentication, function(req, res){
+    modelController.userModify(req.user.id, function(data){
         res.json(data)
     });
 });
 
-router.get('/completed', middleware.requireAuthentication, function(req, res){
+router.get('/api/completed', middleware.requireAuthentication, function(req, res){
     modelController.userCompleted(req.user.id, function(data){
         res.json(data)
     });
 });
 
+router.get('/api/userall/:id', middleware.requireAuthentication, function(req, res){
+    modelController.userAll(
+      req.params.id, 
+      function(data){
+        res.json(data)
+    });
+});
+
 // Setting mission homepage
-router.get('/missionhome', middleware.requireAuthentication, function(req,res){
+router.get('/api/missionhome', middleware.requireAuthentication, function(req,res){
     modelController.missionMain(req.user.id, 
       function(data){
       res.json(data)
@@ -71,21 +79,21 @@ router.get('/missionhome', middleware.requireAuthentication, function(req,res){
 });
 
 // Setting quest homepage
-router.get('/questhome', middleware.requireAuthentication, function(req,res){
+router.get('/api/questhome', middleware.requireAuthentication, function(req,res){
     modelController.questMain(req.user.id, function(data){
       res.json(data)
     })
 });
 
 // Retrieving all Bubo Missions and Quests
-router.get('/search', middleware.requireAuthentication, function(req,res){
+router.get('/api/search', middleware.requireAuthentication, function(req,res){
     modelController.allMain(function(data){
       res.json(data)
     })
 });
 
 // Sign-out: Deletes user's JSON Web Token once logged out
-router.delete('/users/logout', middleware.requireAuthentication, function (req, res) {
+router.delete('/api/users/logout', middleware.requireAuthentication, function (req, res) {
   req.token.destroy().then(function () {
     res.status(204).send();
   }).catch(function () {
@@ -95,7 +103,7 @@ router.delete('/users/logout', middleware.requireAuthentication, function (req, 
 
 
 // Allows users to create a Mission
-router.post('/mission/create', middleware.requireAuthentication, function(req, res){
+router.post('/api/mission/create', middleware.requireAuthentication, function(req, res){
     modelController.missionCreate(
       req.body.title,
       req.body.description,
@@ -108,7 +116,7 @@ router.post('/mission/create', middleware.requireAuthentication, function(req, r
 });
 
 // Allows users to add Tasks to a Mission
-router.post('/missiontask/create/', middleware.requireAuthentication, function(req, res){
+router.post('/api/missiontask/create/', middleware.requireAuthentication, function(req, res){
     models.User.findOne({where: {id: req.user.id}}).then(function(user){
         models.Mission.findOne({ where: {title: req.body.dropdownMission }}).then(function(mission){
           models.Missiontask.create({
@@ -131,7 +139,7 @@ router.post('/missiontask/create/', middleware.requireAuthentication, function(r
     });
 });
 
-router.post('/milestone/create/', middleware.requireAuthentication, function(req, res){
+router.post('/api/milestone/create/', middleware.requireAuthentication, function(req, res){
     models.User.findOne({where: {id: req.user.id}}).then(function(user){
         models.Quest.findOne({ where: {title: req.body.dropdownQuest }}).then(function(quest){
           models.Milestone.create({
@@ -151,7 +159,7 @@ router.post('/milestone/create/', middleware.requireAuthentication, function(req
     });
 });
 
-router.post('/milestonetask/create/', middleware.requireAuthentication, function(req, res){
+router.post('/api/milestonetask/create/', middleware.requireAuthentication, function(req, res){
     models.User.findOne({where: {id: req.user.id}}).then(function(user){
       models.Quest.findOne({ where: {title: req.body.dropdownQuest}}).then(function(quest){
         models.Milestone.findOne({ where: {milestone: req.body.dropdownMilestone }}).then(function(milestone){
@@ -177,7 +185,7 @@ router.post('/milestonetask/create/', middleware.requireAuthentication, function
 });
 
 // Allows users to add a Quest
-router.post('/quest/create', middleware.requireAuthentication, function(req, res){
+router.post('/api/quest/create', middleware.requireAuthentication, function(req, res){
     modelController.questCreate(
       req.body.title,
       req.body.description,
@@ -191,7 +199,7 @@ router.post('/quest/create', middleware.requireAuthentication, function(req, res
 });
 
 // Toggles a Task for completion
-router.put('/missiontask/toggle/:id', middleware.requireAuthentication, function(req, res){
+router.put('/api/missiontask/toggle/:id', middleware.requireAuthentication, function(req, res){
   modelController.missionTaskToggle(
     req.params.id,
     function(success){
@@ -199,7 +207,7 @@ router.put('/missiontask/toggle/:id', middleware.requireAuthentication, function
     });
 });
 
-router.put('/milestonetask/toggle/:id', middleware.requireAuthentication, function(req, res){
+router.put('/api/milestonetask/toggle/:id', middleware.requireAuthentication, function(req, res){
   modelController.milestoneTaskToggle(
     req.params.id,
     function(success){
@@ -207,7 +215,7 @@ router.put('/milestonetask/toggle/:id', middleware.requireAuthentication, functi
     });
 });
 
-router.put('/milestone/toggle/:id', middleware.requireAuthentication, function(req, res){
+router.put('/api/milestone/toggle/:id', middleware.requireAuthentication, function(req, res){
   modelController.milestoneToggle(
     req.params.id,
     function(success){
@@ -215,7 +223,7 @@ router.put('/milestone/toggle/:id', middleware.requireAuthentication, function(r
     });
 });
 
-router.put('/quest/complete/:id', middleware.requireAuthentication, function(req, res){
+router.put('/api/quest/complete/:id', middleware.requireAuthentication, function(req, res){
   modelController.questComplete(
     req.params.id,
     req.body.completedOn,
@@ -224,7 +232,7 @@ router.put('/quest/complete/:id', middleware.requireAuthentication, function(req
     });
 });
 
-router.put('/mission/complete/:id', middleware.requireAuthentication, function(req, res){
+router.put('/api/mission/complete/:id', middleware.requireAuthentication, function(req, res){
   modelController.missionComplete(
     req.params.id,
     req.body.completedOn,
@@ -234,7 +242,7 @@ router.put('/mission/complete/:id', middleware.requireAuthentication, function(r
 });
 
 // Allows users to delete a Mission
-router.delete('/mission/delete/:id', middleware.requireAuthentication, function(req, res){
+router.delete('/api/mission/delete/:id', middleware.requireAuthentication, function(req, res){
     modelController.missionDelete(
         req.user.id,
         req.params.id,
@@ -243,7 +251,7 @@ router.delete('/mission/delete/:id', middleware.requireAuthentication, function(
     })
 })
 
-router.delete('/missiontask/delete/:id', middleware.requireAuthentication, function(req, res){
+router.delete('/api/missiontask/delete/:id', middleware.requireAuthentication, function(req, res){
     modelController.missionTaskDelete(
         req.user.id,
         req.params.id,
@@ -252,7 +260,7 @@ router.delete('/missiontask/delete/:id', middleware.requireAuthentication, funct
     })
 })
 
-router.delete('/milestonetask/delete/:id', middleware.requireAuthentication, function(req, res){
+router.delete('/api/milestonetask/delete/:id', middleware.requireAuthentication, function(req, res){
     modelController.milestoneTaskDelete(
         req.user.id,
         req.params.id,
@@ -261,7 +269,7 @@ router.delete('/milestonetask/delete/:id', middleware.requireAuthentication, fun
     })
 })
 // Allows users to delete a Quest
-router.delete('/quest/delete/:id', middleware.requireAuthentication, function(req, res){
+router.delete('/api/quest/delete/:id', middleware.requireAuthentication, function(req, res){
     modelController.questDelete(
         req.user.id,
         req.params.id,
@@ -270,7 +278,7 @@ router.delete('/quest/delete/:id', middleware.requireAuthentication, function(re
     })
 })
 
-router.delete('/milestone/delete/:id', middleware.requireAuthentication, function(req, res){
+router.delete('/api/milestone/delete/:id', middleware.requireAuthentication, function(req, res){
     modelController.milestoneDelete(
         req.user.id,
         req.params.id,

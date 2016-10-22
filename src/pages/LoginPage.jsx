@@ -15,7 +15,7 @@ export default class LoginPage extends React.Component {
 			username: creds.username,
 			password: creds.password
 		}
-		fetch('/users/login', {
+		fetch('/api/users/login', {
 			method: 'post',
 			body: JSON.stringify(loginUser),
 			headers: {

@@ -20,6 +20,7 @@ export default class UserHomePage extends React.Component {
 		super(props, context);
 		this.state = {
 			loginUser: '',
+            loginId: '',
 			fullLoginUser: '',
 			missions: [],
 			quests: [],
@@ -95,7 +96,7 @@ export default class UserHomePage extends React.Component {
         })
     }
 	logoutHandler(){
-		fetch('/users/logout', {
+		fetch('/api/users/logout', {
 			method: 'delete',
 			headers: {
 				Auth: localStorage.getItem('token'),
@@ -110,7 +111,7 @@ export default class UserHomePage extends React.Component {
 
         const deleteMission = _.remove(missions, mission => mission.id === id);
 
-        fetch(`/mission/delete/${deleteMission[0].id}`,{
+        fetch(`/api/mission/delete/${deleteMission[0].id}`,{
             method: 'DELETE',
             body: JSON.stringify(deleteMission),
             headers: {
@@ -131,7 +132,7 @@ export default class UserHomePage extends React.Component {
 
         const deleteQuest = _.remove(quests, quest => quest.id === id);
 
-        fetch(`/quest/delete/${deleteQuest[0].id}`,{
+        fetch(`/api/quest/delete/${deleteQuest[0].id}`,{
             method: 'DELETE',
             body: JSON.stringify(deleteQuest),
             headers: {
@@ -156,7 +157,7 @@ export default class UserHomePage extends React.Component {
             completeMission,
             completedOn: moment().format('MMM Do YYYY @ h:mm a')
         }
-        fetch(`/mission/complete/${completeMission[0].id}`,{
+        fetch(`/api/mission/complete/${completeMission[0].id}`,{
             method: 'PUT',
             body: JSON.stringify(data),
             headers: {
@@ -182,7 +183,7 @@ export default class UserHomePage extends React.Component {
             completedOn: moment().format('MMM Do YYYY @ h:mm a')
         }
 
-        fetch(`/quest/complete/${completeQuest[0].id}`,{
+        fetch(`/api/quest/complete/${completeQuest[0].id}`,{
             method: 'PUT',
             body: JSON.stringify(data),
             headers: {
@@ -206,7 +207,7 @@ export default class UserHomePage extends React.Component {
         if (foundtask) {
             foundtask.isCompleted = !foundtask.isCompleted;
 
-            fetch(`/missiontask/toggle/${foundtask.uuid}`, {
+            fetch(`/api/missiontask/toggle/${foundtask.uuid}`, {
                 method: 'PUT',
                 body: JSON.stringify(foundtask),
                 headers: {
@@ -228,7 +229,7 @@ export default class UserHomePage extends React.Component {
 
         const foundTask = _.remove(missiontasks, task => task.uuid === taskId);
 
-        fetch(`/missiontask/delete/${foundTask[0].uuid}`,{
+        fetch(`/api/missiontask/delete/${foundTask[0].uuid}`,{
             method: 'DELETE',
             body: JSON.stringify(foundTask),
             headers: {
@@ -252,7 +253,7 @@ export default class UserHomePage extends React.Component {
         if (foundmilestone) {
             foundmilestone.isCompleted = !foundmilestone.isCompleted;
 
-            fetch(`/milestone/toggle/${foundmilestone.uuid}`, {
+            fetch(`/api/milestone/toggle/${foundmilestone.uuid}`, {
                 method: 'PUT',
                 body: JSON.stringify(foundmilestone),
                 headers: {
@@ -274,7 +275,7 @@ export default class UserHomePage extends React.Component {
 
         const foundmilestone = _.remove(milestones, milestone => milestone.uuid === milestoneId);
 
-        fetch(`/milestone/delete/${foundmilestone[0].uuid}`,{
+        fetch(`/api/milestone/delete/${foundmilestone[0].uuid}`,{
             method: 'DELETE',
             body: JSON.stringify(foundmilestone),
             headers: {
@@ -298,7 +299,7 @@ export default class UserHomePage extends React.Component {
         if (foundmilestonetask) {
             foundmilestonetask.taskCompleted = !foundmilestonetask.taskCompleted;
 
-            fetch(`/milestonetask/toggle/${foundmilestonetask.uuid}`, {
+            fetch(`/api/milestonetask/toggle/${foundmilestonetask.uuid}`, {
                 method: 'PUT',
                 body: JSON.stringify(foundmilestonetask),
                 headers: {
@@ -320,7 +321,7 @@ export default class UserHomePage extends React.Component {
 
         const foundmilestonetask = _.remove(milestonetasks, milestonetask => milestonetask.uuid === milestonetaskId);
 
-        fetch(`/milestonetask/delete/${foundmilestonetask[0].uuid}`,{
+        fetch(`/api/milestonetask/delete/${foundmilestonetask[0].uuid}`,{
             method: 'DELETE',
             body: JSON.stringify(foundmilestonetask),
             headers: {
@@ -337,7 +338,7 @@ export default class UserHomePage extends React.Component {
         });
     }
   	componentWillMount(){
-		fetch('/home', {
+		fetch('/api/home', {
             headers: {
                 Auth: localStorage.getItem('token'),
                 'content-type': 'application/json',
@@ -349,6 +350,7 @@ export default class UserHomePage extends React.Component {
 			this.setState({
 				fullLoginUser: results.currentUser,
 				loginUser: results.currentUser.name,
+                loginId: results.currentUser.id,
 				missions: results.missions,
 				quests: results.quests,
                 missiontasks: results.missiontasks,
@@ -358,7 +360,7 @@ export default class UserHomePage extends React.Component {
 		});
 	}
 	render() {
-		const { loginUser, missions, quests, missiontasks, milestones, dropdownMission, dropdownQuest, dropdownMilestone, milestonetasks, deleteMilestoneTask, toggleMilestoneTask, count, countdownStatus } = this.state;
+		const { loginUser, missions, quests, missiontasks, milestones, dropdownMission, dropdownQuest, loginId, dropdownMilestone, milestonetasks, deleteMilestoneTask, toggleMilestoneTask, count, countdownStatus } = this.state;
 
         const filteredMission = missions.filter((mission) => dropdownMission === mission.title);
         const filteredTasks = missiontasks.filter((task) => dropdownMission === task.missionName);
@@ -406,8 +408,7 @@ export default class UserHomePage extends React.Component {
       			<h1 className="text-center" id="pageTitle">Welcome Home {loginUser}</h1>
       			<div className="row">
       				<div className="col-lg-1 col-lg-offset-5" role="group">
-
-						
+                        <Link to={ `/userall/${loginId}` }><button className="btn btn-info">See All of Your Missions and Quests</button></Link>						
 						<Link to="/completed"><button className="btn btn-info">See Completed Missions and Quests</button></Link>
                         <Link to="/searchall"><button className="btn btn-info">Find a Mission or Quest</button></Link>			
                     </div>
