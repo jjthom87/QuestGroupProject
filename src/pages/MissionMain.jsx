@@ -5,7 +5,7 @@ import CreateMission from 'CreateMission';
 import CreateMissionTask from 'CreateMissionTask';
 import MainNav from 'MainNav';
 import MissionListforMM from 'MissionListforMM';
-
+var moment = require('moment');
 
 export default class MissionMain extends React.Component {
     constructor(props, context) {
@@ -13,7 +13,8 @@ export default class MissionMain extends React.Component {
         this.state = {
             missions: [],
             missiontasks: [],
-            dropdownMission: ''
+            dropdownMission: '',
+            createdOn: ''
         };
     }
     deleteMission(id){
@@ -24,6 +25,31 @@ export default class MissionMain extends React.Component {
         fetch(`/mission/delete/${deleteMission[0].id}`,{
             method: 'DELETE',
             body: JSON.stringify(deleteMission),
+            headers: {
+                Auth: localStorage.getItem('token'),
+                'content-type': 'application/json',
+                'accept': 'application/json'
+            },
+            credentials: 'include'
+        }).then((response) => response.json())
+        .then((results) => {
+            this.setState({
+                missions: missions
+            })
+        }); 
+    }
+    completeMission(missionId){
+        const { missions } = this.state;
+
+        const completeMission = _.remove(missions, mission => mission.id === missionId);
+
+        const data = {
+            completeMission,
+            completedOn: moment().format('MMM Do YYYY @ h:mm a')
+        }
+        fetch(`/mission/complete/${completeMission[0].id}`,{
+            method: 'PUT',
+            body: JSON.stringify(data),
             headers: {
                 Auth: localStorage.getItem('token'),
                 'content-type': 'application/json',
@@ -94,7 +120,8 @@ export default class MissionMain extends React.Component {
         const newMiss = {
             title: creds.title,
             description: creds.description,
-            selection: creds.selection
+            selection: creds.selection,
+            createdOn: moment().format('MMM Do YYYY @ h:mm a')
         }
         fetch('/mission/create', {
             method: 'post',
@@ -108,7 +135,7 @@ export default class MissionMain extends React.Component {
         }).then((response) => response.json())
             .then((results) => {
                 this.setState({
-                    missions: missions.concat(results)
+                    missions: missions.concat(results),
                 });
             });
     }
@@ -192,7 +219,9 @@ export default class MissionMain extends React.Component {
                             <div className="col-md-4 col-md-offset-1" id="missionlistdiv">
                                 <MissionListforMM missions = {filteredMission} missiontasks = {filteredTasks} toggleMissionTask={this.toggleMissionTask.bind(this)}
                                 deleteMission={this.deleteMission.bind(this)}
-                                deleteMissionTask={this.deleteMissionTask.bind(this)}/>
+                                deleteMissionTask={this.deleteMissionTask.bind(this)}
+                                completeMission={this.completeMission.bind(this)}
+                            />
                             </div>
                             </div>
                     </div>

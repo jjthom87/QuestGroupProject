@@ -5,6 +5,7 @@ import CreateQuest from 'CreateQuest';
 import CreateMilestone from 'CreateMilestone';
 import CreateMilestoneTask from 'CreateMilestoneTask';
 import MainNav from 'MainNav';
+var moment = require('moment');
 
 export default class QuestMain extends React.Component {
     constructor(props) {
@@ -14,7 +15,8 @@ export default class QuestMain extends React.Component {
             milestones: [],
             dropdownQuest: '',
             milestonetasks: [],
-            dropdownMilestone: ''
+            dropdownMilestone: '',
+            createdOn: ''
         };
     }
     handleDropdownQuestChange(e){
@@ -58,7 +60,8 @@ export default class QuestMain extends React.Component {
 
         const newMilestone = {
             milestone: milestoneInput,
-            dropdownQuest: dropdownQuest
+            dropdownQuest: dropdownQuest,
+            createdOn: moment().format('MMM Do YYYY @ h:mm a')
         }
         fetch('/milestone/create/', {
             method: 'post',

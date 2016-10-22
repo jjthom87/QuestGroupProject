@@ -28,6 +28,7 @@ module.exports = {
             'src/components/tasks',
             'src/components/milestones',
             'src/components/search',
+            'src/components/completed',
             'src/components',
             'src/pages',
             'src/auth',
