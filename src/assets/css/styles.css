@@ -324,3 +324,7 @@ select {
     margin:0px;
 
 }
+
+.panel-body p {
+    display: inline-block;
+}
