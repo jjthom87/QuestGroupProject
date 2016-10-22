@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 var moment = require('moment');
+import CompletedMilestonetaskItem from 'CompletedMilestonetaskItem';
 
 export default class MissionAndTaskItem extends React.Component { 
     constructor(props) {
@@ -8,14 +9,18 @@ export default class MissionAndTaskItem extends React.Component {
         };
     }
 	render(){
-
-		const { id, title, description, missiontasks, completedOn, isCompleted } = this.props;
-		var singleTask = () => {
-			return missiontasks.map((task, index) => {
+		const { id, title, description, milestones, milestonetasks, completedOn, isCompleted } = this.props;
+		var singleMilestone = () => {
+			return milestones.map((milestone, index) => {
+				var filteredMilestonetask = milestonetasks.filter((milestonetask) => milestonetask.milestoneName === milestone.milestone);
 				return (
 					<div>
 						<li>
-							<p id="taskText">{task.task}</p>
+							<p>Milestone</p>
+							<p id="taskText">{milestone.milestone}</p>
+							<CompletedMilestonetaskItem
+								milestonetasks={filteredMilestonetask}
+                        	/>
 						</li>
 					</div>
 				)
@@ -25,7 +30,7 @@ export default class MissionAndTaskItem extends React.Component {
 			<div>
 				<p>Title: {title}</p>
 				<p>Description: {description}</p>
-				{singleTask()}
+				{singleMilestone()}
 				<p>Completed On: {completedOn}</p>
 			</div>
 		)
