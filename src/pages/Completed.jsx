@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MainNav from 'MainNav';
 
 export default class Completed extends React.Component {
     constructor(props) {
@@ -9,7 +10,38 @@ export default class Completed extends React.Component {
     render() {
         return (
             <div>
-            	<p>Completed Missions and Quests</p>
+                <MainNav />
+                    <div className='container' id="separator">   
+            	       <p>Completed Missions and Quests</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
             </div>
         );
     }
