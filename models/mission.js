@@ -26,7 +26,7 @@ module.exports = function(sequelize, DataTypes) {
     public: {
       type: DataTypes.STRING
     },
-    active: {
+    missionCompleted: {
       type: DataTypes.BOOLEAN
     }
   }, {

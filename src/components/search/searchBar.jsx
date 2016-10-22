@@ -1,4 +1,3 @@
-import Search from 'react-search';
 import React, { Component, PropTypes } from 'react';
  
 export default class SearchBar extends React.Component {

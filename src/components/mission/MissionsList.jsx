@@ -3,7 +3,7 @@ import MissionAndTaskItem from 'MissionAndTaskItem';
 
 export default class MissionsList extends React.Component {
     render() {
-        const { missions, missiontasks, toggleMissionTask, deleteMission, deleteMissionTask } = this.props;
+        const { missions, missiontasks, toggleMissionTask, completeMission, deleteMission, deleteMissionTask } = this.props;
         
         var renderMissions = () => {
             return missions.map((mission, index) => {
@@ -12,6 +12,7 @@ export default class MissionsList extends React.Component {
                         title={mission.title}
                         description={mission.description}
                         deleteMission={deleteMission}
+                        completeMission={completeMission}
                         deleteMissionTask={deleteMissionTask}
                         toggleMissionTask={toggleMissionTask}
                         missiontasks={missiontasks}
