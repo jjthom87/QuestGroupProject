@@ -44,7 +44,7 @@ export default class MilestoneAndTaskItem extends React.Component {
 							onChange={() => toggleMilestoneTask(milestonetask.uuid)}
 						/>
 						<p className={milestoneTaskClassName}>{milestonetask.task}</p>
-						<button onClick={() => deleteMilestoneTask(milestonetask.uuid)}>X</button>
+						<span className="glyphicon glyphicon-remove-circle" onClick={() => deleteMilestoneTask(milestonetask.uuid)}></span>
 					</li>
 				</div>
 			)
