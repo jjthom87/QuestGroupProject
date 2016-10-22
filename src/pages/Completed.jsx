@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
 import { Router , browserHistory } from 'react-router';
 var {Link, IndexLink} = require('react-router');
 
@@ -9,9 +8,6 @@ import Logout from 'Logout';
 import MainNav from 'MainNav';
 
 import CompletedMissionList from 'CompletedMissionList';
-=======
-import MainNav from 'MainNav';
->>>>>>> 682834c1e3b898fb1af980a0785e165dcb2abf8a
 
 export default class Completed extends React.Component {
   	constructor(props, context) {
@@ -30,61 +26,6 @@ export default class Completed extends React.Component {
 			createdOn: ''
 		};
 	}
-    handleDropdownMission(e){
-        this.setState({
-            dropdownMission: e.target.value
-        })
-    }
-    handleDropdownQuest(e){
-        this.setState({
-            dropdownQuest: e.target.value
-        })
-    }
-<<<<<<< HEAD
-    handleDropdownMilestone(e){
-        this.setState({
-            dropdownMilestone: e.target.value
-        })
-=======
-    render() {
-        return (
-            <div>
-                <MainNav />
-                    <div className='container' id="separator">   
-            	       <p>Completed Missions and Quests</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-            </div>
-        );
->>>>>>> 682834c1e3b898fb1af980a0785e165dcb2abf8a
-    }
 	logoutHandler(){
 		fetch('/users/logout', {
 			method: 'delete',
@@ -122,8 +63,6 @@ export default class Completed extends React.Component {
 
 		const { loginUser, missions, missiontasks } = this.state;
 
-		console.log(missions);
-		console.log(missiontasks);
     	return (
       		<div>
               <MainNav/>
