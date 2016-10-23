@@ -140,6 +140,13 @@ var modelController = {
     	});
 	  });
   	},
+	searchAllUsers: function(cb){
+	    models.User.findAll({}).then(function(success){
+	   		cb(success);
+	    }).catch(function(err){
+	    	throw err;
+	    });
+	},
   	// Creates a new User record to the database (See route 'users/create')
   	userCreate: function(name, username, password, cb){
 	  	models.User.create({
@@ -204,9 +211,9 @@ var modelController = {
 	missionMain: function(id, cb){
 		var missions;
 		var missiontasks;
-	    models.Mission.findAll({ where: {UserId: id}}).then(function(success){
+	    models.Mission.findAll({ where: {UserId: id, missionCompleted: false}}).then(function(success){
 	        missions = success;
-	   	models.Missiontask.findAll({ where: {UserId: id, missionCompleted: false}}).then(function(success){
+	   	models.Missiontask.findAll({ where: {UserId: id}}).then(function(success){
 	   		missiontasks = success;
 	   		var data = {
 	   			missions: missions,
@@ -222,9 +229,9 @@ var modelController = {
 	questMain: function(id, cb){
 		var quests;
 		var milestones;
-	    models.Quest.findAll({ where: {UserId: id}}).then(function(success){
+	    models.Quest.findAll({ where: {UserId: id, questCompleted: false}}).then(function(success){
 	        quests = success;
-	    models.Milestone.findAll({ where: {UserId: id}, questCompleted: false}).then(function(success){
+	    models.Milestone.findAll({ where: {UserId: id}}).then(function(success){
 	    	milestones=success
 	    	var data = {
 	    		quests: quests,

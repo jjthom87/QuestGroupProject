@@ -337,3 +337,8 @@ select {
 .panel-body p {
     display: inline-block;
 }
+
+.userNameSearchText {
+    font-family: 'Lobster', cursive;
+    color: #ff9673;
+}

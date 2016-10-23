@@ -56,6 +56,12 @@ router.get('/api/home', middleware.requireAuthentication, function(req, res){
     });
 });
 
+router.get('/api/searchusers', middleware.requireAuthentication, function(req, res){
+    modelController.searchAllUsers(function(data){
+        res.json(data)
+    });
+});
+
 router.get('/api/completed', middleware.requireAuthentication, function(req, res){
     modelController.userCompleted(req.user.id, function(data){
         res.json(data)

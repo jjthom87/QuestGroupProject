@@ -20,6 +20,7 @@ import SearchAllPage from 'SearchAllPage';
 import Authentication from 'Authentication';
 import Completed from 'Completed';
 import UserAllPage from 'UserAllPage';
+import UserSearchPage from 'UserSearchPage';
 
 // COMPONENT ROUTES============================================================
 export default (
@@ -34,6 +35,7 @@ export default (
         <Route path="/searchall" component={SearchAllPage} />
         <Route path="/completed" component={Completed} />
         <Route path="/userall/:id" component={UserAllPage} />
+        <Route path="/searchusers" component={UserSearchPage} />
     	</Route>
   	</Router>
 );

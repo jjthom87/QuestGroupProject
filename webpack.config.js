@@ -31,6 +31,7 @@ module.exports = {
             'src/components/completed',
             'src/components/countdown',
             'src/components/userall',
+            'src/components/searchusers',
             'src/components',
             'src/pages',
             'src/auth',
