@@ -5,6 +5,7 @@ import CreateQuest from 'CreateQuest';
 import CreateMilestone from 'CreateMilestone';
 import CreateMilestoneTask from 'CreateMilestoneTask';
 import MainNav from 'MainNav';
+import QuestListforQM from 'QuestListforQM';
 var moment = require('moment');
 
 export default class QuestMain extends React.Component {
@@ -28,6 +29,145 @@ export default class QuestMain extends React.Component {
         this.setState({
             dropdownMilestone: e.target.value
         })
+    }
+     completeQuest(questId){
+        const { quests } = this.state;
+
+        const completeQuest = _.remove(quests, quest => quest.id === questId);
+
+        const data = {
+            completeQuest,
+            completedOn: moment().format('MMM Do YYYY @ h:mm a')
+        }
+
+        fetch(`/api/quest/complete/${completeQuest[0].id}`,{
+            method: 'PUT',
+            body: JSON.stringify(data),
+            headers: {
+                Auth: localStorage.getItem('token'),
+                'content-type': 'application/json',
+                'accept': 'application/json'
+            },
+            credentials: 'include'
+        }).then((response) => response.json())
+        .then((results) => {
+            this.setState({
+                quests: quests
+            })
+        }); 
+    }
+    deleteQuest(id){
+        const { quests } = this.state;
+
+        const deleteQuest = _.remove(quests, quest => quest.id === id);
+
+        fetch(`/api/quest/delete/${deleteQuest[0].id}`,{
+            method: 'DELETE',
+            body: JSON.stringify(deleteQuest),
+            headers: {
+                Auth: localStorage.getItem('token'),
+                'content-type': 'application/json',
+                'accept': 'application/json'
+            },
+            credentials: 'include'
+        }).then((response) => response.json())
+        .then((results) => {
+            this.setState({
+                quests: quests
+            })
+        }); 
+    }
+    toggleMilestone(milestoneId) {
+        const { milestones } = this.state;
+
+        const foundmilestone = milestones.find((milestone) => milestone.uuid === milestoneId);
+
+        if (foundmilestone) {
+            foundmilestone.isCompleted = !foundmilestone.isCompleted;
+
+            fetch(`/api/milestone/toggle/${foundmilestone.uuid}`, {
+                method: 'PUT',
+                body: JSON.stringify(foundmilestone),
+                headers: {
+                    Auth: localStorage.getItem('token'),
+                    'content-type': 'application/json',
+                    'accept': 'application/json'
+                },
+                credentials: 'include'
+            }).then((response) => response.json())
+                .then((json) => {
+                    this.setState({
+                        milestones: milestones
+                    });
+                });
+        }
+    }
+    deleteMilestone(milestoneId){
+        const { milestones } = this.state;
+
+        const foundmilestone = _.remove(milestones, milestone => milestone.uuid === milestoneId);
+
+        fetch(`/api/milestone/delete/${foundmilestone[0].uuid}`,{
+            method: 'DELETE',
+            body: JSON.stringify(foundmilestone),
+            headers: {
+                Auth: localStorage.getItem('token'),
+                'content-type': 'application/json',
+                'accept': 'application/json' 
+            },
+            credentials: 'include'
+        }).then((response) => response.json())
+            .then((results) => {
+                this.setState({
+                    milestones: milestones
+               });
+        });
+    }
+    toggleMilestoneTask(milestoneTaskId) {
+        const { milestonetasks } = this.state;
+
+        const foundmilestonetask = milestonetasks.find((milestonetask) => milestonetask.uuid === milestoneTaskId);
+
+        if (foundmilestonetask) {
+            foundmilestonetask.taskCompleted = !foundmilestonetask.taskCompleted;
+
+            fetch(`/api/milestonetask/toggle/${foundmilestonetask.uuid}`, {
+                method: 'PUT',
+                body: JSON.stringify(foundmilestonetask),
+                headers: {
+                    Auth: localStorage.getItem('token'),
+                    'content-type': 'application/json',
+                    'accept': 'application/json'
+                },
+                credentials: 'include'
+            }).then((response) => response.json())
+                .then((json) => {
+                    this.setState({
+                        milestonetasks: milestonetasks
+                    });
+                });
+        }
+    }
+    deleteMilestoneTask(milestonetaskId){
+        const { milestonetasks } = this.state;
+
+        const foundmilestonetask = _.remove(milestonetasks, milestonetask => milestonetask.uuid === milestonetaskId);
+
+        fetch(`/api/milestonetask/delete/${foundmilestonetask[0].uuid}`,{
+            method: 'DELETE',
+            body: JSON.stringify(foundmilestonetask),
+            headers: {
+                Auth: localStorage.getItem('token'),
+                'content-type': 'application/json',
+                'accept': 'application/json' 
+            },
+            credentials: 'include'
+        }).then((response) => response.json())
+            .then((results) => {
+                this.setState({
+                    milestonetasks: milestonetasks
+               });
+        });
     }
     createQuest(creds) {
         const { quests } = this.state;
@@ -117,14 +257,17 @@ export default class QuestMain extends React.Component {
             console.log(results);
             this.setState({
                 quests: results.quests,
-                milestones: results.milestones
+                milestones: results.milestones,
+                milestonetasks: results.milestonetasks
             });
         });   
     }
     render() {
-        const { quests, milestones, milestonetasks, dropdownQuest } = this.state;
+        const { quests, milestones, milestonetasks, dropdownQuest, dropdownMilestone, deleteMilestone, deleteMilestoneTask, toggleMilestoneTask } = this.state;
 
         const filteredMilestones = milestones.filter((milestone) => dropdownQuest === milestone.questName); 
+        const filteredQuest = quests.filter((quest) => dropdownQuest === quest.title);
+        const filteredMilestoneTasks = milestonetasks.filter((milestonetask) => dropdownQuest === milestonetask.questName);
 
         var renderQuestDropdown = () => {
             return quests.map((quest, index) => {
@@ -167,6 +310,18 @@ export default class QuestMain extends React.Component {
                                     {renderMilestoneDropdown()}
                                 </select>
                                 <CreateMilestoneTask createMilestoneTask={this.handleCreateMilestoneTask.bind(this)}/>
+                            </div>
+                            <div className="col-md-4 col-md-offset-1" id="missionlistdiv">
+                            <QuestListforQM
+                                quests={filteredQuest}
+                                milestones={filteredMilestones}
+                                milestonetasks={filteredMilestoneTasks}
+                                deleteQuest={this.deleteQuest.bind(this)}
+                                completeQuest={this.completeQuest.bind(this)}
+                                toggleMilestone={this.toggleMilestone.bind(this)}
+                                deleteMilestone={this.deleteMilestone.bind(this)}
+                                toggleMilestoneTask={this.toggleMilestoneTask.bind(this)}
+                                deleteMilestoneTask={this.deleteMilestoneTask.bind(this)}/>
                             </div>
                         </div>
                 </div>

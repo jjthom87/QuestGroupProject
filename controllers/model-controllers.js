@@ -303,19 +303,24 @@ var modelController = {
 	questMain: function(id, cb){
 		var quests;
 		var milestones;
+		var milestonetasks;
 	    models.Quest.findAll({ where: {UserId: id, questCompleted: false}}).then(function(success){
 	        quests = success;
 	    models.Milestone.findAll({ where: {UserId: id}}).then(function(success){
 	    	milestones=success
+			models.Milestonetask.findAll({ where: {UserId: id}}).then(function(success){
+				milestonetasks = success
 	    	var data = {
 	    		quests: quests,
-	    		milestones: milestones
+	    		milestones: milestones,
+					milestonetasks: milestonetasks
 	    	}
 	    	cb(data);
 	    }).catch(function(err){
 	    	throw err;
 	    });
 	  });
+	 });
 	},
 	// Retreives all Bubo Missions and Quests that exist in database (See route '/searchall')
 	allMain: function(cb){
