@@ -6,8 +6,8 @@ import MissionMain from "MissionMain";
 import QuestMain from "QuestMain";
 import Logout from 'Logout';
 import MainNav from 'MainNav';
-import AllMissionList from 'AllMissionList';
-import AllQuestList from 'AllQuestList';
+import AllMissionListWoLikes from 'AllMissionListWoLikes';
+import AllQuestListWoLikes from 'AllQuestListWoLikes';
 import SearchYourItemForm from 'SearchYourItemForm';
 
 export default class UserAllPage extends React.Component {
@@ -111,21 +111,21 @@ export default class UserAllPage extends React.Component {
 							<div className="row">
 								<div className="col-md-3">
 									<p>Incomplete Missions</p>
-									<AllMissionList
+									<AllMissionListWoLikes
 					                    missions={filteredIncMiss}
 					                    missiontasks={missiontasks}
 					                />
 								</div>
 								<div className="col-md-3">
 									<p>Completed Missions</p>
-						            <AllMissionList
+						            <AllMissionListWoLikes
 					                    missions={filteredComMiss}
 					                    missiontasks={missiontasks}
 					                />
 					            </div>
 					            <div className="col-md-3">
 					            	<p>Incomplete Quests</p>
-					           		<AllQuestList
+					           		<AllQuestListWoLikes
 					                    quests={filteredIncQuest}
 					                    milestones={milestones}
 					                    milestonetasks={milestonetasks}
@@ -133,7 +133,7 @@ export default class UserAllPage extends React.Component {
 					            </div>
 				            	<div className="col-md-3">
 				            		<p>Completed Quests</p>
-				            		<AllQuestList
+				            		<AllQuestListWoLikes
 					                    quests={filteredComQuest}
 					                    milestones={milestones}
 					                    milestonetasks={milestonetasks}

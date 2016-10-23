@@ -29,7 +29,7 @@ export default class CommentForm extends React.Component {
 							<input type="text" ref="comment" placeholder="Enter Comment"/>
 						</div>
 						<div id="submitButton">
-							<input className="btn btn-default" type="submit" />
+							<input className="btn btn-default" value="Submit Comment" type="submit" />
 						</div>
 					</form>
 				</div>

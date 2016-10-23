@@ -13,6 +13,7 @@ export default class AllMissionList extends React.Component {
                     <AllMissionItem
                     	missions={missions}
                         title={mission.title}
+                        likes={mission.likes}
                         description={mission.description}
                         completedOn={mission.completedOn}
                         missiontasks={filteredMissiontask}
@@ -25,7 +26,7 @@ export default class AllMissionList extends React.Component {
         var noMissions = () => {
             if (missions.length === 0){
                 return (
-                    <p className="noMissionsText">No completed Missions</p>
+                    <p className="noMissionsText">No Missions</p>
                 );
             }
         }

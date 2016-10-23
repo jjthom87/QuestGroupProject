@@ -215,6 +215,30 @@ router.post('/api/quest/create', middleware.requireAuthentication, function(req,
     });
 });
 
+router.put('/api/likemission/:id', function(req, res){
+  modelController.likeIncrementMission(
+    req.params.id,
+    function(success){
+      res.json(success)
+    });
+});
+
+router.put('/api/likequest/:id', function(req, res){
+  modelController.likeIncrementQuest(
+    req.params.id,
+    function(success){
+      res.json(success)
+    });
+});
+
+router.put('/api/missiontask/toggle/:id', middleware.requireAuthentication, function(req, res){
+  modelController.missionTaskToggle(
+    req.params.id,
+    function(success){
+      res.json(success)
+    });
+});
+
 // Toggles a Task for completion
 router.put('/api/missiontask/toggle/:id', middleware.requireAuthentication, function(req, res){
   modelController.missionTaskToggle(

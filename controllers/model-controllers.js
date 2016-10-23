@@ -215,6 +215,24 @@ var modelController = {
 			throw err;
 		});
 	},
+	likeIncrementMission: function(id, cb){
+	  models.Mission.findOne({ where: { id: id}}).then(function(success){
+	        success.increment('likes');
+	        success.save();
+	          cb(success);
+	      }).catch(function(err){
+	        throw err
+	      })	
+	},
+	likeIncrementQuest: function(id, cb){
+	  models.Quest.findOne({ where: { id: id}}).then(function(success){
+	        success.increment('likes');
+	        success.save();
+	          cb(success);
+	      }).catch(function(err){
+	        throw err
+	      })	
+	},
 	// Updates the 'isCompleted' property for the User's specific Task(s) in the database
 	missionTaskToggle: function(uuid, cb){
 	  models.Missiontask.findOne({ where: { uuid: uuid}}).then(function(success){
