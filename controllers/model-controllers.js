@@ -344,7 +344,8 @@ var modelController = {
 		  isCompleted: false,
 		  missionCompleted: false,
 		  public: public,
-		  createdOn: createdOn
+		  createdOn: createdOn,
+		  likes: 0
 		  	  }).then(function(mission){
 			      user.addMission(mission).then(function(success){
 			    	cb(mission);
@@ -362,7 +363,8 @@ var modelController = {
 		  questCompleted: false,
 		  public: public,
 		  dateQuest: dateQuest,
-		  createdOn: createdOn
+		  createdOn: createdOn,
+		  likes: 0
 			  }).then(function(quest){
 			    user.addQuest(quest).then(function(success){
 				    cb(quest);
