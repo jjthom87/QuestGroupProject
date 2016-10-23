@@ -367,6 +367,27 @@ var modelController = {
 		      throw err;
 		    })
 	 	})
+	},
+  	userComment: function(comment, createdOn, UserId, MissionId, QuestId, name, cb){
+	  	models.Comment.create({
+	  	  comment: comment,
+	      createdOn: createdOn,
+	      UserId: UserId,
+	      MissionId: MissionId,
+	      QuestId: QuestId,
+	      usersName: name
+	    }).then(function(success) {
+	      	cb(success);
+		}).catch(function(err){
+			throw err;
+		});
+	},
+	allComments: function(cb){
+	    models.Comment.findAll({}).then(function(success){
+	   		cb(success);
+	    }).catch(function(err){
+	    	throw err;
+	    });
 	}
 }
 

@@ -294,6 +294,25 @@ router.delete('/api/milestone/delete/:id', middleware.requireAuthentication, fun
     })
 })
 
+router.post('/api/users/comment', middleware.requireAuthentication, function(req,res){
+    modelController.userComment(
+      req.body.comment, 
+      req.body.createdOn,
+      req.user.id,
+      req.body.MissionId,
+      req.body.QuestId,
+      req.user.name,
+    function(success){
+      res.json(success);
+    });
+});
+
+router.get('/api/comments', middleware.requireAuthentication, function(req,res){
+    modelController.allComments(function(data){
+      res.json(data)
+    })
+});
+
 router.get('*', (req,res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 })

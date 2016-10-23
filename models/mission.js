@@ -40,6 +40,7 @@ module.exports = function(sequelize, DataTypes) {
       associate: function(models) {
         Mission.belongsTo(models.User);
         Mission.hasMany(models.Missiontask);
+        Mission.hasMany(models.Comment);
       }
     }
   });
