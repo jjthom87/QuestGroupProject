@@ -3,7 +3,7 @@ import MissionAndTaskItem from 'MissionAndTaskItem';
 
 export default class MissionListforMM extends React.Component {
     render() {
-        const { missions, missiontasks, toggleMissionTask, deleteMission, deleteMissionTask } = this.props;
+        const { missions, missiontasks, toggleMissionTask, deleteMission, deleteMissionTask, completeMission } = this.props;
         
         var renderMissions = () => {
             return missions.map((mission, index) => {
