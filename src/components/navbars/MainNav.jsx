@@ -39,8 +39,6 @@ export default class MainNav extends React.Component {
 							<ul className="nav navbar-nav navbar-right" id="mainNavli">
 								<li><Link to="/searchall">Quest/Mission Search</Link></li>
 								<li><Link to="/searchusers">User Search</Link></li>
-								<li><Link to="/missionshome" className="landNavitem"> Missions </Link></li>
-								<li><Link to="/questshome" className="landNavitem" >Quests</Link></li>
                                 <li className="landNavitem"><Logout onLogout={this.logoutHandler.bind(this)}/></li>
 							</ul>
 						</div>

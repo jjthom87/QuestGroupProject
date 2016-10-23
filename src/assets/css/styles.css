@@ -201,6 +201,8 @@ select {
 #submitButton input {
     margin-left: 5px;
     margin-top: 10px;
+    color: #007B93;
+    
 }
  #taskText {
      display: inline-block;

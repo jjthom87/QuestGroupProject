@@ -40,7 +40,7 @@ export default class Login extends React.Component {
 							<span className="glyphicon glyphicon-lock"><input type="password" ref="password" placeholder="Enter Password"/></span>
 						</div>
 						<div id="submitButton">
-							<input className="btn btn-default" type="submit" />
+							<input className="btn btn-default" type="submit" value="Login"/>
 						</div>
 					</form>
 				</div>
