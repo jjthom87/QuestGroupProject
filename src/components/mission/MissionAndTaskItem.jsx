@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 var moment = require('moment');
 import { Line } from 'rc-progress'; 
+var ReactBootstap = require('react-bootstrap')
+var Panel = ReactBootstap.Panel;
 
 export default class MissionAndTaskItem extends React.Component { 
     constructor(props) {
@@ -39,14 +41,14 @@ export default class MissionAndTaskItem extends React.Component {
 			})
 		}
 		return (
-			<div className="panel panel-default" id="panel1">
-
+			
+			<div className="panel panel-default" id={"panel" + id}>
 				<div className="panel-heading">
-					<span> <a data-toggle="collapse" data-target="#collapseOne" 
-           href="#collapseOne"><strong>Mission: </strong> {title}</a></span>
-		   <Line percent={percentage} strokeWidth="4" strokeColor="#3FC7FA"/>
+					<span> <a data-toggle="collapse" data-target={"#collapse" + id} 
+           			href={"#collapse" + id}><strong>Mission: </strong> {title}</a></span>
+		   			<Line percent={percentage} strokeWidth="4" strokeColor="#3FC7FA"/>
 				</div>
-				<div id="collapseOne" className="panel-collapse collapse in">
+				<div id={"collapse" + id}className="panel-collapse collapse in">
 					<div className="panel-body">
 						<strong><p>You are {percentage}% done with this mission</p></strong>
 						<div>
@@ -66,6 +68,7 @@ export default class MissionAndTaskItem extends React.Component {
 					</div>
 				</div>
 			</div>
+			
 		)
 	}
 }
