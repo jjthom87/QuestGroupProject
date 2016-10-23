@@ -17,15 +17,13 @@ export default class MilestoneAndTaskItem extends React.Component {
 			var milestoneTaskClassName = milestonetask.taskCompleted ? 'task-completed' : 'task-notCompleted';
 			return (
 				<div>
-					<li>
 						<input
 							type="checkbox"
 							checked={taskCompleted}
 							onChange={() => toggleMilestoneTask(milestonetask.uuid)}
 						/>
 						<p key={index} className={milestoneTaskClassName}>{milestonetask.task}</p>
-						<span className="glyphicon glyphicon-remove-circle" onClick={() => deleteMilestoneTask(milestonetask.uuid)}></span>
-					</li>
+						<span className="hvr-icon-grow hvr-icon-fade" id="x" onClick={() => deleteMilestoneTask(milestonetask.uuid)}></span>
 				</div>
 			)
 		})
