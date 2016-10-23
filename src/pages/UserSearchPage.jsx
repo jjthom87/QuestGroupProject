@@ -62,7 +62,7 @@ export default class UserSearchPage extends React.Component {
 			                        <Link to="/home"><button className="btn btn-warning">Back Home</button></Link>
 			                    </div>
 			                    <br></br>
-			                    <h1 className="text-center" id="pageTitle">Search All Users</h1>
+			                    <h1 className="text-center searchHeader">Search Users By Name</h1>
 			                    <UserSearchForm onSearch={this.handleSearch.bind(this)}/>		
 							</div>
 							<div className="row">
