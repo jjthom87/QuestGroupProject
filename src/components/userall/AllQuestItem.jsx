@@ -84,8 +84,8 @@ export default class AllQuestItem extends React.Component {
 			)
 		})
 		return (
-			<div>
-				<p>Title: {title}</p>
+			<div className="alllistdiv">
+				<p><strong> {title}</strong></p>
 				<p>Description: {description}</p>
 				{singleMilestone()}
 				<p>Completed On: {completedOn}</p>

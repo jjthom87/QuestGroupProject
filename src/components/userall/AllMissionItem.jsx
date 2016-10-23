@@ -60,7 +60,7 @@ export default class AllMissionItem extends React.Component {
 		var singleTask = () => {
 			return missiontasks.map((task, index) => {
 				return (
-					<div>
+					<div className="alltaskitem">
 						<li>
 							<p key={index} id="taskText">{task.task}</p>
 						</li>
@@ -70,16 +70,16 @@ export default class AllMissionItem extends React.Component {
 		}
 		const renderComments = filteredComments.map((comment, index) => {
 			return (
-				<div>
-					<p key={index}>{comment.usersName}: {comment.comment}</p>
+				<div className="alltaskitem">
+					<p key={index}><strong>{comment.usersName}:</strong> {comment.comment}</p>
 					<p>Commented on {comment.createdOn}</p>
 				</div>
 			)
 		})
 		return (
-			<div>
-				<p>Title: {title}</p>
-				<p>Description: {description}</p>
+			<div className="alllistdiv">
+				<p id="titleall"><strong>{title}</strong></p>
+				<p><strong>Description:</strong> {description}</p>
 				{singleTask()}
 				<p>Completed On: {completedOn}</p>
 				<CommentForm onComment={this.handleComment.bind(this)}/>
