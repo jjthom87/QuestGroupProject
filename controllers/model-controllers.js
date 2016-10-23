@@ -140,12 +140,22 @@ var modelController = {
     	});
 	  });
   	},
-	searchAllUsers: function(cb){
+	searchAllUsers: function(id, cb){
+		var currentUser;
+		var allUsers;
+		models.User.findOne({ where: {id: id}}).then(function(success){
+			currentUser = success;
 	    models.User.findAll({}).then(function(success){
-	   		cb(success);
+	    	allUsers = success;
+	    	var data = {
+	    		currentUser: currentUser,
+	    		allUsers: allUsers
+	    	}
+	    	cb(data);
 	    }).catch(function(err){
 	    	throw err;
 	    });
+	  })
 	},
   	// Creates a new User record to the database (See route 'users/create')
   	userCreate: function(name, username, password, createdOn, cb){

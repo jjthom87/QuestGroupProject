@@ -12,7 +12,8 @@ export default class UserSearchPage extends React.Component {
 			users: [],
 			searchText: '',
 			loginUser: '',
-			loginId: ''
+			loginId: '',
+			currentUser: ''
 		};
 	}
 	handleSearch(searchText){
@@ -30,19 +31,21 @@ export default class UserSearchPage extends React.Component {
             credentials: 'include'
 		}).then((response) => response.json())
 		.then((results) => {
-			console.log(results);
 			this.setState({
-				users: results,
-				loginUser: results.name,
-				loginId: results.id
+				users: results.allUsers,
+				loginUser: results.allUsers.name,
+				loginId: results.allUsers.id,
+				currentUser: results.currentUser
 			});
 		});
 	}
 	render() {
 
-		var { users, searchText } = this.state;
+		var { users, searchText, loginId, currentUser } = this.state;
 
-		const filteredSearch = users.filter((user) => {
+		const nonCurrentUsers = users.filter((user) => user.id !== currentUser.id)
+
+		const filteredSearch = nonCurrentUsers.filter((user) => {
 			var text = user.name.toLowerCase();
 			return searchText.length === 0 || text.indexOf(searchText) > -1
 		});
