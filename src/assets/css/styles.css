@@ -422,3 +422,8 @@ select {
     font-size: 24px;
     color: white;
 }
+
+.searchHeader {
+    font-size: 18px;
+    color: #ffda73;
+}

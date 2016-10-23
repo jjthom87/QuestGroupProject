@@ -28,7 +28,7 @@ export default class AllQuestList extends React.Component {
         var noQuests = () => {
             if (quests.length === 0){
                 return (
-                    <p className="noQuestsText">No Quests</p>
+                    <p className="noQuestsText text-center">No Quests</p>
                 );
             }
         }

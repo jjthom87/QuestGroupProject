@@ -99,6 +99,7 @@ export default class UserForAllPage extends React.Component {
 			                    </div>			
 							</div>
 							<div className="text-center center-block">
+								<p className="searchHeader">Search By Title</p>
 								<SearchYourItemForm onSearch={this.handleSearch.bind(this)}/>
 							</div>
 							<div className="row">
