@@ -229,6 +229,7 @@ select {
 }
 .panel-default>.panel-heading a {
     color: yellow;
+    font-size: 17px;
 }
 
 #pageTitle {
