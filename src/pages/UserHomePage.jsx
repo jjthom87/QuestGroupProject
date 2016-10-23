@@ -11,7 +11,8 @@ import MainNav from 'MainNav';
 const Clock = require('Clock');
 import CountdownForm from 'CountdownForm';
 const Controls = require('Controls');
-
+var ReactBootstrap = require('react-bootstrap');
+var Accordion = ReactBootstrap.Accordion;
 var _ = require('lodash');
 var moment = require('moment');
 
@@ -420,6 +421,7 @@ export default class UserHomePage extends React.Component {
                                 {renderMissionDropdown()}
                             </select>
                             <Link to="/missionshome"><button className="btn btn-info hvr-ripple-out" id="missionAdd"><span className="glyphicon glyphicon-plus" ></span></button></Link>
+                            <Accordion>
                             <MissionsList
                                 missions={filteredMission}
                                 missiontasks={filteredTasks}
@@ -428,6 +430,7 @@ export default class UserHomePage extends React.Component {
                                 completeMission={this.completeMission.bind(this)}
                                 deleteMissionTask={this.deleteMissionTask.bind(this)}
                             />
+                            </Accordion>
                             <div>
                                 <h1 className="page-title">Countdown</h1>
                                 <Clock totalSeconds={count}/>
@@ -440,6 +443,7 @@ export default class UserHomePage extends React.Component {
                                 {renderQuestDropdown()}
                             </select>
                             <Link to="/questshome"><button className="btn btn-info hvr-ripple-out" id="missionAdd"><span className="glyphicon glyphicon-plus" ></span></button></Link>
+                            <Accordion>
                             <QuestsList
                                 quests={filteredQuest}
                                 milestones={filteredMilestones}
@@ -451,6 +455,7 @@ export default class UserHomePage extends React.Component {
                                 toggleMilestoneTask={this.toggleMilestoneTask.bind(this)}
                                 deleteMilestoneTask={this.deleteMilestoneTask.bind(this)}
                             />
+                            </Accordion>
                         </div>
     		            <div className="col-md-3">
     		            </div>

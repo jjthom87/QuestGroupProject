@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 var moment = require('moment');
 import { Line } from 'rc-progress';
 import MilestoneAndTaskItem from 'MilestoneAndTaskItem';
-
+var ReactBootstrap = require('react-bootstrap');
+var Panel = ReactBootstrap.Panel;
 export default class QuestAndMilestoneItem extends React.Component { 
     constructor(props) {
         super(props);
@@ -12,7 +13,7 @@ export default class QuestAndMilestoneItem extends React.Component {
     }
 	render(){
 
-		const { id, title, dateQuest, deleteQuest, completeQuest, deleteMilestone, description, toggleMilestone, milestones, createdOn, isCompleted, taskCompleted, active, milestonetasks, deleteMilestoneTask, toggleMilestoneTask } = this.props;
+		const { id, title, dateQuest, deleteQuest, completeQuest, deleteMilestone, description, toggleMilestone, milestones, createdOn, isCompleted, taskCompleted, active, milestonetasks, deleteMilestoneTask, toggleMilestoneTask} = this.props;
 
 		var completedMilestones = milestones.filter((milestone) => milestone.isCompleted);
 		var completedMilestonetasks = milestonetasks.filter((milestonetask) => milestonetask.taskCompleted);
@@ -76,12 +77,12 @@ export default class QuestAndMilestoneItem extends React.Component {
             return message + moment(dated, "YYYYMMDD").fromNow();
         }
 		return (
-			<div className="panel panel-default" id="panel1">
+			<div className="panel panel-default" id={"panel" + id}>
 				<div className="panel-heading">
-						<span> <a data-toggle="collapse" data-target="#collapseOne" href="#collapseOne"><strong>Quest: </strong> {title} </a></span>
+						<span> <a data-toggle="collapse" data-target={"#collapse" + id} href={"#collapse" + id}><strong>Quest: </strong> {title} </a></span>
 						<Line percent={percentage} strokeWidth="4" strokeColor="#3FC7FA"/>
 				</div>
-				<div id="collapseOne" className="panel-collapse collapse in">
+				<div id={"collapse" + id} className="panel-collapse collapse in">
 				<div className="panel-body">
 					<div>
 						<p>You are {percentage}% done with this quest</p>
