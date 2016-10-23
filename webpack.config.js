@@ -32,6 +32,7 @@ module.exports = {
             'src/components/countdown',
             'src/components/userall',
             'src/components/searchusers',
+            'src/components/comments',
             'src/components',
             'src/pages',
             'src/auth',

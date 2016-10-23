@@ -49,6 +49,7 @@ module.exports = function (sequelize, DataTypes) {
        		 User.hasMany(models.Milestonetask);
        		 User.hasMany(models.Missiontask);       		 
        		 User.hasMany(models.Milestone);
+       		 User.hasMany(models.Comment);
       		},
 			authenticate: function(body) {
 				return new Promise(function(resolve, reject) {
