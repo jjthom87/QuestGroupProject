@@ -95,6 +95,51 @@ var modelController = {
     	});
 	  });
   	},
+	userForAll: function(id, cb){
+		models.User.findOne({ where: {id: id}}).then(function(user){
+	        user.getMissions().then(function(missions){
+		        var enteredMissions = [];
+		        missions.forEach(function(mission){
+		            enteredMissions.push(mission);
+		        });
+		    user.getQuests().then(function(quests){
+		          var enteredQuests = [];
+		          quests.forEach(function(quest){
+		            enteredQuests.push(quest);
+		        });
+		    user.getMissiontasks().then(function(missiontasks){
+		          var enteredMissiontasks = [];
+		          missiontasks.forEach(function(missiontask){
+		            enteredMissiontasks.push(missiontask);
+		        });
+		    user.getMilestones().then(function(milestones){
+		    	  var enteredMilestones = [];
+		    	  milestones.forEach(function(milestone){
+		    	  	enteredMilestones.push(milestone)
+		    	  });
+		   	user.getMilestonetasks().then(function(milestonetasks){
+		   		var enteredMilestonetasks = [];
+		   			milestonetasks.forEach(function(milestonetask){
+		   				enteredMilestonetasks.push(milestonetask)
+		   			});
+		        var data = {
+		          currentUser: user,
+		          missions: enteredMissions,
+		          quests: enteredQuests,
+		          missiontasks: enteredMissiontasks,
+		          milestones: enteredMilestones,
+		          milestonetasks: enteredMilestonetasks
+		        }
+		        cb(data);
+				}).catch(function(err){
+					throw err;
+				});
+			  });
+			});
+	  	  });
+    	});
+	  });
+  	},
 	userAll: function(id, cb){
 		models.User.findOne({ where: {id: id}}).then(function(user){
 	        user.getMissions().then(function(missions){

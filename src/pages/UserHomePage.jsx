@@ -408,7 +408,7 @@ export default class UserHomePage extends React.Component {
       			<h1 className="text-center" id="pageTitle">Welcome Home {loginUser}</h1>
       			<div className="row">
       				<div className="col-lg-1 col-lg-offset-5" role="group">
-                        <Link to={ `/userall/${loginId}` }><button className="btn btn-info">See All of Your Missions and Quests</button></Link>						
+                        <Link to="/userall"><button className="btn btn-info">See All of Your Missions and Quests</button></Link>						
 						<Link to="/completed"><button className="btn btn-info">See Completed Missions and Quests</button></Link>
                         <Link to="/searchall"><button className="btn btn-info">Find a Mission or Quest</button></Link>			
                     </div>

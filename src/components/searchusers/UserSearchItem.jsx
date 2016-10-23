@@ -13,7 +13,7 @@ export default class UserSearchItem extends React.Component {
 
 		return (
 			<div>
-				<Link to={`/userall/${id}`}>
+				<Link to={`/userforall/${id}`}>
 						<div className="panel panel-success qmboxCompleted">
 							<div className="searchPrefix">User Id: <p className="userSearchText">{id}</p></div>
 							<div className="searchPrefix">Name: <p className="userSearchText">{name}</p></div>
