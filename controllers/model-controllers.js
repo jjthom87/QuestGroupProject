@@ -148,11 +148,12 @@ var modelController = {
 	    });
 	},
   	// Creates a new User record to the database (See route 'users/create')
-  	userCreate: function(name, username, password, cb){
+  	userCreate: function(name, username, password, createdOn, cb){
 	  	models.User.create({
 	  	  name: name,
 	      username: username,
-	      password: password
+	      password: password,
+	      createdOn: createdOn
 	    }).then(function(success) {
 	      	cb(success);
 		}).catch(function(err){

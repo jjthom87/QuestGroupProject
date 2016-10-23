@@ -3,14 +3,14 @@ import UserSearchItem from 'UserSearchItem';
 
 export default class UserSearchList extends React.Component {
     render() {
-        const { users, id, createdAt, username, name } = this.props;
+        const { users, id, createdOn, username, name } = this.props;
 
         var renderUsers = () => {
             return users.map((user, index) => {
                 return (
-                	<div className="panel panel-success qmboxCompleted">
+                	<div className="qmboxCompleted">
 	                    <UserSearchItem
-	                    	createdAt={user.createdAt}
+	                    	createdOn={user.createdOn}
 	                    	username={user.username}
 	                    	name={user.name}
 	                        id={user.id}
@@ -29,7 +29,6 @@ export default class UserSearchList extends React.Component {
         }
         return (
             <div>
-                <p className="questsTitle">Users</p>
                 {noUsers()}
                 {renderUsers()}
             </div>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+var {Link, IndexLink} = require('react-router');
 
 export default class UserSearchItem extends React.Component { 
     constructor(props) {
@@ -8,14 +9,18 @@ export default class UserSearchItem extends React.Component {
     }
 	render(){
 
-		const { id, name, username, createdAt } = this.props;
+		const { id, name, username, createdOn } = this.props;
 
 		return (
-			<div className="text-center">
-				<p>User Id: {id}</p>
-				<p>Name: {name}</p>
-				<p>Username: {username}</p>
-				<p>Joined On: {createdAt}</p>
+			<div>
+				<Link to={`/userall/${id}`}>
+						<div className="panel panel-success qmboxCompleted">
+							<div className="searchPrefix">User Id: <p className="userSearchText">{id}</p></div>
+							<div className="searchPrefix">Name: <p className="userSearchText">{name}</p></div>
+							<div className="searchPrefix">Username: <p className="userSearchText">{username}</p></div>
+							<div className="searchPrefix">Joined On: <p className="userSearchText">{createdOn}</p></div>
+						</div>
+				</Link>
 			</div>
 		);
 	}

@@ -54,29 +54,20 @@ export default class UserSearchPage extends React.Component {
       			<div className='container'>
               		<MainNav/>
                 	<div className="container" id="separator">
-      					<h1 className="text-center" id="pageTitle">Search All Users</h1>
-      						<div className="row">
+      						<div className="row text-center center-block">
 			      				<div>
 			                        <Link to="/home"><button className="btn btn-warning">Back Home</button></Link>
 			                    </div>
 			                    <br></br>
+			                    <h1 className="text-center" id="pageTitle">Search All Users</h1>
 			                    <UserSearchForm onSearch={this.handleSearch.bind(this)}/>		
 							</div>
 							<div className="row">
-								<div className="col-md-3">
+								<div className="text-center center-block">
 									<UserSearchList
 										users={filteredSearch}
 									/>
 								</div>
-								<div className="col-md-3">
-									<p></p>
-					            </div>
-					            <div className="col-md-3">
-					            	<p></p>
-					            </div>
-				            	<div className="col-md-3">
-				            		<p></p>
-				            	</div>
 				        	</div>
       				</div>
       			</div>
