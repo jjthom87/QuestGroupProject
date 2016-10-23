@@ -84,13 +84,20 @@ export default class AllQuestItemWoLikes extends React.Component {
 			)
 		})
 		return (
-			<div>
-				<p>Title: {title}</p>
+			<div className="panel panel-default" id={"panel" + id}>
+				<div className="panel-heading">
+					<span> <a data-toggle="collapse" data-target={"#collapse" + id} 
+           			href={"#collapse" + id}><strong>Quest: </strong> {title}</a></span>
+				</div>
+				<div id={"collapse" + id}className="panel-collapse collapse">
+				<div className="panel-body">
 				<p>Description: {description}</p>
 				{singleMilestone()}
 				<p>Completed On: {completedOn}</p>
 				<CommentForm onComment={this.handleComment.bind(this)}/>
 				{renderComments}
+				</div>
+				</div>
 			</div>
 		)
 	}
