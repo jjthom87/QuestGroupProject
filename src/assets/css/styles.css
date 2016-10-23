@@ -375,3 +375,17 @@ select {
 .searchPrefix {
     color: white;
 }
+.hvr-icon-shrink:before {
+    content:"\f00d";
+    
+
+}
+.hvr-icon-grow:before {
+    content:"\f00d";
+}
+.hvr-icon-fade:hover:before, .hvr-icon-fade:focus:before, .hvr-icon-fade:active:before {
+  color: red;
+}
+#x{
+    margin-bottom: 20px;
+}
