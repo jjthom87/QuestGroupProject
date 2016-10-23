@@ -391,6 +391,28 @@ var modelController = {
 			  	})
 		})
 	},
+	// missiontaskCreate: function(id, dropdownMission, task, dropdown, UserId, MissionId, dateTask, timeTask, mission, cb){
+	//     models.User.findOne({where: {id: id}}).then(function(user){
+	//         models.Mission.findOne({ where: {title: dropdownMission }}).then(function(mission){
+	//           models.Missiontask.create({
+	//             task: task,
+	//             missionName: dropdown,
+	//             isCompleted: false,
+	//             active: false,
+	//             UserId: UserId,
+	//             MissionId: MissionId,
+	//             dateTask: dateTask,
+	//             timeTask: timeTask
+	//           }).then(function(missiontask){
+	//           mission.addMissiontask(missiontask).then(function(success){
+	//            cb(missiontask); 
+	//         }).catch(function(err){
+	//           throw err;
+	//           });
+	//         });
+	//       });
+	//     });
+	// },
 	// Removes an existing Mission from the database (See route '/mission/delete/:id')
 	missionDelete: function(userId, paramsId, cb){
 		models.User.findOne({where: {id: userId}}).then(function(){
