@@ -36,7 +36,9 @@ export default class UserHomePage extends React.Component {
             countdownStatus: 'stopped'
 		};
 	}
-    handleSetCountdown(seconds){
+    handleSetCountdown(time){
+        console.log(time)
+        const seconds = ((time.hours * 60) + time.minutes);
         this.setState({
             count: seconds,
             countdownStatus: 'started'
@@ -58,7 +60,6 @@ export default class UserHomePage extends React.Component {
         }
     }
     componentWillUnmount() {
-        console.log('componentWillUnmount');
         clearInterval(this.timer);
         this.timer = undefined;
     }
@@ -71,7 +72,7 @@ export default class UserHomePage extends React.Component {
             if (newCount === 0){
                 this.setState({countdownStatus: 'stopped'});
             }
-        }, 1000)
+        }, 60000)
 
     }
     handleStatusChange(newStatus){
