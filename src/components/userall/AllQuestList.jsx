@@ -16,6 +16,7 @@ export default class AllQuestList extends React.Component {
                         title={quest.title}
                         description={quest.description}
                         completedOn={quest.completedOn}
+                        likes={quest.likes}
                         milestones={filteredMilestone}
                         milestonetasks={filteredMilestonetasks}
                         id={quest.id}
@@ -27,7 +28,7 @@ export default class AllQuestList extends React.Component {
         var noQuests = () => {
             if (quests.length === 0){
                 return (
-                    <p className="noQuestsText">No completed Quests</p>
+                    <p className="noQuestsText">No Quests</p>
                 );
             }
         }

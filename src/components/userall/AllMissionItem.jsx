@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CommentForm from 'CommentForm';
+
 var moment = require('moment');
 
 export default class AllMissionItem extends React.Component { 
@@ -7,7 +8,8 @@ export default class AllMissionItem extends React.Component {
         super(props);
         this.state = {
         	id: this.props.id,
-        	comments: []
+        	comments: [],
+        	likes: this.props.likes
         };
     }
 	handleComment(comment) {
@@ -15,7 +17,7 @@ export default class AllMissionItem extends React.Component {
 
 		const newComment = {
 			comment,
-			createdOn: moment().format('MMM Do YYYY @ h:mm a'),
+			createdOn: moment().format('MMM Do YYYY'),
 			MissionId: id
 		}
 		fetch('/api/users/comment', {
@@ -33,6 +35,21 @@ export default class AllMissionItem extends React.Component {
 			comments: comments.concat(results)
 		  })
 		})
+	}
+	handleLike(MissionId){
+        const { id, likes } = this.state;
+
+        MissionId = id;
+
+        fetch(`/api/likemission/${MissionId}`,{
+            method: 'PUT',
+            body: JSON.stringify(MissionId),
+        }).then((response) => response.json())
+        .then((results) => {
+        	this.setState({
+        		likes: likes + 1
+        	});
+        }); 
 	}
   	componentWillMount(){
   		const { comments } = this.state;
@@ -52,7 +69,7 @@ export default class AllMissionItem extends React.Component {
 	}
 	render(){
 
-		const { comments } = this.state;
+		const { comments, likes } = this.state;
 		const { id, title, description, missiontasks, completedOn, isCompleted } = this.props;
 
 		const filteredComments = comments.filter((comment) => comment.MissionId === id);
@@ -82,7 +99,11 @@ export default class AllMissionItem extends React.Component {
 				<p><strong>Description:</strong> {description}</p>
 				{singleTask()}
 				<p>Completed On: {completedOn}</p>
-				<CommentForm onComment={this.handleComment.bind(this)}/>
+				<div className="row">
+					<div className="text-center">
+						<CommentForm onComment={this.handleComment.bind(this)}/><button onClick={this.handleLike.bind(this)}><span className="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>{likes}</button>
+					</div>
+				</div>
 				{renderComments}
 			</div>
 		)
