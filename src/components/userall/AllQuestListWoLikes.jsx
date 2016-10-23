@@ -27,13 +27,12 @@ export default class AllQuestListWoLikes extends React.Component {
         var noQuests = () => {
             if (quests.length === 0){
                 return (
-                    <p className="noQuestsText">No Quests</p>
+                    <p className="noQuestsText text-center">No Quests</p>
                 );
             }
         }
         return (
             <div>
-                <p className="missionsTitle">Quests</p>
                 {noQuests()}
                 {renderQuests()}
             </div>

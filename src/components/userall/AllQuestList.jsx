@@ -34,7 +34,6 @@ export default class AllQuestList extends React.Component {
         }
         return (
             <div>
-                <p className="missionsTitle">Quests</p>
                 {noQuests()}
                 {renderQuests()}
             </div>

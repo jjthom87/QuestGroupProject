@@ -26,13 +26,12 @@ export default class AllMissionList extends React.Component {
         var noMissions = () => {
             if (missions.length === 0){
                 return (
-                    <p className="noMissionsText">No Missions</p>
+                    <p className="noMissionsText text-center">No Missions</p>
                 );
             }
         }
         return (
             <div>
-                <p className="missionsTitle">Missions</p>
                 {noMissions()}
                 {renderMissions()}
             </div>

@@ -110,21 +110,21 @@ export default class UserAllPage extends React.Component {
 							</div>
 							<div className="row">
 								<div className="col-md-3">
-									<p>Incomplete Missions</p>
+									<p className="forAllHeader text-center">Incomplete Missions</p>
 									<AllMissionListWoLikes
 					                    missions={filteredIncMiss}
 					                    missiontasks={missiontasks}
 					                />
 								</div>
 								<div className="col-md-3">
-									<p>Completed Missions</p>
+									<p className="forAllHeader text-center">Completed Missions</p>
 						            <AllMissionListWoLikes
 					                    missions={filteredComMiss}
 					                    missiontasks={missiontasks}
 					                />
 					            </div>
 					            <div className="col-md-3">
-					            	<p>Incomplete Quests</p>
+					            	<p className="forAllHeader text-center">Incomplete Quests</p>
 					           		<AllQuestListWoLikes
 					                    quests={filteredIncQuest}
 					                    milestones={milestones}
@@ -132,7 +132,7 @@ export default class UserAllPage extends React.Component {
 					                />
 					            </div>
 				            	<div className="col-md-3">
-				            		<p>Completed Quests</p>
+				            		<p className="forAllHeader text-center">Completed Quests</p>
 				            		<AllQuestListWoLikes
 					                    quests={filteredComQuest}
 					                    milestones={milestones}
