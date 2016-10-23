@@ -9,7 +9,7 @@ export default class CompletedQuestItem extends React.Component {
         };
     }
 	render(){
-		const { id, title, description, milestones, milestonetasks, completedOn, isCompleted } = this.props;
+		const { id, title, description, milestones, milestonetasks, createdOn, completedOn, isCompleted } = this.props;
 		var singleMilestone = () => {
 			return milestones.map((milestone, index) => {
 				var filteredMilestonetask = milestonetasks.filter((milestonetask) => milestonetask.MilestoneUuid === milestone.uuid);
@@ -30,6 +30,7 @@ export default class CompletedQuestItem extends React.Component {
 			<div>
 				<p>Title: {title}</p>
 				<p>Description: {description}</p>
+				<p>Created On: {createdOn}</p>
 				{singleMilestone()}
 				<p>Completed On: {completedOn}</p>
 			</div>

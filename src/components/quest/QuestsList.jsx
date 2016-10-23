@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import QuestsListHeader from 'QuestsListHeader';
 import QuestAndMilestoneItem from 'QuestAndMilestoneItem';
 
 export default class QuestsList extends React.Component {
@@ -13,6 +12,7 @@ export default class QuestsList extends React.Component {
                         title={quest.title}
                         description={quest.description}
                         dateQuest={quest.dateQuest}
+                        createdOn={quest.createdOn}
                         milestones={milestones}
                         milestonetasks={milestonetasks}
                         toggleMilestoneTask={toggleMilestoneTask}

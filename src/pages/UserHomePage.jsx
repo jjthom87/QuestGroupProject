@@ -37,7 +37,6 @@ export default class UserHomePage extends React.Component {
 		};
 	}
     handleSetCountdown(seconds){
-        console.log(seconds);
         this.setState({
             count: seconds,
             countdownStatus: 'started'

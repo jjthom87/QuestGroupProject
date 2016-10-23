@@ -14,6 +14,7 @@ export default class CompletedMissionList extends React.Component {
                     	missions={missions}
                         title={mission.title}
                         description={mission.description}
+                        createdOn={mission.createdOn}
                         completedOn={mission.completedOn}
                         missiontasks={filteredMissiontask}
                         id={mission.id}

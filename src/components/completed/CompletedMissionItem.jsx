@@ -9,7 +9,7 @@ export default class CompletedMissionItem extends React.Component {
     }
 	render(){
 
-		const { id, title, description, missiontasks, completedOn, isCompleted } = this.props;
+		const { id, title, description, missiontasks, createdOn, completedOn, isCompleted } = this.props;
 		var singleTask = () => {
 			return missiontasks.map((task, index) => {
 				return (
@@ -25,6 +25,7 @@ export default class CompletedMissionItem extends React.Component {
 			<div>
 				<p>Title: {title}</p>
 				<p>Description: {description}</p>
+				<p>Created On: {createdOn}</p>
 				{singleTask()}
 				<p>Completed On: {completedOn}</p>
 			</div>

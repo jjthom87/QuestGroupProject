@@ -37,12 +37,6 @@ export default class MissionAndTaskItem extends React.Component {
 				)
 			})
 		}
-		var renderDate = () => {
-			var message = "Added on ";
-			var timestamp = createdOn
-
-			return message + moment(timestamp).format('MMM Do YYYY @ h:mm a')
-		}
 		return (
 			<div className="panel panel-default" id="panel1">
 
@@ -56,6 +50,7 @@ export default class MissionAndTaskItem extends React.Component {
 						<strong><p>You are {percentage}% done with this mission</p></strong>
 						<div>
 							<p><strong>Description:</strong>{description}</p>
+							<p>Created On: {createdOn}</p>
 							<p>{renderDate()}</p>
 						</div>
 						<div>
