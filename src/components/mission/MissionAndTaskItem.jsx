@@ -31,7 +31,7 @@ export default class MissionAndTaskItem extends React.Component {
 					  			key={index}
 				  			/>
 							<p className={taskClassName} id="taskText">{task.task}</p>
-							<span className="glyphicon glyphicon-remove-circle" onClick={() => deleteMissionTask(task.uuid)}></span>
+							<span className="hvr-icon-grow hvr-icon-fade" id="x" onClick={() => deleteMissionTask(task.uuid)}></span>
 						</span>
 						
 					</div>
