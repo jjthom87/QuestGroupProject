@@ -389,3 +389,11 @@ select {
 #x{
     margin-bottom: 20px;
 }
+
+.hvr-ripple-out:before {
+    border: #5bc0de solid 6px;
+}
+
+#likes {
+    color:black;
+}

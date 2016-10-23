@@ -419,7 +419,7 @@ export default class UserHomePage extends React.Component {
                                 <option defaultValue="Find Mission">Find Mission</option>
                                 {renderMissionDropdown()}
                             </select>
-                            <Link to="/missionshome"><button className="btn btn-info" id="missionAdd"><span className="glyphicon glyphicon-plus" ></span></button></Link>
+                            <Link to="/missionshome"><button className="btn btn-info hvr-ripple-out" id="missionAdd"><span className="glyphicon glyphicon-plus" ></span></button></Link>
                             <MissionsList
                                 missions={filteredMission}
                                 missiontasks={filteredTasks}
@@ -439,7 +439,7 @@ export default class UserHomePage extends React.Component {
                                 <option defaultValue="Find Quest">Find Quest</option>
                                 {renderQuestDropdown()}
                             </select>
-                            <Link to="/questshome"><button className="btn btn-info" id="missionAdd"><span className="glyphicon glyphicon-plus" ></span></button></Link>
+                            <Link to="/questshome"><button className="btn btn-info hvr-ripple-out" id="missionAdd"><span className="glyphicon glyphicon-plus" ></span></button></Link>
                             <QuestsList
                                 quests={filteredQuest}
                                 milestones={filteredMilestones}
