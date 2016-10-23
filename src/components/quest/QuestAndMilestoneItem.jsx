@@ -88,7 +88,7 @@ export default class QuestAndMilestoneItem extends React.Component {
 					</div>
 					<div>
 						<p><strong>Description:</strong>{description}</p>
-						<p>{createdOn}</p>
+						<p>Created on: {createdOn}</p>
 					</div>
 					<div>
 						{singleMilestone()}

@@ -14,6 +14,7 @@ export default class CompletedQuestList extends React.Component {
                     	quests={quests}
                         title={quest.title}
                         description={quest.description}
+                        createdOn={quest.createdOn}
                         completedOn={quest.completedOn}
                         milestones={filteredMilestone}
                         milestonetasks={filteredMilestonetasks}

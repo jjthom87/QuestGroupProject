@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import MissionsListItem from 'MissionsListItem';
 import MissionAndTaskItem from 'MissionAndTaskItem';
 
 export default class MissionListforMM extends React.Component {
