@@ -19,6 +19,7 @@ import UserHomePage from 'UserHomePage';
 import SearchAllPage from 'SearchAllPage';
 import Authentication from 'Authentication';
 import Completed from 'Completed';
+import UserForAllPage from 'UserForAllPage';
 import UserAllPage from 'UserAllPage';
 import UserSearchPage from 'UserSearchPage';
 
@@ -34,7 +35,8 @@ export default (
         <Route path="/home" component={UserHomePage} />
         <Route path="/searchall" component={SearchAllPage} />
         <Route path="/completed" component={Completed} />
-        <Route path="/userall/:id" component={UserAllPage} />
+        <Route path="/userall" component={UserAllPage} />
+        <Route path="/userforall/:id" component={UserForAllPage} />
         <Route path="/searchusers" component={UserSearchPage} />
     	</Route>
   	</Router>

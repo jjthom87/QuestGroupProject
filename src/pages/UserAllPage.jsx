@@ -15,7 +15,7 @@ export default class UserAllPage extends React.Component {
 		super(props, context);
 		this.state = {
 			loginUser: '',
-			loginId: this.props.params.id,
+			loginId: '',
 			fullLoginUser: '',
 			missions: [],
 			quests: [],
@@ -37,8 +37,14 @@ export default class UserAllPage extends React.Component {
 		});
 	}
   	componentWillMount(){
-		fetch(`/api/userall/${this.props.params.id}`)
-		.then((response) => response.json())
+		fetch('/api/userall', {
+			headers: {
+                Auth: localStorage.getItem('token'),
+                'content-type': 'application/json',
+                'accept': 'application/json'
+            },
+            credentials: 'include'
+		}).then((response) => response.json())
 		.then((results) => {
 			this.setState({
 				fullLoginUser: results.currentUser,

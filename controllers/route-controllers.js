@@ -71,9 +71,17 @@ router.get('/api/completed', middleware.requireAuthentication, function(req, res
     });
 });
 
-router.get('/api/userall/:id', function(req, res){
-    modelController.userAll(
+router.get('/api/userforall/:id', function(req, res){
+    modelController.userForAll(
       req.params.id, 
+      function(data){
+        res.json(data)
+    });
+});
+
+router.get('/api/userall', middleware.requireAuthentication, function(req, res){
+    modelController.userAll(
+      req.user.id, 
       function(data){
         res.json(data)
     });
