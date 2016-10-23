@@ -23,6 +23,7 @@ router.post('/api/users/create', function(req,res){
       req.body.name, 
       req.body.username, 
       req.body.password, 
+      req.body.createdOn,
     function(success){
       res.json(success);
     });

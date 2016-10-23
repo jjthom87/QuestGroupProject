@@ -338,7 +338,11 @@ select {
     display: inline-block;
 }
 
-.userNameSearchText {
+.userSearchText {
     font-family: 'Lobster', cursive;
     color: #ff9673;
+}
+
+.searchPrefix {
+    color: white;
 }

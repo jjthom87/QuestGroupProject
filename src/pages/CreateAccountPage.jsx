@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import CreateAccount from 'CreateAccount';
 import { Router , browserHistory } from 'react-router';
+var moment = require('moment');
+
 import LandingNav from 'LandingNav';
 
 export default class CreateAccountPage extends React.Component {
@@ -8,7 +10,8 @@ export default class CreateAccountPage extends React.Component {
 		const newUser = {
 			name: creds.name,
 			username: creds.username,
-			password: creds.password
+			password: creds.password,
+			createdOn: moment().format('MMM Do YYYY @ h:mm a')
 		}
 		fetch('/api/users/create', {
 			method: 'post',
