@@ -220,6 +220,16 @@ select {
     content:"\e080";
 }
 
+.panel-default {
+    background-color: rgba(192,192,192,.5);
+}
+
+.panel-default>.panel-heading {
+    background-color: rgba(192,192,192,.7);
+}
+.panel-default>.panel-heading a {
+    color: yellow;
+}
 
 #pageTitle {
     font-size: 24px;
