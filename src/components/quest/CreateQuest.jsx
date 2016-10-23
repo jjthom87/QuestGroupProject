@@ -6,7 +6,6 @@ export default class CreateQuest extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            error: null,
             selection: ''
         };
     }
@@ -14,13 +13,6 @@ export default class CreateQuest extends React.Component {
         this.setState({
             selection: e.target.value
         })
-    }
-    renderError() {
-        if(!this.state.error) {
-            return null;
-        }
-            return <div style={{color:'red'}}> { this.state.error } </div>;
-        
     }
     handleCreate(event) {
         event.preventDefault();
@@ -42,29 +34,19 @@ export default class CreateQuest extends React.Component {
         if (description.length > 0) {
             this.refs.description.value = '';
             creds.description = description;
-        } else {
-            alert('Enter Quest Description');
         }
 
         if(selection){
+            this.setState({
+                selection: ''
+            })
             creds.selection = selection
-        } else {
-            alert('Please choose an option for public');
         }
 
         creds.dateQuest = dateQuest;
 
         this.props.createQuest(creds);
     }
-    // validateInput(milestone) {
-    //     if(!milestone) {
-    //         return ("Please enter a milestones.");
-    //     } else if(_.find(this.props.quests, quest => quest.milestone === milestone)) {
-    //         return ("Duplicate milestones exists.");
-    //     } else {
-    //         return null;
-    //     }
-    // }
     render() {
         return (
             <div>
@@ -105,7 +87,6 @@ export default class CreateQuest extends React.Component {
                     <div>
                         <input type="submit" placeholder="Add Quest" />
                     </div>
-                    {this.renderError()}
                 </form>
             </div>
         );

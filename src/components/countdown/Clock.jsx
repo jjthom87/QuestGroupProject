@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 
-export default class Clock extends React.Component {
-	getDefaultProps(){
+var Clock = React.createClass({
+	getDefaultProps: function(){
 		totalSeconds: 0
-	}
-	propTypes = {
+	},
+	propTypes: {
 		totalSeconds: React.PropTypes.number
-	}
-	formatSeconds(totalSeconds){
+	},
+	formatSeconds: function(totalSeconds){
 		var seconds = totalSeconds % 60;
 		var minutes = Math.floor(totalSeconds / 60);
+		var hours = Math.floor(totalSeconds / 3600);
 
 		if (seconds < 10){
 			seconds = '0' + seconds;
@@ -19,10 +20,15 @@ export default class Clock extends React.Component {
 			minutes = '0' + minutes;
 		}
 
-		return minutes + ':' + seconds;
-	}
-	render(){
+		if (hours < 10){
+			hours = '0' + hours;
+		}
+
+		return hours + ':' + minutes + ':' + seconds;
+	},
+	render: function(){
 		var {totalSeconds} = this.props
+
 		return (
 			<div className = "clock">
 				<span className = "clock-text">
@@ -31,4 +37,6 @@ export default class Clock extends React.Component {
 			</div>
 		)
 	}
-};
+});
+
+module.exports = Clock;

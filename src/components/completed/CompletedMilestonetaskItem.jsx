@@ -9,11 +9,11 @@ export default class CompletedMilestonetaskItem extends React.Component {
 	render(){
 		const { milestones, milestonetasks } = this.props;
 
-		const renderMilestonetasks = milestonetasks.map(milestonetask => {
+		const renderMilestonetasks = milestonetasks.map((milestonetask, index) => {
 			return (
 				<div>
 					<li>
-						<p>{milestonetask.task}</p>
+						<p key={index}>{milestonetask.task}</p>
 					</li>
 				</div>
 			)

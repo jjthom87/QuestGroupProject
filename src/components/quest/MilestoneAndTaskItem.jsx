@@ -13,7 +13,7 @@ export default class MilestoneAndTaskItem extends React.Component {
 
 		const { id, title, dateQuest, deleteQuest, completeQuest, deleteMilestone, milestones, taskCompleted, milestonetasks, deleteMilestoneTask, toggleMilestoneTask } = this.props;
 
-		const renderMilestonetasks = milestonetasks.map(milestonetask => {
+		const renderMilestonetasks = milestonetasks.map((milestonetask, index) => {
 			var milestoneTaskClassName = milestonetask.taskCompleted ? 'task-completed' : 'task-notCompleted';
 			return (
 				<div>
@@ -23,7 +23,7 @@ export default class MilestoneAndTaskItem extends React.Component {
 							checked={taskCompleted}
 							onChange={() => toggleMilestoneTask(milestonetask.uuid)}
 						/>
-						<p className={milestoneTaskClassName}>{milestonetask.task}</p>
+						<p key={index} className={milestoneTaskClassName}>{milestonetask.task}</p>
 						<span className="glyphicon glyphicon-remove-circle" onClick={() => deleteMilestoneTask(milestonetask.uuid)}></span>
 					</li>
 				</div>

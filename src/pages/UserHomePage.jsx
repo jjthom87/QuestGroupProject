@@ -8,9 +8,9 @@ import QuestMain from "QuestMain";
 import QuestsList from 'QuestsList';
 import Logout from 'Logout';
 import MainNav from 'MainNav';
-import Clock from 'Clock';
+const Clock = require('Clock');
 import CountdownForm from 'CountdownForm';
-import Controls from 'Controls';
+const Controls = require('Controls');
 
 var _ = require('lodash');
 var moment = require('moment');
@@ -37,8 +37,7 @@ export default class UserHomePage extends React.Component {
 		};
 	}
     handleSetCountdown(time){
-        console.log(time)
-        const seconds = ((time.hours * 60) + time.minutes);
+        const seconds = ((time.hours * 3600) + (time.minutes * 60));
         this.setState({
             count: seconds,
             countdownStatus: 'started'
@@ -72,7 +71,7 @@ export default class UserHomePage extends React.Component {
             if (newCount === 0){
                 this.setState({countdownStatus: 'stopped'});
             }
-        }, 60000)
+        }, 1000)
 
     }
     handleStatusChange(newStatus){
@@ -372,7 +371,7 @@ export default class UserHomePage extends React.Component {
         var renderMissionDropdown = () => {
             return missions.map((mission, index) => {
                 return (
-                    <option value={mission.title} className="dropdown-item">{mission.title}</option>
+                    <option value={mission.title} key={index} className="dropdown-item">{mission.title}</option>
                 );  
             });
         }
@@ -380,7 +379,7 @@ export default class UserHomePage extends React.Component {
         var renderQuestDropdown = () => {
             return quests.map((quest, index) => {
                 return (
-                    <option value={quest.title} className="dropdown-item">{quest.title}</option>
+                    <option value={quest.title} key={index} className="dropdown-item">{quest.title}</option>
                 );  
             });
         }
@@ -388,7 +387,7 @@ export default class UserHomePage extends React.Component {
         var renderMilestoneDropdown = () => {
             return filteredMilestones.map((milestone, index) => {
                 return (
-                    <option value={milestone.milestone} className="dropdown-item">{milestone.milestone}</option>
+                    <option value={milestone.milestone} key={index} className="dropdown-item">{milestone.milestone}</option>
                 );  
             });
         }
@@ -417,7 +416,7 @@ export default class UserHomePage extends React.Component {
     				<div className="row">
                         <div className="panel panel-success col-md-5 qmbox col-md-offset-1">
                             <select name="Please Select Mission" value={this.state.dropdownMission} onChange={this.handleDropdownMission.bind(this)}>
-                                <option selected disabled>Find Mission</option>
+                                <option defaultValue="Find Mission">Find Mission</option>
                                 {renderMissionDropdown()}
                             </select>
                             <Link to="/missionshome"><button className="btn btn-info" id="missionAdd"><span className="glyphicon glyphicon-plus" ></span></button></Link>
@@ -437,7 +436,7 @@ export default class UserHomePage extends React.Component {
                         </div>
                         <div className="panel panel-success col-md-5 qmbox">
                             <select name="Please Select Quest" value={this.state.dropdownQuest} onChange={this.handleDropdownQuest.bind(this)}>
-                                <option selected disabled>Find Quest</option>
+                                <option defaultValue="Find Quest">Find Quest</option>
                                 {renderQuestDropdown()}
                             </select>
                             <Link to="/questshome"><button className="btn btn-info" id="missionAdd"><span className="glyphicon glyphicon-plus" ></span></button></Link>
@@ -461,8 +460,3 @@ export default class UserHomePage extends React.Component {
 		);
 	}
 }
-
-                            // <select name="Please Select Milestone" value={this.state.dropdownMilestone} onChange={this.handleDropdownMilestone.bind(this)}>
-                            //     <option selected disabled>Find Milestone</option>
-                            //     {renderMilestoneDropdown()}
-                            // </select>

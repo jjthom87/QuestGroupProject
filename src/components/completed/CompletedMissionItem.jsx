@@ -15,7 +15,7 @@ export default class CompletedMissionItem extends React.Component {
 				return (
 					<div>
 						<li>
-							<p id="taskText">{task.task}</p>
+							<p id="taskText" key={index}>{task.task}</p>
 						</li>
 					</div>
 				)

@@ -60,7 +60,7 @@ export default class SearchAllPage extends React.Component {
         var renderMissionDropdown = () => {
             return missions.map((mission, index) => {
                 return (
-                    <h1>{mission.title}</h1>
+                    <h1 key={index}>{mission.title}</h1>
                 );  
             });
         }

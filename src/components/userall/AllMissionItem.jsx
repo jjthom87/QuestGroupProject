@@ -62,16 +62,16 @@ export default class AllMissionItem extends React.Component {
 				return (
 					<div>
 						<li>
-							<p id="taskText">{task.task}</p>
+							<p key={index} id="taskText">{task.task}</p>
 						</li>
 					</div>
 				)
 			})
 		}
-		const renderComments = filteredComments.map(comment => {
+		const renderComments = filteredComments.map((comment, index) => {
 			return (
 				<div>
-					<p>{comment.usersName}: {comment.comment}</p>
+					<p key={index}>{comment.usersName}: {comment.comment}</p>
 					<p>Commented on {comment.createdOn}</p>
 				</div>
 			)

@@ -17,7 +17,7 @@ export default class CompletedQuestItem extends React.Component {
 					<div>
 						<li>
 							<p>Milestone</p>
-							<p id="taskText">{milestone.milestone}</p>
+							<p key={index} id="taskText">{milestone.milestone}</p>
 							<CompletedMilestonetaskItem
 								milestonetasks={filteredMilestonetask}
                         	/>

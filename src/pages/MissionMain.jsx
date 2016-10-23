@@ -189,7 +189,7 @@ export default class MissionMain extends React.Component {
         var renderMissionDropdown = () => {
             return missions.map((mission, index) => {
                 return (
-                    <option value={mission.title} className="dropdown-item">{mission.title}</option>
+                    <option key={index} value={mission.title} className="dropdown-item">{mission.title}</option>
                 );  
             });
         }

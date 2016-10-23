@@ -28,6 +28,7 @@ export default class MissionAndTaskItem extends React.Component {
 					  			type="checkbox"
 					  			checked={isCompleted}
 					  			onChange={() => toggleMissionTask(task.uuid)}
+					  			key={index}
 				  			/>
 							<p className={taskClassName} id="taskText">{task.task}</p>
 							<span className="glyphicon glyphicon-remove-circle" onClick={() => deleteMissionTask(task.uuid)}></span>

@@ -6,12 +6,13 @@ export default class MissionSearchList extends React.Component {
         const { missions, missiontasks } = this.props;
         
         var renderMissions = () => {
-            return missions.map((mission) => {
+            return missions.map((mission, index) => {
                 return (
                     <MissionTaskSearchItem
                         title={mission.title}
                         description={mission.description}
                         missiontasks={missiontasks}
+                        key={index}
                     />
                 );
             });
