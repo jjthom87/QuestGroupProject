@@ -129,7 +129,7 @@ export default class QuestMain extends React.Component {
         var renderQuestDropdown = () => {
             return quests.map((quest, index) => {
                 return (
-                    <option value={quest.title} className="dropdown-item">{quest.title}</option>
+                    <option key={index} value={quest.title} className="dropdown-item">{quest.title}</option>
                 );  
             });
         }
@@ -137,7 +137,7 @@ export default class QuestMain extends React.Component {
         var renderMilestoneDropdown = () => {
             return filteredMilestones.map((milestone, index) => {
                 return (
-                    <option value={milestone.milestone} className="dropdown-item">{milestone.milestone}</option>
+                    <option key={index} value={milestone.milestone} className="dropdown-item">{milestone.milestone}</option>
                 );
             })
         }

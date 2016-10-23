@@ -97,12 +97,12 @@ var modelController = {
   	},
 	userForAll: function(id, cb){
 		models.User.findOne({ where: {id: id}}).then(function(user){
-	        user.getMissions().then(function(missions){
+	        user.getMissions({ where: {public: 'Yes'}}).then(function(missions){
 		        var enteredMissions = [];
 		        missions.forEach(function(mission){
 		            enteredMissions.push(mission);
 		        });
-		    user.getQuests().then(function(quests){
+		    user.getQuests({ where: {public: 'Yes'}}).then(function(quests){
 		          var enteredQuests = [];
 		          quests.forEach(function(quest){
 		            enteredQuests.push(quest);

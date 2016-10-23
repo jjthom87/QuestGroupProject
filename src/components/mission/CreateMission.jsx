@@ -40,8 +40,6 @@ export default class CreateMission extends React.Component {
         if (description.length > 0) {
             this.refs.description.value = '';
             creds.description = description;
-        } else {
-            alert('Enter Mission Description');
         }
 
         if(selection){
@@ -49,8 +47,6 @@ export default class CreateMission extends React.Component {
             this.setState({
                 selection: ''
             })
-        } else {
-            alert('Please choose an option for public');
         }
 
         this.props.createMission(creds);
@@ -102,7 +98,6 @@ export default class CreateMission extends React.Component {
                     <div>
                         <input type="submit" placeholder="Add Mission" />
                     </div>
-                    {this.renderError()}
                 </form>
             </div>
         );

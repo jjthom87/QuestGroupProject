@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 
-export default class Controls extends React.Component {
-	propTypes = {
+var Controls = React.createClass({
+	propTypes: {
 		countdownStatus: React.PropTypes.string.isRequired,
 		onStatusChange: React.PropTypes.func.isRequired
-	}
-	onStatusChange(newStatus) {
+	},
+	onStatusChange: function(newStatus) {
 		return () => {
 			this.props.onStatusChange(newStatus);
 		}
-	}
-	render() {
+	},
+	render: function() {
 		var {countdownStatus} = this.props;
 		var renderStartStopButton = () => {
 			if (countdownStatus === 'started') {
@@ -26,4 +26,6 @@ export default class Controls extends React.Component {
 			</div>
 		)
 	}
-}
+});
+
+module.exports = Controls;

@@ -66,7 +66,7 @@ export default class AllQuestItem extends React.Component {
 					<div>
 						<li>
 							<p>Milestone</p>
-							<p id="taskText">{milestone.milestone}</p>
+							<p key={index} id="taskText">{milestone.milestone}</p>
 							<AllMilestonetaskItem
 								milestonetasks={filteredMilestonetask}
                         	/>
@@ -75,10 +75,10 @@ export default class AllQuestItem extends React.Component {
 				)
 			})
 		}
-		const renderComments = filteredComments.map(comment => {
+		const renderComments = filteredComments.map((comment, index) => {
 			return (
 				<div>
-					<p>{comment.usersName}: {comment.comment}</p>
+					<p key={index}>{comment.usersName}: {comment.comment}</p>
 					<p>Commented on {comment.createdOn}</p>
 				</div>
 			)
