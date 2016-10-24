@@ -23,7 +23,9 @@ export default class UserForAllPage extends React.Component {
             milestonetasks: [],
             milestones: [],
 			createdOn: '',
-			searchText: ''
+			searchText: '',
+			profileImage: '',
+			allUsers: []
 		};
 	}
 	handleSearch(searchText){
@@ -54,13 +56,15 @@ export default class UserForAllPage extends React.Component {
 				quests: results.quests,
                 missiontasks: results.missiontasks,
                 milestones: results.milestones,
-                milestonetasks: results.milestonetasks
+                milestonetasks: results.milestonetasks,
+                allUsers: results.allUsers,
+        		profileImage: results.currentUser.profileImage
 			});
 		});
 	}
 	render() {
 
-		const { loginUser, missions, missiontasks, quests, milestones, milestonetasks, searchText } = this.state;
+		const { loginUser, missions, missiontasks, quests, milestones, milestonetasks, searchText, allUsers } = this.state;
 
 		const incompleteMissions = missions.filter((mission) => !mission.missionCompleted);
 		const completeMissions = missions.filter((mission) => mission.missionCompleted);
@@ -93,6 +97,7 @@ export default class UserForAllPage extends React.Component {
               		<MainNav/>
                 	<div className="container" id="separator">
       					<h1 className="text-center" id="pageTitle">All of {loginUser}'s Quest's and Missions</h1>
+      					<img className="text-center center-block" src={this.state.profileImage} style={{width: 250, height: 250}}/>
       						<div className="row">
 			      				<div>
 			                        <Link to="/home"><button className="btn btn-warning">Back Home</button></Link>
@@ -106,6 +111,7 @@ export default class UserForAllPage extends React.Component {
 								<div className="col-md-3">
 									<p className="forAllHeader text-center">Incomplete Missions</p>
 									<AllMissionList
+										allUsers={allUsers}
 					                    missions={filteredIncMiss}
 					                    missiontasks={missiontasks}
 					                />
@@ -113,6 +119,7 @@ export default class UserForAllPage extends React.Component {
 								<div className="col-md-3">
 									<p className="forAllHeader text-center">Completed Missions</p>
 						            <AllMissionList
+						            	allUsers={allUsers}
 					                    missions={filteredComMiss}
 					                    missiontasks={missiontasks}
 					                />
@@ -120,6 +127,7 @@ export default class UserForAllPage extends React.Component {
 					            <div className="col-md-3">
 					            	<p className="forAllHeader text-center">Incomplete Quests</p>
 					           		<AllQuestList
+					           			allUsers={allUsers}
 					                    quests={filteredIncQuest}
 					                    milestones={milestones}
 					                    milestonetasks={milestonetasks}
@@ -128,6 +136,7 @@ export default class UserForAllPage extends React.Component {
 				            	<div className="col-md-3">
 				            		<p className="forAllHeader text-center">Completed Quests</p>
 				            		<AllQuestList
+				            			allUsers={allUsers}
 					                    quests={filteredComQuest}
 					                    milestones={milestones}
 					                    milestonetasks={milestonetasks}

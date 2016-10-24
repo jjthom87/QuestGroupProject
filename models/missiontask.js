@@ -31,6 +31,7 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
        	Missiontask.belongsTo(models.Mission);
+        Missiontask.hasMany(models.Image);
       }
     }
   });

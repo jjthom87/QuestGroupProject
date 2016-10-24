@@ -29,6 +29,7 @@ module.exports = function(sequelize, DataTypes) {
       associate: function(models) {
         Milestone.belongsTo(models.Quest);
         Milestone.hasMany(models.Milestonetask);
+        Milestone.hasMany(models.Image);
       }
     }
   });

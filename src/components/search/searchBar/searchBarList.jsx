@@ -1,26 +1,27 @@
-// **WIP: To contain the contents of MissionSearchList, QuestList, AND QuestListforQM
-// So far MissionSearch components have been integrated...TBC
 import React, { Component } from 'react';
-import SearchBarItem from 'MissionTaskSearchItem';
+import SearchBarItem from 'SearchBarItem';
 
 export default class SearchBarList extends React.Component {
     render() {
-        const { missions, missiontasks } = this.props;
+        const { filteredMissions, missionName, title, description , isCompleted, likes } = this.props;
         
         var renderMissions = () => {
-            return missions.map((mission, index) => {
+            return filteredMissions.map((mission, index) => {
                 return (
-                    <MissionTaskSearchItem
-                        title={mission.title}
-                        description={mission.description}
-                        missiontasks={missiontasks}
-                        key={index}
-                    />
+                    <div className="qmboxCompleted">
+                        <SearchBarItem
+                            title={mission.title}
+                            description={mission.description}
+                            isCompleted={mission.isCompleted}
+                            likes={mission.likes}
+                            createdOn={mission.createdOn}
+                        />
+                    </div>
                 );
             });
         }
         var noMissions = () => {
-            if (missions.length === 0){
+            if (filteredMissions.length === 0){
                 return (
                     <p className="noMissionsText">No Mission Results Found</p>
                 );

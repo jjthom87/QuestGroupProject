@@ -24,6 +24,7 @@ router.post('/api/users/create', function(req,res){
       req.body.username, 
       req.body.password, 
       req.body.createdOn,
+      req.body.profileImage,
     function(success){
       res.json(success);
     });
@@ -73,7 +74,7 @@ router.get('/api/completed', middleware.requireAuthentication, function(req, res
 
 router.get('/api/userforall/:id', function(req, res){
     modelController.userForAll(
-      req.params.id, 
+      req.params.id,
       function(data){
         res.json(data)
     });
@@ -81,7 +82,8 @@ router.get('/api/userforall/:id', function(req, res){
 
 router.get('/api/userall', middleware.requireAuthentication, function(req, res){
     modelController.userAll(
-      req.user.id, 
+      req.user.id,
+      req.user.profileImage,
       function(data){
         res.json(data)
     });
