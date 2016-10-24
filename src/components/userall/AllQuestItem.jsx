@@ -104,11 +104,13 @@ export default class AllQuestItem extends React.Component {
 			<div className="panel panel-default" id={"panel" + id}>
 			 <div className="panel-heading">
 				<span> <a data-toggle="collapse" data-target={"#collapse" + id} 
-           			href={"#collapse" + id}><strong>Mission: </strong> {title}</a></span>
+           			href={"#collapse" + id}>{title}</a></span>
 				</div>
-				<div id={"collapse" + id}className="panel-collapse collapse in">
+				<div id={"collapse" + id}className="panel-collapse collapse">
 					<div className="panel-body">
-				<p>Description: {description}</p>
+						<div>
+							<p id="taskText" className="alltaskitem"><strong>Description: </strong>{description}</p>
+						</div>
 				{singleMilestone()}
 				<p>Completed On: {completedOn}</p>
 				<div className="row">
