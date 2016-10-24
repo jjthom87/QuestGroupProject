@@ -79,10 +79,10 @@ export default class QuestAndMilestoneItem extends React.Component {
 		return (
 			<div className="panel panel-default" id={"panel" + id}>
 				<div className="panel-heading">
-						<span> <a data-toggle="collapse" data-target={"#collapse" + id} href={"#collapse" + id}><strong>Quest: </strong> {title} </a></span>
+						<span> <a data-toggle="qcollapse" data-target={"#qcollapse" + id} href={"#qcollapse" + id}><strong>Quest: </strong> {title} </a></span>
 						<Line percent={percentage} strokeWidth="4" strokeColor="#3FC7FA"/>
 				</div>
-				<div id={"collapse" + id} className="panel-collapse collapse in">
+				<div id={"qcollapse" + id} className="panel-collapse collapse in">
 				<div className="panel-body">
 					<div>
 						<p>You are {percentage}% done with this quest</p>
