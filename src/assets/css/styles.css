@@ -18,7 +18,7 @@ input{
 select {
     background-color: rgba(192,192,192,.5);
     color:white; 
-    text:15px; 
+    font-size:20px; 
 }
 
  option {
@@ -208,6 +208,7 @@ select {
      display: inline-block;
      margin-left:5px;
      margin-right: 5px;
+     font-size: 18px;
  }
 
  .panel-heading a:after {
@@ -231,6 +232,7 @@ select {
     color: yellow;
     font-size: 17px;
 }
+
 
 #pageTitle {
     font-size: 24px;
@@ -398,7 +400,8 @@ select {
   color: red;
 }
 #x{
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    font-size: 20px;
 }
 
 .hvr-ripple-out:before {

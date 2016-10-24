@@ -52,13 +52,13 @@ export default class MissionAndTaskItem extends React.Component {
 					<div className="panel-body">
 						<strong><p>You are {percentage}% done with this mission</p></strong>
 						<div>
-							<p><strong>Description: </strong>{description}</p>
+							<p id="taskText"><strong>Description: </strong>{description}</p>
 						</div>
 						<div>
 							<p><strong>CreatedOn: </strong>{createdOn}</p>
 						</div>
 						<div>
-							<p><strong>Tasks</strong></p>
+							<p id="taskText"><strong>Tasks</strong></p>
 							{singleTask()}
 						</div>
 						<div>
