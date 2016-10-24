@@ -432,3 +432,6 @@ select {
     color: #ffda73;
 }
 
+#usersearchresult {
+    margin-right:0px;
+}

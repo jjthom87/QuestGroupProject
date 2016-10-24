@@ -14,8 +14,8 @@ export default class UserSearchItem extends React.Component {
 		return (
 			<div>
 				<Link to={`/userforall/${id}`}>
-						<div className="panel panel-success qmboxCompleted">
-							<img className="text-center center-block" src={profileImage} style={{width: 100, height: 100}}/>
+						<div className="panel panel-success qmboxCompleted col-md-4 col-md-offset-4" id="usersearchresult">
+							<img className="text-center center-block img-responsive" src={profileImage} />
 							<div className="searchPrefix">Name: <p className="userSearchText">{name}</p></div>
 							<div className="searchPrefix">Username: <p className="userSearchText">{username}</p></div>
 							<div className="searchPrefix">Joined On: <p className="userSearchText">{createdOn}</p></div>
