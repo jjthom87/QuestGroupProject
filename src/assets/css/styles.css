@@ -47,6 +47,8 @@ select {
 
 #separator{
     margin-top: 100px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 #submitButton{
@@ -382,11 +384,16 @@ select {
 
 .userSearchText {
     font-family: 'Lobster', cursive;
-    color: #ff9673;
+    color: yellow;
+    display: inline-block;
+    font-size: 20px;
+    
 }
 
 .searchPrefix {
     color: white;
+    font-size:20px;
+    
 }
 .hvr-icon-shrink:before {
     content:"\f00d";
