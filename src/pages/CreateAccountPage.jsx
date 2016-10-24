@@ -11,6 +11,7 @@ export default class CreateAccountPage extends React.Component {
 			name: creds.name,
 			username: creds.username,
 			password: creds.password,
+			profileImage: creds.profileImage,
 			createdOn: moment().format('MMM Do YYYY @ h:mm a')
 		}
 		fetch('/api/users/create', {
@@ -35,7 +36,6 @@ export default class CreateAccountPage extends React.Component {
 				<div className = "row">
 					<div className="column small-centered small-11 medium-6 large-5 regdiv">
 						<div className="container" id="regdiv">
-							
 							<CreateAccount onCreate={this.handleNewData.bind(this)}/>
 							<p className="animated fadeInDown" id="loginText">Already have an account? Please login</p>
 						</div>

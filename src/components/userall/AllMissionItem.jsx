@@ -70,7 +70,7 @@ export default class AllMissionItem extends React.Component {
 	render(){
 
 		const { comments, likes } = this.state;
-		const { id, title, description, missiontasks, completedOn, isCompleted } = this.props;
+		const { id, title, description, missiontasks, completedOn, isCompleted, allUsers } = this.props;
 
 		const filteredComments = comments.filter((comment) => comment.MissionId === id);
 
@@ -86,9 +86,10 @@ export default class AllMissionItem extends React.Component {
 			})
 		}
 		const renderComments = filteredComments.map((comment, index) => {
+			const filteredUser = allUsers.filter((user) => user.id === comment.UserId);
 			return (
 				<div className="alltaskitem">
-					<p key={index}><strong>{comment.usersName}:</strong> {comment.comment}</p>
+					<p key={index}><img src={filteredUser[0].profileImage} style={{width: 30, height: 30}}/><strong> {comment.usersName}:</strong> {comment.comment}</p>
 					<p>Commented on {comment.createdOn}</p>
 				</div>
 			)

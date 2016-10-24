@@ -11,8 +11,13 @@ models.sequelize.sync();
 app.use(express.static('public'));
 app.use(express.static('src/assets'));
 
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({ 
+	limit: '50mb',
+	extended: true, 
+	parameterLimit:50000}));
+app.use(bodyParser.text());
+app.use(bodyParser.json());
 
 app.use('/', routes);
 

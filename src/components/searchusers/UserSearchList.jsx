@@ -12,6 +12,7 @@ export default class UserSearchList extends React.Component {
 	                    <UserSearchItem
 	                    	createdOn={user.createdOn}
 	                    	username={user.username}
+                            profileImage={user.profileImage}
 	                    	name={user.name}
 	                        id={user.id}
 	                        key={index}
