@@ -4,7 +4,24 @@ export default class CreateAccount extends React.Component {
 	constructor(...args){
 		super(...args)
 		this.state = {
+			file: '',
+			imageUrl: '',
+			savedImage: ''
 		}
+	}
+	handleImageChange(e){
+		e.preventDefault();
+
+		let reader = new FileReader();
+		let file = e.target.files[0];
+
+		reader.onloadend = () => {
+			this.setState({
+				file: file,
+				imageUrl: reader.result
+			})
+		}
+		reader.readAsDataURL(file)
 	}
 	onCreateUser(e){
 		e.preventDefault();
@@ -13,6 +30,7 @@ export default class CreateAccount extends React.Component {
 		var name = this.refs.name.value;
 		var username = this.refs.username.value;
 		var password = this.refs.password.value;
+		var profileImage = this.state.imageUrl;
 
 		if (name.length > 0) {
 			this.refs.name.value = '';
@@ -28,6 +46,8 @@ export default class CreateAccount extends React.Component {
 			this.refs.password.value = '';
 			creds.password = password;
 		}
+
+		creds.profileImage = profileImage
 
 		this.props.onCreate(creds);
 	}
@@ -48,6 +68,14 @@ export default class CreateAccount extends React.Component {
 						</div>
 						<div>
 							<span className="glyphicon glyphicon-lock"><input type="password" ref="password" placeholder="Enter Password"/></span>
+						</div>
+						<input 
+							className="fileInput" 
+							type="file"
+							onChange={this.handleImageChange.bind(this)}
+						/>
+						<div> 
+							<img src={this.state.imageUrl} style={{width: 250, height: 250}}/>
 						</div>
 						<div id="submitButton">
 							<input className="btn btn-default" type="submit" />

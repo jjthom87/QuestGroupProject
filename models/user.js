@@ -16,6 +16,9 @@ module.exports = function (sequelize, DataTypes) {
 			allowNull: false,
 			unique: true
 		},
+		profileImage: {
+			type: DataTypes.TEXT
+		},
 		salt: {
 			type: DataTypes.STRING
 		},
@@ -50,7 +53,7 @@ module.exports = function (sequelize, DataTypes) {
        		 User.hasMany(models.Missiontask);       		 
        		 User.hasMany(models.Milestone);
        		 User.hasMany(models.Comment);
-       		 User.hasOne(models.Image);
+       		 User.hasMany(models.Image);
       		},
 			authenticate: function(body) {
 				return new Promise(function(resolve, reject) {

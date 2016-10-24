@@ -96,6 +96,9 @@ var modelController = {
 	  });
   	},
 	userForAll: function(id, cb){
+		var allUsers;
+		models.User.findAll({}).then(function(success){
+	    	allUsers = success;
 		models.User.findOne({ where: {id: id}}).then(function(user){
 	        user.getMissions({ where: {public: 'Yes'}}).then(function(missions){
 		        var enteredMissions = [];
@@ -128,7 +131,8 @@ var modelController = {
 		          quests: enteredQuests,
 		          missiontasks: enteredMissiontasks,
 		          milestones: enteredMilestones,
-		          milestonetasks: enteredMilestonetasks
+		          milestonetasks: enteredMilestonetasks,
+		          allUsers: allUsers
 		        }
 		        cb(data);
 				}).catch(function(err){
@@ -139,8 +143,9 @@ var modelController = {
 	  	  });
     	});
 	  });
+	 });
   	},
-	userAll: function(id, cb){
+	userAll: function(id, profileImage, cb){
 		models.User.findOne({ where: {id: id}}).then(function(user){
 	        user.getMissions().then(function(missions){
 		        var enteredMissions = [];
@@ -167,8 +172,6 @@ var modelController = {
 		   			milestonetasks.forEach(function(milestonetask){
 		   				enteredMilestonetasks.push(milestonetask)
 		   			});
-		   	user.getImage().then(function(image){
-		   		var enteredImage = image;
 		        var data = {
 		          currentUser: user,
 		          missions: enteredMissions,
@@ -176,7 +179,7 @@ var modelController = {
 		          missiontasks: enteredMissiontasks,
 		          milestones: enteredMilestones,
 		          milestonetasks: enteredMilestonetasks,
-		          image: enteredImage
+		          profileImage: profileImage
 		        }
 		        cb(data);
 				}).catch(function(err){
@@ -187,7 +190,6 @@ var modelController = {
 	  	  });
     	});
 	  });
-	 });
   	},
 	searchAllUsers: function(id, cb){
 		var currentUser;
@@ -207,12 +209,13 @@ var modelController = {
 	  })
 	},
   	// Creates a new User record to the database (See route 'users/create')
-  	userCreate: function(name, username, password, createdOn, cb){
+  	userCreate: function(name, username, password, createdOn, profileImage, cb){
 	  	models.User.create({
 	  	  name: name,
 	      username: username,
 	      password: password,
-	      createdOn: createdOn
+	      createdOn: createdOn,
+	      profileImage: profileImage
 	    }).then(function(success) {
 	      	cb(success);
 		}).catch(function(err){

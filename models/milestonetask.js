@@ -33,6 +33,7 @@ module.exports = function(sequelize, DataTypes) {
       associate: function(models) {
         Milestonetask.belongsTo(models.Milestone);
         Milestonetask.belongsTo(models.Quest);
+        Milestonetask.hasMany(models.Image);
       }
     }
   });
