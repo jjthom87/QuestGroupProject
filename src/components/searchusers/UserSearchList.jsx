@@ -8,7 +8,7 @@ export default class UserSearchList extends React.Component {
         var renderUsers = () => {
             return users.map((user, index) => {
                 return (
-                	<div className="qmboxCompleted">
+                	<div>
 	                    <UserSearchItem
 	                    	createdOn={user.createdOn}
 	                    	username={user.username}
