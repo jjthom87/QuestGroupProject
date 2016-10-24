@@ -140,6 +140,15 @@ router.post('/api/mission/create', middleware.requireAuthentication, function(re
     });
 });
 
+router.post('/api/imageupload', middleware.requireAuthentication, function(req, res){
+    modelController.imageUpload(
+      req.body.image,
+      req.user.id, 
+    function(success){
+      res.json(success);
+    });
+});
+
 // Allows users to add Tasks to a Mission
 router.post('/api/missiontask/create/', middleware.requireAuthentication, function(req, res){
     models.User.findOne({where: {id: req.user.id}}).then(function(user){

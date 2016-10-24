@@ -167,13 +167,16 @@ var modelController = {
 		   			milestonetasks.forEach(function(milestonetask){
 		   				enteredMilestonetasks.push(milestonetask)
 		   			});
+		   	user.getImage().then(function(image){
+		   		var enteredImage = image;
 		        var data = {
 		          currentUser: user,
 		          missions: enteredMissions,
 		          quests: enteredQuests,
 		          missiontasks: enteredMissiontasks,
 		          milestones: enteredMilestones,
-		          milestonetasks: enteredMilestonetasks
+		          milestonetasks: enteredMilestonetasks,
+		          image: enteredImage
 		        }
 		        cb(data);
 				}).catch(function(err){
@@ -184,6 +187,7 @@ var modelController = {
 	  	  });
     	});
 	  });
+	 });
   	},
 	searchAllUsers: function(id, cb){
 		var currentUser;
@@ -542,6 +546,16 @@ var modelController = {
 	    }).catch(function(err){
 	    	throw err;
 	    });
+	},
+	imageUpload: function(image, id, cb){
+		models.Image.create({
+		  image: image,
+		  UserId: id
+		  	  }).then(function(success){
+			    cb(success);
+			  }).catch(function(err){
+				    throw err;
+		});
 	}
 }
 
