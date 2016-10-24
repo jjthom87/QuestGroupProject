@@ -439,6 +439,14 @@ select {
     color: #ffda73;
 }
 
+<<<<<<< HEAD
+.uploadImageText {
+    font-size: 12px;
+    color: black;
+}
+
+=======
 #usersearchresult {
     margin-right:0px;
 }
+>>>>>>> 1fa5e9bd71cc6abc972e9c9b43e9b21eb6875b10

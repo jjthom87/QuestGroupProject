@@ -37,7 +37,6 @@ export default class QuestAndMilestoneItem extends React.Component {
 				  			/>
 							<p key={index} className={milestoneClassName}><strong> MileStone: </strong>{milestone.milestone}</p>
 							<span className="hvr-icon-grow hvr-icon-fade" id="x" onClick={() => deleteMilestone(milestone.uuid)}></span>
-						
 						</span>
 							<MilestoneAndTaskItem 
 								milestonetasks={filteredMilestonetask}
