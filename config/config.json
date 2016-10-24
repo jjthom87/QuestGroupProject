@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "",
-    "database": "quest44_db",
+    "database": "quest45_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
@@ -14,10 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "zhyb4xqrypg2tpjx",
-    "password": "brn7bru9397yn86i",
-    "database": "ad26ftsjpfcqw5jk",
-    "host": "sp6xl8zoyvbumaa2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "username": "iuv81h2zwqzj8ye0",
+    "password": "csigozbhexqjyvjk",
+    "database": "kpccsif929dqyyvk",
+    "host": "vhw3t8e71xdz9k14.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   }
 }

@@ -4,6 +4,7 @@ import { Line } from 'rc-progress';
 import MilestoneAndTaskItem from 'MilestoneAndTaskItem';
 var ReactBootstrap = require('react-bootstrap');
 var Panel = ReactBootstrap.Panel;
+
 export default class QuestAndMilestoneItem extends React.Component { 
     constructor(props) {
         super(props);
@@ -29,8 +30,6 @@ export default class QuestAndMilestoneItem extends React.Component {
 				return (
 					<div>
 						<span>
-					
-							
 							<input
 					  			type="checkbox"
 					  			checked={isCompleted}
@@ -49,27 +48,6 @@ export default class QuestAndMilestoneItem extends React.Component {
 				)
 			})
 		}
-		// var singleMilestone = () => {
-		// 	return milestones.map((milestone, index) => {
-		// 		var filteredMilestoneTasks = milestonetasks.filter((milestonetask) => milestonetask.MilestoneUuid === milestone.uuid);
-		// 		return filteredMilestoneTasks.map((milestonetask, index) => {
-		// 			var milestoneTaskClassName = milestonetask.taskCompleted ? 'task-completed' : 'task-notCompleted';
-		// 		return (
-		// 			<div>
-		// 				<li>
-		// 					<input
-		// 			  			type="checkbox"
-		// 			  			checked={taskCompleted}
-		// 			  			onChange={() => toggleMilestoneTask(milestonetask.uuid)}
-		// 		  			/>
-		// 					<p className={milestoneTaskClassName}>{milestonetask.task}</p>
-		// 					<button onClick={() => deleteMilestoneTask(milestonetask.uuid)}>X</button>
-		// 				</li>
-		// 			</div>
-		// 		)
-		// 	  })
-		// 	})
-		// }
         var renderDate = () => {
             var message = "Quest Due ";
             const dated = dateQuest.split('-').join('');

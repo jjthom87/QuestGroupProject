@@ -4,6 +4,10 @@ Bubo is an app that will help you to keep track of your daily routines as well a
 
 ![alt text](https://github.com/jjthom87/QuestGroupProject/blob/master/readme/bubouserhome.png "App Home Page")
 
+
+![alt text](https://github.com/jjthom87/QuestGroupProject/blob/master/readme/buboUsers.png "App Search User Page")
+
+
 ## [Run Demo](https://buboowl.herokuapp.com/)
 
 

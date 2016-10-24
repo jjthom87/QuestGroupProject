@@ -265,8 +265,8 @@ export default class QuestMain extends React.Component {
     render() {
         const { quests, milestones, milestonetasks, dropdownQuest, dropdownMilestone, deleteMilestone, deleteMilestoneTask, toggleMilestoneTask } = this.state;
 
-        const filteredMilestones = milestones.filter((milestone) => dropdownQuest === milestone.questName); 
         const filteredQuest = quests.filter((quest) => dropdownQuest === quest.title);
+        const filteredMilestones = milestones.filter((milestone) => dropdownQuest === milestone.questName); 
         const filteredMilestoneTasks = milestonetasks.filter((milestonetask) => dropdownQuest === milestonetask.questName);
 
         var renderQuestDropdown = () => {
@@ -276,7 +276,6 @@ export default class QuestMain extends React.Component {
                 );  
             });
         }
-
         var renderMilestoneDropdown = () => {
             return filteredMilestones.map((milestone, index) => {
                 return (
@@ -309,7 +308,7 @@ export default class QuestMain extends React.Component {
                                     <option selected disabled>Choose Milestone to Add Task to</option>
                                     {renderMilestoneDropdown()}
                                 </select>
-                                <CreateMilestoneTask createMilestoneTask={this.handleCreateMilestoneTask.bind(this)}/>
+                                <CreateMilestoneTask milestonetasks={milestonetasks} createMilestoneTask={this.handleCreateMilestoneTask.bind(this)}/>
                             </div>
                             <div className="col-md-4 col-md-offset-1" id="missionlistdiv">
                             <QuestListforQM

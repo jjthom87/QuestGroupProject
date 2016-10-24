@@ -2,7 +2,7 @@
 module.exports = function(sequelize, DataTypes) {
   var Image = sequelize.define('Image', {
     image: {
-      type: DataTypes.TEXT
+      type: DataTypes.TEXT('long')
     }
   }, {
     classMethods: {

@@ -315,12 +315,12 @@ var modelController = {
 	        quests = success;
 	    models.Milestone.findAll({ where: {UserId: id}}).then(function(success){
 	    	milestones=success
-			models.Milestonetask.findAll({ where: {UserId: id}}).then(function(success){
+		models.Milestonetask.findAll({ where: {UserId: id}}).then(function(success){
 				milestonetasks = success
 	    	var data = {
 	    		quests: quests,
 	    		milestones: milestones,
-					milestonetasks: milestonetasks
+				milestonetasks: milestonetasks
 	    	}
 	    	cb(data);
 	    }).catch(function(err){
