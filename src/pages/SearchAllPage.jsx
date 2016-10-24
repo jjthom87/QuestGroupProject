@@ -56,14 +56,6 @@ export default class SearchAllPage extends React.Component {
     render() {
         const { missions, quests, milestones, milestonetasks, missiontasks, dropdownMission } = this.state;
 
-        var renderMissionDropdown = () => {
-            return missions.map((mission, index) => {
-                return (
-                    <h1 key={index}>{mission.title}</h1>
-                );  
-            });
-        }
-
     	return (
       		<div className="row">
 

@@ -109,6 +109,15 @@ router.get('/api/search', middleware.requireAuthentication, function(req,res){
     })
 });
 
+// Search for specific Missions and Quests by Description
+router.get('/api/search/name/:id', function(req, res){
+    modelController.allMainSearch(
+      req.params.id, 
+      function(data){
+        res.json(data)
+    });
+});
+
 // Sign-out: Deletes user's JSON Web Token once logged out
 router.delete('/api/users/logout', middleware.requireAuthentication, function (req, res) {
   req.token.destroy().then(function () {
@@ -117,7 +126,6 @@ router.delete('/api/users/logout', middleware.requireAuthentication, function (r
     res.status(500).send();
   });
 });
-
 
 // Allows users to create a Mission
 router.post('/api/mission/create', middleware.requireAuthentication, function(req, res){
