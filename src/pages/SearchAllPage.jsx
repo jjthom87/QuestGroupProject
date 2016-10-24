@@ -91,19 +91,3 @@ export default class SearchAllPage extends React.Component {
         );
     }
 }
-
-// **This was in (above) render; Saving here for now, will likely delete (EM):
-    // <div className="panel panel-success col-md-3 qmbox">
-    //     <MissionSearchList
-    //         missions={missions}
-    //         missiontasks={missiontasks}
-    //     />
-    // </div>
-
-    // <div className="panel panel-success col-md-3 qmbox">
-    //     <QuestSearchList
-    //         quests={quests}
-    //         milestones={milestones}
-    //         milestonetasks={milestonetasks}
-    //     />
-    // </div>
