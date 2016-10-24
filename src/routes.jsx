@@ -17,6 +17,7 @@ import CreateAccountPage from 'CreateAccountPage';
 import LoginPage from 'LoginPage';
 import UserHomePage from 'UserHomePage';
 import SearchAllPage from 'SearchAllPage';
+import SearchOnePage from 'SearchOnePage';
 import Authentication from 'Authentication';
 import Completed from 'Completed';
 import UserForAllPage from 'UserForAllPage';
@@ -27,9 +28,9 @@ import UserSearchPage from 'UserSearchPage';
 export default (
   	<Router history={browserHistory}>
   		<Route component={Application}>
-    		<Route path="/" component={HomePage} />
-    		<Route path="/missionshome" component={MissionMain} />
-    		<Route path="/questshome" component={QuestMain} />
+		<Route path="/" component={HomePage} />
+		<Route path="/missionshome" component={MissionMain} />
+		<Route path="/questshome" component={QuestMain} />
         <Route path="/register" component={CreateAccountPage} />
         <Route path="/login" component={LoginPage} />
         <Route path="/home" component={UserHomePage} />
