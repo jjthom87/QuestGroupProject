@@ -12,14 +12,25 @@ export default class SearchBarItem extends React.Component {
     renderTaskSection() {
         const { title, description , isCompleted, createdOn, likes } = this.props;
 
+        var missionCompleted = () => {
+            if(isCompleted === true) {
+                var missionAccomplished = "Mission Accomplished";
+                return missionAccomplished;
+            }
+            else {
+                var missionActive = "Active Mission";
+                return missionActive;
+            }
+        }
 
         return (
             <div>
                  <div className="panel panel-success qmboxCompleted">
                     <div className="searchPrefix">Mission Title: <p className="missionSearchText">{title}</p></div>
                     <div className="searchPrefix">Description: <p className="missionSearchText">{description}</p></div>
-                    <div className="searchPrefix">Mission Started: <p className="missionSearchText">{createdOn}</p></div>
+                    <div className="searchPrefix">Start Date: <p className="missionSearchText">{createdOn}</p></div>
                     <div className="searchPrefix">Likes: <p className="missionSearchText">{likes}</p></div>
+                    <div className="searchPrefix">Status: <p className="missionSearchText">{this.missionCompleted}</p></div>
                 </div>
             </div>
         );  
@@ -28,9 +39,7 @@ export default class SearchBarItem extends React.Component {
     render() {
         return (
             <div>
-					<div className="panel panel-success qmboxCompleted">
-                		{this.renderTaskSection()}
-                	</div>
+               {this.renderTaskSection()}
             </div>
         );
     }
