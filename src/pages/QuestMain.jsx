@@ -287,11 +287,7 @@ export default class QuestMain extends React.Component {
             <div>
                 <MainNav />
                 <div className="container" id="separator">
-                    <div className="row">
-                        <div className="col-md-1">
-                            <Link to="/home"><button className="btn btn-warning">Back Home</button></Link>
-                        </div>
-                    </div>
+                    
                     <h1 id="pageTitle">Quests Home</h1>
                         <div className="row">    
                             <div className="col-md-5 col-md-offset-1" id="missionForm">

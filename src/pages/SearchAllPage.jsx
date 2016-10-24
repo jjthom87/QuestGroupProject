@@ -75,11 +75,6 @@ export default class SearchAllPage extends React.Component {
                 <div className='container' id="separator"> 
               		<div className="row">
 
-                            <div className="row">
-                                <div className="col-md-1">
-                                    <button className="btn btn-warning"><Link to="/home">Back Home</Link></button>
-                                </div>
-                            </div>
                     </div>   
 
                     <div className="row">
