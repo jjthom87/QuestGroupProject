@@ -70,16 +70,21 @@ export default class SearchAllPage extends React.Component {
         });
 
     	return (
-      		<div className="row">
+            <div>
+              <MainNav />
+                <div className='container' id="separator"> 
+              		<div className="row">
 
-                <div className="row">
-                    <div className="col-md-1">
-                        <button className="btn btn-warning"><Link to="/home">Back Home</Link></button>
+                            <div className="row">
+                                <div className="col-md-1">
+                                    <button className="btn btn-warning"><Link to="/home">Back Home</Link></button>
+                                </div>
+                            </div>
+                    </div>   
+
+                    <div className="row">
+                        <SearchBarForm onSearch={this.handleSearch.bind(this)}/> 
                     </div>
-                </div>
-
-                <div className="row">
-                    <SearchBarForm onSearch={this.handleSearch.bind(this)}/> 
 
                     <div className="row">
                         <div className="text-center center-block">
@@ -88,10 +93,7 @@ export default class SearchAllPage extends React.Component {
                             />
                         </div>
                     </div>
-
-                    
                 </div>
-
             </div>
         );
     }
