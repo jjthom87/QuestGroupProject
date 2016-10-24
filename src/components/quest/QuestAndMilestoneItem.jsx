@@ -14,14 +14,13 @@ export default class QuestAndMilestoneItem extends React.Component {
     }
 	render(){
 
-		const { id, title, dateQuest, deleteQuest, completeQuest, deleteMilestone, description, toggleMilestone, milestones, createdOn, isCompleted, taskCompleted, active, milestonetasks, deleteMilestoneTask, toggleMilestoneTask} = this.props;
+		const { id, title, dateQuest, deleteQuest, completeQuest, deleteMilestone, description, toggleMilestone, milestones, createdOn, isCompleted, taskCompleted, milestonetasks, deleteMilestoneTask, toggleMilestoneTask} = this.props;
 
 		var completedMilestones = milestones.filter((milestone) => milestone.isCompleted);
 		var completedMilestonetasks = milestonetasks.filter((milestonetask) => milestonetask.taskCompleted);
 
 		const doit = ((completedMilestones.length + completedMilestonetasks.length)/(milestones.length + milestonetasks.length) * 100);
 		const percentage = parseInt(doit);
-
 
 		var singleMilestone = () => {
 			return milestones.map((milestone, index) => {
