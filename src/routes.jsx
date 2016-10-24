@@ -17,7 +17,6 @@ import CreateAccountPage from 'CreateAccountPage';
 import LoginPage from 'LoginPage';
 import UserHomePage from 'UserHomePage';
 import SearchAllPage from 'SearchAllPage';
-import SearchOnePage from 'SearchOnePage';
 import Authentication from 'Authentication';
 import Completed from 'Completed';
 import UserForAllPage from 'UserForAllPage';
@@ -35,7 +34,6 @@ export default (
         <Route path="/login" component={LoginPage} />
         <Route path="/home" component={UserHomePage} />
         <Route path="/searchall" component={SearchAllPage} />
-        <Route path="/search/name/:id" component={SearchOnePage} />
         <Route path="/completed" component={Completed} />
         <Route path="/userall" component={UserAllPage} />
         <Route path="/userforall/:id" component={UserForAllPage} />

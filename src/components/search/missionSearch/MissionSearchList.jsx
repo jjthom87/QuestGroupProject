@@ -1,3 +1,5 @@
+// CONTENTS HAVE BEEN COPIED TO SearchBarList (component) to be adjacent other quest search results from /search (.get) route
+
 import React, { Component } from 'react';
 import MissionTaskSearchItem from 'MissionTaskSearchItem';
 
