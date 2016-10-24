@@ -42,6 +42,7 @@ module.exports = function(sequelize, DataTypes) {
         Quest.hasMany(models.Milestone);
         Quest.hasMany(models.Milestonetask);
         Quest.hasMany(models.Comment);
+        Quest.hasMany(models.Image);
       }
     }
   });

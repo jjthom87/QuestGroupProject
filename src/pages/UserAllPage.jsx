@@ -24,47 +24,13 @@ export default class UserAllPage extends React.Component {
             milestones: [],
 			createdOn: '',
 			searchText: '',
-			file: '',
-			imageUrl: '',
-			savedImage: ''
+			profileImage: ''
 		};
 	}
 	handleSearch(searchText){
 		this.setState({
 			searchText: searchText.toLowerCase()
 		})
-	}
-	handleSubmitImage(e){
-		e.preventDefault();
-		const data = {
-			image: this.state.imageUrl
-		}
-		fetch('/api/imageupload', {
-			method: 'post',
-			body: JSON.stringify(data),
-			headers: {
-                Auth: localStorage.getItem('token'),
-                'content-type': 'application/json',
-                'accept': 'application/json'
-            },
-            credentials: 'include'
-		}).then((response) => response.json())
-			.then((results) => {
-		});
-	}
-	handleImageChange(e){
-		e.preventDefault();
-
-		let reader = new FileReader();
-		let file = e.target.files[0];
-
-		reader.onloadend = () => {
-			this.setState({
-				file: file,
-				imageUrl: reader.result
-			})
-		}
-		reader.readAsDataURL(file)
 	}
 	logoutHandler(){
 		fetch('/api/users/logout', {
@@ -96,14 +62,13 @@ export default class UserAllPage extends React.Component {
                 missiontasks: results.missiontasks,
                 milestones: results.milestones,
                 milestonetasks: results.milestonetasks,
-                savedImage: results.image
+                profileImage: results.profileImage
 			});
 		});
 	}
 	render() {
 
 		const { loginUser, missions, missiontasks, quests, milestones, milestonetasks, searchText } = this.state;
-
 
 		const incompleteMissions = missions.filter((mission) => !mission.missionCompleted);
 		const completeMissions = missions.filter((mission) => mission.missionCompleted);
@@ -136,19 +101,7 @@ export default class UserAllPage extends React.Component {
               		<MainNav/>
                 	<div className="container" id="separator">
       					<h1 className="text-center" id="pageTitle">{loginUser}'s Profile Page</h1>
-				      		<div className="text-center center-block">
-								<form onSubmit={this.handleSubmitImage.bind(this)}>
-									<input 
-										className="fileInput" 
-										type="file"
-										onChange={this.handleImageChange.bind(this)}
-									/>
-									<input type="submit" value="Upload Image"/>
-								</form>
-								<div> 
-									<img src={this.state.savedImage.image} style={{width: 250, height: 250}}/>
-								</div>
-							</div>
+      					<img className="text-center center-block" src={this.state.profileImage} style={{width: 250, height: 250}}/>
       						<div className="row">
 			      				<div>
 			                        <Link to="/home"><button className="btn btn-warning">Back Home</button></Link>
