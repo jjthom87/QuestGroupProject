@@ -40,7 +40,6 @@ export default class UserSearchPage extends React.Component {
 		});
 	}
 	render() {
-
 		var { users, searchText, loginId, currentUser } = this.state;
 
 		const nonCurrentUsers = users.filter((user) => user.id !== currentUser.id)

@@ -432,3 +432,8 @@ select {
     color: #ffda73;
 }
 
+.uploadImageText {
+    font-size: 12px;
+    color: black;
+}
+

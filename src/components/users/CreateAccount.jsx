@@ -27,10 +27,13 @@ export default class CreateAccount extends React.Component {
 		e.preventDefault();
 
 		var creds = {};
+		var profileImage = this.state.imageUrl;
 		var name = this.refs.name.value;
 		var username = this.refs.username.value;
 		var password = this.refs.password.value;
-		var profileImage = this.state.imageUrl;
+		var confirmPassword = this.refs.confirmPassword.value;
+
+		creds.profileImage = profileImage
 
 		if (name.length > 0) {
 			this.refs.name.value = '';
@@ -40,14 +43,24 @@ export default class CreateAccount extends React.Component {
 		if (username.length > 0) {
 			this.refs.username.value = '';
 			creds.username = username;
+		} else {
+			alert('Username already taken');
 		}
 
 		if (password.length > 0) {
 			this.refs.password.value = '';
 			creds.password = password;
+		} else {
+			alert('Password Must be at least 8 characters');
 		}
 
-		creds.profileImage = profileImage
+		if (confirmPassword === password){
+			this.refs.confirmPassword.value = '';
+			creds.confirmPassword = confirmPassword 
+		} else {
+			this.refs.confirmPassword.value = '';
+			alert("Passwords don't match");
+		}
 
 		this.props.onCreate(creds);
 	}
@@ -60,26 +73,30 @@ export default class CreateAccount extends React.Component {
 							<h1 id="loginText">Create Account</h1>
 						</div>
 						<div id="submitButton">
-						<div>
-							<span className="glyphicon glyphicon-sunglasses"><input type="text" ref="name" placeholder="Enter Name/Nickname"/></span>
-						</div>
-						<div>
-							<span className="glyphicon glyphicon-user"><input type="text" ref="username" placeholder="Enter Username"/></span>
-						</div>
-						<div>
-							<span className="glyphicon glyphicon-lock"><input type="password" ref="password" placeholder="Enter Password"/></span>
-						</div>
-						<input 
-							className="fileInput" 
-							type="file"
-							onChange={this.handleImageChange.bind(this)}
-						/>
-						<div> 
-							<img src={this.state.imageUrl} style={{width: 250, height: 250}}/>
-						</div>
-						<div id="submitButton">
-							<input className="btn btn-default" type="submit" />
-						</div>
+							<h4 className="uploadImageText">Upload Profile Image</h4>
+							<input 
+								className="fileInput" 
+								type="file"
+								onChange={this.handleImageChange.bind(this)}
+							/>
+							<div> 
+								<img src={this.state.imageUrl} style={{width: 150, height: 150}}/>
+							</div>
+							<div>
+								<span className="glyphicon glyphicon-sunglasses"><input type="text" ref="name" placeholder="Enter Name/Nickname"/></span>
+							</div>
+							<div>
+								<span className="glyphicon glyphicon-user"><input type="text" ref="username" placeholder="Enter Username"/></span>
+							</div>
+							<div>
+								<span className="glyphicon glyphicon-lock"><input type="password" ref="password" placeholder="Enter Password"/></span>
+							</div>
+							<div>
+								<span className="glyphicon glyphicon-lock"><input type="password" ref="confirmPassword" placeholder="Confirm Password"/></span>
+							</div>
+							<div id="submitButton">
+								<input className="btn btn-default" type="submit" />
+							</div>
 						</div>
 					</form>
 				</div>

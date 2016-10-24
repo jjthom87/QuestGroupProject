@@ -19,6 +19,9 @@ router.get('/', (req,res) => {
 
 // Registration: Allows users to create new user based on model input
 router.post('/api/users/create', function(req,res){
+    if (req.body.password !== req.body.confirmPassword){
+      return reject();
+    }
     modelController.userCreate(
       req.body.name, 
       req.body.username, 
