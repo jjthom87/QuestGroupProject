@@ -22,7 +22,7 @@ export default class SearchBarList extends React.Component {
         var noMissions = () => {
             if (missions.length === 0){
                 return (
-                    <p className="noMissionsText">Select a Mission from the Dropdown</p>
+                    <p className="noMissionsText">No Mission Results Found</p>
                 );
             }
         }

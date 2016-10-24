@@ -64,12 +64,12 @@ export default class SearchAllPage extends React.Component {
     render() {
         const { searchText, missions, quests, milestones, milestonetasks, missiontasks, dropdownMission } = this.state;
 
-        const nonSearchResults = missions.filter((mission) => mission.id !== searchMission.id)
+        const filteredSearch = missions.filter(nonMission => missions.title !== searchText )
 
-        const filteredSearch = nonSearchResults.filter((mission) => {
-            var text = mission.name.toLowerCase();
-            return searchText.length === 0 || text.indexOf(searchText) > -1
-        });
+        // const filteredSearch = nonSearchResults.filter((mission) => {
+        //     var text = mission.name.toLowerCase();
+        //     return searchText.length === 0 || text.indexOf(searchText) > -1
+        // });
 
     	return (
       		<div className="row">
@@ -101,18 +101,18 @@ export default class SearchAllPage extends React.Component {
     }
 }
 
-// **Was in (above) render; Saving here for now, will likely delete (EM)
-// <div className="panel panel-success col-md-3 qmbox">
-//     <MissionSearchList
-//         missions={missions}
-//         missiontasks={missiontasks}
-//     />
-// </div>
+// **This was in (above) render; Saving here for now, will likely delete (EM):
+    // <div className="panel panel-success col-md-3 qmbox">
+    //     <MissionSearchList
+    //         missions={missions}
+    //         missiontasks={missiontasks}
+    //     />
+    // </div>
 
-// <div className="panel panel-success col-md-3 qmbox">
-//     <QuestSearchList
-//         quests={quests}
-//         milestones={milestones}
-//         milestonetasks={milestonetasks}
-//     />
-// </div>
+    // <div className="panel panel-success col-md-3 qmbox">
+    //     <QuestSearchList
+    //         quests={quests}
+    //         milestones={milestones}
+    //         milestonetasks={milestonetasks}
+    //     />
+    // </div>
