@@ -8,6 +8,8 @@ import MainNav from 'MainNav';
 import MissionTaskSearchItem from 'MissionTaskSearchItem';
 import MissionSearchList from 'MissionSearchList';
 import QuestSearchList from 'QuestSearchList';
+import SearchBarForm from 'searchBarForm';
+import SearchBarList from 'searchBarList';
 
 export default class SearchAllPage extends React.Component {
     
@@ -33,6 +35,12 @@ export default class SearchAllPage extends React.Component {
         })
     }
 
+    handleSearch(searchText){
+        this.setState({
+            searchText: searchText.toLowerCase()
+        })
+    }
+
     componentWillMount(){
         fetch('/api/search', {
             headers: {
@@ -54,15 +62,14 @@ export default class SearchAllPage extends React.Component {
     }
 
     render() {
-        const { missions, quests, milestones, milestonetasks, missiontasks, dropdownMission } = this.state;
+        const { searchText, missions, quests, milestones, milestonetasks, missiontasks, dropdownMission } = this.state;
 
-        var renderMissionDropdown = () => {
-            return missions.map((mission, index) => {
-                return (
-                    <h1 key={index}>{mission.title}</h1>
-                );  
-            });
-        }
+        const nonSearchResults = missions.filter((mission) => mission.id !== searchMission.id)
+
+        const filteredSearch = nonSearchResults.filter((mission) => {
+            var text = mission.name.toLowerCase();
+            return searchText.length === 0 || text.indexOf(searchText) > -1
+        });
 
     	return (
       		<div className="row">
@@ -74,20 +81,17 @@ export default class SearchAllPage extends React.Component {
                 </div>
 
                 <div className="row">
-                    <div className="panel panel-success col-md-3 qmbox">
-                        <MissionSearchList
-                            missions={missions}
-                            missiontasks={missiontasks}
-                        />
+                    <SearchBarForm onSearch={this.handleSearch.bind(this)}/> 
+
+                    <div className="row">
+                        <div className="text-center center-block">
+                            <SearchBarList
+                                missions={filteredSearch}
+                            />
+                        </div>
                     </div>
 
-                    <div className="panel panel-success col-md-3 qmbox">
-                        <QuestSearchList
-                            quests={quests}
-                            milestones={milestones}
-                            milestonetasks={milestonetasks}
-                        />
-                    </div>
+                    
                 </div>
 
 
@@ -96,3 +100,19 @@ export default class SearchAllPage extends React.Component {
         );
     }
 }
+
+// **Was in (above) render; Saving here for now, will likely delete (EM)
+// <div className="panel panel-success col-md-3 qmbox">
+//     <MissionSearchList
+//         missions={missions}
+//         missiontasks={missiontasks}
+//     />
+// </div>
+
+// <div className="panel panel-success col-md-3 qmbox">
+//     <QuestSearchList
+//         quests={quests}
+//         milestones={milestones}
+//         milestonetasks={milestonetasks}
+//     />
+// </div>
