@@ -16,7 +16,7 @@ export default class MilestoneAndTaskItem extends React.Component {
 		const renderMilestonetasks = milestonetasks.map((milestonetask, index) => {
 			var milestoneTaskClassName = milestonetask.taskCompleted ? 'task-completed' : 'task-notCompleted';
 			return (
-				<div>
+				<div className="mstasks alltaskitem">
 						<input
 							type="checkbox"
 							checked={taskCompleted}
@@ -30,7 +30,7 @@ export default class MilestoneAndTaskItem extends React.Component {
 		return (
 			<div>
 				<p>Tasks</p>
-				<ul>{renderMilestonetasks}</ul>
+				<span>{renderMilestonetasks}</span>
 			</div>
 		)
 	}
