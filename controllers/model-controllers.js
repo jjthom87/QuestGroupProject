@@ -329,74 +329,29 @@ var modelController = {
 	  });
 	 });
 	},
-	// Retreives all Bubo Missions and Quests that exist in database (See route '/searchall')
-  	allMain: function(searchInput, cb){
-        models.Mission.findAll({ where: {title: searchInput, public: 'Yes' }}).then(function(missions){
-        var missionsArray = [];
-            missions.forEach(function(mission){
-                missionsArray.push(mission);
-            });
-        models.Quest.findAll({ where: {quest: searchInput, public: 'Yes'}}).then(function(quests){
-        var questsArray = [];
-            quests.forEach(function(quest){
-                questsArray.push(quest);
-            });
-		models.Milestone.findAll({ where: {milestone: searchInput}}).then(function(milestones){
-        var milestonesArray = [];
-            milestones.forEach(function(milestone){
-                milestonesArray.push(milestone);
-            });
-		models.Missiontask.findAll({ where: {task: searchInput}}).then(function(missiontasks){
-        var missiontaskArray = [];
-            missiontasks.forEach(function(missiontask){
-            	missiontaskArray.push(missiontask);
-            });
-        models.Milestonetask.findAll({ where: {task: searchInput}}).then(function(milestonetasks){
-        var milestonetaskAll = [];
-            milestonetasks.forEach(function(milestonetask){
-            	milestonetaskAll.push(milestonetask);
-            });
 
-         var data = {
-                missions: missionsArray,
-                quests: questsArray,
-                missiontasks: missiontaskArray,
-                milestones: milestonesArray,
-                milestonetasks: milestonetaskAll
-            }
-            cb(data);
-        }).catch(function(err){
-            throw err;
-      	});
-       });
-     });
-	});
-   });
-  },
-
-// Previously called 'allMain'; Only here temporarily; Do not remove yet (EM)
-	// allMainOld: function(cb){
- //        models.Mission.findAll().then(function(missions){
+ //  	allMainDONTUSE: function(searchInput, cb){
+ //        models.Mission.findAll({ where: {title: searchInput, public: 'Yes' }}).then(function(missions){
  //        var missionsArray = [];
  //            missions.forEach(function(mission){
  //                missionsArray.push(mission);
  //            });
- //        models.Quest.findAll().then(function(quests){
+ //        models.Quest.findAll({ where: {quest: searchInput, public: 'Yes'}}).then(function(quests){
  //        var questsArray = [];
  //            quests.forEach(function(quest){
  //                questsArray.push(quest);
  //            });
-	// 	models.Milestone.findAll().then(function(milestones){
+	// 	models.Milestone.findAll({ where: {milestone: searchInput}}).then(function(milestones){
  //        var milestonesArray = [];
  //            milestones.forEach(function(milestone){
  //                milestonesArray.push(milestone);
  //            });
-	// 	models.Missiontask.findAll().then(function(missiontasks){
+	// 	models.Missiontask.findAll({ where: {task: searchInput}}).then(function(missiontasks){
  //        var missiontaskArray = [];
  //            missiontasks.forEach(function(missiontask){
  //            	missiontaskArray.push(missiontask);
  //            });
- //        models.Milestonetask.findAll().then(function(milestonetasks){
+ //        models.Milestonetask.findAll({ where: {task: searchInput}}).then(function(milestonetasks){
  //        var milestonetaskAll = [];
  //            milestonetasks.forEach(function(milestonetask){
  //            	milestonetaskAll.push(milestonetask);
@@ -418,6 +373,51 @@ var modelController = {
 	// });
  //   });
  //  },
+
+// Retreives all Bubo Missions and Quests that exist in database (See route '/searchall')
+	allMain: function(cb){
+        models.Mission.findAll().then(function(missions){
+        var missionsArray = [];
+            missions.forEach(function(mission){
+                missionsArray.push(mission);
+            });
+        models.Quest.findAll().then(function(quests){
+        var questsArray = [];
+            quests.forEach(function(quest){
+                questsArray.push(quest);
+            });
+		models.Milestone.findAll().then(function(milestones){
+        var milestonesArray = [];
+            milestones.forEach(function(milestone){
+                milestonesArray.push(milestone);
+            });
+		models.Missiontask.findAll().then(function(missiontasks){
+        var missiontaskArray = [];
+            missiontasks.forEach(function(missiontask){
+            	missiontaskArray.push(missiontask);
+            });
+        models.Milestonetask.findAll().then(function(milestonetasks){
+        var milestonetaskAll = [];
+            milestonetasks.forEach(function(milestonetask){
+            	milestonetaskAll.push(milestonetask);
+            });
+
+         var data = {
+                missions: missionsArray,
+                quests: questsArray,
+                missiontasks: missiontaskArray,
+                milestones: milestonesArray,
+                milestonetasks: milestonetaskAll
+            }
+            cb(data);
+        }).catch(function(err){
+            throw err;
+      	});
+       });
+     });
+	});
+   });
+  },
 
 	// Creates a new Mission record to the database (See route 'mission/create')
 	missionCreate: function(title, description, public, createdOn, user, cb){
