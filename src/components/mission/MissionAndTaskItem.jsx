@@ -24,7 +24,7 @@ export default class MissionAndTaskItem extends React.Component {
 			return missiontasks.map((task, index) => {
 				var taskClassName = task.isCompleted ? 'task-completed' : 'task-notCompleted';
 				return (
-					<div>
+					<div className="alltaskitem">
 						<span>
 							<input
 					  			type="checkbox"
@@ -52,7 +52,7 @@ export default class MissionAndTaskItem extends React.Component {
 					<div className="panel-body">
 						<strong><p>You are {percentage}% done with this mission</p></strong>
 						<div>
-							<p id="taskText"><strong>Description: </strong>{description}</p>
+							<p id="taskText" className="alltaskitem"><strong>Description: </strong>{description}</p>
 						</div>
 						<div>
 							<p><strong>CreatedOn: </strong>{createdOn}</p>
