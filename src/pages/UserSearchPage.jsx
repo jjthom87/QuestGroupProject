@@ -57,9 +57,6 @@ export default class UserSearchPage extends React.Component {
               		<MainNav/>
                 	<div className="container" id="separator">
       						<div className="row text-center center-block">
-			      				<div>
-			                        <Link to="/home"><button className="btn btn-warning">Back Home</button></Link>
-			                    </div>
 			                    <br></br>
 			                    <h1 className="text-center searchHeader">Search Users By Name</h1>
 			                    <UserSearchForm onSearch={this.handleSearch.bind(this)}/>		

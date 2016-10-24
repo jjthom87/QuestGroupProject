@@ -97,16 +97,11 @@ export default class UserAllPage extends React.Component {
 
     	return (
       		<div>
-      			<div className='container'>
+      			<div>
               		<MainNav/>
-                	<div className="container" id="separator">
+                	<div  id="separator">
       					<h1 className="text-center" id="pageTitle">{loginUser}'s Profile Page</h1>
       					<img className="text-center center-block" src={this.state.profileImage} style={{width: 250, height: 250}}/>
-      						<div className="row">
-			      				<div>
-			                        <Link to="/home"><button className="btn btn-warning">Back Home</button></Link>
-			                    </div>			
-							</div>
 							<div className="text-center center-block">
 								<p className="searchHeader">Search By Title</p>
 								<SearchYourItemForm onSearch={this.handleSearch.bind(this)}/>

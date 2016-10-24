@@ -46,7 +46,7 @@ export default class MissionAndTaskItem extends React.Component {
 				<div className="panel-heading">
 					<span> <a data-toggle="collapse" data-target={"#collapse" + id} 
            			href={"#collapse" + id}><strong>Mission: </strong> {title}</a></span>
-		   			<Line percent={percentage} strokeWidth="4" strokeColor="#3FC7FA"/>
+		   			<Line percent={percentage} strokeWidth="4" strokeColor="#007B93"/>
 				</div>
 				<div id={"collapse" + id}className="panel-collapse collapse in">
 					<div className="panel-body">

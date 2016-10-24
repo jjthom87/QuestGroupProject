@@ -64,38 +64,31 @@ export default class SearchAllPage extends React.Component {
     render() {
         const { searchText, missions, quests, milestones, milestonetasks, missiontasks, dropdownMission } = this.state;
 
-        const filteredSearch = missions.filter(nonMission => missions.title !== searchText )
-
-        // const filteredSearch = nonSearchResults.filter((mission) => {
-        //     var text = mission.name.toLowerCase();
-        //     return searchText.length === 0 || text.indexOf(searchText) > -1
-        // });
+        const filteredSearch = missions.filter((mission) => {
+            var text = mission.title.toLowerCase();
+            return searchText.length === 0 || text.indexOf(searchText) > -1
+        });
 
     	return (
-      		<div className="row">
+            <div>
+              <MainNav />
+                <div className='container' id="separator"> 
+              		<div className="row">
 
-                <div className="row">
-                    <div className="col-md-1">
-                        <button className="btn btn-warning"><Link to="/home">Back Home</Link></button>
+                    </div>   
+
+                    <div className="row">
+                        <SearchBarForm onSearch={this.handleSearch.bind(this)}/> 
                     </div>
-                </div>
-
-                <div className="row">
-                    <SearchBarForm onSearch={this.handleSearch.bind(this)}/> 
 
                     <div className="row">
                         <div className="text-center center-block">
                             <SearchBarList
-                                missions={filteredSearch}
+                                filteredMissions={filteredSearch}
                             />
                         </div>
                     </div>
-
-                    
                 </div>
-
-
-                
             </div>
         );
     }
