@@ -34,13 +34,11 @@ export default class SearchAllPage extends React.Component {
             dropdownMission: e.target.value
         })
     }
-
     handleSearch(searchText){
         this.setState({
-            searchText: searchText.toLowerCase()
+            searchFetch: searchText.toLowerCase()
         })
     }
-
     componentWillMount(){
         fetch('/api/search', {
             headers: {
@@ -62,11 +60,11 @@ export default class SearchAllPage extends React.Component {
     }
 
     render() {
-        const { searchText, missions, quests, milestones, milestonetasks, missiontasks, dropdownMission } = this.state;
+        const { searchFetch, missions, quests, milestones, milestonetasks, missiontasks } = this.state;
 
         const filteredSearch = missions.filter((mission) => {
             var text = mission.title.toLowerCase();
-            return searchText.length === 0 || text.indexOf(searchText) > -1
+            return searchFetch.length === 0 || text.indexOf(searchFetch) > -1
         });
 
     	return (
