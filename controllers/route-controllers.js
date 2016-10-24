@@ -110,13 +110,13 @@ router.get('/api/search', middleware.requireAuthentication, function(req,res){
 });
 
 // Search for specific Missions and Quests by Description
-router.get('/api/search/name/:id', function(req, res){
-    modelController.allMainSearch(
-      req.params.id, 
-      function(data){
-        res.json(data)
-    });
-});
+// router.get('/api/search/name/:id', function(req, res){
+//     modelController.allMainSearch(
+//       req.params.id, 
+//       function(data){
+//         res.json(data)
+//     });
+// });
 
 // Sign-out: Deletes user's JSON Web Token once logged out
 router.delete('/api/users/logout', middleware.requireAuthentication, function (req, res) {
