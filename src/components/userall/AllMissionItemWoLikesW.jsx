@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import CommentForm from 'CommentForm';
+var moment = require('moment');
+import { Line } from 'rc-progress'; 
 var ReactBootstrap = require('react-bootstrap');
 var Panel = ReactBootstrap.Panel;
-var moment = require('moment');
+import CommentForm from 'CommentForm';
 
-export default class AllMissionItemWoLikes extends React.Component { 
+export default class AllMissionItemWoLikesW extends React.Component { 
     constructor(props) {
         super(props);
         this.state = {
@@ -54,19 +55,29 @@ export default class AllMissionItemWoLikes extends React.Component {
 	}
 	render(){
 
-		const { comments } = this.state;
-		const { id, title, description, missiontasks, completedOn, isCompleted, createdOn, likes, allUsers } = this.props;
+		const { id, title, deleteMission, deleteMissionTask, completeMission, description, percent, toggleMissionTask, missiontasks, createdOn, isCompleted, allUsers } = this.props;
 
-		const filteredComments = comments.filter((comment) => comment.MissionId === id);
+		var completedTasks = missiontasks.filter((task) => task.isCompleted);
+
+		const doit = ((completedTasks.length/missiontasks.length) * 100);
+		const percentage = parseInt(doit);
 
 		var singleTask = () => {
 			return missiontasks.map((task, index) => {
 				var taskClassName = task.isCompleted ? 'task-completed' : 'task-notCompleted';
 				return (
-					<div>
-						<li>
-							<p className={taskClassName} key={index} id="taskText">{task.task}</p>
-						</li>
+					<div className="alltaskitem">
+						<span>
+							<input
+					  			type="checkbox"
+					  			checked={isCompleted}
+					  			onChange={() => toggleMissionTask(task.uuid)}
+					  			key={index}
+				  			/>
+							<p className={taskClassName} id="taskText">{task.task}</p>
+							<span className="hvr-icon-grow hvr-icon-fade" id="x" onClick={() => deleteMissionTask(task.uuid)}></span>
+						</span>
+						
 					</div>
 				)
 			})
@@ -85,23 +96,35 @@ export default class AllMissionItemWoLikes extends React.Component {
 				<div className="panel-heading">
 					<span> <a data-toggle="collapse" data-target={"#mcollapse" + id} 
            			href={"#mcollapse" + id}><strong>Mission: </strong> {title}</a></span>
+		   			<Line percent={percentage} strokeWidth="4" strokeColor="#007B93"/>
 				</div>
-				<div id={"mcollapse" + id}className="panel-collapse collapse">
+				<div id={"mcollapse" + id} className="panel-collapse collapse in">
 					<div className="panel-body">
-						<p>Description: {description}</p>
-						<p>Created On: {createdOn}</p>
-						{singleTask()}
-						<p>Completed On: {completedOn}</p>
+						<strong><p>You are {percentage}% done with this mission</p></strong>
+						<div>
+							<p id="taskText" className="alltaskitem"><strong>Description: </strong>{description}</p>
+						</div>
+						<div>
+							<p><strong>CreatedOn: </strong>{createdOn}</p>
+						</div>
+						<div>
+							<p id="taskText"><strong>Tasks</strong></p>
+							{singleTask()}
+						</div>
+						<div>
+							<button onClick={() => deleteMission(id)}> Delete Mission</button>
+							<button onClick={() => completeMission(id)}> Complete Mission</button>
+						</div>
 						<div className="row">
 							<div className="text-center">
 								<CommentForm onComment={this.handleComment.bind(this)}/>
-								<p>Likes: {likes}</p>
 							</div>
 						</div>
 						{renderComments}
 					</div>
 				</div>
 			</div>
+			
 		)
 	}
 }

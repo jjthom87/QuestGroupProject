@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 var moment = require('moment');
+import { Line } from 'rc-progress';
 var ReactBootstrap = require('react-bootstrap');
 var Panel = ReactBootstrap.Panel;
 import CommentForm from 'CommentForm';
-import AllMilestonetaskItem from 'AllMilestonetaskItem';
+import AllMilestonetaskItemW from 'AllMilestonetaskItemW';
 
-export default class AllQuestItemWoLikes extends React.Component { 
+export default class AllQuestItemWoLikesW extends React.Component { 
     constructor(props) {
         super(props);
         this.state = {
@@ -56,22 +57,36 @@ export default class AllQuestItemWoLikes extends React.Component {
 	render(){
 
 		const { comments } = this.state;
-		const { id, title, description, likes, milestones, milestonetasks, completedOn, isCompleted, createdOn, allUsers } = this.props;
+		const { id, title, likes, allUsers, deleteQuest, completeQuest, deleteMilestone, description, toggleMilestone, milestones, createdOn, isCompleted, taskCompleted, milestonetasks, deleteMilestoneTask, toggleMilestoneTask} = this.props;
 
 		const filteredComments = comments.filter((comment) => comment.QuestId === id);
 
+		var completedMilestones = milestones.filter((milestone) => milestone.isCompleted);
+		var completedMilestonetasks = milestonetasks.filter((milestonetask) => milestonetask.taskCompleted);
+
+		const doit = ((completedMilestones.length + completedMilestonetasks.length)/(milestones.length + milestonetasks.length) * 100);
+		const percentage = parseInt(doit);
+
 		var singleMilestone = () => {
 			return milestones.map((milestone, index) => {
+				var milestoneClassName = milestone.isCompleted ? 'task-completed' : 'task-notCompleted';
 				var filteredMilestonetask = milestonetasks.filter((milestonetask) => milestonetask.MilestoneUuid === milestone.uuid);
 				return (
 					<div>
-						<li>
-							<p>Milestone</p>
-							<p key={index} id="taskText">{milestone.milestone}</p>
-							<AllMilestonetaskItem
+						<span>
+							<input
+					  			type="checkbox"
+					  			checked={isCompleted}
+					  			onChange={() => toggleMilestone(milestone.uuid)}
+				  			/>
+							<p key={index} className={milestoneClassName}><strong> Milestone: </strong>{milestone.milestone}</p>
+							<span className="hvr-icon-grow hvr-icon-fade" id="x" onClick={() => deleteMilestone(milestone.uuid)}></span>
+						</span>
+							<AllMilestonetaskItemW
 								milestonetasks={filteredMilestonetask}
+                        		toggleMilestoneTask={toggleMilestoneTask}
+                        		deleteMilestoneTask={deleteMilestoneTask}
                         	/>
-						</li>
 					</div>
 				)
 			})
@@ -90,13 +105,25 @@ export default class AllQuestItemWoLikes extends React.Component {
 				<div className="panel-heading">
 					<span> <a data-toggle="collapse" data-target={"#qcollapse" + id} 
            			href={"#qcollapse" + id}><strong>Quest: </strong> {title}</a></span>
+		   			<Line percent={percentage} strokeWidth="4" strokeColor="#007B93"/>
 				</div>
-				<div id={"qcollapse" + id} className="panel-collapse collapse">
+				<div id={"qcollapse" + id} className="panel-collapse collapse in">
 					<div className="panel-body">
-						<p>Description: {description}</p>
-						<p>Created On: {createdOn}</p>
-						{singleMilestone()}
-						<p>Completed On: {completedOn}</p>
+						<strong><p>You are {percentage}% done with this quest</p></strong>
+						<div>
+							<p id="taskText" className="alltaskitem"><strong>Description: </strong>{description}</p>
+						</div>
+						<div>
+							<p><strong>Created on: </strong>{createdOn}</p>
+						</div>
+						<div>
+							<p id="taskText"><strong>Milestone</strong></p>
+							{singleMilestone()}
+						</div>
+						<div>
+							<button onClick={() => deleteQuest(id)}> Delete Quest</button>
+							<button onClick={() => completeQuest(id)}> Complete Quest</button>
+						</div>
 						<div className="row">
 							<div className="text-center">
 								<CommentForm onComment={this.handleComment.bind(this)}/>

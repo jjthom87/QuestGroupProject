@@ -146,13 +146,16 @@ var modelController = {
 	 });
   	},
 	userAll: function(id, profileImage, cb){
+			var allUsers;
+		models.User.findAll({}).then(function(success){
+	    	allUsers = success;
 		models.User.findOne({ where: {id: id}}).then(function(user){
-	        user.getMissions().then(function(missions){
+	        user.getMissions({ include: [ models.Comment ]}).then(function(missions){
 		        var enteredMissions = [];
 		        missions.forEach(function(mission){
 		            enteredMissions.push(mission);
 		        });
-		    user.getQuests().then(function(quests){
+		    user.getQuests({ include: [ models.Comment ]}).then(function(quests){
 		          var enteredQuests = [];
 		          quests.forEach(function(quest){
 		            enteredQuests.push(quest);
@@ -179,7 +182,8 @@ var modelController = {
 		          missiontasks: enteredMissiontasks,
 		          milestones: enteredMilestones,
 		          milestonetasks: enteredMilestonetasks,
-		          profileImage: profileImage
+		          profileImage: profileImage,
+		          allUsers: allUsers
 		        }
 		        cb(data);
 				}).catch(function(err){
@@ -190,6 +194,7 @@ var modelController = {
 	  	  });
     	});
 	  });
+	 });
   	},
 	searchAllUsers: function(id, cb){
 		var currentUser;

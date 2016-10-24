@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-var moment = require('moment');
-import { Line } from 'rc-progress';
 
-export default class MilestoneAndTaskItem extends React.Component { 
+export default class AllMilestonetaskItemW extends React.Component { 
     constructor(props) {
         super(props);
         this.state = {

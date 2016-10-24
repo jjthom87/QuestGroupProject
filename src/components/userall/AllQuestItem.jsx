@@ -101,16 +101,9 @@ export default class AllQuestItem extends React.Component {
 			)
 		})
 		return (
-			<div className="panel panel-default" id={"panel" + id}>
-			 <div className="panel-heading">
-				<span> <a data-toggle="collapse" data-target={"#collapse" + id} 
-           			href={"#collapse" + id}>{title}</a></span>
-				</div>
-				<div id={"collapse" + id}className="panel-collapse collapse">
-					<div className="panel-body">
-						<div>
-							<p id="taskText" className="alltaskitem"><strong>Description: </strong>{description}</p>
-						</div>
+			<div className="alllistdiv">
+				<p id="titleall"><strong>{title}</strong></p>
+				<p><strong>Description:</strong> {description}</p>
 				{singleMilestone()}
 				<p>Completed On: {completedOn}</p>
 				<div className="row">
@@ -119,8 +112,6 @@ export default class AllQuestItem extends React.Component {
 					</div>
 				</div>
 				{renderComments}
-				</div>
-				</div>
 			</div>
 		)
 	}

@@ -1,24 +1,27 @@
 import React, { Component } from 'react'; 
 
-import AllMissionItemWoLikes from 'AllMissionItemWoLikes';
+import AllMissionItemWoLikesW from 'AllMissionItemWoLikesW';
 
-export default class AllMissionListWoLikes extends React.Component {
+export default class AllMissionListWoLikesW extends React.Component {
     render() {
-        const { missions, missiontasks, allUsers } = this.props;
+        const { missions, missiontasks, toggleMissionTask, completeMission, deleteMission, deleteMissionTask, allUsers } = this.props;
         
         var renderMissions = () => {
             return missions.map((mission, index) => {
             	var filteredMissiontask = missiontasks.filter((missiontask) => missiontask.MissionId === mission.id);
                 return (
-                    <AllMissionItemWoLikes
+                    <AllMissionItemWoLikesW
                     	missions={missions}
                         title={mission.title}
                         likes={mission.likes}
-                        createdOn={mission.createdOn}
                         description={mission.description}
                         completedOn={mission.completedOn}
                         missiontasks={filteredMissiontask}
                         id={mission.id}
+                        deleteMission={deleteMission}
+                        completeMission={completeMission}
+                        deleteMissionTask={deleteMissionTask}
+                        toggleMissionTask={toggleMissionTask}
                         allUsers={allUsers}
                         key={index}
                     />
