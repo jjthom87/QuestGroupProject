@@ -8,6 +8,7 @@ module.exports = {
         path: __dirname,
         filename: './public/bundle.js'
     },
+    watch: true,
     externals: {
         jquery: 'jQuery'
     },
@@ -28,6 +29,8 @@ module.exports = {
             'src/components/tasks',
             'src/components/milestones',
             'src/components/search',
+            'src/components/search/questSearch',
+            'src/components/search/missionSearch',            
             'src/components/completed',
             'src/components/countdown',
             'src/components/userall',

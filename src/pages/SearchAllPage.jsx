@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-// import Search from 'react-search'
 import { Router , browserHistory } from 'react-router';
 var {Link, IndexLink} = require('react-router');
 var _ = require('lodash');
@@ -8,7 +7,7 @@ import Logout from 'Logout';
 import MainNav from 'MainNav';
 import MissionTaskSearchItem from 'MissionTaskSearchItem';
 import MissionSearchList from 'MissionSearchList';
-// import SearchBar from 'SearchBar';
+import QuestSearchList from 'QuestSearchList';
 
 export default class SearchAllPage extends React.Component {
     
@@ -55,20 +54,10 @@ export default class SearchAllPage extends React.Component {
     }
 
     render() {
-        const { missions, quests, missiontasks, dropdownMission } = this.state;
-
-        var renderMissionDropdown = () => {
-            return missions.map((mission, index) => {
-                return (
-                    <h1 key={index}>{mission.title}</h1>
-                );  
-            });
-        }
+        const { missions, quests, milestones, milestonetasks, missiontasks, dropdownMission } = this.state;
 
     	return (
       		<div className="row">
-                
-
 
                 <div className="row">
                     <div className="col-md-1">
@@ -83,9 +72,16 @@ export default class SearchAllPage extends React.Component {
                             missiontasks={missiontasks}
                         />
                     </div>
+
+                    <div className="panel panel-success col-md-3 qmbox">
+                        <QuestSearchList
+                            quests={quests}
+                            milestones={milestones}
+                            milestonetasks={milestonetasks}
+                        />
+                    </div>
                 </div>
 
-                <SearchBar />
 
                 
             </div>
