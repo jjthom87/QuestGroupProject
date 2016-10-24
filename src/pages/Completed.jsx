@@ -72,9 +72,7 @@ export default class Completed extends React.Component {
       					<h1 className="text-center" id="pageTitle">Hello {loginUser}, here are your Completed Items</h1>
       						<div className="row">
 		      					<div className="col-lg-1 col-lg-offset-5" role="group">
-				      				<div className="row">
-				                        <Link to="/home"><button className="btn btn-warning">Back Home</button></Link>
-				                    </div>
+				      				
 		                        	<Link to="/searchall"><button className="btn btn-info">Find All Users Missions/Quests</button></Link>
 		                        	<Link to="/questshome"><button className="btn btn-info" id="missionAdd">Create Another Quest</button></Link>
 		                        	<Link to="/missionshome"><button className="btn btn-info" id="missionAdd">Create Another Mission</button></Link>			
