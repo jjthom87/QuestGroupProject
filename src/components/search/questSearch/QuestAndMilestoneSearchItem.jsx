@@ -29,41 +29,16 @@ export default class QuestAndMilestoneItem extends React.Component {
 				return (
 					<div>
 						<span>
-					
-							
-							
 							<p key={index} className={milestoneClassName}><strong> MileStone: </strong>{milestone.milestone}</p>
-						
 						</span>
 							<MilestoneAndTaskSearchItem 
 								milestonetasks={filteredMilestonetask}
-                        
                         	/>
 					</div>
 				)
 			})
 		}
-		// var singleMilestone = () => {
-		// 	return milestones.map((milestone, index) => {
-		// 		var filteredMilestoneTasks = milestonetasks.filter((milestonetask) => milestonetask.MilestoneUuid === milestone.uuid);
-		// 		return filteredMilestoneTasks.map((milestonetask, index) => {
-		// 			var milestoneTaskClassName = milestonetask.taskCompleted ? 'task-completed' : 'task-notCompleted';
-		// 		return (
-		// 			<div>
-		// 				<li>
-		// 					<input
-		// 			  			type="checkbox"
-		// 			  			checked={taskCompleted}
-		// 			  			onChange={() => toggleMilestoneTask(milestonetask.uuid)}
-		// 		  			/>
-		// 					<p className={milestoneTaskClassName}>{milestonetask.task}</p>
-		// 					<button onClick={() => deleteMilestoneTask(milestonetask.uuid)}>X</button>
-		// 				</li>
-		// 			</div>
-		// 		)
-		// 	  })
-		// 	})
-		// }
+
         var renderDate = () => {
             var message = "Quest Due ";
             const dated = dateQuest.split('-').join('');
@@ -88,7 +63,6 @@ export default class QuestAndMilestoneItem extends React.Component {
 					<div>
 						{singleMilestone()}
 					</div>
-					
 					<p>{renderDate()}</p>
 				</div>
 				</div>
