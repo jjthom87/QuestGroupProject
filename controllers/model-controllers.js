@@ -372,12 +372,12 @@ var modelController = {
   },
 
   	allMainSearch: function(searchInput, cb){
-        models.Mission.findAll({ where: {title: searchInput}, {public: 'Yes'}}).then(function(missions){
+        models.Mission.findAll({ where: {title: searchInput, public: 'Yes' }}).then(function(missions){
         var missionsArray = [];
             missions.forEach(function(mission){
                 missionsArray.push(mission);
             });
-        models.Quest.findAll({ where: {quest: searchInput}, {public: 'Yes'}}).then(function(quests){
+        models.Quest.findAll({ where: {quest: searchInput, public: 'Yes'}}).then(function(quests){
         var questsArray = [];
             quests.forEach(function(quest){
                 questsArray.push(quest);
