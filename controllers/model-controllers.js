@@ -344,17 +344,24 @@ var modelController = {
             missiontasks.forEach(function(missiontask){
             	missiontaskArray.push(missiontask);
             });
+        models.Milestonetask.findAll().then(function(milestonetasks){
+        var milestonetaskAll = [];
+            milestonetasks.forEach(function(milestonetask){
+            	milestonetaskAll.push(milestonetask);
+            });
 
          var data = {
                 missions: missionsArray,
                 quests: questsArray,
                 missiontasks: missiontaskArray,
-                milestones: milestonesArray
+                milestones: milestonesArray,
+                milestonetasks: milestonetaskAll
             }
             cb(data);
         }).catch(function(err){
             throw err;
       	});
+       });
      });
 	});
    });
