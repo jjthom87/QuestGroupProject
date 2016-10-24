@@ -6,12 +6,11 @@ export default class MilestoneAndTaskItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-        	color: '#37C7FA'
         };
     }
 	render(){
 
-		const { id, title, dateQuest, deleteQuest, completeQuest, deleteMilestone, milestones, taskCompleted, milestonetasks, deleteMilestoneTask, toggleMilestoneTask } = this.props;
+		const { taskCompleted, milestonetasks, deleteMilestoneTask, toggleMilestoneTask } = this.props;
 
 		const renderMilestonetasks = milestonetasks.map((milestonetask, index) => {
 			var milestoneTaskClassName = milestonetask.taskCompleted ? 'task-completed' : 'task-notCompleted';

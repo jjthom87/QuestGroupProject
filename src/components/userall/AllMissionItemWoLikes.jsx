@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CommentForm from 'CommentForm';
-
+var ReactBootstrap = require('react-bootstrap');
+var Panel = ReactBootstrap.Panel;
 var moment = require('moment');
 
 export default class AllMissionItemWoLikes extends React.Component { 
@@ -54,25 +55,27 @@ export default class AllMissionItemWoLikes extends React.Component {
 	render(){
 
 		const { comments } = this.state;
-		const { id, title, description, missiontasks, completedOn, isCompleted } = this.props;
+		const { id, title, description, missiontasks, completedOn, isCompleted, createdOn, likes, allUsers } = this.props;
 
 		const filteredComments = comments.filter((comment) => comment.MissionId === id);
 
 		var singleTask = () => {
 			return missiontasks.map((task, index) => {
+				var taskClassName = task.isCompleted ? 'task-completed' : 'task-notCompleted';
 				return (
 					<div>
 						<li>
-							<p key={index} id="taskText">{task.task}</p>
+							<p className={taskClassName} key={index} id="taskText">{task.task}</p>
 						</li>
 					</div>
 				)
 			})
 		}
 		const renderComments = filteredComments.map((comment, index) => {
+			const filteredUser = allUsers.filter((user) => user.id === comment.UserId);
 			return (
-				<div>
-					<p key={index}>{comment.usersName}: {comment.comment}</p>
+				<div className="alltaskitem">
+					<p key={index}><img src={filteredUser[0].profileImage} style={{width: 30, height: 30}}/><strong> {comment.usersName}:</strong> {comment.comment}</p>
 					<p>Commented on {comment.createdOn}</p>
 				</div>
 			)
@@ -80,17 +83,23 @@ export default class AllMissionItemWoLikes extends React.Component {
 		return (
 			<div className="panel panel-default" id={"panel" + id}>
 				<div className="panel-heading">
-				<span> <a data-toggle="collapse" data-target={"#mcollapse" + id} 
+					<span> <a data-toggle="collapse" data-target={"#mcollapse" + id} 
            			href={"#mcollapse" + id}><strong>Mission: </strong> {title}</a></span>
 				</div>
 				<div id={"mcollapse" + id}className="panel-collapse collapse">
-				<div className="panel-body">
-				<p>Description: {description}</p>
-				{singleTask()}
-				<p>Completed On: {completedOn}</p>
-				<CommentForm onComment={this.handleComment.bind(this)}/>
-				{renderComments}
-				</div>
+					<div className="panel-body">
+						<p>Description: {description}</p>
+						<p>Created On: {createdOn}</p>
+						{singleTask()}
+						<p>Completed On: {completedOn}</p>
+						<div className="row">
+							<div className="text-center">
+								<CommentForm onComment={this.handleComment.bind(this)}/>
+								<p>Likes: {likes}</p>
+							</div>
+						</div>
+						{renderComments}
+					</div>
 				</div>
 			</div>
 		)

@@ -4,7 +4,7 @@ import AllQuestItemWoLikes from 'AllQuestItemWoLikes';
 
 export default class AllQuestListWoLikes extends React.Component {
     render() {
-        const { quests, milestones, milestonetasks } = this.props;
+        const { quests, milestones, milestonetasks, allUsers } = this.props;
         
         var renderQuests = () => {
             return quests.map((quest, index) => {
@@ -14,10 +14,13 @@ export default class AllQuestListWoLikes extends React.Component {
                     <AllQuestItemWoLikes
                     	quests={quests}
                         title={quest.title}
+                        likes = {quest.likes}
+                        createdOn={quest.createdOn}
                         description={quest.description}
                         completedOn={quest.completedOn}
                         milestones={filteredMilestone}
                         milestonetasks={filteredMilestonetasks}
+                        allUsers={allUsers}
                         id={quest.id}
                         key={index}
                     />

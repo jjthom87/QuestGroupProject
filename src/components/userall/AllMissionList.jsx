@@ -15,6 +15,7 @@ export default class AllMissionList extends React.Component {
                         title={mission.title}
                         likes={mission.likes}
                         description={mission.description}
+                        createdOn={mission.createdOn}
                         completedOn={mission.completedOn}
                         missiontasks={filteredMissiontask}
                         id={mission.id}
