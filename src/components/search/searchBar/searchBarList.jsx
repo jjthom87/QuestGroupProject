@@ -3,7 +3,16 @@ import SearchBarItem from 'SearchBarItem';
 
 export default class SearchBarList extends React.Component {
     render() {
-        const { filteredMissions, missionName, title, description , isCompleted, likes } = this.props;
+        
+        const { 
+            filteredQuests, 
+            filteredMissions, 
+            missionName, 
+            title, 
+            description, 
+            isCompleted, 
+            likes 
+        } = this.props;
         
         var renderMissions = () => {
             return filteredMissions.map((mission, index) => {
