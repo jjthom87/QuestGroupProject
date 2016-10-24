@@ -29,6 +29,7 @@ module.exports = {
             'src/components/tasks',
             'src/components/milestones',
             'src/components/search',
+            'src/components/search/searchBar',
             'src/components/search/questSearch',
             'src/components/search/missionSearch',            
             'src/components/completed',

@@ -80,10 +80,10 @@ export default class AllMissionItemWoLikes extends React.Component {
 		return (
 			<div className="panel panel-default" id={"panel" + id}>
 				<div className="panel-heading">
-				<span> <a data-toggle="collapse" data-target={"#collapse" + id} 
-           			href={"#collapse" + id}><strong>Mission: </strong> {title}</a></span>
+				<span> <a data-toggle="collapse" data-target={"#mcollapse" + id} 
+           			href={"#mcollapse" + id}><strong>Mission: </strong> {title}</a></span>
 				</div>
-				<div id={"collapse" + id}className="panel-collapse collapse">
+				<div id={"mcollapse" + id}className="panel-collapse collapse">
 				<div className="panel-body">
 				<p>Description: {description}</p>
 				{singleTask()}
