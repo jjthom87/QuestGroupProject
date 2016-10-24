@@ -82,7 +82,7 @@ export default class AllQuestItem extends React.Component {
 					<div>
 						<li>
 							<p>Milestone</p>
-							<p key={index} id="taskText">{milestone.milestone}</p>
+							<p key={index}  id="taskText">{milestone.milestone}</p>
 							<AllMilestonetaskItem
 								milestonetasks={filteredMilestonetask}
                         	/>
@@ -101,17 +101,24 @@ export default class AllQuestItem extends React.Component {
 			)
 		})
 		return (
-			<div className="alllistdiv">
-				<p><strong> {title}</strong></p>
+			<div className="panel panel-default" id={"panel" + id}>
+			 <div className="panel-heading">
+				<span> <a data-toggle="collapse" data-target={"#collapse" + id} 
+           			href={"#collapse" + id}><strong>Mission: </strong> {title}</a></span>
+				</div>
+				<div id={"collapse" + id}className="panel-collapse collapse in">
+					<div className="panel-body">
 				<p>Description: {description}</p>
 				{singleMilestone()}
 				<p>Completed On: {completedOn}</p>
 				<div className="row">
 					<div className="text-center">
-						<CommentForm onComment={this.handleComment.bind(this)}/><button onClick={this.handleLike.bind(this)}><span className="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>{likes}</button>
+						<CommentForm onComment={this.handleComment.bind(this)}/><button onClick={this.handleLike.bind(this)} id="likes"><span className="hvr-icon-bounce" aria-hidden="true" id="x"></span>{likes}</button>
 					</div>
 				</div>
 				{renderComments}
+				</div>
+				</div>
 			</div>
 		)
 	}

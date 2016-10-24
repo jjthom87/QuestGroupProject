@@ -93,9 +93,9 @@ export default class UserForAllPage extends React.Component {
 
     	return (
       		<div>
-      			<div className='container'>
+      			<div >
               		<MainNav/>
-                	<div className="container" id="separator">
+                	<div id="separator">
       					<h1 className="text-center" id="pageTitle">All of {loginUser}'s Quest's and Missions</h1>
       					<img className="text-center center-block" src={this.state.profileImage} style={{width: 250, height: 250}}/>
       						
