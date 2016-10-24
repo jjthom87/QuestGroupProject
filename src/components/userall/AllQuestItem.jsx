@@ -74,11 +74,6 @@ export default class AllQuestItem extends React.Component {
 		const { id, title, description, milestones, milestonetasks, completedOn, isCompleted, allUsers } = this.props;
 
 		const filteredComments = comments.filter((comment) => comment.QuestId === id);
-		const filteredUser = allUsers.filter((user) => {
-						comments.filter((comment) =>{
-							user.id === comment.UserId
-						});
-					});
 
 		var singleMilestone = () => {
 			return milestones.map((milestone, index) => {
@@ -97,9 +92,10 @@ export default class AllQuestItem extends React.Component {
 			})
 		}
 		const renderComments = filteredComments.map((comment, index) => {
+			const filteredUser = allUsers.filter((user) => user.id === comment.UserId);
 			return (
 				<div>
-					<img src={filteredUser.profileImage} style={{width: 50, height: 50}}/><p key={index}>{comment.usersName}: {comment.comment}</p>
+					<p key={index}><img src={filteredUser[0].profileImage} style={{width: 30, height: 30}}/> {comment.usersName}: {comment.comment}</p>
 					<p>Commented on {comment.createdOn}</p>
 				</div>
 			)

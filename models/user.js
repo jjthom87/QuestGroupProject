@@ -17,7 +17,7 @@ module.exports = function (sequelize, DataTypes) {
 			unique: true
 		},
 		profileImage: {
-			type: DataTypes.TEXT
+			type: DataTypes.TEXT('long')
 		},
 		salt: {
 			type: DataTypes.STRING

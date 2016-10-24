@@ -141,7 +141,7 @@ export default class MissionMain extends React.Component {
     }
     handleCreateMissionTask(taskInput) {
         const { missiontasks, dropdownMission} = this.state;
-        console.log(taskInput);
+
         const newTask = {
             task: taskInput.task,
             dateTask: taskInput.dateTask,
@@ -217,11 +217,14 @@ export default class MissionMain extends React.Component {
                             </div>
                         
                             <div className="col-md-4 col-md-offset-1" id="missionlistdiv">
-                                <MissionListforMM missions = {filteredMission} missiontasks = {filteredTasks} toggleMissionTask={this.toggleMissionTask.bind(this)}
-                                deleteMission={this.deleteMission.bind(this)}
-                                deleteMissionTask={this.deleteMissionTask.bind(this)}
-                                completeMission={this.completeMission.bind(this)}
-                            />
+                                <MissionListforMM 
+                                    missions={filteredMission} 
+                                    missiontasks={filteredTasks} 
+                                    toggleMissionTask={this.toggleMissionTask.bind(this)}
+                                    deleteMission={this.deleteMission.bind(this)}
+                                    deleteMissionTask={this.deleteMissionTask.bind(this)}
+                                    completeMission={this.completeMission.bind(this)}
+                                />
                             </div>
                         </div>
                     </div>
