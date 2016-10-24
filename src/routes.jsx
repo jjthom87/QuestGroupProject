@@ -34,6 +34,7 @@ export default (
         <Route path="/login" component={LoginPage} />
         <Route path="/home" component={UserHomePage} />
         <Route path="/searchall" component={SearchAllPage} />
+        <Route path="/searchname" component={SearchOnePage} />
         <Route path="/completed" component={Completed} />
         <Route path="/userall" component={UserAllPage} />
         <Route path="/userforall/:id" component={UserForAllPage} />
