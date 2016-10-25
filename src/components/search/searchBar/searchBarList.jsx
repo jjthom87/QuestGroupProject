@@ -38,7 +38,7 @@ export default class SearchBarList extends React.Component {
         var noMissions = () => {
             if (filteredMissions.length === 0){
                 return (
-                    <p className="noMissionsText">Sorry, no Mission results could be found</p>
+                    <p className="noResultsFound">Sorry, no Mission results could be found</p>
                 );
             }
         }
@@ -49,7 +49,7 @@ export default class SearchBarList extends React.Component {
                 var filteredMilestoneTasks = milestoneTasks.filter((milestonetask) => milestonetask.QuestId === quest.id);
                 var filteredUsers = users.filter((user) => user.id === quest.UserId);
                 return (
-                    <div>
+                    <div className="qmboxCompleted">
                         <SearchBarQuestItem
                             questTitle={quest.title}
                             questDescription={quest.description}
@@ -69,14 +69,14 @@ export default class SearchBarList extends React.Component {
         var noQuests = () => {
             if (filteredQuests.length === 0){
                 return (
-                    <p className="noMissionsText">Sorry, no Quest results could be found</p>
+                    <p className="noResultsFound">Sorry, no Quest results could be found</p>
                 );
             }
         }
 
         return (
             <div>
-                <div class="row">
+                <div className="row">
                     <div className="col-md-5" id="searchPanelHeaders">
                         <p className="searchPanelHeaders">Missions</p>
                         {noMissions()}

@@ -41,7 +41,7 @@ export default class SearchBarMissionItem extends React.Component {
 
         return (
             <div>
-                 <div className="text-center center-block panel panel-success qmboxCompleted">
+                 <div className="forAllHeader text-center">
                     <div className="searchPrefix"><strong>Mission Title: </strong><p className="missionSearchText">{missionTitle}</p></div>
                     <div className="searchPrefix"><strong>Description: </strong><p className="missionSearchText">{missionDescription}</p></div>
                     <div className="searchPrefix"><strong>Username: </strong><div className="missionSearchText">{singleUser()}</div></div>
