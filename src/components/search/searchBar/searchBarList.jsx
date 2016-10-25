@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import SearchBarItem from 'SearchBarItem';
+import SearchBarMissionItem from 'SearchBarMissionItem';
+import SearchBarQuestItem from 'SearchBarQuestItem';
 
 export default class SearchBarList extends React.Component {
     render() {
@@ -7,7 +8,6 @@ export default class SearchBarList extends React.Component {
         const { 
             filteredQuests, 
             filteredMissions, 
-            missionName, 
             title, 
             description, 
             isCompleted, 
@@ -18,7 +18,7 @@ export default class SearchBarList extends React.Component {
             return filteredMissions.map((mission, index) => {
                 return (
                     <div className="qmboxCompleted">
-                        <SearchBarItem
+                        <SearchBarMissionItem
                             missionTitle={mission.title}
                             missionDescription={mission.description}
                             missionCompleted={mission.isCompleted}
@@ -41,7 +41,7 @@ export default class SearchBarList extends React.Component {
             return filteredQuests.map((quest, index) => {
                 return (
                     <div className="qmboxCompleted">
-                        <SearchBarItem
+                        <SearchBarQuestItem
                             questTitle={quest.title}
                             questDescription={quest.description}
                             questCompleted={quest.isCompleted}
@@ -53,7 +53,7 @@ export default class SearchBarList extends React.Component {
             });
         }
         var noQuests = () => {
-            if (filteredMissions.length === 0){
+            if (filteredQuests.length === 0){
                 return (
                     <p className="noMissionsText">Sorry, no Quest results could be found</p>
                 );
