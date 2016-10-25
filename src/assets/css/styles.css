@@ -515,3 +515,7 @@ select {
 .noResultsFound {
     font-color: white;
 }
+
+.feedDiv {
+    margin-bottom:30px;
+}
