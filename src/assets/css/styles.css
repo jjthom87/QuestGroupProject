@@ -492,6 +492,11 @@ select {
     color: black;
 }
 
+<<<<<<< HEAD
+#feedPageTitle {
+    font-size: 32px;
+    color: yellow;
+=======
 #searchAllPage {
     
 }
@@ -509,4 +514,5 @@ select {
 
 .searchBarForm {
     margin-top: 50px;
+>>>>>>> 1e901d2693134c3d082dc788c6bbf7fb21595792
 }
