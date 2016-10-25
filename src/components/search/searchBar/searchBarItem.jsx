@@ -9,11 +9,11 @@ export default class SearchBarItem extends React.Component {
         };
     }
 
-    renderTaskSection() {
-        const { title, description , isCompleted, createdOn, likes } = this.props;
+    renderMissionItem() {
+        const { missionTitle, missionDescription , missionCompleted, missionCreatedOn, missionLikes } = this.props;
 
-        var missionCompleted = () => {
-            if(isCompleted === true) {
+        var missionAccomp = () => {
+            if(missionCompleted === true) {
                 var missionAccomplished = "Mission Accomplished";
                 return missionAccomplished;
             }
@@ -26,24 +26,52 @@ export default class SearchBarItem extends React.Component {
         return (
             <div>
                  <div className="panel panel-success qmboxCompleted">
-                    <div className="searchPrefix">Mission Title: <p className="missionSearchText">{title}</p></div>
-                    <div className="searchPrefix">Description: <p className="missionSearchText">{description}</p></div>
-                    <div className="searchPrefix">Start Date: <p className="missionSearchText">{createdOn}</p></div>
-                    <div className="searchPrefix">Likes: <p className="missionSearchText">{likes}</p></div>
-                    <div className="searchPrefix">Status: <p className="missionSearchText">{this.missionCompleted}</p></div>
+                    <div className="searchPrefix">Mission Title: <p className="missionSearchText">{missionTitle}</p></div>
+                    <div className="searchPrefix">Description: <p className="missionSearchText">{missionDescription}</p></div>
+                    <div className="searchPrefix">Start Date: <p className="missionSearchText">{missionCreatedOn}</p></div>
+                    <div className="searchPrefix">Likes: <p className="missionSearchText">{missionLikes}</p></div>
                 </div>
             </div>
         );  
     }
 
+    renderQuestItem() {
+        const { questTitle, questDescription , questCompleted, questCreatedOn, questLikes } = this.props;
+
+        var questAchiev = () => {
+            if(missionCompleted === true) {
+                var questAchieved = "Quest Accomplished";
+                return questAchieved;
+            }
+            else {
+                var questActive = "Active Quest";
+                return questActive;
+            }
+        }
+
+        return (
+            <div>
+                 <div className="panel panel-success qmboxCompleted">
+                    <div className="searchPrefix">Quest Title: <p className="missionSearchText">{questTitle}</p></div>
+                    <div className="searchPrefix">Description: <p className="missionSearchText">{questDescription}</p></div>
+                    <div className="searchPrefix">Start Date: <p className="missionSearchText">{questCreatedOn}</p></div>
+                    <div className="searchPrefix">Likes: <p className="missionSearchText">{questLikes}</p></div>
+                </div>
+            </div>
+        );  
+    }
+
+    
     render() {
         return (
             <div>
-               {this.renderTaskSection()}
+               {this.renderMissionItem()}
+               {this.renderQuestItem()}
             </div>
         );
     }
 }
+
 // Mission Model (for reference)
     // title: {
     //   type: DataTypes.STRING,

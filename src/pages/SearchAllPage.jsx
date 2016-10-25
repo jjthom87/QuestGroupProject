@@ -62,8 +62,13 @@ export default class SearchAllPage extends React.Component {
     render() {
         const { searchFetch, missions, quests, milestones, milestonetasks, missiontasks } = this.state;
 
-        const filteredSearch = missions.filter((mission) => {
+        const filteredMissions = missions.filter((mission) => {
             var text = mission.title.toLowerCase();
+            return searchFetch.length === 0 || text.indexOf(searchFetch) > -1
+        });
+
+        const filteredQuests = quests.filter((quest) => {
+            var text = quest.title.toLowerCase();
             return searchFetch.length === 0 || text.indexOf(searchFetch) > -1
         });
 
@@ -82,7 +87,8 @@ export default class SearchAllPage extends React.Component {
                     <div className="row">
                         <div className="text-center center-block">
                             <SearchBarList
-                                filteredMissions={filteredSearch}
+                                filteredMissions={filteredMissions}
+                                filteredQuests={filteredQuests}
                             />
                         </div>
                     </div>

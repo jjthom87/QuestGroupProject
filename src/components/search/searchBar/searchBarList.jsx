@@ -3,18 +3,27 @@ import SearchBarItem from 'SearchBarItem';
 
 export default class SearchBarList extends React.Component {
     render() {
-        const { filteredMissions, missionName, title, description , isCompleted, likes } = this.props;
         
-        var renderMissions = () => {
+        const { 
+            filteredQuests, 
+            filteredMissions, 
+            missionName, 
+            title, 
+            description, 
+            isCompleted, 
+            likes 
+        } = this.props;
+        
+        var renderMissionList = () => {
             return filteredMissions.map((mission, index) => {
                 return (
                     <div className="qmboxCompleted">
                         <SearchBarItem
-                            title={mission.title}
-                            description={mission.description}
-                            isCompleted={mission.isCompleted}
-                            likes={mission.likes}
-                            createdOn={mission.createdOn}
+                            missionTitle={mission.title}
+                            missionDescription={mission.description}
+                            missionCompleted={mission.isCompleted}
+                            missionLikes={mission.likes}
+                            missionCreatedOn={mission.createdOn}
                         />
                     </div>
                 );
@@ -23,15 +32,41 @@ export default class SearchBarList extends React.Component {
         var noMissions = () => {
             if (filteredMissions.length === 0){
                 return (
-                    <p className="noMissionsText">Sorry, no mission results could be found</p>
+                    <p className="noMissionsText">Sorry, no Mission results could be found</p>
+                );
+            }
+        }
+
+        var renderQuestList = () => {
+            return filteredQuests.map((quest, index) => {
+                return (
+                    <div className="qmboxCompleted">
+                        <SearchBarItem
+                            questTitle={quest.title}
+                            questDescription={quest.description}
+                            questCompleted={quest.isCompleted}
+                            questLikes={quest.likes}
+                            questCreatedOn={quest.createdOn}
+                        />
+                    </div>
+                );
+            });
+        }
+        var noQuests = () => {
+            if (filteredMissions.length === 0){
+                return (
+                    <p className="noMissionsText">Sorry, no Quest results could be found</p>
                 );
             }
         }
         return (
             <div>
-                <p className="missionsTitle">Missions</p>
+                {noQuests()}
                 {noMissions()}
-                {renderMissions()}
+                <p className="missionsTitle">Missions</p>
+                {renderMissionList()}
+                <p className="missionsTitle">Quests</p>
+                {renderQuestList()}
             </div>
         );
     } 
