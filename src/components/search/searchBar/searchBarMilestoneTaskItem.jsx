@@ -17,7 +17,7 @@ export default class SearchBarMilestoneTaskItem extends React.Component {
 		return (
 			<div>
 				<p className="mstext"><strong>{milestones} Tasks: </strong></p>
-				<ul>{singleMilestoneTask}</ul>
+				<li>{singleMilestoneTask}</li>
 			</div>
 		)
 	}
