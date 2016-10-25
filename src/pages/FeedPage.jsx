@@ -35,7 +35,6 @@ export default class FeedPage extends React.Component {
             credentials: 'include'
 		}).then((response) => response.json())
 		.then((results) => {
-			console.log(results);
 			this.setState({
 				loginUser: results.currentUser.name,
 				users: results.lastFiveUsers,
