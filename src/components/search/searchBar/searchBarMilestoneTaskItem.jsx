@@ -9,15 +9,15 @@ export default class SearchBarMilestoneTaskItem extends React.Component {
 		const singleMilestoneTask =
  			milestoneTasks.map((milestonetask, index) => {
 				return (
-					<div className="alltaskitem">
-							<p id="taskText" key={index}>{milestonetask.task}</p>
+					<div>
+						<p className="mstext"><strong>{milestones} Tasks: </strong></p>
+						<p id="taskText" key={index}>{milestonetask.task}</p>
 					</div>
 				);
 		});
 		return (
 			<div>
-				<p className="mstext"><strong>{milestones} Tasks: </strong></p>
-				<li>{singleMilestoneTask}</li>
+				{singleMilestoneTask}
 			</div>
 		)
 	}
