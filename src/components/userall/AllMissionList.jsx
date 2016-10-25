@@ -4,7 +4,7 @@ import AllMissionItem from 'AllMissionItem';
 
 export default class AllMissionList extends React.Component {
     render() {
-        const { missions, missiontasks, allUsers } = this.props;
+        const { missions, missiontasks, allUsers, loginUser } = this.props;
         
         var renderMissions = () => {
             return missions.map((mission, index) => {
@@ -20,6 +20,7 @@ export default class AllMissionList extends React.Component {
                         missiontasks={filteredMissiontask}
                         id={mission.id}
                         allUsers={allUsers}
+                        loginUser={loginUser}
                         key={index}
                     />
                 );

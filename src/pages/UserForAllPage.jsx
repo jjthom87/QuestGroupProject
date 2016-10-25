@@ -110,6 +110,7 @@ export default class UserForAllPage extends React.Component {
 										allUsers={allUsers}
 					                    missions={filteredIncMiss}
 					                    missiontasks={missiontasks}
+					                    loginUser={loginUser}
 					                />
 								</div>
 								<div className="col-md-3">
@@ -118,6 +119,7 @@ export default class UserForAllPage extends React.Component {
 						            	allUsers={allUsers}
 					                    missions={filteredComMiss}
 					                    missiontasks={missiontasks}
+					                    loginUser={loginUser}
 					                />
 					            </div>
 					            <div className="col-md-3">
@@ -127,6 +129,7 @@ export default class UserForAllPage extends React.Component {
 					                    quests={filteredIncQuest}
 					                    milestones={milestones}
 					                    milestonetasks={milestonetasks}
+					                    loginUser={loginUser}
 					                />
 					            </div>
 				            	<div className="col-md-3">
@@ -136,6 +139,7 @@ export default class UserForAllPage extends React.Component {
 					                    quests={filteredComQuest}
 					                    milestones={milestones}
 					                    milestonetasks={milestonetasks}
+					                    loginUser={loginUser}
 					                />
 				            	</div>
 				        	</div>

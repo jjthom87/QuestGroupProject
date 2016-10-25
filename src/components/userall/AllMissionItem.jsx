@@ -9,16 +9,20 @@ export default class AllMissionItem extends React.Component {
         this.state = {
         	id: this.props.id,
         	comments: [],
-        	likes: this.props.likes
+        	likes: this.props.likes,
+        	commentee: this.props.loginUser,
+        	missionName: this.props.title,
         };
     }
 	handleComment(comment) {
-		const { id, comments } = this.state;
+		const { id, comments, commentee, missionName, commenterImage } = this.state;
 
 		const newComment = {
 			comment,
 			createdOn: moment().format('MMM Do YYYY'),
-			MissionId: id
+			MissionId: id,
+			missionName,
+			commentee
 		}
 		fetch('/api/users/comment', {
 			method: 'post',
@@ -70,7 +74,7 @@ export default class AllMissionItem extends React.Component {
 	render(){
 
 		const { comments, likes } = this.state;
-		const { id, title, description, missiontasks, completedOn, createdOn, isCompleted, allUsers, missions } = this.props;
+		const { id, title, description, missiontasks, completedOn, createdOn, isCompleted, allUsers, loginUser, missions } = this.props;
 
 		const filteredComments = comments.filter((comment) => comment.MissionId === id);
 

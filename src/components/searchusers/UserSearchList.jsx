@@ -3,7 +3,7 @@ import UserSearchItem from 'UserSearchItem';
 
 export default class UserSearchList extends React.Component {
     render() {
-        const { users, id, createdOn, username, name } = this.props;
+        const { users } = this.props;
 
         var renderUsers = () => {
             return users.map((user, index) => {

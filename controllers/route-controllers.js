@@ -366,6 +366,9 @@ router.post('/api/users/comment', middleware.requireAuthentication, function(req
       req.body.MissionId,
       req.body.QuestId,
       req.user.name,
+      req.body.commentee,
+      req.body.missionName,
+      req.body.questName,
     function(success){
       res.json(success);
     });

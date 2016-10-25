@@ -37,6 +37,7 @@ module.exports = {
             'src/components/userall',
             'src/components/searchusers',
             'src/components/comments',
+            'src/components/feed',
             'src/components',
             'src/pages',
             'src/auth',
