@@ -101,7 +101,7 @@ export default class AllQuestItemWoLikesW extends React.Component {
 			)
 		})
 		return (
-			<div className="panelback" id={"panel" + id}>
+			<div className="panelback userprofilediv" id={"panel" + id}>
 				<div className="panel-heading topPanel">
 					<span> <a data-toggle="collapse" data-target={"#qcollapse" + id} 
            			href={"#qcollapse" + id}><strong>Quest: </strong> {title}</a></span>
