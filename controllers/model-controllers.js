@@ -321,7 +321,7 @@ var modelController = {
 	    models.Milestone.findAll({ where: {UserId: id}}).then(function(success){
 	    	milestones=success
 		models.Milestonetask.findAll({ where: {UserId: id}}).then(function(success){
-				milestonetasks = success
+			milestonetasks = success
 	    	var data = {
 	    		quests: quests,
 	    		milestones: milestones,
