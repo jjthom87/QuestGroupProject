@@ -94,12 +94,27 @@ export default class AllMissionItem extends React.Component {
 				</div>
 			)
 		})
+
+		const renderCompletedOn = () => {
+			if (typeof completedOn === 'string'){
+				return (
+					<div>
+						<p>Completed On: {completedOn}</p>
+					</div>
+				)
+			} else {
+				return (
+					<div>
+					</div>
+				)
+			}
+		}
 		return (
 			<div className="alllistdiv">
 				<p id="titleall"><strong>{title}</strong></p>
 				<p><strong>Description:</strong> {description}</p>
+				{renderCompletedOn()}
 				{singleTask()}
-				<p>Completed On: {completedOn}</p>
 				<div className="row">
 					<div className="text-center">
 						<CommentForm onComment={this.handleComment.bind(this)}/><button onClick={this.handleLike.bind(this)} id="likes"><span className="hvr-icon-bounce" aria-hidden="true" id="x"></span>{likes}</button>

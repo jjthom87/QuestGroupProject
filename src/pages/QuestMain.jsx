@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 var {Link, IndexLink} = require('react-router');
+import { Router , browserHistory } from 'react-router';
 import QuestsList from 'QuestsList';
 import CreateQuest from 'CreateQuest';
 import CreateMilestone from 'CreateMilestone';
@@ -240,6 +241,7 @@ export default class QuestMain extends React.Component {
                 this.setState({
                     milestonetasks: milestonetasks.concat(results)
                 });
+                browserHistory.push('/questshome')
             });
     }
     componentWillMount(){

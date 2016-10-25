@@ -100,11 +100,25 @@ export default class AllQuestItem extends React.Component {
 				</div>
 			)
 		})
+		const renderCompletedOn = () => {
+			if (typeof completedOn === 'string'){
+				return (
+					<div>
+						<p>Completed On: {completedOn}</p>
+					</div>
+				)
+			} else {
+				return (
+					<div>
+					</div>
+				)
+			}
+		}
 		return (
 			<div className="alllistdiv">
 				<p id="titleall"><strong>{title}</strong></p>
 				<p><strong>Description:</strong> {description}</p>
-				{singleMilestone()}
+				{renderCompletedOn()}
 				<p>Completed On: {completedOn}</p>
 				<div className="row">
 					<div className="text-center">
