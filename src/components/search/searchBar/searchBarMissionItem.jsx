@@ -41,7 +41,7 @@ export default class SearchBarItem extends React.Component {
                     <div className="searchPrefix"><strong>Start Date: </strong><p className="missionSearchText">{missionCreatedOn}</p></div>
                     <div className="searchPrefix"><strong>Likes: </strong><p className="missionSearchText">{missionLikes}</p></div>
                     <div className="searchPrefix"><strong>Status: </strong><p className="missionSearchText">{missionStatus()}</p></div>
-                    <div className="searchPrefix"><strong>Tasks: </strong><li className="missionSearchText">{singleTask()}</li></div>
+                    <div className="searchPrefix"><strong>Tasks: </strong><p className="missionSearchText">{singleTask()}</p></div>
                 </div>
             </div>
         );  
