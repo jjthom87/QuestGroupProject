@@ -30,7 +30,32 @@ export default class SearchBarItem extends React.Component {
                     <div className="searchPrefix">Description: <p className="missionSearchText">{missionDescription}</p></div>
                     <div className="searchPrefix">Start Date: <p className="missionSearchText">{missionCreatedOn}</p></div>
                     <div className="searchPrefix">Likes: <p className="missionSearchText">{missionLikes}</p></div>
-                    <div className="searchPrefix">Status: <p className="missionSearchText">{this.missionAccomp}</p></div>
+                </div>
+            </div>
+        );  
+    }
+
+    renderQuestItem() {
+        const { questTitle, questDescription , questCompleted, questCreatedOn, questLikes } = this.props;
+
+        var questAchiev = () => {
+            if(missionCompleted === true) {
+                var questAchieved = "Quest Accomplished";
+                return questAchieved;
+            }
+            else {
+                var questActive = "Active Quest";
+                return questActive;
+            }
+        }
+
+        return (
+            <div>
+                 <div className="panel panel-success qmboxCompleted">
+                    <div className="searchPrefix">Quest Title: <p className="missionSearchText">{questTitle}</p></div>
+                    <div className="searchPrefix">Description: <p className="missionSearchText">{questDescription}</p></div>
+                    <div className="searchPrefix">Start Date: <p className="missionSearchText">{questCreatedOn}</p></div>
+                    <div className="searchPrefix">Likes: <p className="missionSearchText">{questLikes}</p></div>
                 </div>
             </div>
         );  
@@ -41,10 +66,12 @@ export default class SearchBarItem extends React.Component {
         return (
             <div>
                {this.renderMissionItem()}
+               {this.renderQuestItem()}
             </div>
         );
     }
 }
+
 // Mission Model (for reference)
     // title: {
     //   type: DataTypes.STRING,

@@ -42,11 +42,11 @@ export default class SearchBarList extends React.Component {
                 return (
                     <div className="qmboxCompleted">
                         <SearchBarItem
-                            title={quest.title}
-                            description={quest.description}
-                            isCompleted={quest.isCompleted}
-                            likes={quest.likes}
-                            createdOn={quest.createdOn}
+                            questTitle={quest.title}
+                            questDescription={quest.description}
+                            questCompleted={quest.isCompleted}
+                            questLikes={quest.likes}
+                            questCreatedOn={quest.createdOn}
                         />
                     </div>
                 );
@@ -61,11 +61,11 @@ export default class SearchBarList extends React.Component {
         }
         return (
             <div>
-                <p className="missionsTitle">Missions</p>
+                {noQuests()}
                 {noMissions()}
+                <p className="missionsTitle">Missions</p>
                 {renderMissionList()}
                 <p className="missionsTitle">Quests</p>
-                {noQuests()}
                 {renderQuestList()}
             </div>
         );
