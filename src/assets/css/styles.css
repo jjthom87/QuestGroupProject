@@ -510,3 +510,7 @@ select {
 .searchBarForm {
     margin-top: 50px;
 }
+
+.noResultsFound {
+    font-color: white;
+}

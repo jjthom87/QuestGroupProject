@@ -66,7 +66,8 @@ export default class SearchAllPage extends React.Component {
 
         const filteredMissions = missions.filter((mission) => {
             var text = mission.title.toLowerCase();
-            return searchFetch.length === 0 || text.indexOf(searchFetch) > -1
+            var privacy = mission.public;
+            return searchFetch.length === 0 || text.indexOf(searchFetch) > -1 || privacy === "Yes"
         });
 
         const filteredQuests = quests.filter((quest) => {
@@ -81,9 +82,7 @@ export default class SearchAllPage extends React.Component {
                     <div className='container' id="searchAllPage"> 
                         <div className="row">
                             <SearchBarForm className="searchBarForm" onSearch={this.handleSearch.bind(this)}/> 
-                        </div>
 
-                        <div className="row">
                             <div className="text-center center-block">
                                 <SearchBarList
                                     filteredMissions={filteredMissions}
