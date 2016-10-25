@@ -4,10 +4,10 @@ var {Link, IndexLink} = require('react-router');
 export default class SearchBarMilestoneTaskItem extends React.Component {
 	
 	render(){
-		const { milestoneTasks } = this.props;
+		const { milestones, milestoneTasks } = this.props;
 
-		var singleMilestoneTask = () => {
- 			return milestoneTasks.map((milestonetask, index) => {
+		const singleMilestoneTask =
+ 			milestoneTasks.map((milestonetask, index) => {
 				return (
 					<div className="alltaskitem">
 							<p id="taskText" key={index}>{milestonetask.task}</p>
@@ -16,12 +16,9 @@ export default class SearchBarMilestoneTaskItem extends React.Component {
 		});
 		return (
 			<div>
-				<p className="mstext">Tasks</p>
-				<ul>{singleMilestoneTask()}</ul>
+				<p className="mstext"><strong>{milestones} Tasks: </strong></p>
+				<ul>{singleMilestoneTask}</ul>
 			</div>
 		)
 	}
-}
-
-
 }

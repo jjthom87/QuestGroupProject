@@ -26,11 +26,14 @@ export default class SearchBarQuestItem extends React.Component {
 
         var singleMilestone = () => {
             return milestones.map((milestone, index) => {
-                var filteredMilestoneTask = milestoneTasks.filter((milestonetask) => milestonetask.MilestoneUuid === milestone.uuid);
+                var filteredMilestoneTasks = milestoneTasks.filter((milestonetask) => milestonetask.MilestoneUuid === milestone.uuid);
                 return (
                     <div >
                             <p key={index}  id="taskText">{milestone.milestone}</p>
-
+                            <SearchBarMilestoneTaskItem
+                                milestoneTasks={filteredMilestoneTasks}
+                                milestones={milestone.milestone}
+                            />
                     </div>
                 )
             })
