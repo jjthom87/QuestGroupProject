@@ -27,7 +27,7 @@ export default class MainNav extends React.Component {
 					<div className="container">
 						<div className="navbar-header" id="mainNav">
 	                        <Link to="/home" className="navbar-brand hvr-bob"><img src="images/draft2.2.png" alt="#" className="img-responsive animated lightSpeedIn"/></Link>
-	                            <h1 id="siteName" className="navbar animated 1 bounce">Bubo</h1>
+	                            <Link to="/home" className="navbar-brand"><h1 id="siteName" className="navbar animated 1 bounce">Bubo</h1></Link>
 							<button type="button" className="navbar-toggle collapsed mainnavbutton" data-toggle="collapse" data-target="#bubo-main-nav">
 								<span className="sr-only">Toggle navigation</span>
 								<span className="icon-bar"></span>
