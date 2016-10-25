@@ -20,7 +20,7 @@ export default class SearchBarList extends React.Component {
                         <SearchBarMissionItem
                             missionTitle={mission.title}
                             missionDescription={mission.description}
-                            missionCompleted={mission.isCompleted}
+                            missionCompleted={mission.missionCompleted}
                             missionLikes={mission.likes}
                             missionCreatedOn={mission.createdOn}
                             missionTasks={filteredMissionTasks}
