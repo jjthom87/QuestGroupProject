@@ -503,11 +503,10 @@ select {
 
 }
 
-#searchPanelheaders {
+#searchPanelHeaders {
     font-family: 'Dosis', sans-serif;
     color: white;
-    size: 72px;
-    background: brown;
+    font-size: 48px;
 }
 
 .searchBarForm {

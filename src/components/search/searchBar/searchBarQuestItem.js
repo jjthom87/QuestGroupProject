@@ -11,7 +11,7 @@ export default class SearchBarQuestItem extends React.Component {
     }
 
     renderQuestItem() {
-        const { users, milestones, milestoneTasks, questTitle, questDescription , questCompleted, questCreatedOn, questLikes } = this.props;
+        const { id, users, milestones, milestoneTasks, questTitle, questDescription , questCompleted, questCreatedOn, questLikes } = this.props;
 
         var questStatus = () => {
             if(questCompleted === true) {
@@ -51,16 +51,21 @@ export default class SearchBarQuestItem extends React.Component {
         }
 
         return (
-            <div>
-                 <div className="forAllHeader text-center">
-                    <div className="searchPrefix"><strong>Quest Title: </strong><p className="questSearchText">{questTitle}</p></div>
-                    <div className="searchPrefix"><strong>Description: </strong><p className="questSearchText">{questDescription}</p></div>
-                    <div className="searchPrefix"><strong>Username: </strong><div className="questSearchText">{singleUser()}</div></div>
-                    <div className="searchPrefix"><strong>Start Date: </strong><p className="questSearchText">{questCreatedOn}</p></div>
-                    <div className="searchPrefix"><strong>Likes: </strong><p className="questSearchText">{questLikes}</p></div>
-                    <div className="searchPrefix"><strong>Status: </strong><p className="questSearchText">{questStatus()}</p></div>
-                    <div className="searchPrefix"><strong>Milestone: </strong><div className="questSearchText">{singleMilestone()}</div></div>
+            <div className="panel panel-default" id={"panel" + id}>
+                <div className="panel-heading">
+                    <span> <a data-toggle="collapse" data-target={"#qcollapse" + id} 
+                    href={"#qcollapse" + id}><strong>Quest: </strong> {questTitle}</a></span>
                 </div>
+                <div id={"qcollapse" + id} className="panel-collapse collapse">
+                    <div className="panel-body">
+                        <div className="searchPrefix"><strong>Description: </strong><p className="questSearchText">{questDescription}</p></div>
+                        <div className="searchPrefix"><strong>Username: </strong><div className="questSearchText">{singleUser()}</div></div>
+                        <div className="searchPrefix"><strong>Start Date: </strong><p className="questSearchText">{questCreatedOn}</p></div>
+                        <div className="searchPrefix"><strong>Likes: </strong><p className="questSearchText">{questLikes}</p></div>
+                        <div className="searchPrefix"><strong>Status: </strong><p className="questSearchText">{questStatus()}</p></div>
+                        <div className="searchPrefix"><strong>Milestone: </strong><div className="questSearchText">{singleMilestone()}</div></div>
+                    </div>
+                </div>    
             </div>
         );  
     }
