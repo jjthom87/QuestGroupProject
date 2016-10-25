@@ -73,7 +73,7 @@ export default class AllQuestItemWoLikesW extends React.Component {
 				var filteredMilestonetask = milestonetasks.filter((milestonetask) => milestonetask.MilestoneUuid === milestone.uuid);
 				return (
 					<div>
-						<span>
+						<span className="questDescription">
 							<input
 					  			type="checkbox"
 					  			checked={isCompleted}
@@ -101,23 +101,23 @@ export default class AllQuestItemWoLikesW extends React.Component {
 			)
 		})
 		return (
-			<div className="panel panel-default" id={"panel" + id}>
-				<div className="panel-heading">
+			<div className="panelback" id={"panel" + id}>
+				<div className="panel-heading topPanel">
 					<span> <a data-toggle="collapse" data-target={"#qcollapse" + id} 
            			href={"#qcollapse" + id}><strong>Quest: </strong> {title}</a></span>
 		   			<Line percent={percentage} strokeWidth="4" strokeColor="#007B93"/>
 				</div>
-				<div id={"qcollapse" + id} className="panel-collapse collapse in">
+				<div id={"qcollapse" + id} className="panel-collapse collapse">
 					<div className="panel-body">
 						<strong><p>You are {percentage}% done with this quest</p></strong>
 						<div>
-							<p id="taskText" className="alltaskitem"><strong>Description: </strong>{description}</p>
+							<p id="taskText" className="mstext"><strong>Description: </strong>{description}</p>
 						</div>
 						<div>
 							<p><strong>Created on: </strong>{createdOn}</p>
 						</div>
 						<div>
-							<p id="taskText"><strong>Milestone</strong></p>
+							
 							{singleMilestone()}
 						</div>
 						<div>

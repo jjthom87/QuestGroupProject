@@ -40,7 +40,7 @@ export default class MainNav extends React.Component {
 								<li><Link to="/create">Create/Modify</Link></li>
 								<li><Link to="/searchall">Quest/Mission Search</Link></li>
 								<li><Link to="/searchusers">User Search</Link></li>
-								<li><Link to="/userall">Profile Page</Link></li>
+								<li><Link to="/userall">Profile</Link></li>
                                 <li className="landNavitem"><Logout onLogout={this.logoutHandler.bind(this)}/></li>
 							</ul>
 						</div>

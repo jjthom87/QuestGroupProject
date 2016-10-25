@@ -114,9 +114,14 @@ export default class AllMissionItem extends React.Component {
 			}
 		}
 		return (
-			<div className="alllistdiv">
-				<p id="titleall"><strong>{title}</strong></p>
-				<p><strong>Description:</strong> {description}</p>
+			<div className="panelback" id={"panel" + id}>
+				<div className="panel-heading topPanel">
+				<span> <a data-toggle="collapse" data-target={"#mcollapse" + id} 
+           			href={"#mcollapse" + id}> {title}</a></span>
+				</div>
+				<div id={"mcollapse" + id}className="panel-collapse collapse">
+				<div className="panel-body">
+				<p className="mstext"><strong>Description:</strong> {description}</p>
 				{renderCompletedOn()}
 				{singleTask()}
 				<div className="row">
@@ -125,6 +130,8 @@ export default class AllMissionItem extends React.Component {
 					</div>
 				</div>
 				{renderComments}
+				</div>
+				</div>
 			</div>
 		)
 	}
