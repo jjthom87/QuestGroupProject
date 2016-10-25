@@ -405,7 +405,7 @@ export default class UserHomePage extends React.Component {
       		<div>
               <MainNav/>
                 <div className='container' id="homepageDiv">
-      			<h1 className="text-center" id="pageTitle">Welcome Home {loginUser}</h1>
+      			<h1 className="text-center" id="pageTitle">Hello {loginUser}. Create/Modify Your Missions & Quests here</h1>
       			<div className="row">
       				<div className="col-lg-1 col-lg-offset-5" role="group">								
                     </div>
