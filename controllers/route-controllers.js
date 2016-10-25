@@ -117,7 +117,8 @@ router.get('/api/questhome', middleware.requireAuthentication, function(req,res)
 
 // Retrieving all Bubo Missions and Quests
 router.get('/api/search', middleware.requireAuthentication, function(req,res){
-    modelController.allMain(function(data){
+    modelController.allMain(
+      function(data){
       res.json(data)
     })
 });

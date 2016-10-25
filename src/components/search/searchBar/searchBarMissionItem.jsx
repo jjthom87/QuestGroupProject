@@ -26,7 +26,9 @@ export default class SearchBarMissionItem extends React.Component {
         var singleTask = () => {
             return missionTasks.map((task, index) => {
                 return (
+                   
                     <p key={index} id="taskText">{task.task}</p>
+                   
                 );
             });
         }
@@ -34,7 +36,10 @@ export default class SearchBarMissionItem extends React.Component {
         var singleUser = () => {
             return users.map((user, index) => {
                 return (
-                    <p key={index} id="userText">{user.username}</p>
+                    <div>
+                        <p key={index} id="userText">{user.username}</p>
+                        <img src={user.profileImage} style={{width: 30, height: 30}}/>
+                    </div>
                 );
             });
         }

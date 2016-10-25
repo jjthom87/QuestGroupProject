@@ -18,7 +18,6 @@ export default class SearchBarList extends React.Component {
             return filteredMissions.map((mission, index) => {
                 var filteredMissionTasks = missionTasks.filter((missiontask) => missiontask.MissionId === mission.id);
                 var filteredUsers = users.filter((user) => user.id === mission.UserId);
-                
                 return (
                     <div className="qmboxCompleted">
                         <SearchBarMissionItem

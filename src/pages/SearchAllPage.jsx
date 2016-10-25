@@ -59,7 +59,7 @@ export default class SearchAllPage extends React.Component {
                 missiontasks: results.missiontasks,
                 milestones: results.milestones,
                 milestonetasks: results.milestonetasks,
-                users: results.users
+                users: results.users,
             });
         });
     }
