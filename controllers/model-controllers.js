@@ -428,7 +428,7 @@ var modelController = {
  //   });
  //  },
 
-// Retreives all Bubo Missions and Quests that exist in database (See route '/searchall')
+// Retreives all Public Bubo Missions and Quests that exist in database (See route '/searchall')
 	allMain: function(cb){
         models.Mission.findAll().then(function(missions){
         var missionsArray = [];
@@ -455,13 +455,19 @@ var modelController = {
             milestonetasks.forEach(function(milestonetask){
             	milestonetaskAll.push(milestonetask);
             });
-
+        models.User.findAll().then(function(users){
+        var usersArray = [];
+        	users.forEach(function(user){
+        		usersArray.push(user);
+        	});
+        
          var data = {
                 missions: missionsArray,
                 quests: questsArray,
                 missiontasks: missiontaskArray,
                 milestones: milestonesArray,
-                milestonetasks: milestonetaskAll
+                milestonetasks: milestonetaskAll,
+                users: usersArray
             }
             cb(data);
         }).catch(function(err){
@@ -471,6 +477,7 @@ var modelController = {
      });
 	});
    });
+  });
   },
 
 	// Creates a new Mission record to the database (See route 'mission/create')

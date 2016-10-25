@@ -491,3 +491,17 @@ select {
 .panel-body button {
     color: black;
 }
+
+#searchAllPage {
+    min-height: 1770px;
+}
+
+#searchMilestone {
+
+}
+
+.searchPanelheaders {
+    font-family: 'Dosis', sans-serif;
+    color: white;
+    size: 72px;
+}

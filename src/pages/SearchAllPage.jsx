@@ -25,7 +25,8 @@ export default class SearchAllPage extends React.Component {
             dropdownQuest: '',
             dropdownMission: '',
             createdOn: '',
-            searchFetch: ''
+            searchFetch: '',
+            users: []
         };
     }
 
@@ -54,13 +55,14 @@ export default class SearchAllPage extends React.Component {
                 quests: results.quests,
                 missiontasks: results.missiontasks,
                 milestones: results.milestones,
-                milestonetasks: results.milestonetasks
+                milestonetasks: results.milestonetasks,
+                users: results.users
             });
         });
     }
 
     render() {
-        const { searchFetch, missions, quests, milestones, milestonetasks, missiontasks } = this.state;
+        const { users, searchFetch, missions, quests, milestones, milestonetasks, missiontasks } = this.state;
 
         const filteredMissions = missions.filter((mission) => {
             var text = mission.title.toLowerCase();
@@ -74,8 +76,8 @@ export default class SearchAllPage extends React.Component {
 
     	return (
             <div>
-              <MainNav />
-                <div className='container' id="separator"> 
+              <MainNav/>
+                <div className='container' id="searchAllPage"> 
               		<div className="row">
 
                     </div>   
@@ -92,6 +94,7 @@ export default class SearchAllPage extends React.Component {
                                 missionTasks={missiontasks}
                                 milestoneTasks={milestonetasks}
                                 milestones={milestones}
+                                users={users}
                             />
                         </div>
                     </div>
