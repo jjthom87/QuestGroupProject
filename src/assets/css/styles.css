@@ -400,16 +400,7 @@ select {
     
 
 }
-.hvr-icon-grow:before {
-    content:"\f00d";
-}
-.hvr-icon-fade:hover:before, .hvr-icon-fade:focus:before, .hvr-icon-fade:active:before {
-  color: red;
-}
-#x{
-    margin-bottom: 30px;
-    font-size: 20px;
-}
+
 
 .hvr-ripple-out:before {
     border: #5bc0de solid 6px;
@@ -484,4 +475,19 @@ select {
 .commentText {
     font-size: 20px;
     margin-bottom:0px;
+}
+.hvr-icon-grow:before {
+    content:"\f00d";
+    color:rgba(0, 0, 0, 0.3);
+}
+.hvr-icon-fade:hover:before, .hvr-icon-fade:focus:before, .hvr-icon-fade:active:before {
+  color: red;
+}
+#x{
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+.panel-body button {
+    color: black;
 }

@@ -94,13 +94,13 @@ export default class AllMissionItemWoLikesW extends React.Component {
 			)
 		})
 		return (
-			<div className="panel panel-default" id={"panel" + id}>
-				<div className="panel-heading">
+			<div className="panelback" id={"panel" + id}>
+				<div className="panel-heading topPanel">
 					<span> <a data-toggle="collapse" data-target={"#mcollapse" + id} 
            			href={"#mcollapse" + id}><strong>Mission: </strong> {title}</a></span>
 		   			<Line percent={percentage} strokeWidth="4" strokeColor="#007B93"/>
 				</div>
-				<div id={"mcollapse" + id} className="panel-collapse collapse in">
+				<div id={"mcollapse" + id} className="panel-collapse collapse">
 					<div className="panel-body">
 						<strong><p>You are {percentage}% done with this mission</p></strong>
 						<div>
