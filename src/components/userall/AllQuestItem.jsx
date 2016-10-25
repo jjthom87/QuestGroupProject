@@ -104,7 +104,22 @@ export default class AllQuestItem extends React.Component {
 				</div>
 			)
 		})
+		const renderCompletedOn = () => {
+			if (typeof completedOn === 'string'){
+				return (
+					<div>
+						<p>Completed On: {completedOn}</p>
+					</div>
+				)
+			} else {
+				return (
+					<div>
+					</div>
+				)
+			}
+		}
 		return (
+
 			<div className="panelback" id={"panel" + id}>
 				<div className="panel-heading topPanel">
 				<span> <a data-toggle="collapse" data-target={"#qcollapse" + id} 

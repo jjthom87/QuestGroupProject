@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import SearchBarItem from 'SearchBarItem';
+import SearchBarMissionItem from 'SearchBarMissionItem';
+import SearchBarQuestItem from 'SearchBarQuestItem';
 
 export default class SearchBarList extends React.Component {
     render() {
@@ -7,23 +8,23 @@ export default class SearchBarList extends React.Component {
         const { 
             filteredQuests, 
             filteredMissions, 
-            missionName, 
-            title, 
-            description, 
-            isCompleted, 
-            likes 
+            missionTasks,
+            milestoneTasks,
         } = this.props;
         
         var renderMissionList = () => {
             return filteredMissions.map((mission, index) => {
+                var filteredMissionTasks = missionTasks.filter((missiontask) => missiontask.MissionId === mission.id);
                 return (
                     <div className="qmboxCompleted">
-                        <SearchBarItem
+                        <SearchBarMissionItem
                             missionTitle={mission.title}
                             missionDescription={mission.description}
                             missionCompleted={mission.isCompleted}
                             missionLikes={mission.likes}
                             missionCreatedOn={mission.createdOn}
+                            missionTasks={filteredMissionTasks}
+                            id={mission.id}
                         />
                     </div>
                 );
@@ -41,7 +42,7 @@ export default class SearchBarList extends React.Component {
             return filteredQuests.map((quest, index) => {
                 return (
                     <div className="qmboxCompleted">
-                        <SearchBarItem
+                        <SearchBarQuestItem
                             questTitle={quest.title}
                             questDescription={quest.description}
                             questCompleted={quest.isCompleted}
@@ -53,7 +54,7 @@ export default class SearchBarList extends React.Component {
             });
         }
         var noQuests = () => {
-            if (filteredMissions.length === 0){
+            if (filteredQuests.length === 0){
                 return (
                     <p className="noMissionsText">Sorry, no Quest results could be found</p>
                 );

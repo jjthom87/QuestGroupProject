@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Router , browserHistory } from 'react-router';
 var {Link, IndexLink} = require('react-router');
+var moment = require('moment');
 
 import MissionMain from "MissionMain";
 import QuestMain from "QuestMain";
