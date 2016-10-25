@@ -67,7 +67,7 @@ export default class FeedPage extends React.Component {
 	      			<div className="row">
 	      				<div className="col-md-1">
 	      				</div>
-	      				<div className="panel panel-success qmboxCompleted col-md-4" id="usersearchresult">
+	      				<div className="qmboxCompleted col-md-4" id="usersearchresult">
 	      					<p className="searchHeader text-center"><strong>Your Most Recent Quests</strong></p>
 	      					<FeedUserQuestList
 	      						allUsers={allUsers}
@@ -76,7 +76,7 @@ export default class FeedPage extends React.Component {
 	      				</div>
 	      				<div className="col-md-2">
 	      				</div>
-	      				<div className="panel panel-success qmboxCompleted col-md-4" id="usersearchresult">
+	      				<div className="feedDiv qmboxCompleted col-md-4" id="usersearchresult">
 	      					<p className="searchHeader text-center"><strong>Your Most Recent Missions</strong></p>
 	      					<FeedUserMissionList
 	      						allUsers={allUsers}
@@ -89,7 +89,7 @@ export default class FeedPage extends React.Component {
 	      			<div className="row">
 	      				<div className="col-md-1">
 	      				</div>
-	      				<div className="panel panel-success qmboxCompleted col-md-4" id="usersearchresult">
+	      				<div className="qmboxCompleted col-md-4" id="usersearchresult">
 	      					<p className="searchHeader text-center"><strong>All User's Most Recent Quests</strong></p>
 	      					<FeedQuestsList
 	      						allUsers={allUsers}
@@ -98,7 +98,7 @@ export default class FeedPage extends React.Component {
 	      				</div>
 	      				<div className="col-md-2">
 	      				</div>
-	      				<div className="panel panel-success qmboxCompleted col-md-4" id="usersearchresult">
+	      				<div className="feedDiv qmboxCompleted col-md-4" id="usersearchresult">
 	      					<p className="searchHeader text-center"><strong>All User's Most Recent Missions</strong></p>
 	      					<FeedMissionsList
 	      						allUsers={allUsers}
@@ -111,7 +111,7 @@ export default class FeedPage extends React.Component {
 	      			<div className="row">
 	      				<div className="col-md-1">
 	      				</div>
-	      				<div className="panel panel-success qmboxCompleted col-md-4" id="usersearchresult">
+	      				<div className="qmboxCompleted col-md-4" id="usersearchresult">
 	      					<p className="searchHeader text-center"><strong>Most Recent Accounts Created</strong></p>
 	      					<FeedUserList
 	      						allUsers={allUsers}
@@ -120,7 +120,7 @@ export default class FeedPage extends React.Component {
 	      				</div>
 	      				<div className="col-md-2">
 	      				</div>
-	      				<div className="panel panel-success qmboxCompleted col-md-4" id="usersearchresult">
+	      				<div className="feedDiv qmboxCompleted col-md-4" id="usersearchresult">
 	      					<p className="searchHeader text-center"><strong>Most Recent Comments</strong></p>
 	      					<FeedCommentList
 	      						allUsers={allUsers}
