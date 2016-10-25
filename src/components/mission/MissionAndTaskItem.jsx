@@ -35,7 +35,6 @@ export default class MissionAndTaskItem extends React.Component {
 							<p className={taskClassName} id="taskText">{task.task}</p>
 							<span className="hvr-icon-grow hvr-icon-fade" id="x" onClick={() => deleteMissionTask(task.uuid)}></span>
 						</span>
-						
 					</div>
 				)
 			})

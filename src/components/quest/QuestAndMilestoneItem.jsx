@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 var moment = require('moment');
 import { Line } from 'rc-progress';
-import MilestoneAndTaskItem from 'MilestoneAndTaskItem';
 var ReactBootstrap = require('react-bootstrap');
 var Panel = ReactBootstrap.Panel;
+import MilestoneAndTaskItem from 'MilestoneAndTaskItem';
 
 export default class QuestAndMilestoneItem extends React.Component { 
     constructor(props) {
@@ -37,11 +37,15 @@ export default class QuestAndMilestoneItem extends React.Component {
 							<p key={index} className={milestoneClassName}><strong> MileStone: </strong>{milestone.milestone}</p>
 							<span className="hvr-icon-grow hvr-icon-fade" id="x" onClick={() => deleteMilestone(milestone.uuid)}></span>
 						</span>
-							<MilestoneAndTaskItem 
-								milestonetasks={filteredMilestonetask}
-                        		toggleMilestoneTask={toggleMilestoneTask}
-                        		deleteMilestoneTask={deleteMilestoneTask}
-                        	/>
+						<div>
+							<span>
+								<MilestoneAndTaskItem 
+									milestonetasks={filteredMilestonetask}
+	                        		toggleMilestoneTask={toggleMilestoneTask}
+	                        		deleteMilestoneTask={deleteMilestoneTask}
+	                        	/>
+	                        </span>
+                        </div>
 					</div>
 				)
 			})
