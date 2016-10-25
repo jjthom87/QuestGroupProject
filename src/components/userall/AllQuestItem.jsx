@@ -133,7 +133,7 @@ export default class AllQuestItem extends React.Component {
 					<div className="panel-body">
 				<p className="mstext"><strong>Description:</strong> {description}</p>
 				{singleMilestone()}
-				<p>Completed On: {completedOn}</p>
+				{renderCompletedOn()}
 				<div className="row">
 					<div className="text-center">
 						<CommentForm onComment={this.handleComment.bind(this)}/><button onClick={this.handleLike.bind(this)} id="likes"><span className="hvr-icon-bounce" aria-hidden="true" id="x"></span>{likes}</button>

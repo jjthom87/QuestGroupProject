@@ -34,7 +34,7 @@ export default class AllQuestListWoLikesW extends React.Component {
         var noQuests = () => {
             if (quests.length === 0){
                 return (
-                    <p className="noQuestsText">Select a Quest from the Dropdown</p>
+                    <p className="noQuestsText">No Quests</p>
                 );
             }
         }
