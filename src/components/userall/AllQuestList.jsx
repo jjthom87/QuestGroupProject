@@ -4,7 +4,7 @@ import AllQuestItem from 'AllQuestItem';
 
 export default class AllQuestList extends React.Component {
     render() {
-        const { quests, milestones, milestonetasks, allUsers } = this.props;
+        const { quests, milestones, milestonetasks, allUsers, loginUser } = this.props;
         
         var renderQuests = () => {
             return quests.map((quest, index) => {
@@ -21,6 +21,7 @@ export default class AllQuestList extends React.Component {
                         milestonetasks={filteredMilestonetasks}
                         id={quest.id}
                         allUsers={allUsers}
+                        loginUser={loginUser}
                         key={index}
                     />
                 );
