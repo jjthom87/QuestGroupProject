@@ -198,32 +198,52 @@ var modelController = {
   	},
 	feedPage: function(id, cb){
 			var allUsers;
-		models.User.findAll({ order: 'id DESC', limit: 5, include: [models.Comment]}).then(function(success){
+			var lastFiveUsers;
+			var lastFiveComments;
+			var lastFiveMissions;
+			var lastFiveQuests;
+		models.User.findAll({}).then(function(success){
 	    	allUsers = success;
+		models.User.findAll({ order: 'id DESC', limit: 5 }).then(function(success){
+	    	lastFiveUsers = success;
+		models.Comment.findAll({ order: 'id DESC', limit: 5 }).then(function(success){
+	    	lastFiveComments = success;
+		models.Mission.findAll({ order: 'id DESC', limit: 5 }).then(function(success){
+	    	lastFiveMissions = success;
+		models.Quest.findAll({ order: 'id DESC', limit: 5 }).then(function(success){
+	    	lastFiveQuests = success;
 		models.User.findOne({ where: {id: id}}).then(function(user){
-	        user.getMissions({ include: [ models.Comment ]}).then(function(missions){
+	        user.getMissions({ order: 'id DESC', limit: 3, include: [ models.Comment, models.Missiontask ]}).then(function(missions){
 		        var enteredMissions = [];
 		        missions.forEach(function(mission){
 		            enteredMissions.push(mission);
 		        });
-		    user.getQuests({ include: [ models.Comment ]}).then(function(quests){
+		    user.getQuests({ order: 'id DESC', limit: 3, include: [ models.Comment, models.Milestone, models.Milestonetask ]}).then(function(quests){
 		          var enteredQuests = [];
 		          quests.forEach(function(quest){
 		            enteredQuests.push(quest);
 		        });
 		        var data = {
+		          allUsers: allUsers,
 		          currentUser: user,
-		          missions: enteredMissions,
-		          quests: enteredQuests,
-		          allUsers: allUsers
+		          lastFiveUsers: lastFiveUsers,
+		          lastFiveComments: lastFiveComments,
+		          lastFiveMissions: lastFiveMissions,
+		          lastFiveQuests: lastFiveQuests,
+		          userMissions: enteredMissions,
+		          userQuests: enteredQuests
 		        }
 		        cb(data);
 				}).catch(function(err){
 					throw err;
 				});
-			 });
-		 });
+			  });
+		    });
+		   });
+		  });
+	    });
 	  });
+     });
   	},
 	searchAllUsers: function(id, cb){
 		var currentUser;
@@ -571,14 +591,17 @@ var modelController = {
 		    })
 	 	})
 	},
-  	userComment: function(comment, createdOn, UserId, MissionId, QuestId, name, cb){
+  	userComment: function(comment, createdOn, UserId, MissionId, QuestId, name, commentee, missionName, questName, cb){
 	  	models.Comment.create({
 	  	  comment: comment,
 	      createdOn: createdOn,
 	      UserId: UserId,
 	      MissionId: MissionId,
 	      QuestId: QuestId,
-	      usersName: name
+	      usersName: name,
+	      commentee: commentee,
+	      missionName: missionName,
+	      questName: questName
 	    }).then(function(success) {
 	      	cb(success);
 		}).catch(function(err){

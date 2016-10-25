@@ -10,16 +10,20 @@ export default class AllQuestItem extends React.Component {
         this.state = {
         	id: this.props.id,
         	comments: [],
-        	likes: this.props.likes
+        	likes: this.props.likes,
+        	commentee: this.props.loginUser,
+        	questName: this.props.title,
         };
     }
 	handleComment(comment) {
-		const { id, comments } = this.state;
+		const { id, comments, commentee, questName, commenterImage } = this.state;
 
 		const newComment = {
 			comment,
 			createdOn: moment().format('MMM Do YYYY'),
-			QuestId: id
+			QuestId: id,
+			commentee,
+			questName
 		}
 		fetch('/api/users/comment', {
 			method: 'post',
@@ -71,7 +75,7 @@ export default class AllQuestItem extends React.Component {
 	render(){
 
 		const { comments, likes } = this.state;
-		const { id, title, description, milestones, milestonetasks, completedOn, isCompleted, allUsers } = this.props;
+		const { id, title, description, milestones, milestonetasks, completedOn, isCompleted, allUsers, loginUser } = this.props;
 
 		const filteredComments = comments.filter((comment) => comment.QuestId === id);
 

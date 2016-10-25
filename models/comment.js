@@ -9,6 +9,18 @@ module.exports = function(sequelize, DataTypes) {
     },
     usersName: {
       type: DataTypes.STRING
+    },
+    commentee: {
+      type: DataTypes.STRING
+    },
+    missionName: {
+      type: DataTypes.STRING
+    },
+    questName: {
+      type: DataTypes.STRING
+    },
+    commenterImage: {
+      type: DataTypes.TEXT('long')
     }
   }, {
     classMethods: {

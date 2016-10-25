@@ -288,7 +288,6 @@ export default class UserAllPage extends React.Component {
             credentials: 'include'
 		}).then((response) => response.json())
 		.then((results) => {
-			console.log(results);
 			this.setState({
 				fullLoginUser: results.currentUser,
 				loginUser: results.currentUser.name,
