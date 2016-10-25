@@ -91,6 +91,7 @@ export default class SearchAllPage extends React.Component {
                                 filteredQuests={filteredQuests}
                                 missionTasks={missiontasks}
                                 milestoneTasks={milestonetasks}
+                                milestones={milestones}
                             />
                         </div>
                     </div>
