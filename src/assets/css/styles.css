@@ -491,3 +491,8 @@ select {
 .panel-body button {
     color: black;
 }
+
+#feedPageTitle {
+    font-size: 32px;
+    color: yellow;
+}
