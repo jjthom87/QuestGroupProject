@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 var moment = require('moment');
-
+var ReactBootstrap = require('react-bootstrap');
+var Panel = ReactBootstrap.Panel;
 import CommentForm from 'CommentForm';
 import AllMilestonetaskItem from 'AllMilestonetaskItem';
 
@@ -55,7 +56,7 @@ export default class AllQuestItemWoLikes extends React.Component {
 	render(){
 
 		const { comments } = this.state;
-		const { id, title, description, milestones, milestonetasks, completedOn, isCompleted } = this.props;
+		const { id, title, description, likes, milestones, milestonetasks, completedOn, isCompleted, createdOn, allUsers } = this.props;
 
 		const filteredComments = comments.filter((comment) => comment.QuestId === id);
 
@@ -76,9 +77,10 @@ export default class AllQuestItemWoLikes extends React.Component {
 			})
 		}
 		const renderComments = filteredComments.map((comment, index) => {
+			const filteredUser = allUsers.filter((user) => user.id === comment.UserId);
 			return (
-				<div>
-					<p key={index}>{comment.usersName}: {comment.comment}</p>
+				<div className="alltaskitem">
+					<p key={index}><img src={filteredUser[0].profileImage} style={{width: 30, height: 30}}/><strong> {comment.usersName}:</strong> {comment.comment}</p>
 					<p>Commented on {comment.createdOn}</p>
 				</div>
 			)
@@ -89,14 +91,20 @@ export default class AllQuestItemWoLikes extends React.Component {
 					<span> <a data-toggle="collapse" data-target={"#qcollapse" + id} 
            			href={"#qcollapse" + id}><strong>Quest: </strong> {title}</a></span>
 				</div>
-				<div id={"qcollapse" + id}className="panel-collapse collapse">
-				<div className="panel-body">
-				<p>Description: {description}</p>
-				{singleMilestone()}
-				<p>Completed On: {completedOn}</p>
-				<CommentForm onComment={this.handleComment.bind(this)}/>
-				{renderComments}
-				</div>
+				<div id={"qcollapse" + id} className="panel-collapse collapse">
+					<div className="panel-body">
+						<p>Description: {description}</p>
+						<p>Created On: {createdOn}</p>
+						{singleMilestone()}
+						<p>Completed On: {completedOn}</p>
+						<div className="row">
+							<div className="text-center">
+								<CommentForm onComment={this.handleComment.bind(this)}/>
+								<p>Likes: {likes}</p>
+							</div>
+						</div>
+						{renderComments}
+					</div>
 				</div>
 			</div>
 		)

@@ -54,6 +54,14 @@ models.User.authenticate(body).then(function (user) {
     });
 });
 
+router.get('/api/feedpage', middleware.requireAuthentication, function(req, res){
+    modelController.feedPage(
+      req.user.id,
+      function(data){
+        res.json(data)
+    });
+});
+
 // Setting homepage to authenticated users only
 router.get('/api/home', middleware.requireAuthentication, function(req, res){
     modelController.userModify(req.user.id, function(data){
@@ -358,6 +366,9 @@ router.post('/api/users/comment', middleware.requireAuthentication, function(req
       req.body.MissionId,
       req.body.QuestId,
       req.user.name,
+      req.body.commentee,
+      req.body.missionName,
+      req.body.questName,
     function(success){
       res.json(success);
     });

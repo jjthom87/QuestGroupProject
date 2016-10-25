@@ -146,13 +146,16 @@ var modelController = {
 	 });
   	},
 	userAll: function(id, profileImage, cb){
+			var allUsers;
+		models.User.findAll({}).then(function(success){
+	    	allUsers = success;
 		models.User.findOne({ where: {id: id}}).then(function(user){
-	        user.getMissions().then(function(missions){
+	        user.getMissions({ include: [ models.Comment ]}).then(function(missions){
 		        var enteredMissions = [];
 		        missions.forEach(function(mission){
 		            enteredMissions.push(mission);
 		        });
-		    user.getQuests().then(function(quests){
+		    user.getQuests({ include: [ models.Comment ]}).then(function(quests){
 		          var enteredQuests = [];
 		          quests.forEach(function(quest){
 		            enteredQuests.push(quest);
@@ -179,7 +182,8 @@ var modelController = {
 		          missiontasks: enteredMissiontasks,
 		          milestones: enteredMilestones,
 		          milestonetasks: enteredMilestonetasks,
-		          profileImage: profileImage
+		          profileImage: profileImage,
+		          allUsers: allUsers
 		        }
 		        cb(data);
 				}).catch(function(err){
@@ -190,6 +194,56 @@ var modelController = {
 	  	  });
     	});
 	  });
+	 });
+  	},
+	feedPage: function(id, cb){
+			var allUsers;
+			var lastFiveUsers;
+			var lastFiveComments;
+			var lastFiveMissions;
+			var lastFiveQuests;
+		models.User.findAll({}).then(function(success){
+	    	allUsers = success;
+		models.User.findAll({ order: 'id DESC', limit: 5 }).then(function(success){
+	    	lastFiveUsers = success;
+		models.Comment.findAll({ order: 'id DESC', limit: 5 }).then(function(success){
+	    	lastFiveComments = success;
+		models.Mission.findAll({ order: 'id DESC', limit: 5 }).then(function(success){
+	    	lastFiveMissions = success;
+		models.Quest.findAll({ order: 'id DESC', limit: 5 }).then(function(success){
+	    	lastFiveQuests = success;
+		models.User.findOne({ where: {id: id}}).then(function(user){
+	        user.getMissions({ order: 'id DESC', limit: 3, include: [ models.Comment, models.Missiontask ]}).then(function(missions){
+		        var enteredMissions = [];
+		        missions.forEach(function(mission){
+		            enteredMissions.push(mission);
+		        });
+		    user.getQuests({ order: 'id DESC', limit: 3, include: [ models.Comment, models.Milestone, models.Milestonetask ]}).then(function(quests){
+		          var enteredQuests = [];
+		          quests.forEach(function(quest){
+		            enteredQuests.push(quest);
+		        });
+		        var data = {
+		          allUsers: allUsers,
+		          currentUser: user,
+		          lastFiveUsers: lastFiveUsers,
+		          lastFiveComments: lastFiveComments,
+		          lastFiveMissions: lastFiveMissions,
+		          lastFiveQuests: lastFiveQuests,
+		          userMissions: enteredMissions,
+		          userQuests: enteredQuests
+		        }
+		        cb(data);
+				}).catch(function(err){
+					throw err;
+				});
+			  });
+		    });
+		   });
+		  });
+	    });
+	  });
+     });
   	},
 	searchAllUsers: function(id, cb){
 		var currentUser;
@@ -316,7 +370,7 @@ var modelController = {
 	    models.Milestone.findAll({ where: {UserId: id}}).then(function(success){
 	    	milestones=success
 		models.Milestonetask.findAll({ where: {UserId: id}}).then(function(success){
-				milestonetasks = success
+			milestonetasks = success
 	    	var data = {
 	    		quests: quests,
 	    		milestones: milestones,
@@ -374,7 +428,7 @@ var modelController = {
  //   });
  //  },
 
-// Retreives all Bubo Missions and Quests that exist in database (See route '/searchall')
+// Retreives all Public Bubo Missions and Quests that exist in database (See route '/searchall')
 	allMain: function(cb){
         models.Mission.findAll().then(function(missions){
         var missionsArray = [];
@@ -401,13 +455,19 @@ var modelController = {
             milestonetasks.forEach(function(milestonetask){
             	milestonetaskAll.push(milestonetask);
             });
-
+        models.User.findAll().then(function(users){
+        var usersArray = [];
+        	users.forEach(function(user){
+        		usersArray.push(user);
+        	});
+        
          var data = {
                 missions: missionsArray,
                 quests: questsArray,
                 missiontasks: missiontaskArray,
                 milestones: milestonesArray,
-                milestonetasks: milestonetaskAll
+                milestonetasks: milestonetaskAll,
+                users: usersArray
             }
             cb(data);
         }).catch(function(err){
@@ -417,6 +477,7 @@ var modelController = {
      });
 	});
    });
+  });
   },
 
 	// Creates a new Mission record to the database (See route 'mission/create')
@@ -530,14 +591,17 @@ var modelController = {
 		    })
 	 	})
 	},
-  	userComment: function(comment, createdOn, UserId, MissionId, QuestId, name, cb){
+  	userComment: function(comment, createdOn, UserId, MissionId, QuestId, name, commentee, missionName, questName, cb){
 	  	models.Comment.create({
 	  	  comment: comment,
 	      createdOn: createdOn,
 	      UserId: UserId,
 	      MissionId: MissionId,
 	      QuestId: QuestId,
-	      usersName: name
+	      usersName: name,
+	      commentee: commentee,
+	      missionName: missionName,
+	      questName: questName
 	    }).then(function(success) {
 	      	cb(success);
 		}).catch(function(err){

@@ -10,16 +10,20 @@ export default class AllQuestItem extends React.Component {
         this.state = {
         	id: this.props.id,
         	comments: [],
-        	likes: this.props.likes
+        	likes: this.props.likes,
+        	commentee: this.props.loginUser,
+        	questName: this.props.title,
         };
     }
 	handleComment(comment) {
-		const { id, comments } = this.state;
+		const { id, comments, commentee, questName, commenterImage } = this.state;
 
 		const newComment = {
 			comment,
 			createdOn: moment().format('MMM Do YYYY'),
-			QuestId: id
+			QuestId: id,
+			commentee,
+			questName
 		}
 		fetch('/api/users/comment', {
 			method: 'post',
@@ -71,7 +75,7 @@ export default class AllQuestItem extends React.Component {
 	render(){
 
 		const { comments, likes } = this.state;
-		const { id, title, description, milestones, milestonetasks, completedOn, isCompleted, allUsers } = this.props;
+		const { id, title, description, milestones, milestonetasks, completedOn, isCompleted, allUsers, loginUser } = this.props;
 
 		const filteredComments = comments.filter((comment) => comment.QuestId === id);
 
@@ -79,14 +83,15 @@ export default class AllQuestItem extends React.Component {
 			return milestones.map((milestone, index) => {
 				var filteredMilestonetask = milestonetasks.filter((milestonetask) => milestonetask.MilestoneUuid === milestone.uuid);
 				return (
-					<div>
-						<li>
-							<p>Milestone</p>
-							<p key={index} id="taskText">{milestone.milestone}</p>
+					<div >
+							<span className="questDescription">
+							<p ><strong>Milestone: </strong></p>
+							<p key={index}  id="taskText">{milestone.milestone}</p>
 							<AllMilestonetaskItem
 								milestonetasks={filteredMilestonetask}
                         	/>
-						</li>
+							</span>
+					
 					</div>
 				)
 			})
@@ -94,24 +99,49 @@ export default class AllQuestItem extends React.Component {
 		const renderComments = filteredComments.map((comment, index) => {
 			const filteredUser = allUsers.filter((user) => user.id === comment.UserId);
 			return (
+
 				<div>
-					<p key={index}><img src={filteredUser[0].profileImage} style={{width: 30, height: 30}}/> {comment.usersName}: {comment.comment}</p>
-					<p>Commented on {comment.createdOn}</p>
+					<div>
+					<p className="commentText" key={index}><img src={filteredUser[0].profileImage} style={{width: 35, height: 35}}/><strong>{comment.usersName}:</strong> {comment.comment}</p>
+					</div>
+					<p id="commentDate">Commented on {comment.createdOn}</p>
 				</div>
 			)
 		})
+		const renderCompletedOn = () => {
+			if (typeof completedOn === 'string'){
+				return (
+					<div>
+						<p>Completed On: {completedOn}</p>
+					</div>
+				)
+			} else {
+				return (
+					<div>
+					</div>
+				)
+			}
+		}
 		return (
-			<div className="alllistdiv">
-				<p><strong> {title}</strong></p>
-				<p>Description: {description}</p>
+
+			<div className="panelback" id={"panel" + id}>
+				<div className="panel-heading topPanel">
+				<span> <a data-toggle="collapse" data-target={"#qcollapse" + id} 
+           			href={"#qcollapse" + id}> {title}</a></span>
+				</div>
+				<div id={"qcollapse" + id}className="panel-collapse collapse">
+					<div className="panel-body">
+				<p className="mstext"><strong>Description:</strong> {description}</p>
 				{singleMilestone()}
 				<p>Completed On: {completedOn}</p>
 				<div className="row">
 					<div className="text-center">
-						<CommentForm onComment={this.handleComment.bind(this)}/><button onClick={this.handleLike.bind(this)}><span className="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>{likes}</button>
+						<CommentForm onComment={this.handleComment.bind(this)}/><button onClick={this.handleLike.bind(this)} id="likes"><span className="hvr-icon-bounce" aria-hidden="true" id="x"></span>{likes}</button>
 					</div>
 				</div>
 				{renderComments}
+				</div>
+				</div>
 			</div>
 		)
 	}

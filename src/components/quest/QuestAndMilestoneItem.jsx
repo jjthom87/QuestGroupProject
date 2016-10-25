@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 var moment = require('moment');
 import { Line } from 'rc-progress';
-import MilestoneAndTaskItem from 'MilestoneAndTaskItem';
 var ReactBootstrap = require('react-bootstrap');
 var Panel = ReactBootstrap.Panel;
+import MilestoneAndTaskItem from 'MilestoneAndTaskItem';
 
 export default class QuestAndMilestoneItem extends React.Component { 
     constructor(props) {
@@ -14,14 +14,13 @@ export default class QuestAndMilestoneItem extends React.Component {
     }
 	render(){
 
-		const { id, title, dateQuest, deleteQuest, completeQuest, deleteMilestone, description, toggleMilestone, milestones, createdOn, isCompleted, taskCompleted, active, milestonetasks, deleteMilestoneTask, toggleMilestoneTask} = this.props;
+		const { id, title, dateQuest, deleteQuest, completeQuest, deleteMilestone, description, toggleMilestone, milestones, createdOn, isCompleted, taskCompleted, milestonetasks, deleteMilestoneTask, toggleMilestoneTask} = this.props;
 
 		var completedMilestones = milestones.filter((milestone) => milestone.isCompleted);
 		var completedMilestonetasks = milestonetasks.filter((milestonetask) => milestonetask.taskCompleted);
 
 		const doit = ((completedMilestones.length + completedMilestonetasks.length)/(milestones.length + milestonetasks.length) * 100);
 		const percentage = parseInt(doit);
-
 
 		var singleMilestone = () => {
 			return milestones.map((milestone, index) => {
@@ -38,11 +37,15 @@ export default class QuestAndMilestoneItem extends React.Component {
 							<p key={index} className={milestoneClassName}><strong> MileStone: </strong>{milestone.milestone}</p>
 							<span className="hvr-icon-grow hvr-icon-fade" id="x" onClick={() => deleteMilestone(milestone.uuid)}></span>
 						</span>
-							<MilestoneAndTaskItem 
-								milestonetasks={filteredMilestonetask}
-                        		toggleMilestoneTask={toggleMilestoneTask}
-                        		deleteMilestoneTask={deleteMilestoneTask}
-                        	/>
+						<div>
+							<span>
+								<MilestoneAndTaskItem 
+									milestonetasks={filteredMilestonetask}
+	                        		toggleMilestoneTask={toggleMilestoneTask}
+	                        		deleteMilestoneTask={deleteMilestoneTask}
+	                        	/>
+	                        </span>
+                        </div>
 					</div>
 				)
 			})

@@ -57,7 +57,7 @@ select {
 
 .qmbox {
     background-color: rgba(192,192,192,.5);
-    box-shadow: 4px 4px 1px black;
+    box-shadow: 6px 6px 3px rgba(0, 0, 0, 0.4);
     display: inline-block; 
     padding: 20px; 
     margin-right: 30px;
@@ -66,7 +66,7 @@ select {
 
 .qmboxCompleted{
     background-color: rgba(192,192,192,.5);
-    box-shadow: 4px 4px 1px black;
+    box-shadow: 6px 6px 3px rgba(0, 0, 0, 0.4);
     display: inline-block; 
     padding: 20px; 
     margin-right: 30px;
@@ -78,7 +78,7 @@ select {
     margin-top: 30px;
     background-color: rgba(192,192,192,.5);
     padding: 20px;
-    box-shadow: 4px 4px 1px black;
+    box-shadow: 6px 6px 3px rgba(0, 0, 0, 0.4);
     margin: auto;
     border: 20px;
 }
@@ -123,7 +123,7 @@ select {
     display: inline-block;
     background-color: rgba(192,192,192,.5);
     padding: 10px;
-    box-shadow: 4px 4px 1px black;
+    box-shadow: 6px 6px 3px rgba(0, 0, 0, 0.4);
     margin-left: 35%;
 }
 
@@ -190,7 +190,7 @@ select {
     display: inline-block;
     background-color: rgba(192,192,192,.5);
     padding: 10px;
-    box-shadow: 4px 4px 1px black;
+    box-shadow: 6px 6px 3px rgba(0, 0, 0, 0.4);
     margin-left: 35%;
 }
 
@@ -400,16 +400,7 @@ select {
     
 
 }
-.hvr-icon-grow:before {
-    content:"\f00d";
-}
-.hvr-icon-fade:hover:before, .hvr-icon-fade:focus:before, .hvr-icon-fade:active:before {
-  color: red;
-}
-#x{
-    margin-bottom: 30px;
-    font-size: 20px;
-}
+
 
 .hvr-ripple-out:before {
     border: #5bc0de solid 6px;
@@ -439,14 +430,84 @@ select {
     color: #ffda73;
 }
 
-<<<<<<< HEAD
+
 .uploadImageText {
     font-size: 12px;
     color: black;
 }
 
-=======
+
 #usersearchresult {
     margin-right:0px;
 }
->>>>>>> 1fa5e9bd71cc6abc972e9c9b43e9b21eb6875b10
+
+.topPanel { 
+     background-color: rgba(192,192,192,.7);
+}
+
+.topPanel a {
+    font-size: 20px;
+    color: yellow ;
+    text-decoration: none;
+    
+}
+
+.panelback {
+    background-color: rgba(192,192,192,.5);
+    color: white; 
+    box-shadow: 6px 6px 3px rgba(0, 0, 0, 0.4);
+}
+
+.questDescription {
+    padding-bottom: 5px;
+    border-bottom: thick solid white;
+    font-size: 20px;
+}
+
+.mstext {
+    font-size: 20px;
+}
+
+#commentDate {
+    float:right;
+}
+
+.commentText {
+    font-size: 20px;
+    margin-bottom:0px;
+}
+.hvr-icon-grow:before {
+    content:"\f00d";
+    color:rgba(0, 0, 0, 0.3);
+}
+.hvr-icon-fade:hover:before, .hvr-icon-fade:focus:before, .hvr-icon-fade:active:before {
+  color: red;
+}
+#x{
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+.panel-body button {
+    color: black;
+}
+
+#feedPageTitle {
+    font-size: 32px;
+    color: yellow;  
+}
+
+#searchMilestone {
+
+}
+
+#searchPanelheaders {
+    font-family: 'Dosis', sans-serif;
+    color: white;
+    size: 72px;
+    background: brown;
+}
+
+.searchBarForm {
+    margin-top: 50px;
+}

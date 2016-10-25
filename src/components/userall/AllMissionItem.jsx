@@ -9,16 +9,20 @@ export default class AllMissionItem extends React.Component {
         this.state = {
         	id: this.props.id,
         	comments: [],
-        	likes: this.props.likes
+        	likes: this.props.likes,
+        	commentee: this.props.loginUser,
+        	missionName: this.props.title,
         };
     }
 	handleComment(comment) {
-		const { id, comments } = this.state;
+		const { id, comments, commentee, missionName, commenterImage } = this.state;
 
 		const newComment = {
 			comment,
 			createdOn: moment().format('MMM Do YYYY'),
-			MissionId: id
+			MissionId: id,
+			missionName,
+			commentee
 		}
 		fetch('/api/users/comment', {
 			method: 'post',
@@ -70,7 +74,7 @@ export default class AllMissionItem extends React.Component {
 	render(){
 
 		const { comments, likes } = this.state;
-		const { id, title, description, missiontasks, completedOn, isCompleted, allUsers } = this.props;
+		const { id, title, description, missiontasks, completedOn, createdOn, isCompleted, allUsers, loginUser, missions } = this.props;
 
 		const filteredComments = comments.filter((comment) => comment.MissionId === id);
 
@@ -94,18 +98,40 @@ export default class AllMissionItem extends React.Component {
 				</div>
 			)
 		})
+
+		const renderCompletedOn = () => {
+			if (typeof completedOn === 'string'){
+				return (
+					<div>
+						<p>Completed On: {completedOn}</p>
+					</div>
+				)
+			} else {
+				return (
+					<div>
+					</div>
+				)
+			}
+		}
 		return (
-			<div className="alllistdiv">
-				<p id="titleall"><strong>{title}</strong></p>
-				<p><strong>Description:</strong> {description}</p>
+			<div className="panelback" id={"panel" + id}>
+				<div className="panel-heading topPanel">
+				<span> <a data-toggle="collapse" data-target={"#mcollapse" + id} 
+           			href={"#mcollapse" + id}> {title}</a></span>
+				</div>
+				<div id={"mcollapse" + id}className="panel-collapse collapse">
+				<div className="panel-body">
+				<p className="mstext"><strong>Description:</strong> {description}</p>
+				{renderCompletedOn()}
 				{singleTask()}
-				<p>Completed On: {completedOn}</p>
 				<div className="row">
 					<div className="text-center">
 						<CommentForm onComment={this.handleComment.bind(this)}/><button onClick={this.handleLike.bind(this)} id="likes"><span className="hvr-icon-bounce" aria-hidden="true" id="x"></span>{likes}</button>
 					</div>
 				</div>
 				{renderComments}
+				</div>
+				</div>
 			</div>
 		)
 	}

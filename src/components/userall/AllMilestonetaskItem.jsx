@@ -11,16 +11,14 @@ export default class AllMilestonetaskItem extends React.Component {
 
 		const renderMilestonetasks = milestonetasks.map((milestonetask, index) => {
 			return (
-				<div>
-					<li>
-						<p key={index}>{milestonetask.task}</p>
-					</li>
+				<div className="alltaskitem">
+						<p id="taskText" key={index}>{milestonetask.task}</p>
 				</div>
 			)
 		})
 		return (
 			<div>
-				<p>Tasks</p>
+				<p className="mstext">Tasks</p>
 				<ul>{renderMilestonetasks}</ul>
 			</div>
 		)

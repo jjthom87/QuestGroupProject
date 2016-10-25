@@ -405,13 +405,13 @@ export default class UserHomePage extends React.Component {
       		<div>
               <MainNav/>
                 <div className='container' id="homepageDiv">
-      			<h1 className="text-center" id="pageTitle">Welcome Home {loginUser}</h1>
+      			<h1 className="text-center" id="pageTitle">Hello {loginUser}. Create/Modify Your Missions & Quests here</h1>
       			<div className="row">
       				<div className="col-lg-1 col-lg-offset-5" role="group">								
                     </div>
 				</div>
     				<div className="row">
-                        <div className="panel panel-success col-md-5 qmbox col-md-offset-1">
+                        <div className="col-md-5 qmbox col-md-offset-1">
                             <select name="Please Select Mission" value={this.state.dropdownMission} onChange={this.handleDropdownMission.bind(this)}>
                                 <option defaultValue="Find Mission">Find Mission</option>
                                 {renderMissionDropdown()}
@@ -433,7 +433,7 @@ export default class UserHomePage extends React.Component {
                                 {renderControlArea()}
                             </div>
                         </div>
-                        <div className="panel panel-success col-md-5 qmbox">
+                        <div className=" col-md-5 qmbox">
                             <select name="Please Select Quest" value={this.state.dropdownQuest} onChange={this.handleDropdownQuest.bind(this)}>
                                 <option defaultValue="Find Quest">Find Quest</option>
                                 {renderQuestDropdown()}
