@@ -22,6 +22,7 @@ import Completed from 'Completed';
 import UserForAllPage from 'UserForAllPage';
 import UserAllPage from 'UserAllPage';
 import UserSearchPage from 'UserSearchPage';
+import FeedPage from 'FeedPage';
 
 // COMPONENT ROUTES============================================================
 export default (
@@ -32,12 +33,13 @@ export default (
 		<Route path="/questshome" component={QuestMain} />
         <Route path="/register" component={CreateAccountPage} />
         <Route path="/login" component={LoginPage} />
-        <Route path="/home" component={UserHomePage} />
+        <Route path="/create" component={UserHomePage} />
         <Route path="/searchall" component={SearchAllPage} />
         <Route path="/completed" component={Completed} />
         <Route path="/userall" component={UserAllPage} />
         <Route path="/userforall/:id" component={UserForAllPage} />
         <Route path="/searchusers" component={UserSearchPage} />
+        <Route path="/feedpage" component={FeedPage} />
     	</Route>
   	</Router>
 );

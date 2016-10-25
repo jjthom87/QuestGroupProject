@@ -196,6 +196,35 @@ var modelController = {
 	  });
 	 });
   	},
+	feedPage: function(id, cb){
+			var allUsers;
+		models.User.findAll({ order: 'id DESC', limit: 5, include: [models.Comment]}).then(function(success){
+	    	allUsers = success;
+		models.User.findOne({ where: {id: id}}).then(function(user){
+	        user.getMissions({ include: [ models.Comment ]}).then(function(missions){
+		        var enteredMissions = [];
+		        missions.forEach(function(mission){
+		            enteredMissions.push(mission);
+		        });
+		    user.getQuests({ include: [ models.Comment ]}).then(function(quests){
+		          var enteredQuests = [];
+		          quests.forEach(function(quest){
+		            enteredQuests.push(quest);
+		        });
+		        var data = {
+		          currentUser: user,
+		          missions: enteredMissions,
+		          quests: enteredQuests,
+		          allUsers: allUsers
+		        }
+		        cb(data);
+				}).catch(function(err){
+					throw err;
+				});
+			 });
+		 });
+	  });
+  	},
 	searchAllUsers: function(id, cb){
 		var currentUser;
 		var allUsers;
