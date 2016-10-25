@@ -35,7 +35,7 @@ export default class SearchBarQuestItem extends React.Component {
                                 milestones={milestone.milestone}
                             />
                     </div>
-                )
+                );
             })
         }
 
@@ -47,7 +47,7 @@ export default class SearchBarQuestItem extends React.Component {
                     <div className="searchPrefix"><strong>Start Date: </strong><p className="questSearchText">{questCreatedOn}</p></div>
                     <div className="searchPrefix"><strong>Likes: </strong><p className="questSearchText">{questLikes}</p></div>
                     <div className="searchPrefix"><strong>Status: </strong><p className="questSearchText">{questStatus()}</p></div>
-                    <div className="searchPrefix"><strong>Milestone: </strong><p className="questSearchText">{singleMilestone()}</p></div>
+                    <div className="searchPrefix"><strong>Milestone: </strong><div className="questSearchText">{singleMilestone()}</div></div>
                 </div>
             </div>
         );  
