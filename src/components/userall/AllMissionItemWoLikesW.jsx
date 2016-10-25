@@ -94,7 +94,7 @@ export default class AllMissionItemWoLikesW extends React.Component {
 			)
 		})
 		return (
-			<div className="panelback" id={"panel" + id}>
+			<div className="panelback userprofilediv" id={"panel" + id}>
 				<div className="panel-heading topPanel">
 					<span> <a data-toggle="collapse" data-target={"#mcollapse" + id} 
            			href={"#mcollapse" + id}><strong>Mission: </strong> {title}</a></span>
@@ -104,7 +104,7 @@ export default class AllMissionItemWoLikesW extends React.Component {
 					<div className="panel-body">
 						<strong><p>You are {percentage}% done with this mission</p></strong>
 						<div>
-							<p id="taskText" className="alltaskitem"><strong>Description: </strong>{description}</p>
+							<p id="taskText"><strong>Description: </strong>{description}</p>
 						</div>
 						<div>
 							<p><strong>CreatedOn: </strong>{createdOn}</p>
