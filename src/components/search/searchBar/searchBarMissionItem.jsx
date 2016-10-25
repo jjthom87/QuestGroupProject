@@ -12,7 +12,7 @@ export default class SearchBarItem extends React.Component {
     renderMissionItem() {
         const { missionTasks, missionTitle, missionDescription , missionCompleted, missionCreatedOn, missionLikes } = this.props;
 
-        var missionAccomp = () => {
+        var missionStatus = () => {
             if(missionCompleted === true) {
                 var missionAccomplished = "Mission Accomplished";
                 return missionAccomplished;
@@ -27,9 +27,7 @@ export default class SearchBarItem extends React.Component {
             return missionTasks.map((task, index) => {
                 return (
                     <div className="alltaskitem">
-                        <li>
                             <p key={index} id="taskText">{task.task}</p>
-                        </li>
                     </div>
                 )
             })
@@ -38,12 +36,12 @@ export default class SearchBarItem extends React.Component {
         return (
             <div>
                  <div className="panel panel-success qmboxCompleted">
-                    <div className="searchPrefix">Mission Title: <p className="missionSearchText">{missionTitle}</p></div>
-                    <div className="searchPrefix">Description: <p className="missionSearchText">{missionDescription}</p></div>
-                    <div className="searchPrefix">Start Date: <p className="missionSearchText">{missionCreatedOn}</p></div>
-                    <div className="searchPrefix">Likes: <p className="missionSearchText">{missionLikes}</p></div>
-                    <div className="searchPrefix">Status: <p className="missionSearchText">{missionAccomp()}</p></div>
-                    <div className="searchPrefix">Tasks: <p className="missionSearchText">{singleTask()}</p></div>
+                    <div className="searchPrefix"><strong>Mission Title: </strong><p className="missionSearchText">{missionTitle}</p></div>
+                    <div className="searchPrefix"><strong>Description: </strong><p className="missionSearchText">{missionDescription}</p></div>
+                    <div className="searchPrefix"><strong>Start Date: </strong><p className="missionSearchText">{missionCreatedOn}</p></div>
+                    <div className="searchPrefix"><strong>Likes: </strong><p className="missionSearchText">{missionLikes}</p></div>
+                    <div className="searchPrefix"><strong>Status: </strong><p className="missionSearchText">{missionStatus()}</p></div>
+                    <div className="searchPrefix"><strong>Tasks: </strong><li className="missionSearchText">{singleTask()}</li></div>
                 </div>
             </div>
         );  

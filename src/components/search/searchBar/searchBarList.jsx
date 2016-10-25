@@ -10,6 +10,7 @@ export default class SearchBarList extends React.Component {
             filteredMissions, 
             missionTasks,
             milestoneTasks,
+            milestones
         } = this.props;
         
         var renderMissionList = () => {
@@ -20,7 +21,7 @@ export default class SearchBarList extends React.Component {
                         <SearchBarMissionItem
                             missionTitle={mission.title}
                             missionDescription={mission.description}
-                            missionCompleted={mission.isCompleted}
+                            missionCompleted={mission.missionCompleted}
                             missionLikes={mission.likes}
                             missionCreatedOn={mission.createdOn}
                             missionTasks={filteredMissionTasks}
@@ -40,14 +41,20 @@ export default class SearchBarList extends React.Component {
 
         var renderQuestList = () => {
             return filteredQuests.map((quest, index) => {
+                var filteredMilestone = milestones.filter((milestone) => milestone.QuestId === quest.id);
+                var filteredMilestoneTasks = milestoneTasks.filter((milestonetask) => milestonetask.QuestId === quest.id)
                 return (
                     <div className="qmboxCompleted">
                         <SearchBarQuestItem
                             questTitle={quest.title}
                             questDescription={quest.description}
-                            questCompleted={quest.isCompleted}
+                            questCompleted={quest.questCompleted}
                             questLikes={quest.likes}
                             questCreatedOn={quest.createdOn}
+                            milestones={filteredMilestone}
+                            milestoneTasks={filteredMilestoneTasks}
+                            id={quest.id}
+                            key={index}
                         />
                     </div>
                 );
@@ -60,6 +67,7 @@ export default class SearchBarList extends React.Component {
                 );
             }
         }
+
         return (
             <div>
                 {noQuests()}
