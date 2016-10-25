@@ -59,6 +59,8 @@ export default class AllMissionItemWoLikesW extends React.Component {
 
 		var completedTasks = missiontasks.filter((task) => task.isCompleted);
 
+		const filteredComments = comments.filter((comment) => comment.MissionId === id);
+
 		const doit = ((completedTasks.length/missiontasks.length) * 100);
 		const percentage = parseInt(doit);
 

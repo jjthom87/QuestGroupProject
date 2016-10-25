@@ -254,7 +254,6 @@ export default class QuestMain extends React.Component {
             credentials: 'include'
         }).then((response) => response.json())
         .then((results) => {
-            console.log(results);
             this.setState({
                 quests: results.quests,
                 milestones: results.milestones,
