@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 var {Link, IndexLink} = require('react-router');
 
-export default class SearchBarItem extends React.Component {
+export default class SearchBarMissionItem extends React.Component {
     
     constructor(props) {
         super(props);
@@ -10,7 +10,7 @@ export default class SearchBarItem extends React.Component {
     }
 
     renderMissionItem() {
-        const { missionTasks, missionTitle, missionDescription , missionCompleted, missionCreatedOn, missionLikes } = this.props;
+        const { users, missionTasks, missionTitle, missionDescription , missionCompleted, missionCreatedOn, missionLikes } = this.props;
 
         var missionStatus = () => {
             if(missionCompleted === true) {
@@ -27,15 +27,24 @@ export default class SearchBarItem extends React.Component {
             return missionTasks.map((task, index) => {
                 return (
                     <p key={index} id="taskText">{task.task}</p>
-                )
-            })
+                );
+            });
+        }
+
+        var singleUser = () => {
+            return users.map((user, index) => {
+                return (
+                    <p key={index} id="userText">{user.username}</p>
+                );
+            });
         }
 
         return (
             <div>
-                 <div className="panel panel-success qmboxCompleted">
+                 <div className="text-center center-block panel panel-success qmboxCompleted">
                     <div className="searchPrefix"><strong>Mission Title: </strong><p className="missionSearchText">{missionTitle}</p></div>
                     <div className="searchPrefix"><strong>Description: </strong><p className="missionSearchText">{missionDescription}</p></div>
+                    <div className="searchPrefix"><strong>Username: </strong><div className="missionSearchText">{singleUser()}</div></div>
                     <div className="searchPrefix"><strong>Start Date: </strong><p className="missionSearchText">{missionCreatedOn}</p></div>
                     <div className="searchPrefix"><strong>Likes: </strong><p className="missionSearchText">{missionLikes}</p></div>
                     <div className="searchPrefix"><strong>Status: </strong><p className="missionSearchText">{missionStatus()}</p></div>

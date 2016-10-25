@@ -25,7 +25,8 @@ export default class SearchAllPage extends React.Component {
             dropdownQuest: '',
             dropdownMission: '',
             createdOn: '',
-            searchFetch: ''
+            searchFetch: '',
+            users: []
         };
     }
 
@@ -54,13 +55,14 @@ export default class SearchAllPage extends React.Component {
                 quests: results.quests,
                 missiontasks: results.missiontasks,
                 milestones: results.milestones,
-                milestonetasks: results.milestonetasks
+                milestonetasks: results.milestonetasks,
+                users: results.users
             });
         });
     }
 
     render() {
-        const { searchFetch, missions, quests, milestones, milestonetasks, missiontasks } = this.state;
+        const { users, searchFetch, missions, quests, milestones, milestonetasks, missiontasks } = this.state;
 
         const filteredMissions = missions.filter((mission) => {
             var text = mission.title.toLowerCase();
@@ -75,24 +77,23 @@ export default class SearchAllPage extends React.Component {
     	return (
             <div>
               <MainNav />
-                <div className='container' id="separator"> 
-              		<div className="row">
+                <div  id="separator">
+                    <div className='container' id="searchAllPage"> 
+                        <div className="row">
+                            <SearchBarForm className="searchBarForm" onSearch={this.handleSearch.bind(this)}/> 
+                        </div>
 
-                    </div>   
-
-                    <div className="row">
-                        <SearchBarForm onSearch={this.handleSearch.bind(this)}/> 
-                    </div>
-
-                    <div className="row">
-                        <div className="text-center center-block">
-                            <SearchBarList
-                                filteredMissions={filteredMissions}
-                                filteredQuests={filteredQuests}
-                                missionTasks={missiontasks}
-                                milestoneTasks={milestonetasks}
-                                milestones={milestones}
-                            />
+                        <div className="row">
+                            <div className="text-center center-block">
+                                <SearchBarList
+                                    filteredMissions={filteredMissions}
+                                    filteredQuests={filteredQuests}
+                                    missionTasks={missiontasks}
+                                    milestoneTasks={milestonetasks}
+                                    milestones={milestones}
+                                    users={users}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
