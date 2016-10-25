@@ -1,3 +1,6 @@
+// React Router: "/searchall"
+// Allows users to search and view all Missions and Quests
+
 import React, { Component, PropTypes } from 'react';
 import { Router , browserHistory } from 'react-router';
 var {Link, IndexLink} = require('react-router');
