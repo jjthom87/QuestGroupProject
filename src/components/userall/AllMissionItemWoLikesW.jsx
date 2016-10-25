@@ -54,7 +54,7 @@ export default class AllMissionItemWoLikesW extends React.Component {
 		});
 	}
 	render(){
-
+		const {comments} = this.state;
 		const { id, title, deleteMission, deleteMissionTask, completeMission, description, percent, toggleMissionTask, missiontasks, createdOn, isCompleted, allUsers } = this.props;
 
 		var completedTasks = missiontasks.filter((task) => task.isCompleted);
