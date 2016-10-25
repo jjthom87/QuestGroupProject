@@ -52,7 +52,7 @@ export default class SearchBarQuestItem extends React.Component {
 
         return (
             <div>
-                 <div className="panel panel-success qmboxCompleted">
+                 <div className="text-center center-block panel panel-success qmboxCompleted">
                     <div className="searchPrefix"><strong>Quest Title: </strong><p className="questSearchText">{questTitle}</p></div>
                     <div className="searchPrefix"><strong>Description: </strong><p className="questSearchText">{questDescription}</p></div>
                     <div className="searchPrefix"><strong>Username: </strong><div className="questSearchText">{singleUser()}</div></div>

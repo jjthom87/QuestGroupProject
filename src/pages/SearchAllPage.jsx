@@ -76,23 +76,24 @@ export default class SearchAllPage extends React.Component {
 
     	return (
             <div>
-              <MainNav/>
-                <div className='container' id="searchAllPage"> 
+              <MainNav />
+                <div  id="separator">
+                    <div className='container' id="searchAllPage"> 
+                        <div className="row">
+                            <SearchBarForm className="searchBarForm" onSearch={this.handleSearch.bind(this)}/> 
+                        </div>
 
-                    <div className="row">
-                        <SearchBarForm className="searchBarForm" onSearch={this.handleSearch.bind(this)}/> 
-                    </div>
-
-                    <div className="row">
-                        <div className="text-center center-block">
-                            <SearchBarList
-                                filteredMissions={filteredMissions}
-                                filteredQuests={filteredQuests}
-                                missionTasks={missiontasks}
-                                milestoneTasks={milestonetasks}
-                                milestones={milestones}
-                                users={users}
-                            />
+                        <div className="row">
+                            <div className="text-center center-block">
+                                <SearchBarList
+                                    filteredMissions={filteredMissions}
+                                    filteredQuests={filteredQuests}
+                                    missionTasks={missiontasks}
+                                    milestoneTasks={milestonetasks}
+                                    milestones={milestones}
+                                    users={users}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
