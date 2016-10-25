@@ -70,7 +70,7 @@ export default class AllMissionItem extends React.Component {
 	render(){
 
 		const { comments, likes } = this.state;
-		const { title, description, missiontasks, completedOn, createdOn, isCompleted, allUsers, missions } = this.props;
+		const { id, title, description, missiontasks, completedOn, createdOn, isCompleted, allUsers, missions } = this.props;
 
 		const filteredComments = comments.filter((comment) => comment.MissionId === id);
 
