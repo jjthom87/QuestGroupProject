@@ -18,7 +18,7 @@ export default class AllMilestonetaskItem extends React.Component {
 		})
 		return (
 			<div>
-				<p>Tasks</p>
+				<p className="mstext">Tasks</p>
 				<ul>{renderMilestonetasks}</ul>
 			</div>
 		)

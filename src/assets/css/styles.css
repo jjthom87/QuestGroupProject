@@ -450,3 +450,38 @@ select {
     margin-right:0px;
 }
 
+.topPanel { 
+     background-color: rgba(192,192,192,.7);
+}
+
+.topPanel a {
+    font-size: 20px;
+    color: yellow ;
+    text-decoration: none;
+    
+}
+
+.panelback {
+    background-color: rgba(192,192,192,.5);
+    color: white; 
+    box-shadow: 6px 6px 3px rgba(0, 0, 0, 0.4);
+}
+
+.questDescription {
+    padding-bottom: 5px;
+    border-bottom: thick solid white;
+    font-size: 20px;
+}
+
+.mstext {
+    font-size: 20px;
+}
+
+#commentDate {
+    float:right;
+}
+
+.commentText {
+    font-size: 20px;
+    margin-bottom:0px;
+}
