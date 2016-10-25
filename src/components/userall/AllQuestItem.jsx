@@ -79,14 +79,15 @@ export default class AllQuestItem extends React.Component {
 			return milestones.map((milestone, index) => {
 				var filteredMilestonetask = milestonetasks.filter((milestonetask) => milestonetask.MilestoneUuid === milestone.uuid);
 				return (
-					<div>
-						<li>
-							<p>Milestone</p>
+					<div >
+							<span className="questDescription">
+							<p ><strong>Milestone: </strong></p>
 							<p key={index}  id="taskText">{milestone.milestone}</p>
 							<AllMilestonetaskItem
 								milestonetasks={filteredMilestonetask}
                         	/>
-						</li>
+							</span>
+					
 					</div>
 				)
 			})
@@ -94,9 +95,12 @@ export default class AllQuestItem extends React.Component {
 		const renderComments = filteredComments.map((comment, index) => {
 			const filteredUser = allUsers.filter((user) => user.id === comment.UserId);
 			return (
+
 				<div>
-					<p key={index}><img src={filteredUser[0].profileImage} style={{width: 30, height: 30}}/> {comment.usersName}: {comment.comment}</p>
-					<p>Commented on {comment.createdOn}</p>
+					<div>
+					<p className="commentText" key={index}><img src={filteredUser[0].profileImage} style={{width: 35, height: 35}}/><strong>{comment.usersName}:</strong> {comment.comment}</p>
+					</div>
+					<p id="commentDate">Commented on {comment.createdOn}</p>
 				</div>
 			)
 		})
@@ -115,10 +119,16 @@ export default class AllQuestItem extends React.Component {
 			}
 		}
 		return (
-			<div className="alllistdiv">
-				<p id="titleall"><strong>{title}</strong></p>
-				<p><strong>Description:</strong> {description}</p>
-				{renderCompletedOn()}
+
+			<div className="panelback" id={"panel" + id}>
+				<div className="panel-heading topPanel">
+				<span> <a data-toggle="collapse" data-target={"#qcollapse" + id} 
+           			href={"#qcollapse" + id}> {title}</a></span>
+				</div>
+				<div id={"qcollapse" + id}className="panel-collapse collapse">
+					<div className="panel-body">
+				<p className="mstext"><strong>Description:</strong> {description}</p>
+				{singleMilestone()}
 				<p>Completed On: {completedOn}</p>
 				<div className="row">
 					<div className="text-center">
@@ -126,6 +136,8 @@ export default class AllQuestItem extends React.Component {
 					</div>
 				</div>
 				{renderComments}
+				</div>
+				</div>
 			</div>
 		)
 	}
