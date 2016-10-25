@@ -30,7 +30,7 @@ export default class LoginPage extends React.Component {
 					authenticated: !authenticated
 				})
 				localStorage.setItem('token', response.headers.get('Auth'));
-				browserHistory.push('/home');
+				browserHistory.push('/feedpage');
 				response.json();
 			} else {
 				this.setState({

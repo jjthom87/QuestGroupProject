@@ -54,6 +54,14 @@ models.User.authenticate(body).then(function (user) {
     });
 });
 
+router.get('/api/feedpage', middleware.requireAuthentication, function(req, res){
+    modelController.feedPage(
+      req.user.id,
+      function(data){
+        res.json(data)
+    });
+});
+
 // Setting homepage to authenticated users only
 router.get('/api/home', middleware.requireAuthentication, function(req, res){
     modelController.userModify(req.user.id, function(data){
