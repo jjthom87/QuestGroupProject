@@ -59,6 +59,11 @@ export default class FeedPage extends React.Component {
 	      			<h2 className="text-center" id="pageTitle">
 	      				Go to the Create/Modify page to create a Mission/Quest or Search other Users
 	      			</h2>
+	      			<br></br>
+	      			<h1 className="text-center" id="feedPageTitle">
+	      				Recent User Activity Feed
+	      			</h1>
+	      			<br></br>
 	      			<div className="row">
 	      				<div className="col-md-1">
 	      				</div>

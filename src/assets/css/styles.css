@@ -492,8 +492,9 @@ select {
     color: black;
 }
 
-#searchAllPage {
-    
+#feedPageTitle {
+    font-size: 32px;
+    color: yellow;  
 }
 
 #searchMilestone {
