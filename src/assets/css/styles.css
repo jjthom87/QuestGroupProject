@@ -460,6 +460,11 @@ select {
     box-shadow: 6px 6px 3px rgba(0, 0, 0, 0.4);
 }
 
+.panelbackHome{
+    background-color: rgba(192,192,192,.5);
+    color: white; 
+}
+
 .questDescription {
     padding-bottom: 5px;
     border-bottom: thick solid white;

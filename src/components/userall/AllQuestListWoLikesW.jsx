@@ -40,7 +40,7 @@ export default class AllQuestListWoLikesW extends React.Component {
         }
         return (
             <div>
-                <p className="questsTitle">Quests</p>
+                
                 {noQuests()}
                 {renderQuests()}
             </div>

@@ -37,7 +37,7 @@ export default class MainNav extends React.Component {
 						</div>
 						<div className="collapse navbar-collapse main-nav" id="bubo-main-nav">
 							<ul className="nav navbar-nav navbar-right" id="mainNavli">
-								<li><Link to="/create">Create/Modify</Link></li>
+								<li><Link to="/create">Create</Link></li>
 								<li><Link to="/searchall">Quest/Mission Search</Link></li>
 								<li><Link to="/searchusers">User Search</Link></li>
 								<li><Link to="/userall">Profile</Link></li>
