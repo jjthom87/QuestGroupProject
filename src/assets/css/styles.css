@@ -493,7 +493,7 @@ select {
 }
 
 #searchAllPage {
-    min-height: 1770px;
+    
 }
 
 #searchMilestone {
@@ -504,4 +504,8 @@ select {
     font-family: 'Dosis', sans-serif;
     color: white;
     size: 72px;
+}
+
+.searchBarForm {
+    margin-top: 50px;
 }

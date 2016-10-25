@@ -78,12 +78,9 @@ export default class SearchAllPage extends React.Component {
             <div>
               <MainNav/>
                 <div className='container' id="searchAllPage"> 
-              		<div className="row">
-
-                    </div>   
 
                     <div className="row">
-                        <SearchBarForm onSearch={this.handleSearch.bind(this)}/> 
+                        <SearchBarForm className="searchBarForm" onSearch={this.handleSearch.bind(this)}/> 
                     </div>
 
                     <div className="row">

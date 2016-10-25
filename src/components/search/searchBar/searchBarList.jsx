@@ -61,7 +61,6 @@ export default class SearchBarList extends React.Component {
                             id={quest.id}
                             key={index}
                             users={filteredUsers}
-                            userImage={filteredUsers.profileImage}
                         />
                     </div>
                 );
