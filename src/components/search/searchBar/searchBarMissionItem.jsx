@@ -27,9 +27,7 @@ export default class SearchBarItem extends React.Component {
             return missionTasks.map((task, index) => {
                 return (
                     <div className="alltaskitem">
-                        <li>
                             <p key={index} id="taskText">{task.task}</p>
-                        </li>
                     </div>
                 )
             })
@@ -43,7 +41,7 @@ export default class SearchBarItem extends React.Component {
                     <div className="searchPrefix">Start Date: <p className="missionSearchText">{missionCreatedOn}</p></div>
                     <div className="searchPrefix">Likes: <p className="missionSearchText">{missionLikes}</p></div>
                     <div className="searchPrefix">Status: <p className="missionSearchText">{missionAccomp()}</p></div>
-                    <div className="searchPrefix">Tasks: <p className="missionSearchText">{singleTask()}</p></div>
+                    <div className="searchPrefix">Tasks: <li className="missionSearchText">{singleTask()}</li></div>
                 </div>
             </div>
         );  
