@@ -411,7 +411,7 @@ export default class UserCreatePage extends React.Component {
                     </div>
 				</div>
     				<div className="row">
-                        <div className="col-md-5 qmbox col-md-offset-1">
+                        <div className="col-md-5 qmbox qmspace col-md-offset-1">
                             <select name="Please Select Mission" value={this.state.dropdownMission} onChange={this.handleDropdownMission.bind(this)}>
                                 <option defaultValue="Find Mission">Find Mission</option>
                                 {renderMissionDropdown()}
@@ -433,7 +433,7 @@ export default class UserCreatePage extends React.Component {
                                 {renderControlArea()}
                             </div>
                         </div>
-                        <div className=" col-md-5 qmbox">
+                        <div className=" col-md-5 qmbox qmspace">
                             <select name="Please Select Quest" value={this.state.dropdownQuest} onChange={this.handleDropdownQuest.bind(this)}>
                                 <option defaultValue="Find Quest">Find Quest</option>
                                 {renderQuestDropdown()}

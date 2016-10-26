@@ -113,26 +113,37 @@ export default class AllMissionItemWoLikesW extends React.Component {
 				<div id={"mcollapse" + id} className="panel-collapse collapse">
 					<div className="panel-body">
 						<strong><p>You are {percentage}% done with this mission</p></strong>
-						<div>
-							<p id="taskText"><strong>Description: </strong>{description}</p>
-						</div>
-						<div>
-							<p><strong>CreatedOn: </strong>{createdOn}</p>
-						</div>
-						<div>
-							<p id="taskText"><strong>Tasks</strong></p>
-							{singleTask()}
-						</div>
-						<div>
-							<button onClick={() => deleteMission(id)}> Delete Mission</button>
-							<button onClick={() => completeMission(id)}> Complete Mission</button>
-						</div>
-						<div className="row">
-							<div className="text-center">
-								<CommentForm onComment={this.handleComment.bind(this)}/>
+							<div>
+								<p id="taskText"><strong>Description: </strong>{description}</p>
 							</div>
-						</div>
-						{renderComments}
+
+							<div>
+								<p><strong>CreatedOn: </strong>{createdOn}</p>
+							</div>
+
+							<div>
+								<p id="taskText"><strong>Tasks</strong></p>
+								{singleTask()}
+							</div>
+
+							<div>
+								<button onClick={() => deleteMission(id)}> Delete Mission</button>
+								<button onClick={() => completeMission(id)}> Complete Mission</button>
+							</div>
+						
+							<div className="panel-headingCom commentTop">
+								<span> <a data-toggle="collapse" data-target={"#mccollapse" + id} 
+           								href={"#mccollapse" + id}>Comments</a></span>
+							</div>
+
+					   	 	<div id={"mccollapse" + id}className="panel-collapse collapse">
+								<div className="row">
+									<div className="text-center">
+										<CommentForm onComment={this.handleComment.bind(this)}/>
+									</div>
+								</div>
+									{renderComments}
+							</div>
 					</div>
 				</div>
 			</div>

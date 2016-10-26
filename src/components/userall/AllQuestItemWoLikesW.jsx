@@ -134,13 +134,19 @@ export default class AllQuestItemWoLikesW extends React.Component {
 							<button onClick={() => deleteQuest(id)}> Delete Quest</button>
 							<button onClick={() => completeQuest(id)}> Complete Quest</button>
 						</div>
-						<div className="row">
-							<div className="text-center">
-								<CommentForm onComment={this.handleComment.bind(this)}/>
-								<p>Likes: {likes}</p>
+						<div className="panel-headingCom commentTop">
+							<span> <a data-toggle="collapse" data-target={"#qccollapse" + id} 
+           					href={"#qccollapse" + id}>Comments</a></span>
+						</div>
+						<div id={"qccollapse" + id}className="panel-collapse collapse">
+							<div className="row">
+								<div className="text-center">
+									<CommentForm onComment={this.handleComment.bind(this)}/>
+									<p>Likes: {likes}</p>
 							</div>
 						</div>
-						{renderComments}
+							{renderComments}
+						</div>
 					</div>
 				</div>
 			</div>
