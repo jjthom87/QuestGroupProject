@@ -44,7 +44,7 @@ export default class SearchBarMissionItem extends React.Component {
 
                         <p key={index} className="mstext"><strong>UserName:</strong>{user.username}</p>
                         <p className="mstext"><strong>Start Date: </strong>{missionCreatedOn}</p>
-                        <br></br>
+                        
                         <p className="mstext"><strong>Likes: </strong>{missionLikes}</p>
                         </div>
                     </div>
