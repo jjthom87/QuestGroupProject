@@ -540,14 +540,14 @@ p{
     font-family: 'Amaranth';
     font-size: 28px;
     text-decoration: bold;
-    color: yellow;
+    color: white;
 }
 
 .resultsTitle {
     font-family: 'Amaranth';
     font-size: 40px;
     text-decoration: bold;
-    color: yellow;
+    color: white;
 }
 
 .searchBarForm {
@@ -575,7 +575,7 @@ p{
     font-family: 'Amaranth', sans-serif;
     font-size: 22px;
     text-decoration: underline;
-    color: yellow;
+    color: white;
 }
 
 .searchResults {
