@@ -76,14 +76,14 @@ export default class SearchBarList extends React.Component {
         return (
             <div>
                 <div className="row">
-                    <div className="col-md-5" id="searchPanelHeaders">
-                        <p id="searchPanelHeaders">Missions</p>
+                    <div className="col-md-5">
+                        <p id="searchHeaders">Missions</p>
                         {noMissions()}
                         {renderMissionList()}
                     </div>
 
-                    <div className="col-md-5" id="searchPanelHeaders">
-                        <p id="searchPanelHeaders">Quests</p>
+                    <div className="col-md-5">
+                        <p id="searchHeaders">Quests</p>
                         {noQuests()}
                         {renderQuestList()}
                     </div>

@@ -499,14 +499,18 @@ select {
     color: yellow;  
 }
 
-#searchMilestone {
-
+.searchPanelHeader {
+    font-family: 'Amaranth';
+    font-size: 28px;
+    text-decoration: bold;
+    color: yellow;
 }
 
-#searchPanelHeaders {
-    font-family: 'Amaranth', sans-serif;
-    color: white;
-    font-size: 48px;
+.resultsTitle {
+    font-family: 'Amaranth';
+    font-size: 40px;
+    text-decoration: bold;
+    color: yellow;
 }
 
 .searchBarForm {
@@ -523,4 +527,17 @@ select {
 
 .userprofilediv {
     margin-bottom: 15px;
+}
+
+.searchRow {
+    font-family: 'Amaranth', sans-serif;
+    font-size: 22px;
+    text-decoration: underline;
+    color: yellow;
+}
+
+.searchResults {
+    font-family: 'Dosis';
+    font-size: 18px;
+    font: yellow;
 }
