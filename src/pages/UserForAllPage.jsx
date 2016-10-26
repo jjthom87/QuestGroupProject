@@ -109,7 +109,7 @@ export default class UserForAllPage extends React.Component {
       			<div >
               		<MainNav/>
                 	<div id="separator">
-      					<h1 className="text-center" id="pageTitle">All of {loginUser}'s Quest's and Missions</h1>
+      					<h1 className="text-center" id="pageTitle">{loginUser}'s Profile Page</h1>
       						{renderImage()}
 							<div className="text-center center-block">
 								<p className="searchHeader">Search By Title</p>
