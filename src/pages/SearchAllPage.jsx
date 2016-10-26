@@ -86,7 +86,7 @@ export default class SearchAllPage extends React.Component {
                         <div className="row">
                             <SearchBarForm className="searchBarForm" onSearch={this.handleSearch.bind(this)}/> 
 
-                            <div className="text-center center-block">
+                            <div>
                                 <SearchBarList
                                     filteredMissions={filteredMissions}
                                     filteredQuests={filteredQuests}

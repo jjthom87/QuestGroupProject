@@ -548,18 +548,24 @@ img{
     color: yellow;  
 }
 
-.searchPanelHeader {
+.searchPanelHeader a {
     font-family: 'Amaranth';
-    font-size: 28px;
+    font-size: 20px;
     text-decoration: bold;
     color: white;
 }
 
 .resultsTitle {
     font-family: 'Amaranth';
-    font-size: 40px;
+    font-size: 20px;
     text-decoration: bold;
     color: white;
+}
+
+#userImage {
+    float:right;
+    margin-right:30px;
+
 }
 
 .searchBarForm {

@@ -19,7 +19,7 @@ export default class SearchBarList extends React.Component {
                 var filteredMissionTasks = missionTasks.filter((missiontask) => missiontask.MissionId === mission.id);
                 var filteredUsers = users.filter((user) => user.id === mission.UserId);
                 return (
-                    <div className="qmboxCompleted">
+                    <div>
                         <SearchBarMissionItem
                             missionTitle={mission.title}
                             missionDescription={mission.description}
@@ -48,7 +48,7 @@ export default class SearchBarList extends React.Component {
                 var filteredMilestoneTasks = milestoneTasks.filter((milestonetask) => milestonetask.QuestId === quest.id);
                 var filteredUsers = users.filter((user) => user.id === quest.UserId);
                 return (
-                    <div className="qmboxCompleted">
+                    <div>
                         <SearchBarQuestItem
                             questTitle={quest.title}
                             questDescription={quest.description}
@@ -76,7 +76,7 @@ export default class SearchBarList extends React.Component {
         return (
             <div>
                 <div className="row">
-                    <div className="col-md-5">
+                    <div className="col-md-5 col-md-offset-1">
                         <p id="searchHeaders">Missions</p>
                         {noMissions()}
                         {renderMissionList()}
