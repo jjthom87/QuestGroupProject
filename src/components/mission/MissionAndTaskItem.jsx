@@ -41,8 +41,8 @@ export default class MissionAndTaskItem extends React.Component {
 		}
 		return (
 			
-			<div className="panel panel-default" id={"panel" + id}>
-				<div className="panel-heading">
+			<div className="panelbackHome userprofilediv" id={"panel" + id}>
+				<div className="panel-heading topPanel">
 					<span> <a data-toggle="collapse" data-target={"#collapse" + id} 
            			href={"#collapse" + id}><strong>Mission: </strong> {title}</a></span>
 		   			<Line percent={percentage} strokeWidth="4" strokeColor="#007B93"/>
@@ -51,7 +51,7 @@ export default class MissionAndTaskItem extends React.Component {
 					<div className="panel-body">
 						<strong><p>You are {percentage}% done with this mission</p></strong>
 						<div>
-							<p id="taskText" className="alltaskitem"><strong>Description: </strong>{description}</p>
+							<p id="taskText" ><strong>Description: </strong>{description}</p>
 						</div>
 						<div>
 							<p><strong>CreatedOn: </strong>{createdOn}</p>

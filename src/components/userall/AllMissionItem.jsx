@@ -89,14 +89,25 @@ export default class AllMissionItem extends React.Component {
 				)
 			})
 		}
+		
+		const owl = "https://s-media-cache-ak0.pinimg.com/originals/9e/b4/97/9eb497079e582509e89febf7552ddc02.png"
 		const renderComments = filteredComments.map((comment, index) => {
 			const filteredUser = allUsers.filter((user) => user.id === comment.UserId);
-			return (
-				<div className="alltaskitem">
-					<p key={index}><img src={filteredUser[0].profileImage} style={{width: 30, height: 30}}/><strong> {comment.usersName}:</strong> {comment.comment}</p>
-					<p>Commented on {comment.createdOn}</p>
-				</div>
-			)
+			if (filteredUser[0].profileImage === ''){
+				return (
+					<div className="alltaskitem">
+						<p key={index}><img src={owl} style={{width: 30, height: 30}}/><strong> {comment.usersName}:</strong> {comment.comment}</p>
+						<p> - <strong>{comment.createdOn}</strong></p>
+					</div>
+				)
+			} else {
+				return (
+					<div className="alltaskitem">
+						<p key={index}><img src={filteredUser[0].profileImage} style={{width: 30, height: 30}}/><strong> {comment.usersName}:</strong> {comment.comment}</p>
+						<p> - <strong>{comment.createdOn}</strong></p>
+					</div>
+				)
+			}
 		})
 
 		const renderCompletedOn = () => {
@@ -124,12 +135,18 @@ export default class AllMissionItem extends React.Component {
 				<p className="mstext"><strong>Description:</strong> {description}</p>
 				{renderCompletedOn()}
 				{singleTask()}
+				<div className="panel-heading commentTop">
+				<span> <a data-toggle="collapse" data-target={"#mccollapse" + id} 
+           			href={"#mccollapse" + id}>Comments</a></span>
+				</div>
+				<div id={"mccollapse" + id}className="panel-collapse collapse">
 				<div className="row">
 					<div className="text-center">
 						<CommentForm onComment={this.handleComment.bind(this)}/><button onClick={this.handleLike.bind(this)} id="likes"><span className="hvr-icon-bounce" aria-hidden="true" id="x"></span>{likes}</button>
 					</div>
 				</div>
 				{renderComments}
+				</div>
 				</div>
 				</div>
 			</div>

@@ -15,7 +15,7 @@ import MissionMain from "MissionMain";
 import QuestMain from "QuestMain";
 import CreateAccountPage from 'CreateAccountPage';
 import LoginPage from 'LoginPage';
-import UserHomePage from 'UserHomePage';
+import UserCreatePage from 'UserCreatePage';
 import SearchAllPage from 'SearchAllPage';
 import Authentication from 'Authentication';
 import Completed from 'Completed';
@@ -28,12 +28,12 @@ import FeedPage from 'FeedPage';
 export default (
   	<Router history={browserHistory}>
   		<Route component={Application}>
-		<Route path="/" component={HomePage} />
-		<Route path="/missionshome" component={MissionMain} />
-		<Route path="/questshome" component={QuestMain} />
+    		<Route path="/" component={HomePage} />
+    		<Route path="/missionshome" component={MissionMain} />
+    		<Route path="/questshome" component={QuestMain} />
         <Route path="/register" component={CreateAccountPage} />
         <Route path="/login" component={LoginPage} />
-        <Route path="/create" component={UserHomePage} />
+        <Route path="/create" component={UserCreatePage} />
         <Route path="/searchall" component={SearchAllPage} />
         <Route path="/completed" component={Completed} />
         <Route path="/userall" component={UserAllPage} />

@@ -91,14 +91,26 @@ export default class UserForAllPage extends React.Component {
 			return searchText.length === 0 || title.indexOf(searchText) > -1
 		});
 
+        const owl = "https://s-media-cache-ak0.pinimg.com/originals/9e/b4/97/9eb497079e582509e89febf7552ddc02.png"
+        const renderImage = () => {
+	        if (this.state.profileImage === ''){
+	                return (
+	                    <img className="text-center center-block" src={owl} style={{width: 250, height: 250}}/>
+	                )
+	            } else {
+	                return (
+	                    <img className="text-center center-block" src={this.state.profileImage} style={{width: 250, height: 250}}/>
+	                )
+	            }
+        }
+
     	return (
       		<div>
       			<div >
               		<MainNav/>
                 	<div id="separator">
       					<h1 className="text-center" id="pageTitle">All of {loginUser}'s Quest's and Missions</h1>
-      					<img className="text-center center-block" src={this.state.profileImage} style={{width: 250, height: 250}}/>
-      						
+      						{renderImage()}
 							<div className="text-center center-block">
 								<p className="searchHeader">Search By Title</p>
 								<SearchYourItemForm onSearch={this.handleSearch.bind(this)}/>
