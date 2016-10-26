@@ -25,7 +25,7 @@ export default class FeedUserQuestList extends React.Component {
         var noQuests = () => {
             if (userQuests.length === 0){
                 return (
-                    <p className="noQuestsText">You have added no Quests</p>
+                    <p className="noQuestsText text-center">You have added no Quests</p>
                 );
             }
         }

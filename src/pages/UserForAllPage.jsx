@@ -45,6 +45,7 @@ export default class UserForAllPage extends React.Component {
 		});
 	}
   	componentWillMount(){
+  		console.log(this.props.params.id)
 		fetch(`/api/userforall/${this.props.params.id}`)
 		.then((response) => response.json())
 		.then((results) => {
@@ -90,7 +91,7 @@ export default class UserForAllPage extends React.Component {
 			var title = search.title.toLowerCase();
 			return searchText.length === 0 || title.indexOf(searchText) > -1
 		});
-
+		console.log(<MainNav />)
     	return (
       		<div>
       			<div >

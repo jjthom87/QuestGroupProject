@@ -27,7 +27,7 @@ export default class FeedCommentList extends React.Component {
         var noComments = () => {
             if (comments.length === 0){
                 return (
-                    <p className="noQuestsText">No Comments</p>
+                    <p className="noQuestsText text-center">No Comments</p>
                 );
             }
         }

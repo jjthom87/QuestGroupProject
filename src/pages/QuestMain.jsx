@@ -241,7 +241,6 @@ export default class QuestMain extends React.Component {
                 this.setState({
                     milestonetasks: milestonetasks.concat(results)
                 });
-                browserHistory.push('/questshome')
             });
     }
     componentWillMount(){
