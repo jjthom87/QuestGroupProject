@@ -69,8 +69,8 @@ export default class SearchAllPage extends React.Component {
 
         const filteredMissions = missions.filter((mission) => {
             var text = mission.title.toLowerCase();
-            var privacy = mission.public;
-            return searchFetch.length === 0 || text.indexOf(searchFetch) > -1 || privacy === "Yes"
+
+            return searchFetch.length === 0 || text.indexOf(searchFetch) > -1
         });
 
         const filteredQuests = quests.filter((quest) => {

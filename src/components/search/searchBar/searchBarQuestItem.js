@@ -44,7 +44,7 @@ export default class SearchBarQuestItem extends React.Component {
                 return (
                     <div>
                         <p key={index} id="userText">{user.username}</p>
-                        <img key={index} src={user.profileImage}/>
+                        <img src={user.profileImage} style={{width: 50, height: 50}}/>
                     </div>
                 );
             });
@@ -54,16 +54,16 @@ export default class SearchBarQuestItem extends React.Component {
             <div className="panel panel-default" id={"panel" + id}>
                 <div className="panel-heading">
                     <span> <a data-toggle="collapse" data-target={"#qcollapse" + id} 
-                    href={"#qcollapse" + id}><strong>Quest: </strong> {questTitle}</a></span>
+                    href={"#qcollapse" + id}><strong className="searchPanelHeader">Quest: </strong><p className="resultsTitle">"{questTitle}"</p></a></span>
                 </div>
                 <div id={"qcollapse" + id} className="panel-collapse collapse">
                     <div className="panel-body">
-                        <div className="searchPrefix"><strong>Description: </strong><p className="questSearchText">{questDescription}</p></div>
-                        <div className="searchPrefix"><strong>Username: </strong><div className="questSearchText">{singleUser()}</div></div>
-                        <div className="searchPrefix"><strong>Start Date: </strong><p className="questSearchText">{questCreatedOn}</p></div>
-                        <div className="searchPrefix"><strong>Likes: </strong><p className="questSearchText">{questLikes}</p></div>
-                        <div className="searchPrefix"><strong>Status: </strong><p className="questSearchText">{questStatus()}</p></div>
-                        <div className="searchPrefix"><strong>Milestone: </strong><div className="questSearchText">{singleMilestone()}</div></div>
+                        <div className="searchRow"><strong>Description: </strong><p className="searchResults">{questDescription}</p></div>
+                        <div className="searchRow"><strong>Username: </strong><div className="searchResults">{singleUser()}</div></div>
+                        <div className="searchRow"><strong>Start Date: </strong><p className="searchResults">{questCreatedOn}</p></div>
+                        <div className="searchRow"><strong>Likes: </strong><p className="searchResults">{questLikes}</p></div>
+                        <div className="searchRow"><strong>Status: </strong><p className="searchResults">{questStatus()}</p></div>
+                        <div className="searchRow"><strong>Milestone: </strong><div className="searchResults">{singleMilestone()}</div></div>
                     </div>
                 </div>    
             </div>
