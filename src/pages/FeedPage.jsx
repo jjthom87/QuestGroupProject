@@ -57,7 +57,7 @@ export default class FeedPage extends React.Component {
       			<div id="separator">
 	      			<h1 className="text-center" id="pageTitle">Hoot Hoot {loginUser}, Welcome to Bubo</h1>
 	      			<h2 className="text-center" id="pageTitle">
-	      				Go to the Create/Modify page to create a Mission/Quest or Search other Users
+	      				Go to the Create page to create a Mission/Quest or Search other Users
 	      			</h2>
 	      			<br></br>
 	      			<h1 className="text-center" id="feedPageTitle">

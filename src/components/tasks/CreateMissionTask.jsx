@@ -56,7 +56,7 @@ export default class CreateMissionTask extends React.Component {
                 return (
                     <div>
                         <form onSubmit={this.handleCreateTask.bind(this)}>
-                            <input type="text" placeholder="Add a Task to your Mission" ref="task"/>
+                            <input type="text" placeholder="Add Task to a Mission" ref="task"/>
                             <span>
                             <input type="date" placeholder="Set your Date of Achievement (Optional)" ref="dateTask" />
                             <input type="time" placeholder="Specify a Time (Optional)" ref="timeTask" />
