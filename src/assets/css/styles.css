@@ -45,6 +45,10 @@ p{
     margin-right: 2px;
 }
 
+img{
+    border-radius: 5px;
+}
+
 #starsIMG{
     background:url('../images/stars.png');
     padding-top: 30px;
@@ -138,6 +142,7 @@ p{
 }
 
 #accountForm {
+    border-radius: 5px;
     text-align: center;
     margin-top: 150px;
     display: inline-block;
@@ -205,6 +210,7 @@ p{
 }
 
 #loginForm {
+    border-radius: 5px;
     text-align: center;
     margin-top: 150px;
     display: inline-block;
@@ -221,6 +227,7 @@ p{
 }
 
 #submitButton input {
+    margin-bottom: 10px;
     margin-left: 5px;
     margin-top: 10px;
     color: #007B93;
