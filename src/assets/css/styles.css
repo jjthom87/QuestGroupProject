@@ -464,7 +464,16 @@ select {
     background-color: rgba(192,192,192,.5);
     color: white; 
 }
+.commentTop a{
+    color:white;
+    text-decoration: none;
+    font-size:20px;
+    
+}
 
+.commentTop {
+    
+}
 .questDescription {
     padding-bottom: 5px;
     border-bottom: thick solid white;

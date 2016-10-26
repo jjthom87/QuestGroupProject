@@ -38,8 +38,8 @@ export default class MainNav extends React.Component {
 						<div className="collapse navbar-collapse main-nav" id="bubo-main-nav">
 							<ul className="nav navbar-nav navbar-right" id="mainNavli">
 								<li><Link to="/create">Create</Link></li>
-								<li><Link to="/searchall">Quest/Mission Search</Link></li>
-								<li><Link to="/searchusers">User Search</Link></li>
+								<li><Link to="/searchall"> Explore </Link></li>
+								<li><Link to="/searchusers">People</Link></li>
 								<li><Link to="/userall">Profile</Link></li>
                                 <li className="landNavitem"><Logout onLogout={this.logoutHandler.bind(this)}/></li>
 							</ul>
