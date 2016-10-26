@@ -433,12 +433,12 @@ var modelController = {
 
 // Retreives all Public Bubo Missions and Quests that exist in database (See route '/searchall')
 	allMain: function(cb){
-        models.Mission.findAll().then(function(missions){
+        models.Mission.findAll({ where: {public: 'Yes'}}).then(function(missions){
         var missionsArray = [];
             missions.forEach(function(mission){
                 missionsArray.push(mission);
             });
-        models.Quest.findAll().then(function(quests){
+        models.Quest.findAll({ where: {public: 'Yes'}}).then(function(quests){
         var questsArray = [];
             quests.forEach(function(quest){
                 questsArray.push(quest);
