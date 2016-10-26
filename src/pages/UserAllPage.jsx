@@ -331,13 +331,27 @@ export default class UserAllPage extends React.Component {
 			return searchText.length === 0 || title.indexOf(searchText) > -1
 		});
 
+        const owl = "https://s-media-cache-ak0.pinimg.com/originals/9e/b4/97/9eb497079e582509e89febf7552ddc02.png"
+        const renderImage = () => {
+
+        if (this.state.profileImage === ''){
+                return (
+                    <img className="text-center center-block" src={owl} style={{width: 250, height: 250}}/>
+                )
+            } else {
+                return (
+                    <img className="text-center center-block" src={this.state.profileImage} style={{width: 250, height: 250}}/>
+                )
+            }
+        }
+
     	return (
       		<div>
       			<div>
               		<MainNav/>
                 	<div  id="separator">
       					<h1 className="text-center" id="pageTitle">{loginUser}'s Profile Page</h1>
-      					<img className="text-center center-block" src={this.state.profileImage} style={{width: 250, height: 250}}/>
+      					    {renderImage()}
 							<div className="text-center center-block">
 								<p className="searchHeader">Search By Title</p>
 								<SearchYourItemForm onSearch={this.handleSearch.bind(this)}/>
@@ -360,6 +374,7 @@ export default class UserAllPage extends React.Component {
 						            <AllMissionListWoLikes
 					                    missions={filteredComMiss}
 					                    missiontasks={missiontasks}
+                                        deleteMission={this.deleteMission.bind(this)}
 					                   	allUsers={allUsers}
 					                />
 					            </div>
@@ -384,6 +399,7 @@ export default class UserAllPage extends React.Component {
 					                    quests={filteredComQuest}
 					                    milestones={milestones}
 					                    milestonetasks={milestonetasks}
+                                        deleteQuest={this.deleteQuest.bind(this)}
 					                    allUsers={allUsers}
 					                />
 				            	</div>
