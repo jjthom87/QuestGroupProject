@@ -607,3 +607,11 @@ img{
 .panel {
     text-decoration: none
 }
+
+#profimage {
+    margin-right: 10px;
+}
+
+.searchtaskitem { 
+    margin-bottom:5px;
+}

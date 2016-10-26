@@ -27,7 +27,7 @@ export default class SearchBarMissionItem extends React.Component {
             return missionTasks.map((task, index) => {
                 return (
                    
-                    <p key={index} id="taskText">{task.task}</p>
+                    <p key={index} className="alltaskitem" >{task.task}</p>
                    
                 );
             });
@@ -37,14 +37,15 @@ export default class SearchBarMissionItem extends React.Component {
             return users.map((user, index) => {
                 return (
                     <div className="row">
-                        <div className="col-xs-2 col-md-2">
-                            <img src={user.profileImage} style={{width: 100, height: 100}}/>
+                        <div className="col-xs-2 col-md-3" id="profimage">
+                            <img src={user.profileImage} style={{width: 120, height: 120}}/>
                         </div>
-                        <div className="col-xs-6">   
+                        <div className="col-xs-8 col-md-7">   
 
-                        <p key={index} className="searchResults"><strong>UserName:</strong>{user.username}</p>
-                        <p className="searchResults"><strong>Start Date: </strong>{missionCreatedOn}</p>
-                        <p className="searchResults"><strong>Likes: </strong>{missionLikes}</p>
+                        <p key={index} className="mstext"><strong>UserName:</strong>{user.username}</p>
+                        <p className="mstext"><strong>Start Date: </strong>{missionCreatedOn}</p>
+                        <br></br>
+                        <p className="mstext"><strong>Likes: </strong>{missionLikes}</p>
                         </div>
                     </div>
                 );
@@ -70,10 +71,10 @@ export default class SearchBarMissionItem extends React.Component {
                 <div id={"mcollapse" + id}className="panel-collapse collapse">
                     <div className="panel-body">
                         {singleUser()}
-                        <div className="searchRow"><strong>Status: </strong><p className="searchResults">{missionStatus()}</p></div>
-                        <div className="searchRow"><strong>Description: </strong><p className="searchResults">{missionDescription}</p></div>
+                        <div className="mstext"><strong>Status: </strong><p>{missionStatus()}</p></div>
+                        <div className="mstext"><strong>Description: </strong><p >{missionDescription}</p></div>
                         
-                        <div className="searchRow"><strong>Tasks: </strong><div className="searchResults">{singleTask()}</div></div>
+                        <div className="mstext"><strong>Tasks: </strong><div>{singleTask()}</div></div>
                     </div>
                 </div>
             </div>
