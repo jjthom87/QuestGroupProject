@@ -460,6 +460,20 @@ select {
     box-shadow: 6px 6px 3px rgba(0, 0, 0, 0.4);
 }
 
+.panelbackHome{
+    background-color: rgba(192,192,192,.5);
+    color: white; 
+}
+.commentTop a{
+    color:white;
+    text-decoration: none;
+    font-size:20px;
+    
+}
+
+.commentTop {
+    
+}
 .questDescription {
     padding-bottom: 5px;
     border-bottom: thick solid white;
@@ -499,15 +513,18 @@ select {
     color: yellow;  
 }
 
-#searchMilestone {
-
+.searchPanelHeader {
+    font-family: 'Amaranth';
+    font-size: 28px;
+    text-decoration: bold;
+    color: yellow;
 }
 
-#searchPanelheaders {
-    font-family: 'Dosis', sans-serif;
-    color: white;
-    size: 72px;
-    background: brown;
+.resultsTitle {
+    font-family: 'Amaranth';
+    font-size: 40px;
+    text-decoration: bold;
+    color: yellow;
 }
 
 .searchBarForm {
@@ -522,6 +539,24 @@ select {
     margin-bottom:30px;
 }
 
+.feedDivr {
+    margin-bottom:30px;
+    margin-left:30px;
+}
+
 .userprofilediv {
     margin-bottom: 15px;
+}
+
+.searchRow {
+    font-family: 'Amaranth', sans-serif;
+    font-size: 22px;
+    text-decoration: underline;
+    color: yellow;
+}
+
+.searchResults {
+    font-family: 'Dosis';
+    font-size: 18px;
+    font: yellow;
 }

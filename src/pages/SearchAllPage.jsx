@@ -1,3 +1,6 @@
+// React Router: "/searchall"
+// Allows users to search and view all Missions and Quests
+
 import React, { Component, PropTypes } from 'react';
 import { Router , browserHistory } from 'react-router';
 var {Link, IndexLink} = require('react-router');
@@ -56,7 +59,7 @@ export default class SearchAllPage extends React.Component {
                 missiontasks: results.missiontasks,
                 milestones: results.milestones,
                 milestonetasks: results.milestonetasks,
-                users: results.users
+                users: results.users,
             });
         });
     }
@@ -66,8 +69,8 @@ export default class SearchAllPage extends React.Component {
 
         const filteredMissions = missions.filter((mission) => {
             var text = mission.title.toLowerCase();
-            var privacy = mission.public;
-            return searchFetch.length === 0 || text.indexOf(searchFetch) > -1 || privacy === "Yes"
+
+            return searchFetch.length === 0 || text.indexOf(searchFetch) > -1
         });
 
         const filteredQuests = quests.filter((quest) => {

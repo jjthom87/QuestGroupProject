@@ -10,7 +10,7 @@ export default class SearchBarMissionItem extends React.Component {
     }
 
     renderMissionItem() {
-        const { users, missionTasks, missionTitle, missionDescription , missionCompleted, missionCreatedOn, missionLikes } = this.props;
+        const { id, users, missionTasks, missionTitle, missionDescription , missionCompleted, missionCreatedOn, missionLikes } = this.props;
 
         var missionStatus = () => {
             if(missionCompleted === true) {
@@ -26,7 +26,9 @@ export default class SearchBarMissionItem extends React.Component {
         var singleTask = () => {
             return missionTasks.map((task, index) => {
                 return (
+                   
                     <p key={index} id="taskText">{task.task}</p>
+                   
                 );
             });
         }
@@ -34,21 +36,29 @@ export default class SearchBarMissionItem extends React.Component {
         var singleUser = () => {
             return users.map((user, index) => {
                 return (
-                    <p key={index} id="userText">{user.username}</p>
+                    <div>
+                        <p key={index} id="userText">{user.username}</p>
+                        <img src={user.profileImage} style={{width: 50, height: 50}}/>
+                    </div>
                 );
             });
         }
 
         return (
-            <div>
-                 <div className="forAllHeader text-center">
-                    <div className="searchPrefix"><strong>Mission Title: </strong><p className="missionSearchText">{missionTitle}</p></div>
-                    <div className="searchPrefix"><strong>Description: </strong><p className="missionSearchText">{missionDescription}</p></div>
-                    <div className="searchPrefix"><strong>Username: </strong><div className="missionSearchText">{singleUser()}</div></div>
-                    <div className="searchPrefix"><strong>Start Date: </strong><p className="missionSearchText">{missionCreatedOn}</p></div>
-                    <div className="searchPrefix"><strong>Likes: </strong><p className="missionSearchText">{missionLikes}</p></div>
-                    <div className="searchPrefix"><strong>Status: </strong><p className="missionSearchText">{missionStatus()}</p></div>
-                    <div className="searchPrefix"><strong>Tasks: </strong><div className="missionSearchText">{singleTask()}</div></div>
+            <div className="panel panel-default" id={"panel" + id}>
+                 <div className="panel-heading">
+                    <span> <a data-toggle="collapse" data-target={"#mcollapse" + id} 
+                    href={"#mcollapse" + id}><strong className="searchPanelHeader">Mission: </strong><p className="resultsTitle">"{missionTitle}"</p></a></span>
+                </div>
+                <div id={"mcollapse" + id}className="panel-collapse collapse">
+                    <div className="panel-body">
+                        <div className="searchRow"><strong>Description: </strong><p className="searchResults">{missionDescription}</p></div>
+                        <div className="searchRow"><strong>Username: </strong><div className="searchResults">{singleUser()}</div></div>
+                        <div className="searchRow"><strong>Start Date: </strong><p className="searchResults">{missionCreatedOn}</p></div>
+                        <div className="searchRow"><strong>Likes: </strong><p className="searchResults">{missionLikes}</p></div>
+                        <div className="searchRow"><strong>Status: </strong><p className="searchResults">{missionStatus()}</p></div>
+                        <div className="searchRow"><strong>Tasks: </strong><div className="searchResults">{singleTask()}</div></div>
+                    </div>
                 </div>
             </div>
         );  

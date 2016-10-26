@@ -124,12 +124,18 @@ export default class AllMissionItem extends React.Component {
 				<p className="mstext"><strong>Description:</strong> {description}</p>
 				{renderCompletedOn()}
 				{singleTask()}
+				<div className="panel-heading commentTop">
+				<span> <a data-toggle="collapse" data-target={"#mccollapse" + id} 
+           			href={"#mccollapse" + id}>Comments</a></span>
+				</div>
+				<div id={"mccollapse" + id}className="panel-collapse collapse">
 				<div className="row">
 					<div className="text-center">
 						<CommentForm onComment={this.handleComment.bind(this)}/><button onClick={this.handleLike.bind(this)} id="likes"><span className="hvr-icon-bounce" aria-hidden="true" id="x"></span>{likes}</button>
 					</div>
 				</div>
 				{renderComments}
+				</div>
 				</div>
 				</div>
 			</div>
