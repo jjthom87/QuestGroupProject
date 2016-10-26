@@ -53,7 +53,8 @@ export default class LoginPage extends React.Component {
 
 					<div className="container">
 						<Login onLogin={this.handleNewData.bind(this)}/>
-						<p className="animated fadeInDown" id="loginText">If you haven't registered yet please go to the Sign Up Page!</p>
+						<p className="animated fadeInDown" id="loginText">If you haven't registered yet</p>
+						 	<p className="animated fadeInDown" id="loginText">Please go to the Sign Up Page!</p>
 					</div>
 				</div>
 			</div>
