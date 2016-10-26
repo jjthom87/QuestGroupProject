@@ -607,3 +607,15 @@ img{
 .panel {
     text-decoration: none
 }
+
+@media only screen and (max-width: 400px) {
+    #separator {
+        margin-top: 250px; 
+        font-family: cursive;
+    }
+    #siteName{
+        margin-top: 20px;
+        margin-left: 25px;
+    }
+
+}
