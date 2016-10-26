@@ -619,3 +619,18 @@ img{
     }
 
 }
+
+#profimage {
+    margin-right: 10px;
+}
+
+.searchtaskitem { 
+    margin-bottom:5px;
+}
+
+@media screen and (max-width: 768px) {
+    .feedDivr {
+        margin-left: 0px;
+    }
+}
+
