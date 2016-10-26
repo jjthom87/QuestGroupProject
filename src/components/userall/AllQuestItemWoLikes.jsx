@@ -65,13 +65,13 @@ export default class AllQuestItemWoLikes extends React.Component {
 				var filteredMilestonetask = milestonetasks.filter((milestonetask) => milestonetask.MilestoneUuid === milestone.uuid);
 				return (
 					<div>
-						<li>
+						<span className="questDescription">
 							<p>Milestone</p>
 							<p key={index} id="taskText">{milestone.milestone}</p>
 							<AllMilestonetaskItem
 								milestonetasks={filteredMilestonetask}
                         	/>
-						</li>
+						</span>
 					</div>
 				)
 			})
@@ -96,25 +96,38 @@ export default class AllQuestItemWoLikes extends React.Component {
 			}
 		})
 		return (
-			<div className="panel panel-default" id={"panel" + id}>
-				<div className="panel-heading">
+			<div className="panelback userprofilediv" id={"panel" + id}>
+				<div className="panel-heading topPanel">
 					<span> <a data-toggle="collapse" data-target={"#qcollapse" + id} 
            			href={"#qcollapse" + id}><strong>Quest: </strong> {title}</a></span>
 				</div>
 				<div id={"qcollapse" + id} className="panel-collapse collapse">
 					<div className="panel-body">
-						<p>Description: {description}</p>
-						<p>Created On: {createdOn}</p>
-						{singleMilestone()}
-						<p>Completed On: {completedOn}</p>
-						<button className="btn btn-default" onClick={() => deleteQuest(id)}> Delete Quest</button>
-						<div className="row">
-							<div className="text-center">
-								<CommentForm onComment={this.handleComment.bind(this)}/>
-								<p>Likes: {likes}</p>
-							</div>
+						<div>
+							<p id="taskText" className="mstext"><strong>Description: </strong>{description}</p>
 						</div>
-						{renderComments}
+
+						<p>Created On: {createdOn}</p>
+
+						{singleMilestone()}
+
+						<p>Completed On: {completedOn}</p>
+
+						<button className="btn btn-default" onClick={() => deleteQuest(id)}> Delete Quest</button>
+
+						<div className="panel-headingCom commentTop">
+							<span> <a data-toggle="collapse" data-target={"#qccollapse" + id} 
+           					href={"#qccollapse" + id}>Comments</a></span>
+						</div>
+						<div id={"qccollapse" + id}className="panel-collapse collapse">
+							<div className="row">
+								<div className="text-center">
+									<CommentForm onComment={this.handleComment.bind(this)}/>
+									<p>Likes: {likes}</p>
+								</div>
+							</div>
+							{renderComments}
+						</div>
 					</div>
 				</div>
 			</div>

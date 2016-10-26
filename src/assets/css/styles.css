@@ -82,6 +82,11 @@ p{
     margin-right: 30px;
     word-wrap:break-word;
     border-radius: 5px;
+    
+}
+
+.qmspace {
+    margin-bottom: 30px;
 }
 
 .qmboxCompleted{
@@ -466,6 +471,7 @@ p{
 
 #usersearchresult {
     margin-right:0px;
+    margin-bottom:30px;
 }
 
 .topPanel { 
@@ -483,6 +489,7 @@ p{
     background-color: rgba(192,192,192,.5);
     color: white; 
     box-shadow: 6px 6px 3px rgba(0, 0, 0, 0.4);
+    margin-bottom:20px;
 }
 
 .panelbackHome{
