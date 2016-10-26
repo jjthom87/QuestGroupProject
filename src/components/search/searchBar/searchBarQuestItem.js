@@ -29,7 +29,7 @@ export default class SearchBarQuestItem extends React.Component {
                 var filteredMilestoneTasks = milestoneTasks.filter((milestonetask) => milestonetask.MilestoneUuid === milestone.uuid);
                 return (
                     <div >
-                            <p key={index}  id="searchMilestone">{milestone.milestone}</p>
+                            <p key={index}  className="questDescription"><strong> Milestone: </strong>{milestone.milestone}</p>
                             <SearchBarMilestoneTaskItem
                                 milestoneTasks={filteredMilestoneTasks}
                                 milestones={milestone.milestone}
@@ -42,28 +42,43 @@ export default class SearchBarQuestItem extends React.Component {
         var singleUser = () => {
             return users.map((user, index) => {
                 return (
-                    <div>
-                        <p key={index} id="userText">{user.username}</p>
-                        <img src={user.profileImage} style={{width: 50, height: 50}}/>
+                    <div className="row">
+                        <div className="col-xs-2 col-md-3" id="profimage">
+                            <img src={user.profileImage} style={{width: 120, height: 120}}/>
+                        </div>
+                        <div className="col-xs-8 col-md-7">   
+
+                        <p key={index} className="mstext"><strong>UserName:</strong>{user.username}</p>
+                        <p className="mstext"><strong>Start Date: </strong>{questCreatedOn}</p>
+                        
+                        <p className="mstext"><strong>Likes: </strong>{questLikes}</p>
+                        </div>
                     </div>
+                );
+            });
+        }
+        var picture = () => {
+            return users.map((user, index) => {
+                return (
+                    <span id="userImage">
+                        <img src={user.profileImage} style={{width: 30, height: 30}}/>
+                    </span>
                 );
             });
         }
 
         return (
-            <div className="panel panel-default" id={"panel" + id}>
-                <div className="panel-heading">
-                    <span> <a data-toggle="collapse" data-target={"#qcollapse" + id} 
-                    href={"#qcollapse" + id}><strong className="searchPanelHeader">Quest: </strong><p className="resultsTitle">"{questTitle}"</p></a></span>
+            <div className="panelback userprofilediv" id={"panel" + id}>
+                <div className="panel-heading topPanel">
+                    <span className="searchPanelHeader"> <a  data-toggle="collapse" data-target={"#qcollapse" + id} 
+                    href={"#qcollapse" + id}>{picture()}<strong >Quest: </strong>{questTitle}</a></span>
                 </div>
                 <div id={"qcollapse" + id} className="panel-collapse collapse">
                     <div className="panel-body">
-                        <div className="searchRow"><strong>Description: </strong><p className="searchResults">{questDescription}</p></div>
-                        <div className="searchRow"><strong>Username: </strong><div className="searchResults">{singleUser()}</div></div>
-                        <div className="searchRow"><strong>Start Date: </strong><p className="searchResults">{questCreatedOn}</p></div>
-                        <div className="searchRow"><strong>Likes: </strong><p className="searchResults">{questLikes}</p></div>
-                        <div className="searchRow"><strong>Status: </strong><p className="searchResults">{questStatus()}</p></div>
-                        <div className="searchRow"><strong>Milestone: </strong><div className="searchResults">{singleMilestone()}</div></div>
+                        {singleUser()}
+                        <div className="mstext"><strong>Description: </strong><p>{questDescription}</p></div>
+                        <div className="mstext"><strong>Status: </strong><p >{questStatus()}</p></div>
+                        <div className="mstext">{singleMilestone()}</div>
                     </div>
                 </div>    
             </div>
