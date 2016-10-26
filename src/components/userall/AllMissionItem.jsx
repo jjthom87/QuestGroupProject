@@ -135,8 +135,8 @@ export default class AllMissionItem extends React.Component {
 				<p className="mstext"><strong>Description:</strong> {description}</p>
 				{renderCompletedOn()}
 				{singleTask()}
-				<div className="panel-heading commentTop">
-				<span> <a data-toggle="collapse" data-target={"#mccollapse" + id} 
+				<div className="panel-headingCom commentTop">
+				<span > <a data-toggle="collapse" data-target={"#mccollapse" + id} 
            			href={"#mccollapse" + id}>Comments</a></span>
 				</div>
 				<div id={"mccollapse" + id}className="panel-collapse collapse">

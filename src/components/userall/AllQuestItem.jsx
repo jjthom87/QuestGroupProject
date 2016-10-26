@@ -140,7 +140,7 @@ export default class AllQuestItem extends React.Component {
 				<p className="mstext"><strong>Description:</strong> {description}</p>
 				{singleMilestone()}
 				{renderCompletedOn()}
-				<div className="panel-heading commentTop">
+				<div className="panel-headingCom commentTop">
 				<span> <a data-toggle="collapse" data-target={"#qccollapse" + id} 
            			href={"#qccollapse" + id}>Comments</a></span>
 				</div>
