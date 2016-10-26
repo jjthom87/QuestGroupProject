@@ -16,7 +16,7 @@ var Accordion = ReactBootstrap.Accordion;
 var _ = require('lodash');
 var moment = require('moment');
 
-export default class UserHomePage extends React.Component {
+export default class UserCreatePage extends React.Component {
   	constructor(props, context) {
 		super(props, context);
 		this.state = {
@@ -405,7 +405,7 @@ export default class UserHomePage extends React.Component {
       		<div>
               <MainNav/>
                 <div className='container' id="homepageDiv">
-      			<h1 className="text-center" id="pageTitle">Hello {loginUser}. Create/Modify Your Missions & Quests here</h1>
+      			<h1 className="text-center" id="pageTitle">Hello {loginUser}. Click the "+" to Create/Modify Your Missions & Quests</h1>
       			<div className="row">
       				<div className="col-lg-1 col-lg-offset-5" role="group">								
                     </div>

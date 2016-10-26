@@ -55,7 +55,7 @@ export default class AllMissionItemWoLikes extends React.Component {
 	render(){
 
 		const { comments } = this.state;
-		const { id, title, description, missiontasks, completedOn, isCompleted, createdOn, likes, allUsers } = this.props;
+		const { id, title, description, missiontasks, completedOn, isCompleted, createdOn, likes, allUsers, deleteMission } = this.props;
 
 		const filteredComments = comments.filter((comment) => comment.MissionId === id);
 
@@ -71,14 +71,24 @@ export default class AllMissionItemWoLikes extends React.Component {
 				)
 			})
 		}
+		const owl = "https://s-media-cache-ak0.pinimg.com/originals/9e/b4/97/9eb497079e582509e89febf7552ddc02.png"
 		const renderComments = filteredComments.map((comment, index) => {
 			const filteredUser = allUsers.filter((user) => user.id === comment.UserId);
-			return (
-				<div className="alltaskitem">
-					<p key={index}><img src={filteredUser[0].profileImage} style={{width: 30, height: 30}}/><strong> {comment.usersName}:</strong> {comment.comment}</p>
-					<p>Commented on {comment.createdOn}</p>
-				</div>
-			)
+			if (filteredUser[0].profileImage === ''){
+				return (
+					<div className="alltaskitem">
+						<p key={index}><img src={owl} style={{width: 30, height: 30}}/><strong> {comment.usersName}:</strong> {comment.comment}</p>
+						<p> - <strong>{comment.createdOn}</strong></p>
+					</div>
+				)
+			} else {
+				return (
+					<div className="alltaskitem">
+						<p key={index}><img src={filteredUser[0].profileImage} style={{width: 30, height: 30}}/><strong> {comment.usersName}:</strong> {comment.comment}</p>
+						<p> - <strong>{comment.createdOn}</strong></p>
+					</div>
+				)
+			}
 		})
 		return (
 			<div className="panel panel-default" id={"panel" + id}>
@@ -92,6 +102,7 @@ export default class AllMissionItemWoLikes extends React.Component {
 						<p>Created On: {createdOn}</p>
 						{singleTask()}
 						<p>Completed On: {completedOn}</p>
+						<button className="btn btn-default" onClick={() => deleteMission(id)}> Delete Mission</button>
 						<div className="row">
 							<div className="text-center">
 								<CommentForm onComment={this.handleComment.bind(this)}/>

@@ -583,3 +583,7 @@ p{
     font-size: 18px;
     font: yellow;
 }
+
+.panel {
+    text-decoration: none
+}
