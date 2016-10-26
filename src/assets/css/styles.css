@@ -428,9 +428,9 @@ img{
 
 }
 
-/*.panel-body p {
+.panel-body p {
     display: inline-block;
-}*/
+}
 
 .userSearchText {
     font-family: 'Lobster', cursive;
@@ -614,4 +614,10 @@ img{
 
 .searchtaskitem { 
     margin-bottom:5px;
+}
+
+@media screen and (max-width: 768px) {
+    .feedDivr {
+        margin-left: 0px;
+    }
 }
