@@ -25,7 +25,7 @@ export default class FeedUserList extends React.Component {
         var noUsers = () => {
             if (users.length === 0){
                 return (
-                    <p className="noQuestsText">No Users</p>
+                    <p className="noQuestsText text-center">No Users</p>
                 );
             }
         }

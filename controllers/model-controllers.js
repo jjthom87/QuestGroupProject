@@ -202,7 +202,7 @@ var modelController = {
 			var lastFiveComments;
 			var lastFiveMissions;
 			var lastFiveQuests;
-		models.User.findAll({}).then(function(success){
+		models.User.findAll().then(function(success){
 	    	allUsers = success;
 		models.User.findAll({ order: 'id DESC', limit: 5 }).then(function(success){
 	    	lastFiveUsers = success;
@@ -314,11 +314,14 @@ var modelController = {
 	      })	
 	},
 	questComplete: function(id, completedOn, cb){
-	  models.Quest.findOne({ where: { id: id}}).then(function(success){
-	        success.set('questCompleted', true);
-	       	success.set('completedOn', completedOn);
-	        success.save();
-	          cb(success);
+	  models.Quest.findOne({ where: { id: id}}).then(function(quest){
+	        quest.set('questCompleted', true);
+	       	quest.set('completedOn', completedOn);
+	        quest.save().then(function(quest){
+	        	quest.reload().then(function(success){
+	        		cb(quest);
+	        	})
+	    	})
 	      }).catch(function(err){
 	        throw err
 	      })	

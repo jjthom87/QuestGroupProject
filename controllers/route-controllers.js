@@ -220,10 +220,12 @@ router.post('/api/milestonetask/create/', middleware.requireAuthentication, func
             MilestoneId: milestone.id,
             QuestId: quest.id
           }).then(function(milestonetask){
-             milestone.addMilestonetask(milestonetask).then(function(success){
-           res.json(milestonetask); 
-        }).catch(function(err){
-          throw err;
+            milestone.addMilestonetask(milestonetask).then(function(milestone){
+              milestonetask.reload().then(function(milestonetask){
+                res.json(milestonetask); 
+              })
+          }).catch(function(err){
+            throw err;
           });
         });
       });

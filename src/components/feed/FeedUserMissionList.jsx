@@ -24,7 +24,7 @@ export default class FeedUserMissionList extends React.Component {
         var noMissions = () => {
             if (userMissions.length === 0){
                 return (
-                    <p className="noQuestsText">You have added no Missions</p>
+                    <p className="noQuestsText text-center">You have added no Missions</p>
                 );
             }
         }
