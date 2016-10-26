@@ -36,19 +36,19 @@ export default class SearchBarMissionItem extends React.Component {
         var singleUser = () => {
             return users.map((user, index) => {
                 return (
-                    <div>
+                    <span>
                         <p key={index} id="userText">{user.username}</p>
-                        <img src={user.profileImage} style={{width: 50, height: 50}}/>
-                    </div>
+                        <img src={user.profileImage} style={{width: 40, height: 40}}/>
+                    </span>
                 );
             });
         }
 
         return (
-            <div className="panel panel-default" id={"panel" + id}>
-                 <div className="panel-heading">
-                    <span> <a data-toggle="collapse" data-target={"#mcollapse" + id} 
-                    href={"#mcollapse" + id}><strong className="searchPanelHeader">Mission: </strong><p className="resultsTitle">"{missionTitle}"</p></a></span>
+            <div className="panelback userprofilediv" id={"panel" + id}>
+                 <div className="panel-heading topPanel">
+                    <span className="searchPanelHeader"> <a data-toggle="collapse" data-target={"#mcollapse" + id} 
+                    href={"#mcollapse" + id}><strong >Mission: </strong>{missionTitle}</a></span>
                 </div>
                 <div id={"mcollapse" + id}className="panel-collapse collapse">
                     <div className="panel-body">
