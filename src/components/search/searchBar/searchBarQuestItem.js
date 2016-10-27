@@ -70,8 +70,8 @@ export default class SearchBarQuestItem extends React.Component {
         return (
             <div className="panelback userprofilediv" id={"panel" + id}>
                 <div className="panel-heading topPanel">
-                    <span className="searchPanelHeader"> <a  data-toggle="collapse" data-target={"#qcollapse" + id} 
-                    href={"#qcollapse" + id}>{picture()}<strong >Quest: </strong>{questTitle}</a></span>
+                    <span className="searchPanelHeader"><div className="resultPanelHeader"><a  data-toggle="collapse" data-target={"#qcollapse" + id} 
+                    href={"#qcollapse" + id}>{picture()}<strong >Quest: </strong>{questTitle}</a></div></span>
                 </div>
                 <div id={"qcollapse" + id} className="panel-collapse collapse">
                     <div className="panel-body">

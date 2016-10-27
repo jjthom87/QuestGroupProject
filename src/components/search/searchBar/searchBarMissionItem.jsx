@@ -41,10 +41,8 @@ export default class SearchBarMissionItem extends React.Component {
                             <img src={user.profileImage} style={{width: 120, height: 120}}/>
                         </div>
                         <div className="col-xs-8 col-md-7">   
-
                         <p key={index} className="mstext"><strong>UserName:</strong>{user.username}</p>
                         <p className="mstext"><strong>Start Date: </strong>{missionCreatedOn}</p>
-                        
                         <p className="mstext"><strong>Likes: </strong>{missionLikes}</p>
                         </div>
                     </div>
@@ -65,15 +63,14 @@ export default class SearchBarMissionItem extends React.Component {
         return (
             <div className="panelback userprofilediv" id={"panel" + id}>
                  <div className="panel-heading topPanel">
-                    <span className="searchPanelHeader"> <a data-toggle="collapse" data-target={"#mcollapse" + id} 
-                    href={"#mcollapse" + id}>{picture()}<strong >Mission: </strong>{missionTitle}</a></span>
+                    <span className="searchPanelHeader"><div className="resultPanelHeader"><a data-toggle="collapse" data-target={"#mcollapse" + id} 
+                    href={"#mcollapse" + id}>{picture()}<strong >Mission: </strong>{missionTitle}</a></div></span>
                 </div>
                 <div id={"mcollapse" + id}className="panel-collapse collapse">
                     <div className="panel-body">
                         {singleUser()}
                         <div className="mstext"><strong>Status: </strong><p>{missionStatus()}</p></div>
                         <div className="mstext"><strong>Description: </strong><p >{missionDescription}</p></div>
-                        
                         <div className="mstext"><strong>Tasks: </strong><div>{singleTask()}</div></div>
                     </div>
                 </div>

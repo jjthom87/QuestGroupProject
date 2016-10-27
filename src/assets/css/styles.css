@@ -598,7 +598,9 @@ img{
 }
 
 .noResultsFound {
-    font-color: white;
+    font-family: 'Amaranth', sans-serif;
+    color: white;
+    font-size: 24px;
 }
 
 .feedDiv {
@@ -659,8 +661,18 @@ img{
 }
 
 #searchHeaders {
+    text-align: center;
     font-family: 'Dosis';
     font-size: 40px;
     color: white;
 }
 
+.resultsMQ {
+    font-family: 'Dosis';
+    font-size: 40px;
+    color: white;
+}
+
+.resultPanelHeader {
+    text-align: center;
+}
