@@ -277,38 +277,38 @@ var modelController = {
 		});
 	},
 	likeIncrementMission: function(id, cb){
-	  models.Mission.findOne({ where: { id: id}}).then(function(success){
-	        success.increment('likes');
-	        success.save();
-	          cb(success);
+	  models.Mission.findOne({ where: { id: id}}).then(function(mission){
+	        mission.increment('likes');
+	        mission.save();
+	          cb(mission);
 	      }).catch(function(err){
 	        throw err
 	      })	
 	},
 	likeIncrementQuest: function(id, cb){
-	  models.Quest.findOne({ where: { id: id}}).then(function(success){
-	        success.increment('likes');
-	        success.save();
-	          cb(success);
+	  models.Quest.findOne({ where: { id: id}}).then(function(quest){
+	        quest.increment('likes');
+	        quest.save();
+	          cb(quest);
 	      }).catch(function(err){
 	        throw err
 	      })	
 	},
 	// Updates the 'isCompleted' property for the User's specific Task(s) in the database
 	missionTaskToggle: function(uuid, cb){
-	  models.Missiontask.findOne({ where: { uuid: uuid}}).then(function(success){
-	        success.set('isCompleted', true);
-	        success.save();
-	          cb(success);
+	  models.Missiontask.findOne({ where: { uuid: uuid}}).then(function(missiontask){
+	        missiontask.set('isCompleted', true);
+	        missiontask.save();
+	          cb(missiontask);
 	      }).catch(function(err){
 	        throw err
 	      })	
 	},
 	milestoneToggle: function(uuid, cb){
-	  models.Milestone.findOne({ where: { uuid: uuid}}).then(function(success){
-	        success.set('isCompleted', true);
-	        success.save();
-	          cb(success);
+	  models.Milestone.findOne({ where: { uuid: uuid}}).then(function(milestone){
+	        milestone.set('isCompleted', true);
+	        milestone.save();
+	          cb(milestone);
 	      }).catch(function(err){
 	        throw err
 	      })	
@@ -316,28 +316,28 @@ var modelController = {
 	questComplete: function(id, completedOn, cb){
 	  models.Quest.findOne({ where: { id: id}}).then(function(quest){
 	        quest.set('questCompleted', true);
-	        success.set('completedOn', completedOn);
-	        success.save();
-	          cb(success);
+	        quest.set('completedOn', completedOn);
+	        quest.save();
+	          cb(quest);
 	      }).catch(function(err){
 	        cb(err)
 	      })	
 	},
 	missionComplete: function(id, completedOn, cb){
-	  models.Mission.findOne({ where: { id: id}}).then(function(success){
-	        success.set('missionCompleted', true);
-	        success.set('completedOn', completedOn);
-	        success.save();
-	          cb(success);
+	  models.Mission.findOne({ where: { id: id}}).then(function(mission){
+	        mission.set('missionCompleted', true);
+	        mission.set('completedOn', completedOn);
+	        mission.save();
+	          cb(mission);
 	      }).catch(function(err){
 	         cb(err)
 	      })	
 	},
 	milestoneTaskToggle: function(uuid, cb){
-	  models.Milestonetask.findOne({ where: { uuid: uuid}}).then(function(success){
-	        success.set('isCompleted', true);
-	        success.save();
-	          cb(success);
+	  models.Milestonetask.findOne({ where: { uuid: uuid}}).then(function(milestonetask){
+	        milestonetask.set('isCompleted', true);
+	        milestonetask.save();
+	          cb(milestonetask);
 	      }).catch(function(err){
 	        throw err
 	      })	
