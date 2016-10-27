@@ -7,11 +7,6 @@ export default class CreateMissionTask extends React.Component {
         this.state = {
         };
     }
-    // handleDropdownChange(e){
-    //     this.setState({
-    //         dropdownItem: e.target.value
-    //     })
-    // }
     handleCreateTask(event) {
         event.preventDefault();
 
@@ -35,22 +30,6 @@ export default class CreateMissionTask extends React.Component {
         this.props.createTask(taskInput);
     }
     render() {
-        // const { missions } = this.props; 
-
-        // var renderMissionDropdown = () => {
-        //     if (missions.length === 0){
-        //         return (
-        //             <div className="dropdown open" aria-labelledby="dropdownMenuLink">
-        //                 <li className="dropdown-item">No Missions to Add Task To</li>
-        //             </div>
-        //         );
-        //     }
-        //     return missions.map((mission, index) => {
-        //         return (
-        //             <option value={mission.title} className="dropdown-item">{mission.title}</option>
-        //         );
-        //     });
-        // }
         const { dropdownItem } = this.props
         var renderTaskForm = () => {
                 return (

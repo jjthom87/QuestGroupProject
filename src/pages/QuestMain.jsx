@@ -31,7 +31,7 @@ export default class QuestMain extends React.Component {
             dropdownMilestone: e.target.value
         })
     }
-     completeQuest(questId){
+    completeQuest(questId){
         const { quests } = this.state;
 
         const completeQuest = _.remove(quests, quest => quest.id === questId);
@@ -214,10 +214,14 @@ export default class QuestMain extends React.Component {
             credentials: 'include'
         }).then((response) => response.json())
             .then((results) => {
+                if(results === 'Please Select Quest to add Milestone to'){
+                    alert('Please Select Quest to add Milestone to');
+                } else {
                 this.setState({
                     milestones: milestones.concat(results)
                 });
-            });
+            }
+        });
     }
     handleCreateMilestoneTask(milestoneTaskInput){
         const { milestonetasks, dropdownQuest, dropdownMilestone } = this.state;
@@ -238,10 +242,19 @@ export default class QuestMain extends React.Component {
             credentials: 'include'
         }).then((response) => response.json())
             .then((results) => {
+                console.log(results);
+                if(results === 'Please Select Quest to add task to'){
+                    alert('Please Select Quest to add Task to');
+                } else if(results === 'Please Select Milestone to add task to'){
+                    alert('Please Select Milestones to add task to')
+                } else if(results === 'Please Select Quest and Milestone to add task to'){
+                    alert('Please Select Quest and Milestone to add task to')
+                } else {
                 this.setState({
                     milestonetasks: milestonetasks.concat(results)
                 });
-            });
+            }
+        });
     }
     componentWillMount(){
         const { quests, milestones, milestonetasks } = this.state;
@@ -319,7 +332,7 @@ export default class QuestMain extends React.Component {
                                 </select>
                                 <CreateMilestoneTask milestonetasks={milestonetasks} createMilestoneTask={this.handleCreateMilestoneTask.bind(this)}/>
                             </div>
-                            <div className="col-md-4 col-md-offset-1" id="missionlistdiv">
+                            <div className="col-md-5 col-md-offset-1" id="missionlistdiv">
                             <QuestListforQM
                                 quests={filteredQuest}
                                 milestones={filteredMilestones}

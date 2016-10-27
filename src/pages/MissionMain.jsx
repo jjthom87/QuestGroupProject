@@ -159,10 +159,14 @@ export default class MissionMain extends React.Component {
             credentials: 'include'
         }).then((response) => response.json())
             .then((results) => {
+                if(results === 'Please Select Mission to add task to'){
+                    alert('Please Select Mission to add Task to');
+                } else {
                 this.setState({
                     missiontasks: missiontasks.concat(results)
                 });
-            });
+            }
+        });
     }
     componentWillMount(){
         const {missions, missiontasks} = this.state;
@@ -222,7 +226,7 @@ export default class MissionMain extends React.Component {
                                     <CreateMissionTask createTask={this.handleCreateMissionTask.bind(this)}/>
                             </div>
                         
-                            <div className="col-md-4 col-md-offset-1" id="missionlistdiv">
+                            <div className="col-md-5 col-md-offset-1" id="missionlistdiv">
                                 <MissionListforMM 
                                     missions={filteredMission} 
                                     missiontasks={filteredTasks} 

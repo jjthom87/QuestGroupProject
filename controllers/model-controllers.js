@@ -42,7 +42,7 @@ var modelController = {
 		        }
 		        cb(data);
 				}).catch(function(err){
-					throw err;
+					cb(err);
 				});
 			  });
 			});
@@ -87,7 +87,7 @@ var modelController = {
 		        }
 		        cb(data);
 				}).catch(function(err){
-					throw err;
+					cb(err);
 				});
 			  });
 			});
@@ -136,7 +136,7 @@ var modelController = {
 		        }
 		        cb(data);
 				}).catch(function(err){
-					throw err;
+					cb(err);
 				});
 			  });
 			});
@@ -187,7 +187,7 @@ var modelController = {
 		        }
 		        cb(data);
 				}).catch(function(err){
-					throw err;
+					cb(err);
 				});
 			  });
 			});
@@ -235,7 +235,7 @@ var modelController = {
 		        }
 		        cb(data);
 				}).catch(function(err){
-					throw err;
+					cb(err);
 				});
 			  });
 		    });
@@ -258,7 +258,7 @@ var modelController = {
 	    	}
 	    	cb(data);
 	    }).catch(function(err){
-	    	throw err;
+	    	cb(err);
 	    });
 	  })
 	},
@@ -273,7 +273,7 @@ var modelController = {
 	    }).then(function(success) {
 	      	cb(success);
 		}).catch(function(err){
-			throw err;
+			 cb(err);
 		});
 	},
 	likeIncrementMission: function(id, cb){
@@ -323,7 +323,7 @@ var modelController = {
 	        	})
 	    	})
 	      }).catch(function(err){
-	        throw err
+	        cb(err)
 	      })	
 	},
 	missionComplete: function(id, completedOn, cb){
@@ -333,7 +333,7 @@ var modelController = {
 	        success.save();
 	          cb(success);
 	      }).catch(function(err){
-	        throw err
+	         cb(err)
 	      })	
 	},
 	milestoneTaskToggle: function(uuid, cb){
@@ -359,7 +359,7 @@ var modelController = {
 	   		}
 	   		cb(data);
 	    }).catch(function(err){
-	    	throw err;
+	    	cb(err);
 	    });
 	  });
 	},
@@ -381,7 +381,7 @@ var modelController = {
 	    	}
 	    	cb(data);
 	    }).catch(function(err){
-	    	throw err;
+	    	cb(err);
 	    });
 	  });
 	 });
@@ -453,7 +453,7 @@ var modelController = {
 			      user.addMission(mission).then(function(success){
 			    	cb(mission);
 				  }).catch(function(err){
-				    throw err;
+				    cb(err);
 			})
 		})
 	},
@@ -472,7 +472,7 @@ var modelController = {
 			    user.addQuest(quest).then(function(success){
 				    cb(quest);
 			  	}).catch(function(err){
-			    	throw err;
+			    	cb(err);
 			  	})
 		})
 	},
@@ -564,7 +564,7 @@ var modelController = {
 	    }).then(function(success) {
 	      	cb(success);
 		}).catch(function(err){
-			throw err;
+			cb(err);
 		});
 	},
 	allComments: function(cb){
@@ -573,16 +573,6 @@ var modelController = {
 	    }).catch(function(err){
 	    	throw err;
 	    });
-	},
-	imageUpload: function(image, id, cb){
-		models.Image.create({
-		  image: image,
-		  UserId: id
-		  	  }).then(function(success){
-			    cb(success);
-			  }).catch(function(err){
-				    throw err;
-		});
 	}
 }
 

@@ -6,7 +6,6 @@ export default class LoginPage extends React.Component {
 	constructor(...args){
 		super(...args)
 		this.state = {
-			authenticated: true
 		}
 	}
 	handleNewData (creds) {
@@ -26,25 +25,13 @@ export default class LoginPage extends React.Component {
 			credentials: 'include'
 		}).then((response) => {
 			if (response.statusText === "OK"){
-				this.setState({
-					authenticated: !authenticated
-				})
 				localStorage.setItem('token', response.headers.get('Auth'));
 				browserHistory.push('/feedpage');
 				response.json();
 			} else {
-				this.setState({
-					authenticated: authenticated
-				})
 				alert ('Incorrect Login Credentials');
 			}
 		})
-	}
-	authenticateLogin(){
-		  const {authenticated} = this.state;;
-		  if (!authenticated){
-		    browserHistory.push('/')
-		  }
 	}
 	render() {
 		return (

@@ -26,7 +26,7 @@ export default class CreateAccountPage extends React.Component {
 			if (results.createdAt){
 				browserHistory.push('/login');
 			} else {
-				results.errors.filter((result) => alert(result.message));
+				results.errors.filter((result) => alert('Username Already Taken'));
 			}
 		})
 	}

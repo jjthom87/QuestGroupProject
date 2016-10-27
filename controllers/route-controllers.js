@@ -143,6 +143,12 @@ router.delete('/api/users/logout', middleware.requireAuthentication, function (r
 
 // Allows users to create a Mission
 router.post('/api/mission/create', middleware.requireAuthentication, function(req, res){
+    if (!req.body.title){
+      res.status(500).send();
+    }
+    if (!req.body.description){
+      res.status(500).send();
+    }
     modelController.missionCreate(
       req.body.title,
       req.body.description,
@@ -165,6 +171,13 @@ router.post('/api/imageupload', middleware.requireAuthentication, function(req, 
 
 // Allows users to add Tasks to a Mission
 router.post('/api/missiontask/create/', middleware.requireAuthentication, function(req, res){
+    if (!req.body.task){
+      res.status(500).send();
+    }
+    if(!req.body.dropdownMission){
+      res.json('Please Select Mission to add task to')
+      return reject();
+    }
     models.User.findOne({where: {id: req.user.id}}).then(function(user){
         models.Mission.findOne({ where: {title: req.body.dropdownMission }}).then(function(mission){
           models.Missiontask.create({
@@ -188,6 +201,13 @@ router.post('/api/missiontask/create/', middleware.requireAuthentication, functi
 });
 
 router.post('/api/milestone/create/', middleware.requireAuthentication, function(req, res){
+    if (!req.body.milestone){
+      res.status(500).send();
+    }
+    if(!req.body.dropdownQuest){
+      res.json('Please Select Quest to add Milestone to')
+      return reject();
+    }
     models.User.findOne({where: {id: req.user.id}}).then(function(user){
         models.Quest.findOne({ where: {title: req.body.dropdownQuest }}).then(function(quest){
           models.Milestone.create({
@@ -208,6 +228,21 @@ router.post('/api/milestone/create/', middleware.requireAuthentication, function
 });
 
 router.post('/api/milestonetask/create/', middleware.requireAuthentication, function(req, res){
+    if (!req.body.milestonetask){
+      res.status(500).send();
+    }
+    if(!req.body.dropdownQuest && !req.body.dropdownMilestone){
+      res.json('Please Select Quest and Milestone to add task to');
+      return reject();
+    }
+    if(!req.body.dropdownQuest){
+      res.json('Please Select Quest to add task to');
+      return reject();
+    }
+    if(!req.body.dropdownMilestone){
+      res.json('Please Select Milestone to add task to');
+      return reject();
+    }
     models.User.findOne({where: {id: req.user.id}}).then(function(user){
       models.Quest.findOne({ where: {title: req.body.dropdownQuest}}).then(function(quest){
         models.Milestone.findOne({ where: {milestone: req.body.dropdownMilestone }}).then(function(milestone){
@@ -236,6 +271,12 @@ router.post('/api/milestonetask/create/', middleware.requireAuthentication, func
 
 // Allows users to add a Quest
 router.post('/api/quest/create', middleware.requireAuthentication, function(req, res){
+    if (!req.body.title){
+      res.status(500).send();
+    }
+    if (!req.body.description){
+      res.status(500).send();
+    }
     modelController.questCreate(
       req.body.title,
       req.body.description,

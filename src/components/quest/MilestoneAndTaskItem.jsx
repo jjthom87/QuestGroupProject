@@ -28,7 +28,6 @@ export default class MilestoneAndTaskItem extends React.Component {
 				)
 			})
 		}
-		console.log("hihi",renderMilestonetasks())
 		return (
 			<div>
 				<p>Tasks</p>
