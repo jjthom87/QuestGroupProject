@@ -332,7 +332,7 @@ export default class QuestMain extends React.Component {
                                 </select>
                                 <CreateMilestoneTask milestonetasks={milestonetasks} createMilestoneTask={this.handleCreateMilestoneTask.bind(this)}/>
                             </div>
-                            <div className="col-md-4 col-md-offset-1" id="missionlistdiv">
+                            <div className="col-md-5 col-md-offset-1" id="missionlistdiv">
                             <QuestListforQM
                                 quests={filteredQuest}
                                 milestones={filteredMilestones}
