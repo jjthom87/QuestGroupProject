@@ -17,17 +17,17 @@ var modelController = {
 		          quests.forEach(function(quest){
 		            enteredQuests.push(quest);
 		        });
-		    user.getMissiontasks().then(function(missiontasks){
+		    user.getMissiontasks({order: 'createdAt ASC'}).then(function(missiontasks){
 		          var enteredMissiontasks = [];
 		          missiontasks.forEach(function(missiontask){
 		            enteredMissiontasks.push(missiontask);
 		        });
-		    user.getMilestones().then(function(milestones){
+		    user.getMilestones({order: 'createdAt ASC'}).then(function(milestones){
 		    	  var enteredMilestones = [];
 		    	  milestones.forEach(function(milestone){
 		    	  	enteredMilestones.push(milestone)
 		    	  });
-		   	user.getMilestonetasks().then(function(milestonetasks){
+		   	user.getMilestonetasks({order: 'createdAt ASC'}).then(function(milestonetasks){
 		   		var enteredMilestonetasks = [];
 		   			milestonetasks.forEach(function(milestonetask){
 		   				enteredMilestonetasks.push(milestonetask)
@@ -110,17 +110,17 @@ var modelController = {
 		          quests.forEach(function(quest){
 		            enteredQuests.push(quest);
 		        });
-		    user.getMissiontasks().then(function(missiontasks){
+		    user.getMissiontasks({order: 'createdAt ASC'}).then(function(missiontasks){
 		          var enteredMissiontasks = [];
 		          missiontasks.forEach(function(missiontask){
 		            enteredMissiontasks.push(missiontask);
 		        });
-		    user.getMilestones().then(function(milestones){
+		    user.getMilestones({order: 'createdAt ASC'}).then(function(milestones){
 		    	  var enteredMilestones = [];
 		    	  milestones.forEach(function(milestone){
 		    	  	enteredMilestones.push(milestone)
 		    	  });
-		   	user.getMilestonetasks().then(function(milestonetasks){
+		   	user.getMilestonetasks({order: 'createdAt ASC'}).then(function(milestonetasks){
 		   		var enteredMilestonetasks = [];
 		   			milestonetasks.forEach(function(milestonetask){
 		   				enteredMilestonetasks.push(milestonetask)
@@ -160,17 +160,17 @@ var modelController = {
 		          quests.forEach(function(quest){
 		            enteredQuests.push(quest);
 		        });
-		    user.getMissiontasks().then(function(missiontasks){
+		    user.getMissiontasks({order: 'createdAt ASC'}).then(function(missiontasks){
 		          var enteredMissiontasks = [];
 		          missiontasks.forEach(function(missiontask){
 		            enteredMissiontasks.push(missiontask);
 		        });
-		    user.getMilestones().then(function(milestones){
+		    user.getMilestones({order: 'createdAt ASC'}).then(function(milestones){
 		    	  var enteredMilestones = [];
 		    	  milestones.forEach(function(milestone){
 		    	  	enteredMilestones.push(milestone)
 		    	  });
-		   	user.getMilestonetasks().then(function(milestonetasks){
+		   	user.getMilestonetasks({order: 'createdAt ASC'}).then(function(milestonetasks){
 		   		var enteredMilestonetasks = [];
 		   			milestonetasks.forEach(function(milestonetask){
 		   				enteredMilestonetasks.push(milestonetask)
@@ -443,17 +443,17 @@ var modelController = {
             quests.forEach(function(quest){
                 questsArray.push(quest);
             });
-		models.Milestone.findAll().then(function(milestones){
+		models.Milestone.findAll({order: 'createdAt ASC'}).then(function(milestones){
         var milestonesArray = [];
             milestones.forEach(function(milestone){
                 milestonesArray.push(milestone);
             });
-		models.Missiontask.findAll().then(function(missiontasks){
+		models.Missiontask.findAll({order: 'createdAt ASC'}).then(function(missiontasks){
         var missiontaskArray = [];
             missiontasks.forEach(function(missiontask){
             	missiontaskArray.push(missiontask);
             });
-        models.Milestonetask.findAll().then(function(milestonetasks){
+        models.Milestonetask.findAll({order: 'createdAt ASC'}).then(function(milestonetasks){
         var milestonetaskAll = [];
             milestonetasks.forEach(function(milestonetask){
             	milestonetaskAll.push(milestonetask);
