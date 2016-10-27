@@ -1,15 +1,19 @@
 ## QuestGroupProject
 
 Bubo is an app that will help you to keep track of your daily routines as well as your long time advantures to become a better you.
+It is user friendly and social media friendly
 
-## User Home Page
+## Login Page
 
-![alt text](https://github.com/jjthom87/QuestGroupProject/blob/master/readme/bubouserhome.png "App Home Page")
+![alt text](https://github.com/jjthom87/QuestGroupProject/blob/master/readme/2016-10-27.png "App Login Page")
 
-## Search Users Page
+## Users Home Page
 
-![alt text](https://github.com/jjthom87/QuestGroupProject/blob/master/readme/buboUsers.png "App Search User Page")
+![alt text](https://github.com/jjthom87/QuestGroupProject/blob/master/readme/2016-10-27%20(1).png "App User Home Page")
 
+## Create Mission Page
+
+![alt text](https://github.com/jjthom87/QuestGroupProject/blob/master/readme/2016-10-27%20(2).png "App User Home Page")
 
 ## [Run Demo](https://buboowl.herokuapp.com/)
 
