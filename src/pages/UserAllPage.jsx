@@ -345,8 +345,6 @@ export default class UserAllPage extends React.Component {
                 )
             }
         }
-        console.log(missions);
-
     	return (
       		<div>
       			<div>
