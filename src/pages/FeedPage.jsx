@@ -90,7 +90,7 @@ export default class FeedPage extends React.Component {
 	      				<div className="col-md-1">
 	      				</div>
 	      				<div className="feedDiv qmboxCompleted col-md-5" id="usersearchresult">
-	      					<p className="searchHeader text-center"><strong>All User's Most Recent Quests</strong></p>
+	      					<p className="searchHeader text-center"><strong>All Users Most Recent Quests</strong></p>
 	      					<FeedQuestsList
 	      						allUsers={allUsers}
 	      						quests={quests}
@@ -99,7 +99,7 @@ export default class FeedPage extends React.Component {
 	      				<div className="col-md-2">
 	      				</div>
 	      				<div className="feedDivr qmboxCompleted col-md-5" id="usersearchresult">
-	      					<p className="searchHeader text-center"><strong>All User's Most Recent Missions</strong></p>
+	      					<p className="searchHeader text-center"><strong>All Users Most Recent Missions</strong></p>
 	      					<FeedMissionsList
 	      						allUsers={allUsers}
 	      						missions={missions}

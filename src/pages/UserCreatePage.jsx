@@ -405,7 +405,11 @@ export default class UserCreatePage extends React.Component {
       		<div>
               <MainNav/>
                 <div className='container' id="homepageDiv">
-      			<h1 className="text-center" id="pageTitle">Hello {loginUser}. Click the "+" to Create/Modify Your Missions & Quests</h1>
+      			<h1 className="text-center" id="pageHeader">Create/Modify here {loginUser}</h1> 
+                <h2 className="text-center" id="pageDescription">Click the "+" to Create/Modify a Mission or a Quest</h2>
+                <h2 className="text-center" id="pageDescription">Select a Quest/Mission from the dropdown to Check your status</h2>
+                <h2 className="text-center" id="pageDescription">A Mission is Short Term, and a Quest is Long Term</h2>
+                <br></br>
       			<div className="row">
       				<div className="col-lg-1 col-lg-offset-5" role="group">								
                     </div>
@@ -417,7 +421,7 @@ export default class UserCreatePage extends React.Component {
                                 {renderMissionDropdown()}
                             </select>
                             <Link to="/missionshome"><button className="btn btn-info hvr-ripple-out" id="missionAdd"><span className="glyphicon glyphicon-plus" ></span></button></Link>
-                            <Accordion>
+                        <Accordion>
                             <MissionsList
                                 missions={filteredMission}
                                 missiontasks={filteredTasks}
@@ -426,12 +430,12 @@ export default class UserCreatePage extends React.Component {
                                 completeMission={this.completeMission.bind(this)}
                                 deleteMissionTask={this.deleteMissionTask.bind(this)}
                             />
-                            </Accordion>
                             <div>
                                 <h1 className="page-title">Countdown</h1>
                                 <Clock totalSeconds={count}/>
                                 {renderControlArea()}
                             </div>
+                        </Accordion>
                         </div>
                         <div className=" col-md-5 qmbox qmspace">
                             <select name="Please Select Quest" value={this.state.dropdownQuest} onChange={this.handleDropdownQuest.bind(this)}>

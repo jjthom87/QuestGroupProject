@@ -14,13 +14,6 @@ export default class CreateMission extends React.Component {
             selection: e.target.value
         })
     }
-    renderError() {
-        if(!this.state.error) {
-            return null;
-        }
-            return <div style={{color:'red'}}> { this.state.error } </div>;
-        
-    }
     handleCreate(event) {
         event.preventDefault();
 
@@ -51,19 +44,10 @@ export default class CreateMission extends React.Component {
 
         this.props.createMission(creds);
     }
-    // validateInput(taskInput) {
-    //     if(!taskInput) {
-    //         return ("Please enter a task.");
-    //     } else if(_.find(this.props.missions, mission => mission.taskInput === taskInput)) {
-    //         return ("Duplicate task exists.");
-    //     } else {
-    //         return null;
-    //     }
-    // }
     render() {
         return (
             <div>
-                <h2 className="missionTitle">Form A New Mission!</h2>
+                <h2 className="missionTitle">Mission Time!</h2>
                 <form onSubmit={this.handleCreate.bind(this)}>
                     <div>
                         <input type="text" placeholder="Mission Title" ref="title" />
@@ -96,7 +80,7 @@ export default class CreateMission extends React.Component {
                             </span>
                     </div>
                     <div>
-                        <input type="submit" placeholder="Add Mission" />
+                        <input type="submit" value="Add Mission" />
                     </div>
                 </form>
             </div>

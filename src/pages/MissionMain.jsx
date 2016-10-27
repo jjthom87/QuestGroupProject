@@ -199,7 +199,17 @@ export default class MissionMain extends React.Component {
 
                     <div className="container" id="separator">
                         
-                            <h1 id="pageTitle">Missions Home</h1>
+                            <h1 id="pageHeader">Mission Page</h1>
+                            <h2 className="text-center" id="pageDescription">
+                                Add a Mission or select a previously added one from the dropdown
+                            </h2>
+                            <h2 className="text-center" id="pageDescription">
+                                Next, add a Task/Tasks for that mission
+                            </h2>
+                            <h2 className="text-center" id="pageDescription">
+                                You're done, Make sure to track your progress
+                            </h2>
+                            <br></br>
                         <div className="row">
                             <div className="col-md-5 col-md-offset-1" id="missionForm">
                                 <CreateMission

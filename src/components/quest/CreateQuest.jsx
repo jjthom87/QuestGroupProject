@@ -50,7 +50,7 @@ export default class CreateQuest extends React.Component {
     render() {
         return (
             <div>
-                <h2 className="missionTitle">Form A New Quest!</h2>
+                <h2 className="missionTitle">Quest Time!</h2>
                 <form onSubmit={this.handleCreate.bind(this)}>
                     <div>
                         <input type="text" placeholder="Quest Title" ref="title" />
@@ -59,7 +59,8 @@ export default class CreateQuest extends React.Component {
                         <input type="text" placeholder="Quest Description" ref="description" />
                     </div>
                     <div>
-                        <p className="publicSelection">Expected Completion Date</p>
+                        <p className="publicSelect">Expected Completion Date</p>
+                        <br></br>
                         <input type="date" ref="dateQuest" />
                     </div>
                     <div className="publicSelection">
@@ -85,7 +86,7 @@ export default class CreateQuest extends React.Component {
                             </p>
                     </div>
                     <div>
-                        <input type="submit" placeholder="Add Quest" />
+                        <input type="submit" value="Add Quest" />
                     </div>
                 </form>
             </div>
