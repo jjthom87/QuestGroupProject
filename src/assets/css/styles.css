@@ -656,6 +656,9 @@ img{
     .feedDivr {
         margin-left: 0px;
     }
+    #siteName {
+        font-size:70px
+    }
 }
 
 #searchHeaders {
