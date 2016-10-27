@@ -12,6 +12,8 @@ export default class MissionsList extends React.Component {
                         title={mission.title}
                         description={mission.description}
                         createdOn={mission.createdOn}
+                        dateTask={mission.dateTask}
+                        timeTask={mission.timeTask}
                         deleteMission={deleteMission}
                         completeMission={completeMission}
                         deleteMissionTask={deleteMissionTask}

@@ -4,7 +4,7 @@ import FeedCommentItem from 'FeedCommentItem';
 
 export default class FeedCommentList extends React.Component {
     render() {
-        const { comments , allUsers } = this.props;
+        const { comments , allUsers, loginId } = this.props;
         
         var renderComments = () => {
             return comments.map((comment, index) => {
@@ -18,6 +18,7 @@ export default class FeedCommentList extends React.Component {
 	                    	questName={comment.questName}
 	                        UserId={comment.UserId}
 	                        allUsers={allUsers}
+                            loginId={loginId}
 	                        key={index}
 	                    />
 	                </div>

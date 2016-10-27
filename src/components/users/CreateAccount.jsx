@@ -38,13 +38,15 @@ export default class CreateAccount extends React.Component {
 		if (name.length > 0) {
 			this.refs.name.value = '';
 			creds.name = name;
+		} else {
+			alert('Please Enter Name/Nickname')
 		}
 
 		if (username.length > 0) {
 			this.refs.username.value = '';
 			creds.username = username;
 		} else {
-			alert('Username already taken');
+			alert('Please Enter Username');
 		}
 
 		if (password.length > 0) {

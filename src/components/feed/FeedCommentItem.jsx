@@ -9,7 +9,7 @@ export default class FeedCommentItem extends React.Component {
     }
 	render(){
 
-		const { UserId, usersName, commentee, missionName, questName, allUsers, createdOn, profileImage } = this.props;
+		const { UserId, usersName, commentee, missionName, questName, allUsers, createdOn, profileImage, loginId } = this.props;
 
 		const commenterImage = allUsers.filter((user) => user.id === UserId);
 
@@ -25,13 +25,19 @@ export default class FeedCommentItem extends React.Component {
 	                )
 	            }
         }
-
+        const ifUser = () => {
+        	if(UserId === loginId){
+        		return usersName + ' Commented On their own'
+        	} else {
+        		return usersName + ' Commented On ' + commentee + '\'s'
+        	}
+        }
 		const renderComment = () => {
 			if (typeof missionName === 'string'){
 				return (
 					<div>
 						<br></br>
-						<Link to={`/userforall/${commenterImage[0].id}`}>{renderImage()}</Link><p className="userSearchText">    {usersName} Commented On {commentee}'s {missionName} Mission on {createdOn}</p>
+						<Link to={`/userforall/${commenterImage[0].id}`}>{renderImage()}</Link><p className="userSearchText">    {ifUser()} {missionName} Mission on {createdOn}</p>
 						<br></br>
 					</div>
 				)
@@ -39,7 +45,7 @@ export default class FeedCommentItem extends React.Component {
 				return (
 					<div>
 						<br></br>
-						<Link to={`/userforall/${commenterImage[0].id}`}>{renderImage()}</Link><p className="userSearchText">    {usersName} Commented On {commentee}'s {questName} Quest on {createdOn}</p>
+						<Link to={`/userforall/${commenterImage[0].id}`}>{renderImage()}</Link><p className="userSearchText">    {ifUser()} {questName} Quest on {createdOn}</p>
 						<br></br>
 					</div>
 				)

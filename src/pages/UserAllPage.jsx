@@ -88,8 +88,9 @@ export default class UserAllPage extends React.Component {
             credentials: 'include'
         }).then((response) => response.json())
         .then((results) => {
+            console.log(results);
             this.setState({
-                missions: missions
+                missions: missions.concat(results)
             })
         }); 
     }
@@ -253,7 +254,7 @@ export default class UserAllPage extends React.Component {
         }).then((response) => response.json())
         .then((results) => {
             this.setState({
-                quests: quests
+                quests: quests.concat(results)
             })
         }); 
     }
@@ -344,6 +345,7 @@ export default class UserAllPage extends React.Component {
                 )
             }
         }
+        console.log(missions);
 
     	return (
       		<div>

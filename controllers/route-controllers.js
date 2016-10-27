@@ -173,6 +173,7 @@ router.post('/api/imageupload', middleware.requireAuthentication, function(req, 
 router.post('/api/missiontask/create/', middleware.requireAuthentication, function(req, res){
     if (!req.body.task){
       res.status(500).send();
+      return reject();
     }
     if(!req.body.dropdownMission){
       res.json('Please Select Mission to add task to')
@@ -203,6 +204,7 @@ router.post('/api/missiontask/create/', middleware.requireAuthentication, functi
 router.post('/api/milestone/create/', middleware.requireAuthentication, function(req, res){
     if (!req.body.milestone){
       res.status(500).send();
+      return reject();
     }
     if(!req.body.dropdownQuest){
       res.json('Please Select Quest to add Milestone to')
@@ -230,6 +232,7 @@ router.post('/api/milestone/create/', middleware.requireAuthentication, function
 router.post('/api/milestonetask/create/', middleware.requireAuthentication, function(req, res){
     if (!req.body.milestonetask){
       res.status(500).send();
+      return reject();
     }
     if(!req.body.dropdownQuest && !req.body.dropdownMilestone){
       res.json('Please Select Quest and Milestone to add task to');
@@ -254,7 +257,9 @@ router.post('/api/milestonetask/create/', middleware.requireAuthentication, func
             active: false,
             UserId: req.user.id,
             MilestoneId: milestone.id,
-            QuestId: quest.id
+            QuestId: quest.id,
+            dateTask: req.body.dateTask,
+            timeTask: req.body.timeTask
           }).then(function(milestonetask){
             milestone.addMilestonetask(milestonetask).then(function(milestone){
               milestonetask.reload().then(function(milestonetask){
