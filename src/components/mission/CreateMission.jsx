@@ -27,12 +27,14 @@ export default class CreateMission extends React.Component {
             this.refs.title.value = '';
             creds.title = title;
         } else {
-            alert('Enter Mission Title');
+            alert('Be Sure Enter Mission Title');
         }
 
         if (description.length > 0) {
             this.refs.description.value = '';
             creds.description = description;
+        } else {
+            alert('Be Sure Enter Mission Description');
         }
 
         if(selection){
