@@ -79,7 +79,9 @@ export default class SearchBarList extends React.Component {
                     <div className="col-md-5 col-md-offset-1">
                         <p id="searchHeaders">Missions</p>
                         {noMissions()}
+                        <div className="resultsMQ">
                         {renderMissionList()}
+                        </div>
                     </div>
 
                     <div className="col-md-5">
