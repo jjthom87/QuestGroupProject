@@ -218,18 +218,31 @@ img{
     border-radius: 5px;
     text-align: center;
     margin-top: 150px;
-    display: inline-block;
+    margin-right:auto;
+    margin-left:auto;
+    width:220px;
     background-color: rgba(192,192,192,.5);
     padding: 10px;
     box-shadow: 6px 6px 3px rgba(0, 0, 0, 0.4);
-    margin-left: 35%;
+    /*margin-left: 35%;*/
 }
 
 #loginText {
-    text-align: center;
+    /*text-align: center;*/
     margin-top: 0px;
     padding: none;
 }
+
+#loginFrom2 {
+    margin-top: 300px;
+}
+
+.logindiv {
+    margin-right:auto;
+    margin-left:auto;
+    width:400px;
+}
+
 
 #submitButton input {
     margin-bottom: 10px;
@@ -639,6 +652,8 @@ img{
 .searchtaskitem { 
     margin-bottom:5px;
 }
+
+
 
 @media screen and (max-width: 768px) {
     .feedDivr {
