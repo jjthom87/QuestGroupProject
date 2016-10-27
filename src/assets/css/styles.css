@@ -300,6 +300,18 @@ img{
     text-align: center;
 }
 
+#pageHeader {
+    font-size: 30px;
+    color: yellow;
+    text-align: center;
+}
+
+#pageDescription {
+    font-size: 24px;
+    color: yellow;
+    text-align: center;
+}
+
 .missionTitle {
     font-size: 20px;
     color:yellow;
@@ -366,7 +378,7 @@ img{
 }
 
 .publicSelect {
-    color:#007B93;
+    color: #ff862a;
     display: inline-block;
     margin-left: 5px;
     
@@ -446,8 +458,8 @@ img{
 }
 
 .userSearchText {
-    font-family: 'Lobster', cursive;
-    color: yellow;
+    font-family: 'helvetica neue';
+    color: #efff84;
     display: inline-block;
     font-size: 20px;   
 }
@@ -525,7 +537,7 @@ img{
 .questDescription {
     padding-bottom: 5px;
     border-bottom: thick solid white;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .mstext {
@@ -619,6 +631,18 @@ img{
 
 .panel {
     text-decoration: none
+}
+
+@media only screen and (max-width: 400px) {
+    #separator {
+        margin-top: 250px; 
+        font-family: cursive;
+    }
+    #siteName{
+        margin-top: 20px;
+        margin-left: 25px;
+    }
+
 }
 
 #profimage {

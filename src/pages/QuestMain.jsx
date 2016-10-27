@@ -288,7 +288,20 @@ export default class QuestMain extends React.Component {
                 <MainNav />
                 <div className="container" id="separator">
                     
-                    <h1 id="pageTitle">Quests Home</h1>
+                            <h1 id="pageHeader">Quest Page</h1>
+                            <h2 className="text-center" id="pageDescription">
+                                Add a Quest or select a previously added one from the dropdown
+                            </h2>
+                            <h2 className="text-center" id="pageDescription">
+                                Next, add a Milestone/Milestones or select a previously added one from the dropdown needed to complete that Quest
+                            </h2>
+                            <h2 className="text-center" id="pageDescription">
+                                Then, add a Task/Tasks needed to complete that Milestone
+                            </h2>
+                            <h2 className="text-center" id="pageDescription">
+                                You're done. Make sure to track your progress
+                            </h2>
+                            <br></br>
                         <div className="row">    
                             <div className="col-md-5 col-md-offset-1" id="missionForm">
                                 <CreateQuest
