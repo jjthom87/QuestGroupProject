@@ -15,7 +15,8 @@ import SearchBarForm from 'searchBarForm';
 import SearchBarList from 'searchBarList';
 
 export default class SearchAllPage extends React.Component {
-    
+
+// Setting state for this component
     constructor(props) {
         super(props);
         this.state = {
