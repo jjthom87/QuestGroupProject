@@ -159,10 +159,14 @@ export default class MissionMain extends React.Component {
             credentials: 'include'
         }).then((response) => response.json())
             .then((results) => {
+                if(results === 'Please Select Mission to add task to'){
+                    alert('Please Select Mission to add Task to');
+                } else {
                 this.setState({
                     missiontasks: missiontasks.concat(results)
                 });
-            });
+            }
+        });
     }
     componentWillMount(){
         const {missions, missiontasks} = this.state;

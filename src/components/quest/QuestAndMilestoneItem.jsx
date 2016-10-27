@@ -26,7 +26,6 @@ export default class QuestAndMilestoneItem extends React.Component {
 			return milestones.map((milestone, index) => {
 				var milestoneClassName = milestone.isCompleted ? 'task-completed' : 'task-notCompleted';
 				var filteredMilestonetask = milestonetasks.filter((milestonetask) => milestonetask.MilestoneUuid === milestone.uuid);
-				console.log(filteredMilestonetask)
 				return (
 					<div>
 						<span className="questDescription">

@@ -14,6 +14,8 @@ export default class CreateMilestone extends React.Component {
 
         if (milestone.length > 0) {
             this.refs.milestone.value = '';
+        } else {
+            alert('Please Enter Milestone');
         }
         this.props.createMilestone(milestone);
     }

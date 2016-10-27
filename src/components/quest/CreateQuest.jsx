@@ -28,12 +28,14 @@ export default class CreateQuest extends React.Component {
             this.refs.title.value = '';
             creds.title = title;
         } else {
-            alert('Enter Quest Title');
+            alert('Be Sure Enter Quest Title');
         }
 
         if (description.length > 0) {
             this.refs.description.value = '';
             creds.description = description;
+        } else {
+            alert('Be Sure Enter Quest Description');
         }
 
         if(selection){
