@@ -228,6 +228,8 @@ export default class QuestMain extends React.Component {
 
         const newMilestoneTask = {
             milestonetask: milestoneTaskInput.task,
+            dateTask: milestoneTaskInput.dateTask,
+            timeTask: milestoneTaskInput.timeTask,
             dropdownMilestone: dropdownMilestone,
             dropdownQuest: dropdownQuest
         }

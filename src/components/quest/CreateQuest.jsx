@@ -45,7 +45,10 @@ export default class CreateQuest extends React.Component {
             creds.selection = selection
         }
 
+        if(dateQuest){
+        this.refs.dateQuest.value = '';
         creds.dateQuest = dateQuest;
+        }
 
         this.props.createQuest(creds);
     }

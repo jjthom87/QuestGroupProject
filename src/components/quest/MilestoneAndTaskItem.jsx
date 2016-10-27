@@ -13,6 +13,25 @@ export default class MilestoneAndTaskItem extends React.Component {
 		var renderMilestonetasks = () => {
 			return milestonetasks.map((milestonetask, index) => {
 			var milestoneTaskClassName = milestonetask.taskCompleted ? 'task-completed' : 'task-notCompleted';
+				const dateTaskRender = () => {
+					if(milestonetask.dateTask === '' && milestonetask.timeTask !== ''){
+						return(
+							<p className={milestoneTaskClassName}>Complete at {milestonetask.timeTask}</p>
+						)
+					} else if(milestonetask.dateTask === '' && milestonetask.timeTask === ''){
+						return (
+							<p></p>
+						)
+					} else if (milestonetask.dateTask !== '' && milestonetask.timeTask === ''){
+						return(
+							<p className={milestoneTaskClassName}>Complete on {milestonetask.dateTask}</p>
+						)
+					} else {
+						return (
+							<p className={milestoneTaskClassName}>Complete on {milestonetask.dateTask} at {milestonetask.timeTask}</p>
+						)
+					}
+				}
 				return (
 					<div className="mstasks alltaskitem">
 						<span>
@@ -22,7 +41,7 @@ export default class MilestoneAndTaskItem extends React.Component {
 								onChange={() => toggleMilestoneTask(milestonetask.uuid)}
 							/>
 							<p key={index} className={milestoneTaskClassName}>{milestonetask.task}</p>
-							<span className="hvr-icon-grow hvr-icon-fade" id="x" onClick={() => deleteMilestoneTask(milestonetask.uuid)}></span>
+							{dateTaskRender()}<span className="hvr-icon-grow hvr-icon-fade" id="x" onClick={() => deleteMilestoneTask(milestonetask.uuid)}></span>
 						</span>
 					</div>
 				)

@@ -8,12 +8,11 @@ export default class MissionAndTaskItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-        	color: '#37C7FA'
         };
     }
 	render(){
 
-		const { id, uuid, title, deleteMission, deleteMissionTask, completeMission, description, percent, toggleMissionTask, missiontasks, createdOn, isCompleted, active } = this.props;
+		const { id, title, deleteMission, deleteMissionTask, completeMission, description, toggleMissionTask, missiontasks, createdOn, isCompleted, dateTask, timeTask } = this.props;
 
 		var completedTasks = missiontasks.filter((task) => task.isCompleted);
 
@@ -24,6 +23,25 @@ export default class MissionAndTaskItem extends React.Component {
 		var singleTask = () => {
 			return missiontasks.map((task, index) => {
 				var taskClassName = task.isCompleted ? 'task-completed' : 'task-notCompleted';
+				const dateTaskRender = () => {
+					if(task.dateTask === '' && task.timeTask !== ''){
+						return(
+							<p className={taskClassName}>Complete at {task.timeTask}</p>
+						)
+					} else if(task.dateTask === '' && task.timeTask === ''){
+						return (
+							<p></p>
+						)
+					} else if (task.dateTask !== '' && task.timeTask === ''){
+						return(
+							<p className={taskClassName}>Complete on {task.dateTask}</p>
+						)
+					} else {
+						return (
+							<p className={taskClassName}>Complete on {task.dateTask} at {task.timeTask}</p>
+						)
+					}
+				}
 				return (
 					<div className="alltaskitem">
 						<span>
@@ -34,7 +52,7 @@ export default class MissionAndTaskItem extends React.Component {
 					  			key={index}
 				  			/>
 							<p className={taskClassName} id="taskText">{task.task}</p>
-							<span className="hvr-icon-grow hvr-icon-fade" id="x" onClick={() => deleteMissionTask(task.uuid)}></span>
+							{dateTaskRender()}<span className="hvr-icon-grow hvr-icon-fade" id="x" onClick={() => deleteMissionTask(task.uuid)}></span>
 						</span>
 					</div>
 				)

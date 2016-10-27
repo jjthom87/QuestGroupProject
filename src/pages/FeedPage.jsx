@@ -16,6 +16,7 @@ export default class FeedPage extends React.Component {
 		super(props, context);
 		this.state = {
 			loginUser: '',
+			loginId: '',
 			users: [],
 			comments: [],
 			missions: [],
@@ -37,6 +38,7 @@ export default class FeedPage extends React.Component {
 		.then((results) => {
 			this.setState({
 				loginUser: results.currentUser.name,
+				loginId: results.currentUser.id,
 				users: results.lastFiveUsers,
 				comments: results.lastFiveComments,
 				missions: results.lastFiveMissions,
@@ -49,7 +51,7 @@ export default class FeedPage extends React.Component {
 	}
 	render() {
 
-		const { loginUser, users, comments, missions, quests, userMissions, userQuests, allUsers } = this.state
+		const { loginUser, users, comments, missions, quests, userMissions, userQuests, allUsers, loginId } = this.state
 		
     	return (
       		<div>
@@ -125,6 +127,7 @@ export default class FeedPage extends React.Component {
 	      					<FeedCommentList
 	      						allUsers={allUsers}
 	      						comments={comments}
+	      						loginId={loginId}
 	      					/>
 	      				</div>
 	      				<div className="col-md-1">
