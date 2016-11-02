@@ -27,9 +27,9 @@ export default class FeedCommentItem extends React.Component {
         }
         const ifUser = () => {
         	if(UserId === loginId){
-        		return usersName + ' Commented On their own'
+        		return usersName + ' Commented On ' + usersName + '\'s';
         	} else {
-        		return usersName + ' Commented On ' + commentee + '\'s'
+        		return usersName + ' Commented On ' + commentee + '\'s';
         	}
         }
 		const renderComment = () => {
