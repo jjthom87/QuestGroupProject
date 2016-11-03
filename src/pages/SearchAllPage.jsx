@@ -20,28 +20,17 @@ export default class SearchAllPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            loginUser: '',
-            fullLoginUser: '',
             missions: [],
             quests: [],
             tasks: [],
             milestones: [],
-            dropdownQuest: '',
-            dropdownMission: '',
-            createdOn: '',
-            searchFetch: '',
+            searchText: '',
             users: []
         };
     }
-
-    handleDropdownChange(e){
-        this.setState({
-            dropdownMission: e.target.value
-        })
-    }
     handleSearch(searchText){
         this.setState({
-            searchFetch: searchText.toLowerCase()
+            searchText: searchText.toLowerCase()
         })
     }
     componentWillMount(){
@@ -66,17 +55,16 @@ export default class SearchAllPage extends React.Component {
     }
 
     render() {
-        const { users, searchFetch, missions, quests, milestones, milestonetasks, missiontasks } = this.state;
+        const { users, searchText, missions, quests, milestones, milestonetasks, missiontasks } = this.state;
 
         const filteredMissions = missions.filter((mission) => {
             var text = mission.title.toLowerCase();
-
-            return searchFetch.length === 0 || text.indexOf(searchFetch) > -1
+            return searchText.length === 0 || text.indexOf(searchText) > -1
         });
 
         const filteredQuests = quests.filter((quest) => {
             var text = quest.title.toLowerCase();
-            return searchFetch.length === 0 || text.indexOf(searchFetch) > -1
+            return searchText.length === 0 || text.indexOf(searchText) > -1
         });
 
     	return (
@@ -86,7 +74,6 @@ export default class SearchAllPage extends React.Component {
                     <div className='container' id="searchAllPage"> 
                         <div className="row">
                             <SearchBarForm className="searchBarForm" onSearch={this.handleSearch.bind(this)}/> 
-
                             <div>
                                 <SearchBarList
                                     filteredMissions={filteredMissions}

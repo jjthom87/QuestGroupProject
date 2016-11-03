@@ -12,6 +12,7 @@ export default class SearchBarQuestItem extends React.Component {
 
     renderQuestItem() {
         const { id, users, milestones, milestoneTasks, questTitle, questDescription , questCompleted, questCreatedOn, questLikes } = this.props;
+        const owl = "https://s-media-cache-ak0.pinimg.com/originals/9e/b4/97/9eb497079e582509e89febf7552ddc02.png";
 
         var questStatus = () => {
             if(questCompleted === true) {
@@ -41,10 +42,21 @@ export default class SearchBarQuestItem extends React.Component {
 
         var singleUser = () => {
             return users.map((user, index) => {
+                const renderImage = () => {
+                    if (user.profileImage === ''){
+                            return (
+                                <img src={owl} style={{width: 120, height: 120}} />
+                            )
+                        } else {
+                            return (
+                                <img src={user.profileImage} style={{width: 120, height: 120}} />
+                            )
+                        }
+                }
                 return (
                     <div className="row">
                         <div className="col-xs-2 col-md-3" id="profimage">
-                            <img src={user.profileImage} style={{width: 120, height: 120}}/>
+                            {renderImage()}
                         </div>
                         <div className="col-xs-8 col-md-7">   
 
@@ -59,9 +71,20 @@ export default class SearchBarQuestItem extends React.Component {
         }
         var picture = () => {
             return users.map((user, index) => {
+                const renderImageSmaller = () => {
+                    if (user.profileImage === ''){
+                            return (
+                                <img src={owl} style={{width: 30, height: 30}} />
+                            )
+                        } else {
+                            return (
+                                <img src={user.profileImage} style={{width: 30, height: 30}} />
+                            )
+                        }
+                }
                 return (
                     <span id="userImage">
-                        <img src={user.profileImage} style={{width: 30, height: 30}}/>
+                        {renderImageSmaller()}
                     </span>
                 );
             });

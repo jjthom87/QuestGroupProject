@@ -4,15 +4,7 @@ import SearchBarQuestItem from 'SearchBarQuestItem';
 
 export default class SearchBarList extends React.Component {
     render() {
-        
-        const { 
-            filteredQuests, 
-            filteredMissions, 
-            missionTasks,
-            milestoneTasks,
-            milestones,
-            users
-        } = this.props;
+        const { filteredQuests, filteredMissions, missionTasks, milestoneTasks, milestones, users } = this.props;
         
         var renderMissionList = () => {
             return filteredMissions.map((mission, index) => {
@@ -41,7 +33,6 @@ export default class SearchBarList extends React.Component {
                 );
             }
         }
-
         var renderQuestList = () => {
             return filteredQuests.map((quest, index) => {
                 var filteredMilestone = milestones.filter((milestone) => milestone.QuestId === quest.id);
@@ -72,7 +63,6 @@ export default class SearchBarList extends React.Component {
                 );
             }
         }
-
         return (
             <div>
                 <div className="row">
@@ -83,7 +73,6 @@ export default class SearchBarList extends React.Component {
                         {renderMissionList()}
                         </div>
                     </div>
-
                     <div className="col-md-5">
                         <p id="searchHeaders">Quests</p>
                         {noQuests()}

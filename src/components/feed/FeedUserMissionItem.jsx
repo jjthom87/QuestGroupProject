@@ -13,7 +13,7 @@ export default class FeedUserMissionItem extends React.Component {
 		return (
 			<div>
 				 <br></br>
-				 	<p className="userSearchText">    You Created {title} Mission on {createdOn} & have added {missiontasks.length} missiontasks</p>
+				 	<p className="userSearchText">    You Created {title} Mission on {createdOn} & have added {missiontasks.length} Tasks</p>
 				 <br></br>
 			</div>
 		);

@@ -145,9 +145,11 @@ router.delete('/api/users/logout', middleware.requireAuthentication, function (r
 router.post('/api/mission/create', middleware.requireAuthentication, function(req, res){
     if (!req.body.title){
       res.status(500).send();
+      return reject();
     }
     if (!req.body.description){
       res.status(500).send();
+      return reject();
     }
     modelController.missionCreate(
       req.body.title,
@@ -278,9 +280,11 @@ router.post('/api/milestonetask/create/', middleware.requireAuthentication, func
 router.post('/api/quest/create', middleware.requireAuthentication, function(req, res){
     if (!req.body.title){
       res.status(500).send();
+      return reject();
     }
     if (!req.body.description){
       res.status(500).send();
+      return reject();
     }
     modelController.questCreate(
       req.body.title,

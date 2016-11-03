@@ -8,7 +8,7 @@ export default class FeedUserQuestItem extends React.Component {
 		return (
 			<div>
 				 <br></br>
-				 	<p className="userSearchText">    You Created {title} Quest on {createdOn} & have added {milestones.length} milestones & {milestonetasks.length} milestonetasks</p>
+				 	<p className="userSearchText">    You Created {title} Quest on {createdOn} & have added {milestones.length} Milestones & {milestonetasks.length} Tasks</p>
 				 <br></br>
 			</div>
 		);

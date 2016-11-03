@@ -11,6 +11,7 @@ export default class SearchBarMissionItem extends React.Component {
 
     renderMissionItem() {
         const { id, users, missionTasks, missionTitle, missionDescription , missionCompleted, missionCreatedOn, missionLikes } = this.props;
+        const owl = "https://s-media-cache-ak0.pinimg.com/originals/9e/b4/97/9eb497079e582509e89febf7552ddc02.png";
 
         var missionStatus = () => {
             if(missionCompleted === true) {
@@ -22,23 +23,30 @@ export default class SearchBarMissionItem extends React.Component {
                 return missionActive;
             }
         }
-
         var singleTask = () => {
             return missionTasks.map((task, index) => {
-                return (
-                   
-                    <p key={index} className="alltaskitem" >{task.task}</p>
-                   
+                return (   
+                    <p key={index} className="alltaskitem" >{task.task}</p> 
                 );
             });
         }
-
         var singleUser = () => {
             return users.map((user, index) => {
+                const renderImage = () => {
+                    if (user.profileImage === ''){
+                            return (
+                                <img src={owl} style={{width: 120, height: 120}} />
+                            )
+                        } else {
+                            return (
+                                <img src={user.profileImage} style={{width: 120, height: 120}} />
+                            )
+                        }
+                }
                 return (
                     <div className="row">
                         <div className="col-xs-2 col-md-3" id="profimage">
-                            <img src={user.profileImage} style={{width: 120, height: 120}}/>
+                            {renderImage()}
                         </div>
                         <div className="col-xs-8 col-md-7">   
                         <p key={index} className="mstext"><strong>UserName:</strong>{user.username}</p>
@@ -49,12 +57,22 @@ export default class SearchBarMissionItem extends React.Component {
                 );
             });
         }
-
         var picture = () => {
             return users.map((user, index) => {
+                const renderImageSmaller = () => {
+                    if (user.profileImage === ''){
+                            return (
+                                <img src={owl} style={{width: 30, height: 30}} />
+                            )
+                        } else {
+                            return (
+                                <img src={user.profileImage} style={{width: 30, height: 30}} />
+                            )
+                        }
+                }
                 return (
                     <span id="userImage">
-                        <img src={user.profileImage} style={{width: 30, height: 30}}/>
+                        {renderImageSmaller()}
                     </span>
                 );
             });
