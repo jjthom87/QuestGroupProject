@@ -81,7 +81,7 @@ export default class SearchBarMissionItem extends React.Component {
         return (
             <div className="panelback userprofilediv" id={"panel" + id}>
                  <div className="panel-heading topPanel">
-                    <span className="searchPanelHeader"><div className="resultPanelHeader"><a data-toggle="collapse" data-target={"#mcollapse" + id} 
+                    <span className=""><div className=""><a data-toggle="collapse" data-target={"#mcollapse" + id} 
                     href={"#mcollapse" + id}>{picture()}<strong >Mission: </strong>{missionTitle}</a></div></span>
                 </div>
                 <div id={"mcollapse" + id}className="panel-collapse collapse">
