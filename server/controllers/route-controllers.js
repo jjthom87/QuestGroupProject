@@ -366,14 +366,14 @@ router.put('/api/mission/complete/:id', middleware.requireAuthentication, functi
 });
 
 // Allows users to delete a Mission
-router.delete('/api/mission/delete/:id', middleware.requireAuthentication, function(req, res){
-    modelController.missionDelete(
-        req.user.id,
-        req.params.id,
-    function(success){
-      res.json(success);
-    })
-})
+// router.delete('/api/mission/delete/:id', middleware.requireAuthentication, function(req, res){
+//     modelController.missionDelete(
+//         req.user.id,
+//         req.params.id,
+//     function(success){
+//       res.json(success);
+//     })
+// })
 
 router.delete('/api/missiontask/delete/:id', middleware.requireAuthentication, function(req, res){
     modelController.missionTaskDelete(

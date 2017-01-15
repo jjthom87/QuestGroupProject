@@ -1,0 +1,1989 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'express-session' ]
+2 info using npm@2.15.8
+3 info using node@v4.4.7
+4 verbose install initial load of C:\Users\JT\desktop\Bootcamp\QuestGroupProject\package.json
+5 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\animate.css\package.json
+6 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\babel-core\package.json
+7 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\babel-loader\package.json
+8 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\babel-preset-es2015\package.json
+9 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\babel-preset-react\package.json
+10 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\babel-preset-stage-0\package.json
+11 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\bcrypt-nodejs\package.json
+12 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\bcryptjs\package.json
+13 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\body-parser\package.json
+14 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\connect-ensure-login\package.json
+15 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\connect-flash\package.json
+16 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\connect-session-sequelize\package.json
+17 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\cookie-parser\package.json
+18 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\crypto-js\package.json
+19 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\d3\package.json
+20 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express\package.json
+21 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-handlebars\package.json
+22 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\package.json
+23 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\http\package.json
+24 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\jquery\package.json
+25 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\jsonwebtoken\package.json
+26 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\lodash\package.json
+27 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\moment\package.json
+28 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\mysql\package.json
+29 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\npm-scripts\package.json
+30 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\passport\package.json
+31 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\passport-local\package.json
+32 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\rc-progress\package.json
+33 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\react\package.json
+34 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\react-bootstrap\package.json
+35 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\react-dom\package.json
+36 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\react-hot-loader\package.json
+37 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\react-modal-es6\package.json
+38 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\react-router\package.json
+39 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\react-search\package.json
+40 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\sequelize\package.json
+41 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\sequelize-cli\package.json
+42 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\underscore\package.json
+43 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\vue\package.json
+44 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\webpack\package.json
+45 verbose installManyTop reading scoped package data from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\webpack-dev-server\package.json
+46 info package.json bcrypt-nodejs@0.0.3 No license field.
+47 info package.json connect-ensure-login@0.1.1 No license field.
+48 info package.json connect-flash@0.1.1 No license field.
+49 info package.json http@0.0.0 http is also the name of a node core module.
+50 info package.json http@0.0.0 No description
+51 info package.json http@0.0.0 No repository field.
+52 info package.json passport-local@1.0.0 No license field.
+53 info package.json rc-progress@2.0.1 No license field.
+54 verbose readDependencies loading dependencies from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\package.json
+55 verbose install express-session is installed as 1.14.2
+56 silly cache add args [ 'express-session', null ]
+57 verbose cache add spec express-session
+58 silly cache add parsed spec Result {
+58 silly cache add   raw: 'express-session',
+58 silly cache add   scope: null,
+58 silly cache add   name: 'express-session',
+58 silly cache add   rawSpec: '',
+58 silly cache add   spec: 'latest',
+58 silly cache add   type: 'tag' }
+59 silly addNamed express-session@latest
+60 verbose addNamed "latest" is being treated as a dist-tag for express-session
+61 info addNameTag [ 'express-session', 'latest' ]
+62 silly mapToRegistry name express-session
+63 silly mapToRegistry using default registry
+64 silly mapToRegistry registry https://registry.npmjs.org/
+65 silly mapToRegistry data Result {
+65 silly mapToRegistry   raw: 'express-session',
+65 silly mapToRegistry   scope: null,
+65 silly mapToRegistry   name: 'express-session',
+65 silly mapToRegistry   rawSpec: '',
+65 silly mapToRegistry   spec: 'latest',
+65 silly mapToRegistry   type: 'tag' }
+66 silly mapToRegistry uri https://registry.npmjs.org/express-session
+67 verbose addNameTag registry:https://registry.npmjs.org/express-session not in flight; fetching
+68 verbose request uri https://registry.npmjs.org/express-session
+69 verbose request no auth needed
+70 info attempt registry request try #1 at 2:50:49 PM
+71 verbose request id c95236ef3a41a453
+72 verbose etag W/"5874f11b-1c649"
+73 verbose lastModified Tue, 10 Jan 2017 14:35:07 GMT
+74 http request GET https://registry.npmjs.org/express-session
+75 http 304 https://registry.npmjs.org/express-session
+76 verbose headers { date: 'Sun, 15 Jan 2017 19:50:46 GMT',
+76 verbose headers   via: '1.1 varnish',
+76 verbose headers   'cache-control': 'max-age=300',
+76 verbose headers   etag: 'W/"5874f11b-1c649"',
+76 verbose headers   age: '159',
+76 verbose headers   connection: 'keep-alive',
+76 verbose headers   'x-served-by': 'cache-jfk8127-JFK',
+76 verbose headers   'x-cache': 'HIT',
+76 verbose headers   'x-cache-hits': '1',
+76 verbose headers   'x-timer': 'S1484509846.862641,VS0,VE0',
+76 verbose headers   vary: 'Accept-Encoding' }
+77 silly get cb [ 304,
+77 silly get   { date: 'Sun, 15 Jan 2017 19:50:46 GMT',
+77 silly get     via: '1.1 varnish',
+77 silly get     'cache-control': 'max-age=300',
+77 silly get     etag: 'W/"5874f11b-1c649"',
+77 silly get     age: '159',
+77 silly get     connection: 'keep-alive',
+77 silly get     'x-served-by': 'cache-jfk8127-JFK',
+77 silly get     'x-cache': 'HIT',
+77 silly get     'x-cache-hits': '1',
+77 silly get     'x-timer': 'S1484509846.862641,VS0,VE0',
+77 silly get     vary: 'Accept-Encoding' } ]
+78 verbose etag https://registry.npmjs.org/express-session from cache
+79 verbose get saving express-session to C:\Users\JT\AppData\Roaming\npm-cache\registry.npmjs.org\express-session\.cache.json
+80 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+81 silly addNameTag next cb for express-session with tag latest
+82 silly addNamed express-session@1.14.2
+83 verbose addNamed "1.14.2" is a plain semver version for express-session
+84 silly cache afterAdd express-session@1.14.2
+85 verbose afterAdd C:\Users\JT\AppData\Roaming\npm-cache\express-session\1.14.2\package\package.json not in flight; writing
+86 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+87 verbose afterAdd C:\Users\JT\AppData\Roaming\npm-cache\express-session\1.14.2\package\package.json written
+88 silly install resolved [ { name: 'express-session',
+88 silly install resolved     version: '1.14.2',
+88 silly install resolved     description: 'Simple session middleware for Express',
+88 silly install resolved     author:
+88 silly install resolved      { name: 'TJ Holowaychuk',
+88 silly install resolved        email: 'tj@vision-media.ca',
+88 silly install resolved        url: 'http://tjholowaychuk.com' },
+88 silly install resolved     contributors: [ [Object], [Object] ],
+88 silly install resolved     repository:
+88 silly install resolved      { type: 'git',
+88 silly install resolved        url: 'git+https://github.com/expressjs/session.git' },
+88 silly install resolved     license: 'MIT',
+88 silly install resolved     dependencies:
+88 silly install resolved      { cookie: '0.3.1',
+88 silly install resolved        'cookie-signature': '1.0.6',
+88 silly install resolved        crc: '3.4.1',
+88 silly install resolved        debug: '~2.2.0',
+88 silly install resolved        depd: '~1.1.0',
+88 silly install resolved        'on-headers': '~1.0.1',
+88 silly install resolved        parseurl: '~1.3.1',
+88 silly install resolved        'uid-safe': '~2.1.3',
+88 silly install resolved        'utils-merge': '1.0.0' },
+88 silly install resolved     devDependencies:
+88 silly install resolved      { after: '0.8.2',
+88 silly install resolved        'cookie-parser': '1.4.3',
+88 silly install resolved        express: '4.14.0',
+88 silly install resolved        istanbul: '0.4.5',
+88 silly install resolved        mocha: '2.5.3',
+88 silly install resolved        supertest: '1.1.0' },
+88 silly install resolved     files: [ 'session/', 'HISTORY.md', 'LICENSE', 'index.js' ],
+88 silly install resolved     engines: { node: '>= 0.8.0' },
+88 silly install resolved     scripts:
+88 silly install resolved      { test: 'mocha --bail --reporter spec test/',
+88 silly install resolved        'test-cov': 'istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot test/',
+88 silly install resolved        'test-travis': 'istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter spec test/' },
+88 silly install resolved     gitHead: '1a61416bdaae56fc4a2a3af708f992d4dd2885c9',
+88 silly install resolved     bugs: { url: 'https://github.com/expressjs/session/issues' },
+88 silly install resolved     homepage: 'https://github.com/expressjs/session#readme',
+88 silly install resolved     _id: 'express-session@1.14.2',
+88 silly install resolved     _shasum: '6bcf586ed6d1dc37b02570087756c9de7b80b275',
+88 silly install resolved     _from: 'express-session@latest',
+88 silly install resolved     _npmVersion: '2.15.9',
+88 silly install resolved     _nodeVersion: '4.6.0',
+88 silly install resolved     _npmUser: { name: 'dougwilson', email: 'doug@somethingdoug.com' },
+88 silly install resolved     dist:
+88 silly install resolved      { shasum: '6bcf586ed6d1dc37b02570087756c9de7b80b275',
+88 silly install resolved        tarball: 'https://registry.npmjs.org/express-session/-/express-session-1.14.2.tgz' },
+88 silly install resolved     maintainers: [ [Object], [Object], [Object] ],
+88 silly install resolved     _npmOperationalInternal:
+88 silly install resolved      { host: 'packages-18-east.internal.npmjs.com',
+88 silly install resolved        tmp: 'tmp/express-session-1.14.2.tgz_1477890860198_0.40953307203017175' },
+88 silly install resolved     directories: {},
+88 silly install resolved     _resolved: 'https://registry.npmjs.org/express-session/-/express-session-1.14.2.tgz',
+88 silly install resolved     readme: 'ERROR: No README data found!' } ]
+89 info install express-session@1.14.2 into C:\Users\JT\desktop\Bootcamp\QuestGroupProject
+90 info installOne express-session@1.14.2
+91 verbose installOne of express-session to C:\Users\JT\desktop\Bootcamp\QuestGroupProject not in flight; installing
+92 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+93 verbose lock using C:\Users\JT\AppData\Roaming\npm-cache\_locks\express-session-26e845dc3f6e8eaa.lock for C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session
+94 silly install write writing express-session 1.14.2 to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session
+95 verbose unbuild node_modules\express-session
+96 info preuninstall express-session@1.14.2
+97 info uninstall express-session@1.14.2
+98 verbose unbuild rmStuff express-session@1.14.2 from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules
+99 info postuninstall express-session@1.14.2
+100 silly gentlyRm C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session is being purged from base C:\Users\JT\desktop\Bootcamp\QuestGroupProject
+101 verbose gentlyRm don't care about contents; nuking C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session
+102 silly vacuum-fs purging C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session
+103 silly vacuum-fs quitting because other entries in C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules
+104 verbose tar unpack C:\Users\JT\AppData\Roaming\npm-cache\express-session\1.14.2\package.tgz
+105 verbose tar unpacking to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session
+106 silly gentlyRm C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session is being purged
+107 verbose gentlyRm don't care about contents; nuking C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session
+108 silly gunzTarPerm modes [ '777', '666' ]
+109 silly gunzTarPerm extractEntry package.json
+110 silly gunzTarPerm extractEntry README.md
+111 silly gunzTarPerm extractEntry LICENSE
+112 silly gunzTarPerm extractEntry index.js
+113 silly gunzTarPerm extractEntry HISTORY.md
+114 silly gunzTarPerm extractEntry session/cookie.js
+115 silly gunzTarPerm extractEntry session/memory.js
+116 silly gunzTarPerm extractEntry session/session.js
+117 silly gunzTarPerm extractEntry session/store.js
+118 verbose write writing to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\package.json
+119 info preinstall express-session@1.14.2
+120 verbose readDependencies loading dependencies from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\package.json
+121 silly prepareForInstallMany adding cookie@0.3.1 from express-session dependencies
+122 silly prepareForInstallMany adding cookie-signature@1.0.6 from express-session dependencies
+123 silly prepareForInstallMany adding crc@3.4.1 from express-session dependencies
+124 silly prepareForInstallMany adding debug@~2.2.0 from express-session dependencies
+125 silly prepareForInstallMany adding depd@~1.1.0 from express-session dependencies
+126 silly prepareForInstallMany adding on-headers@~1.0.1 from express-session dependencies
+127 silly prepareForInstallMany adding parseurl@~1.3.1 from express-session dependencies
+128 silly prepareForInstallMany adding uid-safe@~2.1.3 from express-session dependencies
+129 silly prepareForInstallMany adding utils-merge@1.0.0 from express-session dependencies
+130 verbose readDependencies loading dependencies from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\package.json
+131 silly cache add args [ 'cookie-signature@1.0.6', null ]
+132 verbose cache add spec cookie-signature@1.0.6
+133 silly cache add parsed spec Result {
+133 silly cache add   raw: 'cookie-signature@1.0.6',
+133 silly cache add   scope: null,
+133 silly cache add   name: 'cookie-signature',
+133 silly cache add   rawSpec: '1.0.6',
+133 silly cache add   spec: '1.0.6',
+133 silly cache add   type: 'version' }
+134 silly addNamed cookie-signature@1.0.6
+135 verbose addNamed "1.0.6" is a plain semver version for cookie-signature
+136 silly mapToRegistry name cookie-signature
+137 silly mapToRegistry using default registry
+138 silly mapToRegistry registry https://registry.npmjs.org/
+139 silly mapToRegistry data Result {
+139 silly mapToRegistry   raw: 'cookie-signature',
+139 silly mapToRegistry   scope: null,
+139 silly mapToRegistry   name: 'cookie-signature',
+139 silly mapToRegistry   rawSpec: '',
+139 silly mapToRegistry   spec: 'latest',
+139 silly mapToRegistry   type: 'tag' }
+140 silly mapToRegistry uri https://registry.npmjs.org/cookie-signature
+141 verbose addNameVersion registry:https://registry.npmjs.org/cookie-signature not in flight; fetching
+142 silly cache add args [ 'crc@3.4.1', null ]
+143 verbose cache add spec crc@3.4.1
+144 silly cache add parsed spec Result {
+144 silly cache add   raw: 'crc@3.4.1',
+144 silly cache add   scope: null,
+144 silly cache add   name: 'crc',
+144 silly cache add   rawSpec: '3.4.1',
+144 silly cache add   spec: '3.4.1',
+144 silly cache add   type: 'version' }
+145 silly addNamed crc@3.4.1
+146 verbose addNamed "3.4.1" is a plain semver version for crc
+147 silly mapToRegistry name crc
+148 silly mapToRegistry using default registry
+149 silly mapToRegistry registry https://registry.npmjs.org/
+150 silly mapToRegistry data Result {
+150 silly mapToRegistry   raw: 'crc',
+150 silly mapToRegistry   scope: null,
+150 silly mapToRegistry   name: 'crc',
+150 silly mapToRegistry   rawSpec: '',
+150 silly mapToRegistry   spec: 'latest',
+150 silly mapToRegistry   type: 'tag' }
+151 silly mapToRegistry uri https://registry.npmjs.org/crc
+152 verbose addNameVersion registry:https://registry.npmjs.org/crc not in flight; fetching
+153 silly cache add args [ 'debug@~2.2.0', null ]
+154 verbose cache add spec debug@~2.2.0
+155 silly cache add parsed spec Result {
+155 silly cache add   raw: 'debug@~2.2.0',
+155 silly cache add   scope: null,
+155 silly cache add   name: 'debug',
+155 silly cache add   rawSpec: '~2.2.0',
+155 silly cache add   spec: '>=2.2.0 <2.3.0',
+155 silly cache add   type: 'range' }
+156 silly addNamed debug@>=2.2.0 <2.3.0
+157 verbose addNamed ">=2.2.0 <2.3.0" is a valid semver range for debug
+158 silly addNameRange { name: 'debug', range: '>=2.2.0 <2.3.0', hasData: false }
+159 silly mapToRegistry name debug
+160 silly mapToRegistry using default registry
+161 silly mapToRegistry registry https://registry.npmjs.org/
+162 silly mapToRegistry data Result {
+162 silly mapToRegistry   raw: 'debug',
+162 silly mapToRegistry   scope: null,
+162 silly mapToRegistry   name: 'debug',
+162 silly mapToRegistry   rawSpec: '',
+162 silly mapToRegistry   spec: 'latest',
+162 silly mapToRegistry   type: 'tag' }
+163 silly mapToRegistry uri https://registry.npmjs.org/debug
+164 verbose addNameRange registry:https://registry.npmjs.org/debug not in flight; fetching
+165 silly cache add args [ 'depd@~1.1.0', null ]
+166 verbose cache add spec depd@~1.1.0
+167 silly cache add parsed spec Result {
+167 silly cache add   raw: 'depd@~1.1.0',
+167 silly cache add   scope: null,
+167 silly cache add   name: 'depd',
+167 silly cache add   rawSpec: '~1.1.0',
+167 silly cache add   spec: '>=1.1.0 <1.2.0',
+167 silly cache add   type: 'range' }
+168 silly addNamed depd@>=1.1.0 <1.2.0
+169 verbose addNamed ">=1.1.0 <1.2.0" is a valid semver range for depd
+170 silly addNameRange { name: 'depd', range: '>=1.1.0 <1.2.0', hasData: false }
+171 silly mapToRegistry name depd
+172 silly mapToRegistry using default registry
+173 silly mapToRegistry registry https://registry.npmjs.org/
+174 silly mapToRegistry data Result {
+174 silly mapToRegistry   raw: 'depd',
+174 silly mapToRegistry   scope: null,
+174 silly mapToRegistry   name: 'depd',
+174 silly mapToRegistry   rawSpec: '',
+174 silly mapToRegistry   spec: 'latest',
+174 silly mapToRegistry   type: 'tag' }
+175 silly mapToRegistry uri https://registry.npmjs.org/depd
+176 verbose addNameRange registry:https://registry.npmjs.org/depd not in flight; fetching
+177 silly cache add args [ 'on-headers@~1.0.1', null ]
+178 verbose cache add spec on-headers@~1.0.1
+179 silly cache add parsed spec Result {
+179 silly cache add   raw: 'on-headers@~1.0.1',
+179 silly cache add   scope: null,
+179 silly cache add   name: 'on-headers',
+179 silly cache add   rawSpec: '~1.0.1',
+179 silly cache add   spec: '>=1.0.1 <1.1.0',
+179 silly cache add   type: 'range' }
+180 silly addNamed on-headers@>=1.0.1 <1.1.0
+181 verbose addNamed ">=1.0.1 <1.1.0" is a valid semver range for on-headers
+182 silly addNameRange { name: 'on-headers', range: '>=1.0.1 <1.1.0', hasData: false }
+183 silly mapToRegistry name on-headers
+184 silly mapToRegistry using default registry
+185 silly mapToRegistry registry https://registry.npmjs.org/
+186 silly mapToRegistry data Result {
+186 silly mapToRegistry   raw: 'on-headers',
+186 silly mapToRegistry   scope: null,
+186 silly mapToRegistry   name: 'on-headers',
+186 silly mapToRegistry   rawSpec: '',
+186 silly mapToRegistry   spec: 'latest',
+186 silly mapToRegistry   type: 'tag' }
+187 silly mapToRegistry uri https://registry.npmjs.org/on-headers
+188 verbose addNameRange registry:https://registry.npmjs.org/on-headers not in flight; fetching
+189 silly cache add args [ 'parseurl@~1.3.1', null ]
+190 verbose cache add spec parseurl@~1.3.1
+191 silly cache add parsed spec Result {
+191 silly cache add   raw: 'parseurl@~1.3.1',
+191 silly cache add   scope: null,
+191 silly cache add   name: 'parseurl',
+191 silly cache add   rawSpec: '~1.3.1',
+191 silly cache add   spec: '>=1.3.1 <1.4.0',
+191 silly cache add   type: 'range' }
+192 silly addNamed parseurl@>=1.3.1 <1.4.0
+193 verbose addNamed ">=1.3.1 <1.4.0" is a valid semver range for parseurl
+194 silly addNameRange { name: 'parseurl', range: '>=1.3.1 <1.4.0', hasData: false }
+195 silly mapToRegistry name parseurl
+196 silly mapToRegistry using default registry
+197 silly mapToRegistry registry https://registry.npmjs.org/
+198 silly mapToRegistry data Result {
+198 silly mapToRegistry   raw: 'parseurl',
+198 silly mapToRegistry   scope: null,
+198 silly mapToRegistry   name: 'parseurl',
+198 silly mapToRegistry   rawSpec: '',
+198 silly mapToRegistry   spec: 'latest',
+198 silly mapToRegistry   type: 'tag' }
+199 silly mapToRegistry uri https://registry.npmjs.org/parseurl
+200 verbose addNameRange registry:https://registry.npmjs.org/parseurl not in flight; fetching
+201 silly cache add args [ 'uid-safe@~2.1.3', null ]
+202 verbose cache add spec uid-safe@~2.1.3
+203 silly cache add parsed spec Result {
+203 silly cache add   raw: 'uid-safe@~2.1.3',
+203 silly cache add   scope: null,
+203 silly cache add   name: 'uid-safe',
+203 silly cache add   rawSpec: '~2.1.3',
+203 silly cache add   spec: '>=2.1.3 <2.2.0',
+203 silly cache add   type: 'range' }
+204 silly addNamed uid-safe@>=2.1.3 <2.2.0
+205 verbose addNamed ">=2.1.3 <2.2.0" is a valid semver range for uid-safe
+206 silly addNameRange { name: 'uid-safe', range: '>=2.1.3 <2.2.0', hasData: false }
+207 silly mapToRegistry name uid-safe
+208 silly mapToRegistry using default registry
+209 silly mapToRegistry registry https://registry.npmjs.org/
+210 silly mapToRegistry data Result {
+210 silly mapToRegistry   raw: 'uid-safe',
+210 silly mapToRegistry   scope: null,
+210 silly mapToRegistry   name: 'uid-safe',
+210 silly mapToRegistry   rawSpec: '',
+210 silly mapToRegistry   spec: 'latest',
+210 silly mapToRegistry   type: 'tag' }
+211 silly mapToRegistry uri https://registry.npmjs.org/uid-safe
+212 verbose addNameRange registry:https://registry.npmjs.org/uid-safe not in flight; fetching
+213 silly cache add args [ 'utils-merge@1.0.0', null ]
+214 verbose cache add spec utils-merge@1.0.0
+215 silly cache add parsed spec Result {
+215 silly cache add   raw: 'utils-merge@1.0.0',
+215 silly cache add   scope: null,
+215 silly cache add   name: 'utils-merge',
+215 silly cache add   rawSpec: '1.0.0',
+215 silly cache add   spec: '1.0.0',
+215 silly cache add   type: 'version' }
+216 silly addNamed utils-merge@1.0.0
+217 verbose addNamed "1.0.0" is a plain semver version for utils-merge
+218 silly mapToRegistry name utils-merge
+219 silly mapToRegistry using default registry
+220 silly mapToRegistry registry https://registry.npmjs.org/
+221 silly mapToRegistry data Result {
+221 silly mapToRegistry   raw: 'utils-merge',
+221 silly mapToRegistry   scope: null,
+221 silly mapToRegistry   name: 'utils-merge',
+221 silly mapToRegistry   rawSpec: '',
+221 silly mapToRegistry   spec: 'latest',
+221 silly mapToRegistry   type: 'tag' }
+222 silly mapToRegistry uri https://registry.npmjs.org/utils-merge
+223 verbose addNameVersion registry:https://registry.npmjs.org/utils-merge not in flight; fetching
+224 silly cache add args [ 'cookie@0.3.1', null ]
+225 verbose cache add spec cookie@0.3.1
+226 silly cache add parsed spec Result {
+226 silly cache add   raw: 'cookie@0.3.1',
+226 silly cache add   scope: null,
+226 silly cache add   name: 'cookie',
+226 silly cache add   rawSpec: '0.3.1',
+226 silly cache add   spec: '0.3.1',
+226 silly cache add   type: 'version' }
+227 silly addNamed cookie@0.3.1
+228 verbose addNamed "0.3.1" is a plain semver version for cookie
+229 silly mapToRegistry name cookie
+230 silly mapToRegistry using default registry
+231 silly mapToRegistry registry https://registry.npmjs.org/
+232 silly mapToRegistry data Result {
+232 silly mapToRegistry   raw: 'cookie',
+232 silly mapToRegistry   scope: null,
+232 silly mapToRegistry   name: 'cookie',
+232 silly mapToRegistry   rawSpec: '',
+232 silly mapToRegistry   spec: 'latest',
+232 silly mapToRegistry   type: 'tag' }
+233 silly mapToRegistry uri https://registry.npmjs.org/cookie
+234 verbose addNameVersion registry:https://registry.npmjs.org/cookie not in flight; fetching
+235 verbose request uri https://registry.npmjs.org/crc
+236 verbose request no auth needed
+237 info attempt registry request try #1 at 2:51:18 PM
+238 verbose etag W/"584ef9bd-65a8"
+239 verbose lastModified Mon, 12 Dec 2016 19:25:49 GMT
+240 http request GET https://registry.npmjs.org/crc
+241 verbose request uri https://registry.npmjs.org/cookie-signature
+242 verbose request no auth needed
+243 info attempt registry request try #1 at 2:51:18 PM
+244 verbose etag W/"54f89fa7-24bb"
+245 verbose lastModified Thu, 05 Mar 2015 18:25:43 GMT
+246 http request GET https://registry.npmjs.org/cookie-signature
+247 verbose request uri https://registry.npmjs.org/debug
+248 verbose request no auth needed
+249 info attempt registry request try #1 at 2:51:18 PM
+250 verbose etag W/"587ad1ac-fcc8"
+251 verbose lastModified Sun, 15 Jan 2017 01:34:36 GMT
+252 http request GET https://registry.npmjs.org/debug
+253 verbose request uri https://registry.npmjs.org/on-headers
+254 verbose request no auth needed
+255 info attempt registry request try #1 at 2:51:18 PM
+256 verbose etag W/"5818d7d4-1a0d"
+257 verbose lastModified Tue, 01 Nov 2016 17:58:44 GMT
+258 http request GET https://registry.npmjs.org/on-headers
+259 verbose request uri https://registry.npmjs.org/depd
+260 verbose request no auth needed
+261 info attempt registry request try #1 at 2:51:18 PM
+262 verbose etag W/"584ab2d7-70cf"
+263 verbose lastModified Fri, 09 Dec 2016 13:34:15 GMT
+264 http request GET https://registry.npmjs.org/depd
+265 verbose request uri https://registry.npmjs.org/parseurl
+266 verbose request no auth needed
+267 info attempt registry request try #1 at 2:51:18 PM
+268 verbose etag W/"584db7ed-3cda"
+269 verbose lastModified Sun, 11 Dec 2016 20:32:45 GMT
+270 http request GET https://registry.npmjs.org/parseurl
+271 verbose request uri https://registry.npmjs.org/uid-safe
+272 verbose request no auth needed
+273 info attempt registry request try #1 at 2:51:18 PM
+274 verbose etag W/"5838717a-4cb5"
+275 verbose lastModified Fri, 25 Nov 2016 17:14:34 GMT
+276 http request GET https://registry.npmjs.org/uid-safe
+277 verbose request uri https://registry.npmjs.org/utils-merge
+278 verbose request no auth needed
+279 info attempt registry request try #1 at 2:51:18 PM
+280 verbose etag W/"58406620-9cd"
+281 verbose lastModified Thu, 01 Dec 2016 18:04:16 GMT
+282 http request GET https://registry.npmjs.org/utils-merge
+283 verbose request uri https://registry.npmjs.org/cookie
+284 verbose request no auth needed
+285 info attempt registry request try #1 at 2:51:18 PM
+286 verbose etag W/"585b46d6-807e"
+287 verbose lastModified Thu, 22 Dec 2016 03:21:58 GMT
+288 http request GET https://registry.npmjs.org/cookie
+289 http 304 https://registry.npmjs.org/crc
+290 verbose headers { date: 'Sun, 15 Jan 2017 19:51:15 GMT',
+290 verbose headers   via: '1.1 varnish',
+290 verbose headers   'cache-control': 'max-age=300',
+290 verbose headers   etag: 'W/"584ef9bd-65a8"',
+290 verbose headers   age: '238',
+290 verbose headers   connection: 'keep-alive',
+290 verbose headers   'x-served-by': 'cache-jfk8127-JFK',
+290 verbose headers   'x-cache': 'HIT',
+290 verbose headers   'x-cache-hits': '1',
+290 verbose headers   'x-timer': 'S1484509875.724381,VS0,VE0',
+290 verbose headers   vary: 'Accept-Encoding' }
+291 silly get cb [ 304,
+291 silly get   { date: 'Sun, 15 Jan 2017 19:51:15 GMT',
+291 silly get     via: '1.1 varnish',
+291 silly get     'cache-control': 'max-age=300',
+291 silly get     etag: 'W/"584ef9bd-65a8"',
+291 silly get     age: '238',
+291 silly get     connection: 'keep-alive',
+291 silly get     'x-served-by': 'cache-jfk8127-JFK',
+291 silly get     'x-cache': 'HIT',
+291 silly get     'x-cache-hits': '1',
+291 silly get     'x-timer': 'S1484509875.724381,VS0,VE0',
+291 silly get     vary: 'Accept-Encoding' } ]
+292 verbose etag https://registry.npmjs.org/crc from cache
+293 verbose get saving crc to C:\Users\JT\AppData\Roaming\npm-cache\registry.npmjs.org\crc\.cache.json
+294 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+295 silly cache afterAdd crc@3.4.1
+296 verbose afterAdd C:\Users\JT\AppData\Roaming\npm-cache\crc\3.4.1\package\package.json not in flight; writing
+297 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+298 verbose afterAdd C:\Users\JT\AppData\Roaming\npm-cache\crc\3.4.1\package\package.json written
+299 http 304 https://registry.npmjs.org/debug
+300 verbose headers { date: 'Sun, 15 Jan 2017 19:51:15 GMT',
+300 verbose headers   via: '1.1 varnish',
+300 verbose headers   'cache-control': 'max-age=300',
+300 verbose headers   etag: 'W/"587ad1ac-fcc8"',
+300 verbose headers   age: '277',
+300 verbose headers   connection: 'keep-alive',
+300 verbose headers   'x-served-by': 'cache-jfk8141-JFK',
+300 verbose headers   'x-cache': 'HIT',
+300 verbose headers   'x-cache-hits': '6',
+300 verbose headers   'x-timer': 'S1484509875.924861,VS0,VE0',
+300 verbose headers   vary: 'Accept-Encoding' }
+301 silly get cb [ 304,
+301 silly get   { date: 'Sun, 15 Jan 2017 19:51:15 GMT',
+301 silly get     via: '1.1 varnish',
+301 silly get     'cache-control': 'max-age=300',
+301 silly get     etag: 'W/"587ad1ac-fcc8"',
+301 silly get     age: '277',
+301 silly get     connection: 'keep-alive',
+301 silly get     'x-served-by': 'cache-jfk8141-JFK',
+301 silly get     'x-cache': 'HIT',
+301 silly get     'x-cache-hits': '6',
+301 silly get     'x-timer': 'S1484509875.924861,VS0,VE0',
+301 silly get     vary: 'Accept-Encoding' } ]
+302 verbose etag https://registry.npmjs.org/debug from cache
+303 verbose get saving debug to C:\Users\JT\AppData\Roaming\npm-cache\registry.npmjs.org\debug\.cache.json
+304 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+305 http 304 https://registry.npmjs.org/cookie-signature
+306 verbose headers { date: 'Sun, 15 Jan 2017 19:51:15 GMT',
+306 verbose headers   via: '1.1 varnish',
+306 verbose headers   'cache-control': 'max-age=300',
+306 verbose headers   etag: 'W/"54f89fa7-24bb"',
+306 verbose headers   age: '5',
+306 verbose headers   connection: 'keep-alive',
+306 verbose headers   'x-served-by': 'cache-jfk8133-JFK',
+306 verbose headers   'x-cache': 'HIT',
+306 verbose headers   'x-cache-hits': '1',
+306 verbose headers   'x-timer': 'S1484509875.924852,VS0,VE0',
+306 verbose headers   vary: 'Accept-Encoding' }
+307 silly get cb [ 304,
+307 silly get   { date: 'Sun, 15 Jan 2017 19:51:15 GMT',
+307 silly get     via: '1.1 varnish',
+307 silly get     'cache-control': 'max-age=300',
+307 silly get     etag: 'W/"54f89fa7-24bb"',
+307 silly get     age: '5',
+307 silly get     connection: 'keep-alive',
+307 silly get     'x-served-by': 'cache-jfk8133-JFK',
+307 silly get     'x-cache': 'HIT',
+307 silly get     'x-cache-hits': '1',
+307 silly get     'x-timer': 'S1484509875.924852,VS0,VE0',
+307 silly get     vary: 'Accept-Encoding' } ]
+308 verbose etag https://registry.npmjs.org/cookie-signature from cache
+309 verbose get saving cookie-signature to C:\Users\JT\AppData\Roaming\npm-cache\registry.npmjs.org\cookie-signature\.cache.json
+310 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+311 http 304 https://registry.npmjs.org/parseurl
+312 verbose headers { date: 'Sun, 15 Jan 2017 19:51:15 GMT',
+312 verbose headers   via: '1.1 varnish',
+312 verbose headers   'cache-control': 'max-age=300',
+312 verbose headers   etag: 'W/"584db7ed-3cda"',
+312 verbose headers   age: '261',
+312 verbose headers   connection: 'keep-alive',
+312 verbose headers   'x-served-by': 'cache-jfk8121-JFK',
+312 verbose headers   'x-cache': 'HIT',
+312 verbose headers   'x-cache-hits': '3',
+312 verbose headers   'x-timer': 'S1484509875.932708,VS0,VE0',
+312 verbose headers   vary: 'Accept-Encoding' }
+313 silly get cb [ 304,
+313 silly get   { date: 'Sun, 15 Jan 2017 19:51:15 GMT',
+313 silly get     via: '1.1 varnish',
+313 silly get     'cache-control': 'max-age=300',
+313 silly get     etag: 'W/"584db7ed-3cda"',
+313 silly get     age: '261',
+313 silly get     connection: 'keep-alive',
+313 silly get     'x-served-by': 'cache-jfk8121-JFK',
+313 silly get     'x-cache': 'HIT',
+313 silly get     'x-cache-hits': '3',
+313 silly get     'x-timer': 'S1484509875.932708,VS0,VE0',
+313 silly get     vary: 'Accept-Encoding' } ]
+314 verbose etag https://registry.npmjs.org/parseurl from cache
+315 verbose get saving parseurl to C:\Users\JT\AppData\Roaming\npm-cache\registry.npmjs.org\parseurl\.cache.json
+316 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+317 http 304 https://registry.npmjs.org/depd
+318 verbose headers { date: 'Sun, 15 Jan 2017 19:51:15 GMT',
+318 verbose headers   via: '1.1 varnish',
+318 verbose headers   'cache-control': 'max-age=300',
+318 verbose headers   etag: 'W/"584ab2d7-70cf"',
+318 verbose headers   age: '141',
+318 verbose headers   connection: 'keep-alive',
+318 verbose headers   'x-served-by': 'cache-jfk8150-JFK',
+318 verbose headers   'x-cache': 'HIT',
+318 verbose headers   'x-cache-hits': '2',
+318 verbose headers   'x-timer': 'S1484509875.932684,VS0,VE0',
+318 verbose headers   vary: 'Accept-Encoding' }
+319 silly get cb [ 304,
+319 silly get   { date: 'Sun, 15 Jan 2017 19:51:15 GMT',
+319 silly get     via: '1.1 varnish',
+319 silly get     'cache-control': 'max-age=300',
+319 silly get     etag: 'W/"584ab2d7-70cf"',
+319 silly get     age: '141',
+319 silly get     connection: 'keep-alive',
+319 silly get     'x-served-by': 'cache-jfk8150-JFK',
+319 silly get     'x-cache': 'HIT',
+319 silly get     'x-cache-hits': '2',
+319 silly get     'x-timer': 'S1484509875.932684,VS0,VE0',
+319 silly get     vary: 'Accept-Encoding' } ]
+320 verbose etag https://registry.npmjs.org/depd from cache
+321 verbose get saving depd to C:\Users\JT\AppData\Roaming\npm-cache\registry.npmjs.org\depd\.cache.json
+322 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+323 http 304 https://registry.npmjs.org/on-headers
+324 verbose headers { date: 'Sun, 15 Jan 2017 19:51:15 GMT',
+324 verbose headers   via: '1.1 varnish',
+324 verbose headers   'cache-control': 'max-age=300',
+324 verbose headers   etag: 'W/"5818d7d4-1a0d"',
+324 verbose headers   age: '151',
+324 verbose headers   connection: 'keep-alive',
+324 verbose headers   'x-served-by': 'cache-jfk8137-JFK',
+324 verbose headers   'x-cache': 'HIT',
+324 verbose headers   'x-cache-hits': '2',
+324 verbose headers   'x-timer': 'S1484509875.932762,VS0,VE0',
+324 verbose headers   vary: 'Accept-Encoding' }
+325 silly get cb [ 304,
+325 silly get   { date: 'Sun, 15 Jan 2017 19:51:15 GMT',
+325 silly get     via: '1.1 varnish',
+325 silly get     'cache-control': 'max-age=300',
+325 silly get     etag: 'W/"5818d7d4-1a0d"',
+325 silly get     age: '151',
+325 silly get     connection: 'keep-alive',
+325 silly get     'x-served-by': 'cache-jfk8137-JFK',
+325 silly get     'x-cache': 'HIT',
+325 silly get     'x-cache-hits': '2',
+325 silly get     'x-timer': 'S1484509875.932762,VS0,VE0',
+325 silly get     vary: 'Accept-Encoding' } ]
+326 verbose etag https://registry.npmjs.org/on-headers from cache
+327 verbose get saving on-headers to C:\Users\JT\AppData\Roaming\npm-cache\registry.npmjs.org\on-headers\.cache.json
+328 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+329 http 304 https://registry.npmjs.org/utils-merge
+330 verbose headers { date: 'Sun, 15 Jan 2017 19:51:15 GMT',
+330 verbose headers   via: '1.1 varnish',
+330 verbose headers   'cache-control': 'max-age=300',
+330 verbose headers   etag: 'W/"58406620-9cd"',
+330 verbose headers   age: '205',
+330 verbose headers   connection: 'keep-alive',
+330 verbose headers   'x-served-by': 'cache-jfk8126-JFK',
+330 verbose headers   'x-cache': 'HIT',
+330 verbose headers   'x-cache-hits': '1',
+330 verbose headers   'x-timer': 'S1484509875.932696,VS0,VE0',
+330 verbose headers   vary: 'Accept-Encoding' }
+331 silly get cb [ 304,
+331 silly get   { date: 'Sun, 15 Jan 2017 19:51:15 GMT',
+331 silly get     via: '1.1 varnish',
+331 silly get     'cache-control': 'max-age=300',
+331 silly get     etag: 'W/"58406620-9cd"',
+331 silly get     age: '205',
+331 silly get     connection: 'keep-alive',
+331 silly get     'x-served-by': 'cache-jfk8126-JFK',
+331 silly get     'x-cache': 'HIT',
+331 silly get     'x-cache-hits': '1',
+331 silly get     'x-timer': 'S1484509875.932696,VS0,VE0',
+331 silly get     vary: 'Accept-Encoding' } ]
+332 verbose etag https://registry.npmjs.org/utils-merge from cache
+333 verbose get saving utils-merge to C:\Users\JT\AppData\Roaming\npm-cache\registry.npmjs.org\utils-merge\.cache.json
+334 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+335 http 304 https://registry.npmjs.org/cookie
+336 verbose headers { date: 'Sun, 15 Jan 2017 19:51:15 GMT',
+336 verbose headers   via: '1.1 varnish',
+336 verbose headers   'cache-control': 'max-age=300',
+336 verbose headers   etag: 'W/"585b46d6-807e"',
+336 verbose headers   age: '20',
+336 verbose headers   connection: 'keep-alive',
+336 verbose headers   'x-served-by': 'cache-jfk8129-JFK',
+336 verbose headers   'x-cache': 'HIT',
+336 verbose headers   'x-cache-hits': '1',
+336 verbose headers   'x-timer': 'S1484509875.932718,VS0,VE0',
+336 verbose headers   vary: 'Accept-Encoding' }
+337 silly get cb [ 304,
+337 silly get   { date: 'Sun, 15 Jan 2017 19:51:15 GMT',
+337 silly get     via: '1.1 varnish',
+337 silly get     'cache-control': 'max-age=300',
+337 silly get     etag: 'W/"585b46d6-807e"',
+337 silly get     age: '20',
+337 silly get     connection: 'keep-alive',
+337 silly get     'x-served-by': 'cache-jfk8129-JFK',
+337 silly get     'x-cache': 'HIT',
+337 silly get     'x-cache-hits': '1',
+337 silly get     'x-timer': 'S1484509875.932718,VS0,VE0',
+337 silly get     vary: 'Accept-Encoding' } ]
+338 verbose etag https://registry.npmjs.org/cookie from cache
+339 verbose get saving cookie to C:\Users\JT\AppData\Roaming\npm-cache\registry.npmjs.org\cookie\.cache.json
+340 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+341 http 304 https://registry.npmjs.org/uid-safe
+342 verbose headers { date: 'Sun, 15 Jan 2017 19:51:15 GMT',
+342 verbose headers   via: '1.1 varnish',
+342 verbose headers   'cache-control': 'max-age=300',
+342 verbose headers   etag: 'W/"5838717a-4cb5"',
+342 verbose headers   age: '187',
+342 verbose headers   connection: 'keep-alive',
+342 verbose headers   'x-served-by': 'cache-jfk8142-JFK',
+342 verbose headers   'x-cache': 'HIT',
+342 verbose headers   'x-cache-hits': '1',
+342 verbose headers   'x-timer': 'S1484509875.933623,VS0,VE0',
+342 verbose headers   vary: 'Accept-Encoding' }
+343 silly get cb [ 304,
+343 silly get   { date: 'Sun, 15 Jan 2017 19:51:15 GMT',
+343 silly get     via: '1.1 varnish',
+343 silly get     'cache-control': 'max-age=300',
+343 silly get     etag: 'W/"5838717a-4cb5"',
+343 silly get     age: '187',
+343 silly get     connection: 'keep-alive',
+343 silly get     'x-served-by': 'cache-jfk8142-JFK',
+343 silly get     'x-cache': 'HIT',
+343 silly get     'x-cache-hits': '1',
+343 silly get     'x-timer': 'S1484509875.933623,VS0,VE0',
+343 silly get     vary: 'Accept-Encoding' } ]
+344 verbose etag https://registry.npmjs.org/uid-safe from cache
+345 verbose get saving uid-safe to C:\Users\JT\AppData\Roaming\npm-cache\registry.npmjs.org\uid-safe\.cache.json
+346 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+347 silly addNameRange number 2 { name: 'debug', range: '>=2.2.0 <2.3.0', hasData: true }
+348 silly addNameRange versions [ 'debug',
+348 silly addNameRange   [ '0.0.1',
+348 silly addNameRange     '0.1.0',
+348 silly addNameRange     '0.2.0',
+348 silly addNameRange     '0.3.0',
+348 silly addNameRange     '0.4.0',
+348 silly addNameRange     '0.4.1',
+348 silly addNameRange     '0.5.0',
+348 silly addNameRange     '0.6.0',
+348 silly addNameRange     '0.7.0',
+348 silly addNameRange     '0.7.1',
+348 silly addNameRange     '0.7.2',
+348 silly addNameRange     '0.7.3',
+348 silly addNameRange     '0.7.4',
+348 silly addNameRange     '0.8.0',
+348 silly addNameRange     '0.8.1',
+348 silly addNameRange     '1.0.0',
+348 silly addNameRange     '1.0.1',
+348 silly addNameRange     '1.0.2',
+348 silly addNameRange     '1.0.3',
+348 silly addNameRange     '1.0.4',
+348 silly addNameRange     '2.0.0',
+348 silly addNameRange     '2.1.0',
+348 silly addNameRange     '2.1.1',
+348 silly addNameRange     '2.1.2',
+348 silly addNameRange     '2.1.3',
+348 silly addNameRange     '2.2.0',
+348 silly addNameRange     '2.3.0',
+348 silly addNameRange     '2.3.1',
+348 silly addNameRange     '2.3.2',
+348 silly addNameRange     '2.3.3',
+348 silly addNameRange     '2.4.0',
+348 silly addNameRange     '2.4.1',
+348 silly addNameRange     '2.4.2',
+348 silly addNameRange     '2.4.3',
+348 silly addNameRange     '2.4.4',
+348 silly addNameRange     '2.4.5',
+348 silly addNameRange     '2.5.0',
+348 silly addNameRange     '2.5.1',
+348 silly addNameRange     '2.5.2',
+348 silly addNameRange     '2.6.0' ] ]
+349 silly addNamed debug@2.2.0
+350 verbose addNamed "2.2.0" is a plain semver version for debug
+351 silly addNameRange number 2 { name: 'depd', range: '>=1.1.0 <1.2.0', hasData: true }
+352 silly addNameRange versions [ 'depd',
+352 silly addNameRange   [ '0.0.0',
+352 silly addNameRange     '0.0.1',
+352 silly addNameRange     '0.1.0',
+352 silly addNameRange     '0.2.0',
+352 silly addNameRange     '0.3.0',
+352 silly addNameRange     '0.4.0',
+352 silly addNameRange     '0.4.1',
+352 silly addNameRange     '0.4.2',
+352 silly addNameRange     '0.4.3',
+352 silly addNameRange     '0.4.4',
+352 silly addNameRange     '0.4.5',
+352 silly addNameRange     '1.0.0',
+352 silly addNameRange     '1.0.1',
+352 silly addNameRange     '1.1.0' ] ]
+353 silly addNamed depd@1.1.0
+354 verbose addNamed "1.1.0" is a plain semver version for depd
+355 silly addNameRange number 2 { name: 'parseurl', range: '>=1.3.1 <1.4.0', hasData: true }
+356 silly addNameRange versions [ 'parseurl',
+356 silly addNameRange   [ '1.0.0',
+356 silly addNameRange     '1.0.1',
+356 silly addNameRange     '1.1.0',
+356 silly addNameRange     '1.1.1',
+356 silly addNameRange     '1.1.2',
+356 silly addNameRange     '1.1.3',
+356 silly addNameRange     '1.2.0',
+356 silly addNameRange     '1.3.0',
+356 silly addNameRange     '1.3.1' ] ]
+357 silly addNamed parseurl@1.3.1
+358 verbose addNamed "1.3.1" is a plain semver version for parseurl
+359 silly addNameRange number 2 { name: 'on-headers', range: '>=1.0.1 <1.1.0', hasData: true }
+360 silly addNameRange versions [ 'on-headers', [ '0.0.0', '1.0.0', '1.0.1' ] ]
+361 silly addNamed on-headers@1.0.1
+362 verbose addNamed "1.0.1" is a plain semver version for on-headers
+363 silly cache afterAdd cookie-signature@1.0.6
+364 verbose afterAdd C:\Users\JT\AppData\Roaming\npm-cache\cookie-signature\1.0.6\package\package.json not in flight; writing
+365 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+366 silly cache afterAdd debug@2.2.0
+367 verbose afterAdd C:\Users\JT\AppData\Roaming\npm-cache\debug\2.2.0\package\package.json not in flight; writing
+368 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+369 silly cache afterAdd utils-merge@1.0.0
+370 verbose afterAdd C:\Users\JT\AppData\Roaming\npm-cache\utils-merge\1.0.0\package\package.json not in flight; writing
+371 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+372 silly cache afterAdd depd@1.1.0
+373 verbose afterAdd C:\Users\JT\AppData\Roaming\npm-cache\depd\1.1.0\package\package.json not in flight; writing
+374 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+375 silly cache afterAdd parseurl@1.3.1
+376 verbose afterAdd C:\Users\JT\AppData\Roaming\npm-cache\parseurl\1.3.1\package\package.json not in flight; writing
+377 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+378 silly cache afterAdd on-headers@1.0.1
+379 verbose afterAdd C:\Users\JT\AppData\Roaming\npm-cache\on-headers\1.0.1\package\package.json not in flight; writing
+380 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+381 silly addNameRange number 2 { name: 'uid-safe', range: '>=2.1.3 <2.2.0', hasData: true }
+382 silly addNameRange versions [ 'uid-safe',
+382 silly addNameRange   [ '1.0.0',
+382 silly addNameRange     '1.0.1',
+382 silly addNameRange     '1.0.2',
+382 silly addNameRange     '1.0.3',
+382 silly addNameRange     '1.1.0',
+382 silly addNameRange     '2.0.0',
+382 silly addNameRange     '2.1.0',
+382 silly addNameRange     '2.1.1',
+382 silly addNameRange     '2.1.2',
+382 silly addNameRange     '2.1.3' ] ]
+383 silly addNamed uid-safe@2.1.3
+384 verbose addNamed "2.1.3" is a plain semver version for uid-safe
+385 verbose afterAdd C:\Users\JT\AppData\Roaming\npm-cache\cookie-signature\1.0.6\package\package.json written
+386 verbose afterAdd C:\Users\JT\AppData\Roaming\npm-cache\debug\2.2.0\package\package.json written
+387 verbose afterAdd C:\Users\JT\AppData\Roaming\npm-cache\depd\1.1.0\package\package.json written
+388 verbose afterAdd C:\Users\JT\AppData\Roaming\npm-cache\parseurl\1.3.1\package\package.json written
+389 verbose afterAdd C:\Users\JT\AppData\Roaming\npm-cache\on-headers\1.0.1\package\package.json written
+390 silly cache afterAdd cookie@0.3.1
+391 verbose afterAdd C:\Users\JT\AppData\Roaming\npm-cache\cookie\0.3.1\package\package.json not in flight; writing
+392 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+393 silly cache afterAdd uid-safe@2.1.3
+394 verbose afterAdd C:\Users\JT\AppData\Roaming\npm-cache\uid-safe\2.1.3\package\package.json not in flight; writing
+395 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+396 verbose afterAdd C:\Users\JT\AppData\Roaming\npm-cache\utils-merge\1.0.0\package\package.json written
+397 verbose afterAdd C:\Users\JT\AppData\Roaming\npm-cache\uid-safe\2.1.3\package\package.json written
+398 verbose afterAdd C:\Users\JT\AppData\Roaming\npm-cache\cookie\0.3.1\package\package.json written
+399 silly install resolved [ { name: 'crc',
+399 silly install resolved     version: '3.4.1',
+399 silly install resolved     description: 'Module for calculating Cyclic Redundancy Check (CRC) for Node.js and the Browser.',
+399 silly install resolved     keywords: [ 'crc' ],
+399 silly install resolved     files: [ 'lib' ],
+399 silly install resolved     main: './lib/index.js',
+399 silly install resolved     scripts:
+399 silly install resolved      { test: 'mocha test/*.test.js',
+399 silly install resolved        pretest: 'cd src && babel --out-dir ../lib *.js' },
+399 silly install resolved     author:
+399 silly install resolved      { name: 'Alex Gorbatchev',
+399 silly install resolved        url: 'https://github.com/alexgorbatchev' },
+399 silly install resolved     devDependencies:
+399 silly install resolved      { 'babel-cli': '^6.3.15',
+399 silly install resolved        'babel-core': '^6.1.21',
+399 silly install resolved        'babel-preset-es2015': '^6.1.18',
+399 silly install resolved        'beautify-benchmark': '^0.2.4',
+399 silly install resolved        benchmark: '^1.0.0',
+399 silly install resolved        'buffer-crc32': '^0.2.3',
+399 silly install resolved        chai: '^3.4.1',
+399 silly install resolved        mocha: '*',
+399 silly install resolved        seedrandom: '^2.3.6' },
+399 silly install resolved     homepage: 'https://github.com/alexgorbatchev/node-crc',
+399 silly install resolved     bugs: { url: 'https://github.com/alexgorbatchev/node-crc/issues' },
+399 silly install resolved     repository:
+399 silly install resolved      { type: 'git',
+399 silly install resolved        url: 'git://github.com/alexgorbatchev/node-crc.git' },
+399 silly install resolved     license: 'MIT',
+399 silly install resolved     gitHead: 'ad6a566e578a5c4c9c0d05d57576dbeb788fe696',
+399 silly install resolved     _id: 'crc@3.4.1',
+399 silly install resolved     _shasum: '65d5830b1a2569557cfb324c0e679998521473ee',
+399 silly install resolved     _from: 'crc@3.4.1',
+399 silly install resolved     _npmVersion: '3.9.5',
+399 silly install resolved     _nodeVersion: '6.2.2',
+399 silly install resolved     _npmUser: { name: 'alexgorbatchev', email: 'alex.gorbatchev@gmail.com' },
+399 silly install resolved     dist:
+399 silly install resolved      { shasum: '65d5830b1a2569557cfb324c0e679998521473ee',
+399 silly install resolved        tarball: 'https://registry.npmjs.org/crc/-/crc-3.4.1.tgz' },
+399 silly install resolved     maintainers: [ [Object] ],
+399 silly install resolved     _npmOperationalInternal:
+399 silly install resolved      { host: 'packages-18-east.internal.npmjs.com',
+399 silly install resolved        tmp: 'tmp/crc-3.4.1.tgz_1477680338196_0.20758443232625723' },
+399 silly install resolved     directories: {},
+399 silly install resolved     _resolved: 'https://registry.npmjs.org/crc/-/crc-3.4.1.tgz',
+399 silly install resolved     readme: 'ERROR: No README data found!' },
+399 silly install resolved   { name: 'cookie-signature',
+399 silly install resolved     version: '1.0.6',
+399 silly install resolved     description: 'Sign and unsign cookies',
+399 silly install resolved     keywords: [ 'cookie', 'sign', 'unsign' ],
+399 silly install resolved     author: { name: 'TJ Holowaychuk', email: 'tj@learnboost.com' },
+399 silly install resolved     license: 'MIT',
+399 silly install resolved     repository:
+399 silly install resolved      { type: 'git',
+399 silly install resolved        url: 'git+https://github.com/visionmedia/node-cookie-signature.git' },
+399 silly install resolved     dependencies: {},
+399 silly install resolved     devDependencies: { mocha: '*', should: '*' },
+399 silly install resolved     scripts: { test: 'mocha --require should --reporter spec' },
+399 silly install resolved     main: 'index',
+399 silly install resolved     gitHead: '391b56cf44d88c493491b7e3fc53208cfb976d2a',
+399 silly install resolved     bugs: { url: 'https://github.com/visionmedia/node-cookie-signature/issues' },
+399 silly install resolved     homepage: 'https://github.com/visionmedia/node-cookie-signature',
+399 silly install resolved     _id: 'cookie-signature@1.0.6',
+399 silly install resolved     _shasum: 'e303a882b342cc3ee8ca513a79999734dab3ae2c',
+399 silly install resolved     _from: 'cookie-signature@1.0.6',
+399 silly install resolved     _npmVersion: '2.3.0',
+399 silly install resolved     _nodeVersion: '0.10.36',
+399 silly install resolved     _npmUser: { name: 'natevw', email: 'natevw@yahoo.com' },
+399 silly install resolved     maintainers: [ [Object], [Object] ],
+399 silly install resolved     dist:
+399 silly install resolved      { shasum: 'e303a882b342cc3ee8ca513a79999734dab3ae2c',
+399 silly install resolved        tarball: 'https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.0.6.tgz' },
+399 silly install resolved     directories: {},
+399 silly install resolved     _resolved: 'https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.0.6.tgz',
+399 silly install resolved     readme: 'ERROR: No README data found!' },
+399 silly install resolved   { name: 'debug',
+399 silly install resolved     version: '2.2.0',
+399 silly install resolved     repository: { type: 'git', url: 'git://github.com/visionmedia/debug.git' },
+399 silly install resolved     description: 'small debugging utility',
+399 silly install resolved     keywords: [ 'debug', 'log', 'debugger' ],
+399 silly install resolved     author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+399 silly install resolved     contributors: [ [Object] ],
+399 silly install resolved     license: 'MIT',
+399 silly install resolved     dependencies: { ms: '0.7.1' },
+399 silly install resolved     devDependencies: { browserify: '9.0.3', mocha: '*' },
+399 silly install resolved     main: './node.js',
+399 silly install resolved     browser: './browser.js',
+399 silly install resolved     component: { scripts: [Object] },
+399 silly install resolved     gitHead: 'b38458422b5aa8aa6d286b10dfe427e8a67e2b35',
+399 silly install resolved     bugs: { url: 'https://github.com/visionmedia/debug/issues' },
+399 silly install resolved     homepage: 'https://github.com/visionmedia/debug',
+399 silly install resolved     _id: 'debug@2.2.0',
+399 silly install resolved     scripts: {},
+399 silly install resolved     _shasum: 'f87057e995b1a1f6ae6a4960664137bc56f039da',
+399 silly install resolved     _from: 'debug@>=2.2.0 <2.3.0',
+399 silly install resolved     _npmVersion: '2.7.4',
+399 silly install resolved     _nodeVersion: '0.12.2',
+399 silly install resolved     _npmUser: { name: 'tootallnate', email: 'nathan@tootallnate.net' },
+399 silly install resolved     maintainers: [ [Object], [Object] ],
+399 silly install resolved     dist:
+399 silly install resolved      { shasum: 'f87057e995b1a1f6ae6a4960664137bc56f039da',
+399 silly install resolved        tarball: 'https://registry.npmjs.org/debug/-/debug-2.2.0.tgz' },
+399 silly install resolved     directories: {},
+399 silly install resolved     _resolved: 'https://registry.npmjs.org/debug/-/debug-2.2.0.tgz',
+399 silly install resolved     readme: 'ERROR: No README data found!' },
+399 silly install resolved   { name: 'depd',
+399 silly install resolved     description: 'Deprecate all the things',
+399 silly install resolved     version: '1.1.0',
+399 silly install resolved     author:
+399 silly install resolved      { name: 'Douglas Christopher Wilson',
+399 silly install resolved        email: 'doug@somethingdoug.com' },
+399 silly install resolved     license: 'MIT',
+399 silly install resolved     keywords: [ 'deprecate', 'deprecated' ],
+399 silly install resolved     repository:
+399 silly install resolved      { type: 'git',
+399 silly install resolved        url: 'git+https://github.com/dougwilson/nodejs-depd.git' },
+399 silly install resolved     browser: 'lib/browser/index.js',
+399 silly install resolved     devDependencies:
+399 silly install resolved      { benchmark: '1.0.0',
+399 silly install resolved        'beautify-benchmark': '0.2.4',
+399 silly install resolved        istanbul: '0.3.5',
+399 silly install resolved        mocha: '~1.21.5' },
+399 silly install resolved     files: [ 'lib/', 'History.md', 'LICENSE', 'index.js', 'Readme.md' ],
+399 silly install resolved     engines: { node: '>= 0.6' },
+399 silly install resolved     scripts:
+399 silly install resolved      { bench: 'node benchmark/index.js',
+399 silly install resolved        test: 'mocha --reporter spec --bail test/',
+399 silly install resolved        'test-ci': 'istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter spec --no-exit test/',
+399 silly install resolved        'test-cov': 'istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot test/' },
+399 silly install resolved     gitHead: '78c659de20283e3a6bee92bda455e6daff01686a',
+399 silly install resolved     bugs: { url: 'https://github.com/dougwilson/nodejs-depd/issues' },
+399 silly install resolved     homepage: 'https://github.com/dougwilson/nodejs-depd',
+399 silly install resolved     _id: 'depd@1.1.0',
+399 silly install resolved     _shasum: 'e1bd82c6aab6ced965b97b88b17ed3e528ca18c3',
+399 silly install resolved     _from: 'depd@>=1.1.0 <1.2.0',
+399 silly install resolved     _npmVersion: '1.4.28',
+399 silly install resolved     _npmUser: { name: 'dougwilson', email: 'doug@somethingdoug.com' },
+399 silly install resolved     maintainers: [ [Object] ],
+399 silly install resolved     dist:
+399 silly install resolved      { shasum: 'e1bd82c6aab6ced965b97b88b17ed3e528ca18c3',
+399 silly install resolved        tarball: 'https://registry.npmjs.org/depd/-/depd-1.1.0.tgz' },
+399 silly install resolved     directories: {},
+399 silly install resolved     _resolved: 'https://registry.npmjs.org/depd/-/depd-1.1.0.tgz',
+399 silly install resolved     readme: 'ERROR: No README data found!' },
+399 silly install resolved   { name: 'parseurl',
+399 silly install resolved     description: 'parse a url with memoization',
+399 silly install resolved     version: '1.3.1',
+399 silly install resolved     author:
+399 silly install resolved      { name: 'Jonathan Ong',
+399 silly install resolved        email: 'me@jongleberry.com',
+399 silly install resolved        url: 'http://jongleberry.com' },
+399 silly install resolved     contributors: [ [Object] ],
+399 silly install resolved     repository:
+399 silly install resolved      { type: 'git',
+399 silly install resolved        url: 'git+https://github.com/pillarjs/parseurl.git' },
+399 silly install resolved     license: 'MIT',
+399 silly install resolved     devDependencies:
+399 silly install resolved      { benchmark: '2.0.0',
+399 silly install resolved        'beautify-benchmark': '0.2.4',
+399 silly install resolved        'fast-url-parser': '1.1.3',
+399 silly install resolved        istanbul: '0.4.2',
+399 silly install resolved        mocha: '~1.21.5' },
+399 silly install resolved     files: [ 'LICENSE', 'HISTORY.md', 'README.md', 'index.js' ],
+399 silly install resolved     engines: { node: '>= 0.8' },
+399 silly install resolved     scripts:
+399 silly install resolved      { bench: 'node benchmark/index.js',
+399 silly install resolved        test: 'mocha --check-leaks --bail --reporter spec test/',
+399 silly install resolved        'test-cov': 'istanbul cover node_modules/mocha/bin/_mocha -- --check-leaks --reporter dot test/',
+399 silly install resolved        'test-travis': 'istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --check-leaks --reporter spec test/' },
+399 silly install resolved     gitHead: '6d22d376d75b927ab2b5347ce3a1d6735133dd43',
+399 silly install resolved     bugs: { url: 'https://github.com/pillarjs/parseurl/issues' },
+399 silly install resolved     homepage: 'https://github.com/pillarjs/parseurl',
+399 silly install resolved     _id: 'parseurl@1.3.1',
+399 silly install resolved     _shasum: 'c8ab8c9223ba34888aa64a297b28853bec18da56',
+399 silly install resolved     _from: 'parseurl@>=1.3.1 <1.4.0',
+399 silly install resolved     _npmVersion: '1.4.28',
+399 silly install resolved     _npmUser: { name: 'dougwilson', email: 'doug@somethingdoug.com' },
+399 silly install resolved     maintainers: [ [Object], [Object], [Object], [Object], [Object], [Object] ],
+399 silly install resolved     dist:
+399 silly install resolved      { shasum: 'c8ab8c9223ba34888aa64a297b28853bec18da56',
+399 silly install resolved        tarball: 'https://registry.npmjs.org/parseurl/-/parseurl-1.3.1.tgz' },
+399 silly install resolved     directories: {},
+399 silly install resolved     _resolved: 'https://registry.npmjs.org/parseurl/-/parseurl-1.3.1.tgz',
+399 silly install resolved     readme: 'ERROR: No README data found!' },
+399 silly install resolved   { name: 'on-headers',
+399 silly install resolved     description: 'Execute a listener when a response is about to write headers',
+399 silly install resolved     version: '1.0.1',
+399 silly install resolved     author:
+399 silly install resolved      { name: 'Douglas Christopher Wilson',
+399 silly install resolved        email: 'doug@somethingdoug.com' },
+399 silly install resolved     license: 'MIT',
+399 silly install resolved     keywords: [ 'event', 'headers', 'http', 'onheaders' ],
+399 silly install resolved     repository:
+399 silly install resolved      { type: 'git',
+399 silly install resolved        url: 'git+https://github.com/jshttp/on-headers.git' },
+399 silly install resolved     dependencies: {},
+399 silly install resolved     devDependencies: { istanbul: '0.3.21', mocha: '2.3.3', supertest: '1.1.0' },
+399 silly install resolved     files: [ 'LICENSE', 'HISTORY.md', 'README.md', 'index.js' ],
+399 silly install resolved     engines: { node: '>= 0.8' },
+399 silly install resolved     scripts:
+399 silly install resolved      { test: 'mocha --reporter spec --bail --check-leaks test/',
+399 silly install resolved        'test-cov': 'istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks test/',
+399 silly install resolved        'test-travis': 'istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter spec --check-leaks test/' },
+399 silly install resolved     gitHead: 'ab0156a979d72353cfe666cccb3639e016b00280',
+399 silly install resolved     bugs: { url: 'https://github.com/jshttp/on-headers/issues' },
+399 silly install resolved     homepage: 'https://github.com/jshttp/on-headers',
+399 silly install resolved     _id: 'on-headers@1.0.1',
+399 silly install resolved     _shasum: '928f5d0f470d49342651ea6794b0857c100693f7',
+399 silly install resolved     _from: 'on-headers@>=1.0.1 <1.1.0',
+399 silly install resolved     _npmVersion: '1.4.28',
+399 silly install resolved     _npmUser: { name: 'dougwilson', email: 'doug@somethingdoug.com' },
+399 silly install resolved     maintainers: [ [Object], [Object] ],
+399 silly install resolved     dist:
+399 silly install resolved      { shasum: '928f5d0f470d49342651ea6794b0857c100693f7',
+399 silly install resolved        tarball: 'https://registry.npmjs.org/on-headers/-/on-headers-1.0.1.tgz' },
+399 silly install resolved     directories: {},
+399 silly install resolved     _resolved: 'https://registry.npmjs.org/on-headers/-/on-headers-1.0.1.tgz',
+399 silly install resolved     readme: 'ERROR: No README data found!' },
+399 silly install resolved   { name: 'utils-merge',
+399 silly install resolved     version: '1.0.0',
+399 silly install resolved     description: 'merge() utility function',
+399 silly install resolved     keywords: [ 'util' ],
+399 silly install resolved     repository:
+399 silly install resolved      { type: 'git',
+399 silly install resolved        url: 'git://github.com/jaredhanson/utils-merge.git' },
+399 silly install resolved     bugs: { url: 'http://github.com/jaredhanson/utils-merge/issues' },
+399 silly install resolved     author:
+399 silly install resolved      { name: 'Jared Hanson',
+399 silly install resolved        email: 'jaredhanson@gmail.com',
+399 silly install resolved        url: 'http://www.jaredhanson.net/' },
+399 silly install resolved     licenses: [ [Object] ],
+399 silly install resolved     main: './index',
+399 silly install resolved     dependencies: {},
+399 silly install resolved     devDependencies: { mocha: '1.x.x', chai: '1.x.x' },
+399 silly install resolved     scripts: { test: 'mocha --reporter spec --require test/bootstrap/node test/*.test.js' },
+399 silly install resolved     engines: { node: '>= 0.4.0' },
+399 silly install resolved     _id: 'utils-merge@1.0.0',
+399 silly install resolved     dist:
+399 silly install resolved      { shasum: '0294fb922bb9375153541c4f7096231f287c8af8',
+399 silly install resolved        tarball: 'https://registry.npmjs.org/utils-merge/-/utils-merge-1.0.0.tgz' },
+399 silly install resolved     _from: 'utils-merge@1.0.0',
+399 silly install resolved     _npmVersion: '1.2.25',
+399 silly install resolved     _npmUser: { name: 'jaredhanson', email: 'jaredhanson@gmail.com' },
+399 silly install resolved     maintainers: [ [Object] ],
+399 silly install resolved     directories: {},
+399 silly install resolved     _shasum: '0294fb922bb9375153541c4f7096231f287c8af8',
+399 silly install resolved     _resolved: 'https://registry.npmjs.org/utils-merge/-/utils-merge-1.0.0.tgz',
+399 silly install resolved     readme: 'ERROR: No README data found!',
+399 silly install resolved     homepage: 'https://github.com/jaredhanson/utils-merge#readme' },
+399 silly install resolved   { name: 'uid-safe',
+399 silly install resolved     description: 'URL and cookie safe UIDs',
+399 silly install resolved     version: '2.1.3',
+399 silly install resolved     contributors: [ [Object], [Object] ],
+399 silly install resolved     license: 'MIT',
+399 silly install resolved     repository:
+399 silly install resolved      { type: 'git',
+399 silly install resolved        url: 'git+https://github.com/crypto-utils/uid-safe.git' },
+399 silly install resolved     dependencies: { 'base64-url': '1.3.3', 'random-bytes': '~1.0.0' },
+399 silly install resolved     devDependencies:
+399 silly install resolved      { bluebird: '3.4.6',
+399 silly install resolved        eslint: '3.9.0',
+399 silly install resolved        'eslint-config-standard': '6.2.1',
+399 silly install resolved        'eslint-plugin-promise': '3.3.0',
+399 silly install resolved        'eslint-plugin-standard': '2.0.1',
+399 silly install resolved        istanbul: '0.4.5',
+399 silly install resolved        mocha: '2.5.3' },
+399 silly install resolved     files: [ 'LICENSE', 'HISTORY.md', 'README.md', 'index.js' ],
+399 silly install resolved     engines: { node: '>= 0.8' },
+399 silly install resolved     scripts:
+399 silly install resolved      { lint: 'eslint .',
+399 silly install resolved        test: 'mocha --trace-deprecation --reporter spec --bail --check-leaks test/',
+399 silly install resolved        'test-cov': 'istanbul cover node_modules/mocha/bin/_mocha -- --trace-deprecation --reporter dot --check-leaks test/',
+399 silly install resolved        'test-travis': 'istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --trace-deprecation --reporter spec --check-leaks test/' },
+399 silly install resolved     keywords: [ 'random', 'generator', 'uid', 'safe' ],
+399 silly install resolved     gitHead: '3bc2de784695ddca022d3068231161f50dfb584d',
+399 silly install resolved     bugs: { url: 'https://github.com/crypto-utils/uid-safe/issues' },
+399 silly install resolved     homepage: 'https://github.com/crypto-utils/uid-safe#readme',
+399 silly install resolved     _id: 'uid-safe@2.1.3',
+399 silly install resolved     _shasum: '077e264a00b3187936b270bb7376a26473631071',
+399 silly install resolved     _from: 'uid-safe@>=2.1.3 <2.2.0',
+399 silly install resolved     _npmVersion: '2.15.9',
+399 silly install resolved     _nodeVersion: '4.6.0',
+399 silly install resolved     _npmUser: { name: 'dougwilson', email: 'doug@somethingdoug.com' },
+399 silly install resolved     dist:
+399 silly install resolved      { shasum: '077e264a00b3187936b270bb7376a26473631071',
+399 silly install resolved        tarball: 'https://registry.npmjs.org/uid-safe/-/uid-safe-2.1.3.tgz' },
+399 silly install resolved     maintainers: [ [Object], [Object], [Object] ],
+399 silly install resolved     _npmOperationalInternal:
+399 silly install resolved      { host: 'packages-18-east.internal.npmjs.com',
+399 silly install resolved        tmp: 'tmp/uid-safe-2.1.3.tgz_1477877693384_0.2595773837529123' },
+399 silly install resolved     directories: {},
+399 silly install resolved     _resolved: 'https://registry.npmjs.org/uid-safe/-/uid-safe-2.1.3.tgz',
+399 silly install resolved     readme: 'ERROR: No README data found!' },
+399 silly install resolved   { name: 'cookie',
+399 silly install resolved     description: 'HTTP server cookie parsing and serialization',
+399 silly install resolved     version: '0.3.1',
+399 silly install resolved     author: { name: 'Roman Shtylman', email: 'shtylman@gmail.com' },
+399 silly install resolved     contributors: [ [Object] ],
+399 silly install resolved     license: 'MIT',
+399 silly install resolved     keywords: [ 'cookie', 'cookies' ],
+399 silly install resolved     repository: { type: 'git', url: 'git+https://github.com/jshttp/cookie.git' },
+399 silly install resolved     devDependencies: { istanbul: '0.4.3', mocha: '1.21.5' },
+399 silly install resolved     files: [ 'HISTORY.md', 'LICENSE', 'README.md', 'index.js' ],
+399 silly install resolved     engines: { node: '>= 0.6' },
+399 silly install resolved     scripts:
+399 silly install resolved      { test: 'mocha --reporter spec --bail --check-leaks test/',
+399 silly install resolved        'test-ci': 'istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter spec --check-leaks test/',
+399 silly install resolved        'test-cov': 'istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks test/' },
+399 silly install resolved     gitHead: 'e3c77d497d66c8b8d4b677b8954c1b192a09f0b3',
+399 silly install resolved     bugs: { url: 'https://github.com/jshttp/cookie/issues' },
+399 silly install resolved     homepage: 'https://github.com/jshttp/cookie',
+399 silly install resolved     _id: 'cookie@0.3.1',
+399 silly install resolved     _shasum: 'e7e0a1f9ef43b4c8ba925c5c5a96e806d16873bb',
+399 silly install resolved     _from: 'cookie@0.3.1',
+399 silly install resolved     _npmVersion: '1.4.28',
+399 silly install resolved     _npmUser: { name: 'dougwilson', email: 'doug@somethingdoug.com' },
+399 silly install resolved     maintainers: [ [Object] ],
+399 silly install resolved     dist:
+399 silly install resolved      { shasum: 'e7e0a1f9ef43b4c8ba925c5c5a96e806d16873bb',
+399 silly install resolved        tarball: 'https://registry.npmjs.org/cookie/-/cookie-0.3.1.tgz' },
+399 silly install resolved     _npmOperationalInternal:
+399 silly install resolved      { host: 'packages-12-west.internal.npmjs.com',
+399 silly install resolved        tmp: 'tmp/cookie-0.3.1.tgz_1464323556714_0.6435900838114321' },
+399 silly install resolved     directories: {},
+399 silly install resolved     _resolved: 'https://registry.npmjs.org/cookie/-/cookie-0.3.1.tgz',
+399 silly install resolved     readme: 'ERROR: No README data found!' } ]
+400 info install crc@3.4.1 into C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session
+401 info install cookie-signature@1.0.6 into C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session
+402 info install debug@2.2.0 into C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session
+403 info install depd@1.1.0 into C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session
+404 info install parseurl@1.3.1 into C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session
+405 info install on-headers@1.0.1 into C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session
+406 info install utils-merge@1.0.0 into C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session
+407 info install uid-safe@2.1.3 into C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session
+408 info install cookie@0.3.1 into C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session
+409 info installOne crc@3.4.1
+410 verbose installOne of crc to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session not in flight; installing
+411 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+412 info installOne cookie-signature@1.0.6
+413 verbose installOne of cookie-signature to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session not in flight; installing
+414 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+415 info installOne debug@2.2.0
+416 verbose installOne of debug to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session not in flight; installing
+417 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+418 info installOne depd@1.1.0
+419 verbose installOne of depd to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session not in flight; installing
+420 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+421 info installOne parseurl@1.3.1
+422 verbose installOne of parseurl to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session not in flight; installing
+423 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+424 info installOne on-headers@1.0.1
+425 verbose installOne of on-headers to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session not in flight; installing
+426 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+427 info installOne utils-merge@1.0.0
+428 verbose installOne of utils-merge to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session not in flight; installing
+429 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+430 info installOne uid-safe@2.1.3
+431 verbose installOne of uid-safe to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session not in flight; installing
+432 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+433 info installOne cookie@0.3.1
+434 verbose installOne of cookie to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session not in flight; installing
+435 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+436 verbose lock using C:\Users\JT\AppData\Roaming\npm-cache\_locks\crc-9dffe62f48759c9f.lock for C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\crc
+437 verbose lock using C:\Users\JT\AppData\Roaming\npm-cache\_locks\debug-5fa678669466d5e7.lock for C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\debug
+438 verbose lock using C:\Users\JT\AppData\Roaming\npm-cache\_locks\cookie-signature-6454fda004303b47.lock for C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\cookie-signature
+439 verbose lock using C:\Users\JT\AppData\Roaming\npm-cache\_locks\depd-f465df74c28a346b.lock for C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\depd
+440 verbose lock using C:\Users\JT\AppData\Roaming\npm-cache\_locks\parseurl-f4f5de63509eeb7b.lock for C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\parseurl
+441 verbose lock using C:\Users\JT\AppData\Roaming\npm-cache\_locks\on-headers-97941a9cc9c266f6.lock for C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\on-headers
+442 verbose lock using C:\Users\JT\AppData\Roaming\npm-cache\_locks\utils-merge-d4eebb54ec6a63dc.lock for C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\utils-merge
+443 silly install write writing crc 3.4.1 to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\crc
+444 silly install write writing debug 2.2.0 to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\debug
+445 silly install write writing cookie-signature 1.0.6 to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\cookie-signature
+446 silly install write writing depd 1.1.0 to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\depd
+447 silly install write writing parseurl 1.3.1 to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\parseurl
+448 silly install write writing on-headers 1.0.1 to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\on-headers
+449 silly install write writing utils-merge 1.0.0 to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\utils-merge
+450 verbose lock using C:\Users\JT\AppData\Roaming\npm-cache\_locks\cookie-7005f03743dff73e.lock for C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\cookie
+451 verbose lock using C:\Users\JT\AppData\Roaming\npm-cache\_locks\uid-safe-1ace59cc02b33d6f.lock for C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe
+452 silly install write writing cookie 0.3.1 to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\cookie
+453 silly install write writing uid-safe 2.1.3 to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe
+454 verbose unbuild node_modules\express-session\node_modules\debug
+455 verbose unbuild node_modules\express-session\node_modules\crc
+456 verbose unbuild node_modules\express-session\node_modules\cookie-signature
+457 verbose unbuild node_modules\express-session\node_modules\on-headers
+458 verbose unbuild node_modules\express-session\node_modules\parseurl
+459 verbose unbuild node_modules\express-session\node_modules\depd
+460 verbose unbuild node_modules\express-session\node_modules\utils-merge
+461 verbose unbuild node_modules\express-session\node_modules\cookie
+462 verbose unbuild node_modules\express-session\node_modules\uid-safe
+463 silly gentlyRm C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\debug is being purged from base C:\Users\JT\desktop\Bootcamp\QuestGroupProject
+464 verbose gentlyRm don't care about contents; nuking C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\debug
+465 silly gentlyRm C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\crc is being purged from base C:\Users\JT\desktop\Bootcamp\QuestGroupProject
+466 verbose gentlyRm don't care about contents; nuking C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\crc
+467 silly gentlyRm C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\cookie-signature is being purged from base C:\Users\JT\desktop\Bootcamp\QuestGroupProject
+468 verbose gentlyRm don't care about contents; nuking C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\cookie-signature
+469 silly gentlyRm C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\on-headers is being purged from base C:\Users\JT\desktop\Bootcamp\QuestGroupProject
+470 verbose gentlyRm don't care about contents; nuking C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\on-headers
+471 silly gentlyRm C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\parseurl is being purged from base C:\Users\JT\desktop\Bootcamp\QuestGroupProject
+472 verbose gentlyRm don't care about contents; nuking C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\parseurl
+473 silly gentlyRm C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\depd is being purged from base C:\Users\JT\desktop\Bootcamp\QuestGroupProject
+474 verbose gentlyRm don't care about contents; nuking C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\depd
+475 silly gentlyRm C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\utils-merge is being purged from base C:\Users\JT\desktop\Bootcamp\QuestGroupProject
+476 verbose gentlyRm don't care about contents; nuking C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\utils-merge
+477 verbose tar unpack C:\Users\JT\AppData\Roaming\npm-cache\debug\2.2.0\package.tgz
+478 verbose tar unpacking to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\debug
+479 silly gentlyRm C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\debug is being purged
+480 verbose gentlyRm don't care about contents; nuking C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\debug
+481 verbose tar unpack C:\Users\JT\AppData\Roaming\npm-cache\crc\3.4.1\package.tgz
+482 verbose tar unpacking to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\crc
+483 silly gentlyRm C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\crc is being purged
+484 verbose gentlyRm don't care about contents; nuking C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\crc
+485 verbose tar unpack C:\Users\JT\AppData\Roaming\npm-cache\cookie-signature\1.0.6\package.tgz
+486 verbose tar unpacking to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\cookie-signature
+487 silly gentlyRm C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\cookie-signature is being purged
+488 verbose gentlyRm don't care about contents; nuking C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\cookie-signature
+489 verbose tar unpack C:\Users\JT\AppData\Roaming\npm-cache\on-headers\1.0.1\package.tgz
+490 verbose tar unpacking to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\on-headers
+491 silly gentlyRm C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\on-headers is being purged
+492 verbose gentlyRm don't care about contents; nuking C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\on-headers
+493 verbose tar unpack C:\Users\JT\AppData\Roaming\npm-cache\parseurl\1.3.1\package.tgz
+494 verbose tar unpacking to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\parseurl
+495 silly gentlyRm C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\parseurl is being purged
+496 verbose gentlyRm don't care about contents; nuking C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\parseurl
+497 verbose tar unpack C:\Users\JT\AppData\Roaming\npm-cache\depd\1.1.0\package.tgz
+498 verbose tar unpacking to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\depd
+499 silly gentlyRm C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\depd is being purged
+500 verbose gentlyRm don't care about contents; nuking C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\depd
+501 verbose tar unpack C:\Users\JT\AppData\Roaming\npm-cache\utils-merge\1.0.0\package.tgz
+502 verbose tar unpacking to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\utils-merge
+503 silly gentlyRm C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\utils-merge is being purged
+504 verbose gentlyRm don't care about contents; nuking C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\utils-merge
+505 silly gentlyRm C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\cookie is being purged from base C:\Users\JT\desktop\Bootcamp\QuestGroupProject
+506 verbose gentlyRm don't care about contents; nuking C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\cookie
+507 silly gunzTarPerm modes [ '777', '666' ]
+508 silly gunzTarPerm modes [ '777', '666' ]
+509 silly gunzTarPerm modes [ '777', '666' ]
+510 silly gunzTarPerm modes [ '777', '666' ]
+511 silly gunzTarPerm modes [ '777', '666' ]
+512 silly gentlyRm C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe is being purged from base C:\Users\JT\desktop\Bootcamp\QuestGroupProject
+513 verbose gentlyRm don't care about contents; nuking C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe
+514 silly gunzTarPerm modes [ '777', '666' ]
+515 silly gunzTarPerm modes [ '777', '666' ]
+516 verbose tar unpack C:\Users\JT\AppData\Roaming\npm-cache\cookie\0.3.1\package.tgz
+517 verbose tar unpacking to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\cookie
+518 silly gentlyRm C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\cookie is being purged
+519 verbose gentlyRm don't care about contents; nuking C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\cookie
+520 verbose tar unpack C:\Users\JT\AppData\Roaming\npm-cache\uid-safe\2.1.3\package.tgz
+521 verbose tar unpacking to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe
+522 silly gentlyRm C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe is being purged
+523 verbose gentlyRm don't care about contents; nuking C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe
+524 silly gunzTarPerm modes [ '777', '666' ]
+525 silly gunzTarPerm modes [ '777', '666' ]
+526 silly gunzTarPerm extractEntry package.json
+527 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+528 silly gunzTarPerm extractEntry package.json
+529 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+530 silly gunzTarPerm extractEntry package.json
+531 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+532 silly gunzTarPerm extractEntry package.json
+533 silly gunzTarPerm extractEntry package.json
+534 silly gunzTarPerm extractEntry package.json
+535 silly gunzTarPerm extractEntry package.json
+536 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+537 silly gunzTarPerm extractEntry package.json
+538 silly gunzTarPerm extractEntry package.json
+539 silly gunzTarPerm extractEntry .npmignore
+540 silly gunzTarPerm modified mode [ '.npmignore', 420, 438 ]
+541 silly gunzTarPerm extractEntry node.js
+542 silly gunzTarPerm modified mode [ 'node.js', 420, 438 ]
+543 silly gunzTarPerm extractEntry LICENSE
+544 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+545 silly gunzTarPerm extractEntry lib/crc1.js
+546 silly gunzTarPerm modified mode [ 'lib/crc1.js', 420, 438 ]
+547 silly gunzTarPerm extractEntry .npmignore
+548 silly gunzTarPerm modified mode [ '.npmignore', 420, 438 ]
+549 silly gunzTarPerm extractEntry index.js
+550 silly gunzTarPerm modified mode [ 'index.js', 420, 438 ]
+551 silly gunzTarPerm extractEntry README.md
+552 silly gunzTarPerm extractEntry LICENSE
+553 silly gunzTarPerm extractEntry README.md
+554 silly gunzTarPerm extractEntry LICENSE
+555 silly gunzTarPerm extractEntry LICENSE
+556 silly gunzTarPerm extractEntry index.js
+557 silly gunzTarPerm extractEntry README.md
+558 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+559 silly gunzTarPerm extractEntry LICENSE
+560 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+561 silly gunzTarPerm extractEntry README.md
+562 silly gunzTarPerm extractEntry LICENSE
+563 silly gunzTarPerm extractEntry README.md
+564 silly gunzTarPerm extractEntry LICENSE
+565 silly gunzTarPerm extractEntry debug.js
+566 silly gunzTarPerm modified mode [ 'debug.js', 420, 438 ]
+567 silly gunzTarPerm extractEntry browser.js
+568 silly gunzTarPerm modified mode [ 'browser.js', 420, 438 ]
+569 silly gunzTarPerm extractEntry lib/crc16_ccitt.js
+570 silly gunzTarPerm modified mode [ 'lib/crc16_ccitt.js', 420, 438 ]
+571 silly gunzTarPerm extractEntry lib/crc16_kermit.js
+572 silly gunzTarPerm modified mode [ 'lib/crc16_kermit.js', 420, 438 ]
+573 silly gunzTarPerm extractEntry History.md
+574 silly gunzTarPerm modified mode [ 'History.md', 420, 438 ]
+575 silly gunzTarPerm extractEntry Readme.md
+576 silly gunzTarPerm modified mode [ 'Readme.md', 420, 438 ]
+577 silly gunzTarPerm extractEntry index.js
+578 silly gunzTarPerm extractEntry HISTORY.md
+579 silly gunzTarPerm extractEntry index.js
+580 silly gunzTarPerm extractEntry HISTORY.md
+581 silly gunzTarPerm extractEntry index.js
+582 silly gunzTarPerm extractEntry HISTORY.md
+583 silly gunzTarPerm extractEntry index.js
+584 silly gunzTarPerm extractEntry HISTORY.md
+585 silly gunzTarPerm extractEntry index.js
+586 silly gunzTarPerm modified mode [ 'index.js', 420, 438 ]
+587 silly gunzTarPerm extractEntry .travis.yml
+588 silly gunzTarPerm modified mode [ '.travis.yml', 420, 438 ]
+589 silly gunzTarPerm extractEntry Readme.md
+590 silly gunzTarPerm modified mode [ 'Readme.md', 420, 438 ]
+591 silly gunzTarPerm extractEntry History.md
+592 silly gunzTarPerm extractEntry Readme.md
+593 silly gunzTarPerm extractEntry lib/browser/index.js
+594 silly gunzTarPerm extractEntry lib/compat/buffer-concat.js
+595 silly gunzTarPerm extractEntry lib/compat/callsite-tostring.js
+596 silly gunzTarPerm extractEntry lib/compat/event-listener-count.js
+597 silly gunzTarPerm extractEntry lib/compat/index.js
+598 silly gunzTarPerm extractEntry lib/crc16_modbus.js
+599 silly gunzTarPerm modified mode [ 'lib/crc16_modbus.js', 420, 438 ]
+600 silly gunzTarPerm extractEntry lib/crc16_xmodem.js
+601 silly gunzTarPerm modified mode [ 'lib/crc16_xmodem.js', 420, 438 ]
+602 silly gunzTarPerm extractEntry lib/crc16.js
+603 silly gunzTarPerm modified mode [ 'lib/crc16.js', 420, 438 ]
+604 silly gunzTarPerm extractEntry bower.json
+605 silly gunzTarPerm modified mode [ 'bower.json', 420, 438 ]
+606 silly gunzTarPerm extractEntry .jshintrc
+607 silly gunzTarPerm modified mode [ '.jshintrc', 420, 438 ]
+608 silly gunzTarPerm extractEntry lib/crc32.js
+609 silly gunzTarPerm modified mode [ 'lib/crc32.js', 420, 438 ]
+610 silly gunzTarPerm extractEntry lib/crc8.js
+611 silly gunzTarPerm modified mode [ 'lib/crc8.js', 420, 438 ]
+612 silly gunzTarPerm extractEntry component.json
+613 silly gunzTarPerm modified mode [ 'component.json', 420, 438 ]
+614 silly gunzTarPerm extractEntry Makefile
+615 silly gunzTarPerm modified mode [ 'Makefile', 420, 438 ]
+616 silly gunzTarPerm extractEntry lib/crc8_1wire.js
+617 silly gunzTarPerm modified mode [ 'lib/crc8_1wire.js', 420, 438 ]
+618 silly gunzTarPerm extractEntry lib/define_crc.js
+619 silly gunzTarPerm modified mode [ 'lib/define_crc.js', 420, 438 ]
+620 verbose write writing to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\utils-merge\package.json
+621 silly gunzTarPerm extractEntry History.md
+622 silly gunzTarPerm modified mode [ 'History.md', 420, 438 ]
+623 verbose write writing to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\cookie-signature\package.json
+624 verbose write writing to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\on-headers\package.json
+625 info preinstall utils-merge@1.0.0
+626 info preinstall cookie-signature@1.0.6
+627 verbose write writing to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\package.json
+628 verbose readDependencies loading dependencies from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\utils-merge\package.json
+629 verbose readDependencies loading dependencies from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\cookie-signature\package.json
+630 info preinstall on-headers@1.0.1
+631 verbose readDependencies loading dependencies from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\on-headers\package.json
+632 verbose write writing to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\parseurl\package.json
+633 info preinstall uid-safe@2.1.3
+634 verbose readDependencies loading dependencies from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\utils-merge\package.json
+635 silly gunzTarPerm extractEntry lib/index.js
+636 silly gunzTarPerm modified mode [ 'lib/index.js', 420, 438 ]
+637 silly gunzTarPerm extractEntry lib/crc24.js
+638 silly gunzTarPerm modified mode [ 'lib/crc24.js', 420, 438 ]
+639 verbose readDependencies loading dependencies from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\cookie-signature\package.json
+640 verbose readDependencies loading dependencies from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\package.json
+641 verbose readDependencies loading dependencies from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\on-headers\package.json
+642 silly install resolved []
+643 verbose about to build C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\utils-merge
+644 info build C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\utils-merge
+645 silly install resolved []
+646 verbose about to build C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\cookie-signature
+647 info build C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\cookie-signature
+648 info preinstall parseurl@1.3.1
+649 silly prepareForInstallMany adding base64-url@1.3.3 from uid-safe dependencies
+650 silly prepareForInstallMany adding random-bytes@~1.0.0 from uid-safe dependencies
+651 verbose readDependencies loading dependencies from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\package.json
+652 verbose write writing to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\cookie\package.json
+653 verbose readDependencies loading dependencies from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\parseurl\package.json
+654 silly install resolved []
+655 verbose about to build C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\on-headers
+656 info build C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\on-headers
+657 info linkStuff utils-merge@1.0.0
+658 silly linkStuff utils-merge@1.0.0 has C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules as its parent node_modules
+659 info linkStuff cookie-signature@1.0.6
+660 silly linkStuff cookie-signature@1.0.6 has C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules as its parent node_modules
+661 info preinstall cookie@0.3.1
+662 info linkStuff on-headers@1.0.1
+663 silly linkStuff on-headers@1.0.1 has C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules as its parent node_modules
+664 silly cache add args [ 'base64-url@1.3.3', null ]
+665 verbose cache add spec base64-url@1.3.3
+666 silly cache add parsed spec Result {
+666 silly cache add   raw: 'base64-url@1.3.3',
+666 silly cache add   scope: null,
+666 silly cache add   name: 'base64-url',
+666 silly cache add   rawSpec: '1.3.3',
+666 silly cache add   spec: '1.3.3',
+666 silly cache add   type: 'version' }
+667 silly addNamed base64-url@1.3.3
+668 verbose addNamed "1.3.3" is a plain semver version for base64-url
+669 silly mapToRegistry name base64-url
+670 silly mapToRegistry using default registry
+671 silly mapToRegistry registry https://registry.npmjs.org/
+672 silly mapToRegistry data Result {
+672 silly mapToRegistry   raw: 'base64-url',
+672 silly mapToRegistry   scope: null,
+672 silly mapToRegistry   name: 'base64-url',
+672 silly mapToRegistry   rawSpec: '',
+672 silly mapToRegistry   spec: 'latest',
+672 silly mapToRegistry   type: 'tag' }
+673 silly mapToRegistry uri https://registry.npmjs.org/base64-url
+674 verbose addNameVersion registry:https://registry.npmjs.org/base64-url not in flight; fetching
+675 silly cache add args [ 'random-bytes@~1.0.0', null ]
+676 verbose cache add spec random-bytes@~1.0.0
+677 silly cache add parsed spec Result {
+677 silly cache add   raw: 'random-bytes@~1.0.0',
+677 silly cache add   scope: null,
+677 silly cache add   name: 'random-bytes',
+677 silly cache add   rawSpec: '~1.0.0',
+677 silly cache add   spec: '>=1.0.0 <1.1.0',
+677 silly cache add   type: 'range' }
+678 silly addNamed random-bytes@>=1.0.0 <1.1.0
+679 verbose addNamed ">=1.0.0 <1.1.0" is a valid semver range for random-bytes
+680 silly addNameRange { name: 'random-bytes', range: '>=1.0.0 <1.1.0', hasData: false }
+681 silly mapToRegistry name random-bytes
+682 silly mapToRegistry using default registry
+683 silly mapToRegistry registry https://registry.npmjs.org/
+684 silly mapToRegistry data Result {
+684 silly mapToRegistry   raw: 'random-bytes',
+684 silly mapToRegistry   scope: null,
+684 silly mapToRegistry   name: 'random-bytes',
+684 silly mapToRegistry   rawSpec: '',
+684 silly mapToRegistry   spec: 'latest',
+684 silly mapToRegistry   type: 'tag' }
+685 silly mapToRegistry uri https://registry.npmjs.org/random-bytes
+686 verbose addNameRange registry:https://registry.npmjs.org/random-bytes not in flight; fetching
+687 verbose readDependencies loading dependencies from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\cookie\package.json
+688 verbose readDependencies loading dependencies from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\parseurl\package.json
+689 verbose request uri https://registry.npmjs.org/base64-url
+690 verbose request no auth needed
+691 info attempt registry request try #1 at 2:51:19 PM
+692 verbose etag W/"58132265-3030"
+693 verbose lastModified Fri, 28 Oct 2016 10:03:17 GMT
+694 http request GET https://registry.npmjs.org/base64-url
+695 verbose request uri https://registry.npmjs.org/random-bytes
+696 verbose request no auth needed
+697 info attempt registry request try #1 at 2:51:19 PM
+698 verbose etag W/"5818d8d9-1161"
+699 verbose lastModified Tue, 01 Nov 2016 18:03:05 GMT
+700 http request GET https://registry.npmjs.org/random-bytes
+701 verbose readDependencies loading dependencies from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\cookie\package.json
+702 silly install resolved []
+703 verbose about to build C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\parseurl
+704 info build C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\parseurl
+705 verbose linkBins utils-merge@1.0.0
+706 verbose linkMans utils-merge@1.0.0
+707 verbose rebuildBundles utils-merge@1.0.0
+708 verbose linkBins cookie-signature@1.0.6
+709 verbose linkMans cookie-signature@1.0.6
+710 verbose rebuildBundles cookie-signature@1.0.6
+711 info install utils-merge@1.0.0
+712 info install cookie-signature@1.0.6
+713 info postinstall utils-merge@1.0.0
+714 info postinstall cookie-signature@1.0.6
+715 http 304 https://registry.npmjs.org/base64-url
+716 verbose headers { date: 'Sun, 15 Jan 2017 19:51:16 GMT',
+716 verbose headers   via: '1.1 varnish',
+716 verbose headers   'cache-control': 'max-age=300',
+716 verbose headers   etag: 'W/"58132265-3030"',
+716 verbose headers   age: '188',
+716 verbose headers   connection: 'keep-alive',
+716 verbose headers   'x-served-by': 'cache-jfk8127-JFK',
+716 verbose headers   'x-cache': 'HIT',
+716 verbose headers   'x-cache-hits': '1',
+716 verbose headers   'x-timer': 'S1484509876.535496,VS0,VE0',
+716 verbose headers   vary: 'Accept-Encoding' }
+717 silly get cb [ 304,
+717 silly get   { date: 'Sun, 15 Jan 2017 19:51:16 GMT',
+717 silly get     via: '1.1 varnish',
+717 silly get     'cache-control': 'max-age=300',
+717 silly get     etag: 'W/"58132265-3030"',
+717 silly get     age: '188',
+717 silly get     connection: 'keep-alive',
+717 silly get     'x-served-by': 'cache-jfk8127-JFK',
+717 silly get     'x-cache': 'HIT',
+717 silly get     'x-cache-hits': '1',
+717 silly get     'x-timer': 'S1484509876.535496,VS0,VE0',
+717 silly get     vary: 'Accept-Encoding' } ]
+718 verbose etag https://registry.npmjs.org/base64-url from cache
+719 verbose get saving base64-url to C:\Users\JT\AppData\Roaming\npm-cache\registry.npmjs.org\base64-url\.cache.json
+720 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+721 http 304 https://registry.npmjs.org/random-bytes
+722 verbose headers { date: 'Sun, 15 Jan 2017 19:51:16 GMT',
+722 verbose headers   via: '1.1 varnish',
+722 verbose headers   'cache-control': 'max-age=300',
+722 verbose headers   etag: 'W/"5818d8d9-1161"',
+722 verbose headers   age: '188',
+722 verbose headers   connection: 'keep-alive',
+722 verbose headers   'x-served-by': 'cache-jfk8141-JFK',
+722 verbose headers   'x-cache': 'HIT',
+722 verbose headers   'x-cache-hits': '1',
+722 verbose headers   'x-timer': 'S1484509876.535735,VS0,VE0',
+722 verbose headers   vary: 'Accept-Encoding' }
+723 silly get cb [ 304,
+723 silly get   { date: 'Sun, 15 Jan 2017 19:51:16 GMT',
+723 silly get     via: '1.1 varnish',
+723 silly get     'cache-control': 'max-age=300',
+723 silly get     etag: 'W/"5818d8d9-1161"',
+723 silly get     age: '188',
+723 silly get     connection: 'keep-alive',
+723 silly get     'x-served-by': 'cache-jfk8141-JFK',
+723 silly get     'x-cache': 'HIT',
+723 silly get     'x-cache-hits': '1',
+723 silly get     'x-timer': 'S1484509876.535735,VS0,VE0',
+723 silly get     vary: 'Accept-Encoding' } ]
+724 verbose etag https://registry.npmjs.org/random-bytes from cache
+725 verbose get saving random-bytes to C:\Users\JT\AppData\Roaming\npm-cache\registry.npmjs.org\random-bytes\.cache.json
+726 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+727 info linkStuff parseurl@1.3.1
+728 silly linkStuff parseurl@1.3.1 has C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules as its parent node_modules
+729 verbose linkBins on-headers@1.0.1
+730 verbose linkMans on-headers@1.0.1
+731 verbose rebuildBundles on-headers@1.0.1
+732 silly install resolved []
+733 verbose about to build C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\cookie
+734 info build C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\cookie
+735 info install on-headers@1.0.1
+736 info postinstall on-headers@1.0.1
+737 info linkStuff cookie@0.3.1
+738 silly linkStuff cookie@0.3.1 has C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules as its parent node_modules
+739 silly addNameRange number 2 { name: 'random-bytes', range: '>=1.0.0 <1.1.0', hasData: true }
+740 silly addNameRange versions [ 'random-bytes', [ '1.0.0' ] ]
+741 silly addNamed random-bytes@1.0.0
+742 verbose addNamed "1.0.0" is a plain semver version for random-bytes
+743 verbose linkBins parseurl@1.3.1
+744 verbose linkMans parseurl@1.3.1
+745 verbose rebuildBundles parseurl@1.3.1
+746 info install parseurl@1.3.1
+747 silly cache afterAdd random-bytes@1.0.0
+748 verbose afterAdd C:\Users\JT\AppData\Roaming\npm-cache\random-bytes\1.0.0\package\package.json not in flight; writing
+749 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+750 info postinstall parseurl@1.3.1
+751 silly cache afterAdd base64-url@1.3.3
+752 verbose afterAdd C:\Users\JT\AppData\Roaming\npm-cache\base64-url\1.3.3\package\package.json not in flight; writing
+753 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+754 verbose linkBins cookie@0.3.1
+755 verbose linkMans cookie@0.3.1
+756 verbose rebuildBundles cookie@0.3.1
+757 verbose unlock done using C:\Users\JT\AppData\Roaming\npm-cache\_locks\cookie-signature-6454fda004303b47.lock for C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\cookie-signature
+758 info install cookie@0.3.1
+759 verbose unlock done using C:\Users\JT\AppData\Roaming\npm-cache\_locks\on-headers-97941a9cc9c266f6.lock for C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\on-headers
+760 verbose unlock done using C:\Users\JT\AppData\Roaming\npm-cache\_locks\parseurl-f4f5de63509eeb7b.lock for C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\parseurl
+761 verbose afterAdd C:\Users\JT\AppData\Roaming\npm-cache\random-bytes\1.0.0\package\package.json written
+762 verbose unlock done using C:\Users\JT\AppData\Roaming\npm-cache\_locks\utils-merge-d4eebb54ec6a63dc.lock for C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\utils-merge
+763 info postinstall cookie@0.3.1
+764 verbose unlock done using C:\Users\JT\AppData\Roaming\npm-cache\_locks\cookie-7005f03743dff73e.lock for C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\cookie
+765 verbose afterAdd C:\Users\JT\AppData\Roaming\npm-cache\base64-url\1.3.3\package\package.json written
+766 silly install resolved [ { name: 'random-bytes',
+766 silly install resolved     description: 'URL and cookie safe UIDs',
+766 silly install resolved     version: '1.0.0',
+766 silly install resolved     contributors: [ [Object] ],
+766 silly install resolved     license: 'MIT',
+766 silly install resolved     repository:
+766 silly install resolved      { type: 'git',
+766 silly install resolved        url: 'git+https://github.com/crypto-utils/random-bytes.git' },
+766 silly install resolved     devDependencies:
+766 silly install resolved      { bluebird: '3.1.1',
+766 silly install resolved        istanbul: '0.4.2',
+766 silly install resolved        mocha: '2.3.4',
+766 silly install resolved        proxyquire: '1.2.0' },
+766 silly install resolved     files: [ 'LICENSE', 'HISTORY.md', 'README.md', 'index.js' ],
+766 silly install resolved     engines: { node: '>= 0.8' },
+766 silly install resolved     scripts:
+766 silly install resolved      { test: 'mocha --trace-deprecation --reporter spec --bail --check-leaks test/',
+766 silly install resolved        'test-cov': 'istanbul cover node_modules/mocha/bin/_mocha -- --trace-deprecation --reporter dot --check-leaks test/',
+766 silly install resolved        'test-travis': 'istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --trace-deprecation --reporter spec --check-leaks test/' },
+766 silly install resolved     keywords: [ 'bytes', 'generator', 'random', 'safe' ],
+766 silly install resolved     gitHead: '3dcd47425a3dfe858ee8debcd4db0c1222110bc3',
+766 silly install resolved     bugs: { url: 'https://github.com/crypto-utils/random-bytes/issues' },
+766 silly install resolved     homepage: 'https://github.com/crypto-utils/random-bytes',
+766 silly install resolved     _id: 'random-bytes@1.0.0',
+766 silly install resolved     _shasum: '4f68a1dc0ae58bd3fb95848c30324db75d64360b',
+766 silly install resolved     _from: 'random-bytes@>=1.0.0 <1.1.0',
+766 silly install resolved     _npmVersion: '1.4.28',
+766 silly install resolved     _npmUser: { name: 'dougwilson', email: 'doug@somethingdoug.com' },
+766 silly install resolved     maintainers: [ [Object] ],
+766 silly install resolved     dist:
+766 silly install resolved      { shasum: '4f68a1dc0ae58bd3fb95848c30324db75d64360b',
+766 silly install resolved        tarball: 'https://registry.npmjs.org/random-bytes/-/random-bytes-1.0.0.tgz' },
+766 silly install resolved     directories: {},
+766 silly install resolved     _resolved: 'https://registry.npmjs.org/random-bytes/-/random-bytes-1.0.0.tgz',
+766 silly install resolved     readme: 'ERROR: No README data found!' },
+766 silly install resolved   { name: 'base64-url',
+766 silly install resolved     version: '1.3.3',
+766 silly install resolved     description: 'Base64 encode, decode, escape and unescape for URL applications',
+766 silly install resolved     main: 'index.js',
+766 silly install resolved     files: [ 'LICENSE', 'README.md', 'index.js' ],
+766 silly install resolved     scripts:
+766 silly install resolved      { test: 'istanbul cover tape test.js',
+766 silly install resolved        lint: 'jshint -c .jshintrc *.js',
+766 silly install resolved        style: 'jscs -p google *.js',
+766 silly install resolved        'coverage:check': 'istanbul check-coverage --statements 100 --functions 100 --lines 100 --branches 100',
+766 silly install resolved        coverage: 'open coverage/lcov-report/index.html' },
+766 silly install resolved     repository:
+766 silly install resolved      { type: 'git',
+766 silly install resolved        url: 'git://github.com/joaquimserafim/base64-url.git' },
+766 silly install resolved     keywords: [ 'base64', 'base64url' ],
+766 silly install resolved     author: { name: '@joaquimserafim' },
+766 silly install resolved     license: 'ISC',
+766 silly install resolved     bugs: { url: 'https://github.com/joaquimserafim/base64-url/issues' },
+766 silly install resolved     homepage: 'https://github.com/joaquimserafim/base64-url',
+766 silly install resolved     devDependencies:
+766 silly install resolved      { istanbul: '^0.3.5',
+766 silly install resolved        jscs: '^1.9.0',
+766 silly install resolved        jshint: '^2.5.11',
+766 silly install resolved        'pre-commit': '^1.1.3',
+766 silly install resolved        tape: '^4.6.0' },
+766 silly install resolved     'pre-commit': [ 'lint', 'style', 'test', 'coverage:check' ],
+766 silly install resolved     gitHead: 'fb100b8397f24b1066016cf09369a7b2be4e1a32',
+766 silly install resolved     _id: 'base64-url@1.3.3',
+766 silly install resolved     _shasum: 'f8b6c537f09a4fc58c99cb86e0b0e9c61461a20f',
+766 silly install resolved     _from: 'base64-url@1.3.3',
+766 silly install resolved     _npmVersion: '4.0.0',
+766 silly install resolved     _nodeVersion: '6.9.1',
+766 silly install resolved     _npmUser: { name: 'quim', email: 'joaquim.serafim@gmail.com' },
+766 silly install resolved     dist:
+766 silly install resolved      { shasum: 'f8b6c537f09a4fc58c99cb86e0b0e9c61461a20f',
+766 silly install resolved        tarball: 'https://registry.npmjs.org/base64-url/-/base64-url-1.3.3.tgz' },
+766 silly install resolved     maintainers: [ [Object] ],
+766 silly install resolved     _npmOperationalInternal:
+766 silly install resolved      { host: 'packages-12-west.internal.npmjs.com',
+766 silly install resolved        tmp: 'tmp/base64-url-1.3.3.tgz_1477648995978_0.048048977041617036' },
+766 silly install resolved     directories: {},
+766 silly install resolved     _resolved: 'https://registry.npmjs.org/base64-url/-/base64-url-1.3.3.tgz',
+766 silly install resolved     readme: 'ERROR: No README data found!' } ]
+767 info install random-bytes@1.0.0 into C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe
+768 info install base64-url@1.3.3 into C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe
+769 info installOne random-bytes@1.0.0
+770 verbose installOne of random-bytes to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe not in flight; installing
+771 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+772 info installOne base64-url@1.3.3
+773 verbose installOne of base64-url to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe not in flight; installing
+774 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+775 verbose lock using C:\Users\JT\AppData\Roaming\npm-cache\_locks\base64-url-295c7b2fbc2faad6.lock for C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\node_modules\base64-url
+776 verbose lock using C:\Users\JT\AppData\Roaming\npm-cache\_locks\random-bytes-d28e1681db35fe01.lock for C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\node_modules\random-bytes
+777 silly install write writing base64-url 1.3.3 to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\node_modules\base64-url
+778 silly install write writing random-bytes 1.0.0 to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\node_modules\random-bytes
+779 verbose write writing to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\debug\package.json
+780 verbose unbuild node_modules\express-session\node_modules\uid-safe\node_modules\base64-url
+781 verbose unbuild node_modules\express-session\node_modules\uid-safe\node_modules\random-bytes
+782 silly gentlyRm C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\node_modules\base64-url is being purged from base C:\Users\JT\desktop\Bootcamp\QuestGroupProject
+783 verbose gentlyRm don't care about contents; nuking C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\node_modules\base64-url
+784 silly gentlyRm C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\node_modules\random-bytes is being purged from base C:\Users\JT\desktop\Bootcamp\QuestGroupProject
+785 verbose gentlyRm don't care about contents; nuking C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\node_modules\random-bytes
+786 verbose tar unpack C:\Users\JT\AppData\Roaming\npm-cache\base64-url\1.3.3\package.tgz
+787 verbose tar unpacking to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\node_modules\base64-url
+788 silly gentlyRm C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\node_modules\base64-url is being purged
+789 verbose gentlyRm don't care about contents; nuking C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\node_modules\base64-url
+790 verbose tar unpack C:\Users\JT\AppData\Roaming\npm-cache\random-bytes\1.0.0\package.tgz
+791 verbose tar unpacking to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\node_modules\random-bytes
+792 silly gentlyRm C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\node_modules\random-bytes is being purged
+793 verbose gentlyRm don't care about contents; nuking C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\node_modules\random-bytes
+794 silly gunzTarPerm modes [ '777', '666' ]
+795 silly gunzTarPerm modes [ '777', '666' ]
+796 info preinstall debug@2.2.0
+797 verbose readDependencies loading dependencies from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\debug\package.json
+798 silly gunzTarPerm extractEntry package.json
+799 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+800 silly gunzTarPerm extractEntry package.json
+801 silly prepareForInstallMany adding ms@0.7.1 from debug dependencies
+802 verbose readDependencies loading dependencies from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\debug\package.json
+803 silly gunzTarPerm extractEntry README.md
+804 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+805 silly gunzTarPerm extractEntry LICENSE
+806 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+807 silly gunzTarPerm extractEntry README.md
+808 silly gunzTarPerm extractEntry LICENSE
+809 verbose write writing to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\crc\package.json
+810 silly cache add args [ 'ms@0.7.1', null ]
+811 verbose cache add spec ms@0.7.1
+812 silly cache add parsed spec Result {
+812 silly cache add   raw: 'ms@0.7.1',
+812 silly cache add   scope: null,
+812 silly cache add   name: 'ms',
+812 silly cache add   rawSpec: '0.7.1',
+812 silly cache add   spec: '0.7.1',
+812 silly cache add   type: 'version' }
+813 silly addNamed ms@0.7.1
+814 verbose addNamed "0.7.1" is a plain semver version for ms
+815 silly mapToRegistry name ms
+816 silly mapToRegistry using default registry
+817 silly mapToRegistry registry https://registry.npmjs.org/
+818 silly mapToRegistry data Result {
+818 silly mapToRegistry   raw: 'ms',
+818 silly mapToRegistry   scope: null,
+818 silly mapToRegistry   name: 'ms',
+818 silly mapToRegistry   rawSpec: '',
+818 silly mapToRegistry   spec: 'latest',
+818 silly mapToRegistry   type: 'tag' }
+819 silly mapToRegistry uri https://registry.npmjs.org/ms
+820 verbose addNameVersion registry:https://registry.npmjs.org/ms not in flight; fetching
+821 silly gunzTarPerm extractEntry index.js
+822 silly gunzTarPerm modified mode [ 'index.js', 420, 438 ]
+823 info preinstall crc@3.4.1
+824 verbose request uri https://registry.npmjs.org/ms
+825 verbose request no auth needed
+826 info attempt registry request try #1 at 2:51:23 PM
+827 verbose etag W/"5865d365-2c43"
+828 verbose lastModified Fri, 30 Dec 2016 03:24:21 GMT
+829 http request GET https://registry.npmjs.org/ms
+830 verbose readDependencies loading dependencies from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\crc\package.json
+831 verbose write writing to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\depd\package.json
+832 silly gunzTarPerm extractEntry index.js
+833 silly gunzTarPerm extractEntry HISTORY.md
+834 verbose readDependencies loading dependencies from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\crc\package.json
+835 http 304 https://registry.npmjs.org/ms
+836 verbose headers { date: 'Sun, 15 Jan 2017 19:51:20 GMT',
+836 verbose headers   via: '1.1 varnish',
+836 verbose headers   'cache-control': 'max-age=300',
+836 verbose headers   etag: 'W/"5865d365-2c43"',
+836 verbose headers   age: '54',
+836 verbose headers   connection: 'keep-alive',
+836 verbose headers   'x-served-by': 'cache-jfk8133-JFK',
+836 verbose headers   'x-cache': 'HIT',
+836 verbose headers   'x-cache-hits': '3',
+836 verbose headers   'x-timer': 'S1484509880.628389,VS0,VE0',
+836 verbose headers   vary: 'Accept-Encoding' }
+837 silly get cb [ 304,
+837 silly get   { date: 'Sun, 15 Jan 2017 19:51:20 GMT',
+837 silly get     via: '1.1 varnish',
+837 silly get     'cache-control': 'max-age=300',
+837 silly get     etag: 'W/"5865d365-2c43"',
+837 silly get     age: '54',
+837 silly get     connection: 'keep-alive',
+837 silly get     'x-served-by': 'cache-jfk8133-JFK',
+837 silly get     'x-cache': 'HIT',
+837 silly get     'x-cache-hits': '3',
+837 silly get     'x-timer': 'S1484509880.628389,VS0,VE0',
+837 silly get     vary: 'Accept-Encoding' } ]
+838 verbose etag https://registry.npmjs.org/ms from cache
+839 verbose get saving ms to C:\Users\JT\AppData\Roaming\npm-cache\registry.npmjs.org\ms\.cache.json
+840 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+841 silly install resolved []
+842 verbose about to build C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\crc
+843 info build C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\crc
+844 info linkStuff crc@3.4.1
+845 silly linkStuff crc@3.4.1 has C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules as its parent node_modules
+846 info preinstall depd@1.1.0
+847 verbose linkBins crc@3.4.1
+848 verbose linkMans crc@3.4.1
+849 verbose rebuildBundles crc@3.4.1
+850 verbose readDependencies loading dependencies from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\depd\package.json
+851 info install crc@3.4.1
+852 info postinstall crc@3.4.1
+853 verbose readDependencies loading dependencies from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\depd\package.json
+854 silly cache afterAdd ms@0.7.1
+855 verbose afterAdd C:\Users\JT\AppData\Roaming\npm-cache\ms\0.7.1\package\package.json not in flight; writing
+856 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+857 silly install resolved []
+858 verbose about to build C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\depd
+859 info build C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\depd
+860 info linkStuff depd@1.1.0
+861 silly linkStuff depd@1.1.0 has C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules as its parent node_modules
+862 verbose linkBins depd@1.1.0
+863 verbose linkMans depd@1.1.0
+864 verbose rebuildBundles depd@1.1.0
+865 info install depd@1.1.0
+866 verbose write writing to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\node_modules\base64-url\package.json
+867 info postinstall depd@1.1.0
+868 verbose afterAdd C:\Users\JT\AppData\Roaming\npm-cache\ms\0.7.1\package\package.json written
+869 silly install resolved [ { name: 'ms',
+869 silly install resolved     version: '0.7.1',
+869 silly install resolved     description: 'Tiny ms conversion utility',
+869 silly install resolved     repository: { type: 'git', url: 'git://github.com/guille/ms.js.git' },
+869 silly install resolved     main: './index',
+869 silly install resolved     devDependencies: { mocha: '*', 'expect.js': '*', serve: '*' },
+869 silly install resolved     component: { scripts: [Object] },
+869 silly install resolved     gitHead: '713dcf26d9e6fd9dbc95affe7eff9783b7f1b909',
+869 silly install resolved     bugs: { url: 'https://github.com/guille/ms.js/issues' },
+869 silly install resolved     homepage: 'https://github.com/guille/ms.js',
+869 silly install resolved     _id: 'ms@0.7.1',
+869 silly install resolved     scripts: {},
+869 silly install resolved     _shasum: '9cd13c03adbff25b65effde7ce864ee952017098',
+869 silly install resolved     _from: 'ms@0.7.1',
+869 silly install resolved     _npmVersion: '2.7.5',
+869 silly install resolved     _nodeVersion: '0.12.2',
+869 silly install resolved     _npmUser: { name: 'rauchg', email: 'rauchg@gmail.com' },
+869 silly install resolved     maintainers: [ [Object] ],
+869 silly install resolved     dist:
+869 silly install resolved      { shasum: '9cd13c03adbff25b65effde7ce864ee952017098',
+869 silly install resolved        tarball: 'https://registry.npmjs.org/ms/-/ms-0.7.1.tgz' },
+869 silly install resolved     directories: {},
+869 silly install resolved     _resolved: 'https://registry.npmjs.org/ms/-/ms-0.7.1.tgz',
+869 silly install resolved     readme: 'ERROR: No README data found!' } ]
+870 info install ms@0.7.1 into C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\debug
+871 info installOne ms@0.7.1
+872 verbose installOne of ms to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\debug not in flight; installing
+873 verbose correctMkdir C:\Users\JT\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+874 verbose lock using C:\Users\JT\AppData\Roaming\npm-cache\_locks\ms-4bb8e7c950e16167.lock for C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\debug\node_modules\ms
+875 silly install write writing ms 0.7.1 to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\debug\node_modules\ms
+876 info preinstall base64-url@1.3.3
+877 verbose readDependencies loading dependencies from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\node_modules\base64-url\package.json
+878 verbose unbuild node_modules\express-session\node_modules\debug\node_modules\ms
+879 verbose write writing to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\node_modules\random-bytes\package.json
+880 silly gentlyRm C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\debug\node_modules\ms is being purged from base C:\Users\JT\desktop\Bootcamp\QuestGroupProject
+881 verbose gentlyRm don't care about contents; nuking C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\debug\node_modules\ms
+882 verbose readDependencies loading dependencies from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\node_modules\base64-url\package.json
+883 verbose tar unpack C:\Users\JT\AppData\Roaming\npm-cache\ms\0.7.1\package.tgz
+884 verbose tar unpacking to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\debug\node_modules\ms
+885 silly gentlyRm C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\debug\node_modules\ms is being purged
+886 verbose gentlyRm don't care about contents; nuking C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\debug\node_modules\ms
+887 silly gunzTarPerm modes [ '777', '666' ]
+888 info preinstall random-bytes@1.0.0
+889 silly install resolved []
+890 verbose about to build C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\node_modules\base64-url
+891 info build C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\node_modules\base64-url
+892 silly gunzTarPerm extractEntry package.json
+893 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+894 verbose readDependencies loading dependencies from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\node_modules\random-bytes\package.json
+895 info linkStuff base64-url@1.3.3
+896 silly linkStuff base64-url@1.3.3 has C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\node_modules as its parent node_modules
+897 silly gunzTarPerm extractEntry .npmignore
+898 silly gunzTarPerm modified mode [ '.npmignore', 420, 438 ]
+899 silly gunzTarPerm extractEntry README.md
+900 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+901 verbose readDependencies loading dependencies from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\node_modules\random-bytes\package.json
+902 silly install resolved []
+903 verbose about to build C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\node_modules\random-bytes
+904 info build C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\node_modules\random-bytes
+905 verbose linkBins base64-url@1.3.3
+906 verbose linkMans base64-url@1.3.3
+907 verbose rebuildBundles base64-url@1.3.3
+908 silly gunzTarPerm extractEntry LICENSE
+909 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+910 silly gunzTarPerm extractEntry index.js
+911 silly gunzTarPerm modified mode [ 'index.js', 420, 438 ]
+912 info install base64-url@1.3.3
+913 info linkStuff random-bytes@1.0.0
+914 silly linkStuff random-bytes@1.0.0 has C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\node_modules as its parent node_modules
+915 info postinstall base64-url@1.3.3
+916 silly gunzTarPerm extractEntry History.md
+917 silly gunzTarPerm modified mode [ 'History.md', 420, 438 ]
+918 verbose linkBins random-bytes@1.0.0
+919 verbose linkMans random-bytes@1.0.0
+920 verbose rebuildBundles random-bytes@1.0.0
+921 info install random-bytes@1.0.0
+922 info postinstall random-bytes@1.0.0
+923 verbose unlock done using C:\Users\JT\AppData\Roaming\npm-cache\_locks\crc-9dffe62f48759c9f.lock for C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\crc
+924 verbose unlock done using C:\Users\JT\AppData\Roaming\npm-cache\_locks\depd-f465df74c28a346b.lock for C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\depd
+925 verbose unlock done using C:\Users\JT\AppData\Roaming\npm-cache\_locks\base64-url-295c7b2fbc2faad6.lock for C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\node_modules\base64-url
+926 verbose unlock done using C:\Users\JT\AppData\Roaming\npm-cache\_locks\random-bytes-d28e1681db35fe01.lock for C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe\node_modules\random-bytes
+927 verbose about to build C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe
+928 info build C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe
+929 info linkStuff uid-safe@2.1.3
+930 silly linkStuff uid-safe@2.1.3 has C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules as its parent node_modules
+931 verbose linkBins uid-safe@2.1.3
+932 verbose linkMans uid-safe@2.1.3
+933 verbose rebuildBundles uid-safe@2.1.3
+934 verbose rebuildBundles [ 'base64-url', 'random-bytes' ]
+935 info install uid-safe@2.1.3
+936 info postinstall uid-safe@2.1.3
+937 verbose write writing to C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\debug\node_modules\ms\package.json
+938 info preinstall ms@0.7.1
+939 verbose readDependencies loading dependencies from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\debug\node_modules\ms\package.json
+940 verbose readDependencies loading dependencies from C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\debug\node_modules\ms\package.json
+941 silly install resolved []
+942 verbose about to build C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\debug\node_modules\ms
+943 info build C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\debug\node_modules\ms
+944 info linkStuff ms@0.7.1
+945 silly linkStuff ms@0.7.1 has C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\debug\node_modules as its parent node_modules
+946 verbose linkBins ms@0.7.1
+947 verbose linkMans ms@0.7.1
+948 verbose rebuildBundles ms@0.7.1
+949 info install ms@0.7.1
+950 info postinstall ms@0.7.1
+951 verbose unlock done using C:\Users\JT\AppData\Roaming\npm-cache\_locks\ms-4bb8e7c950e16167.lock for C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\debug\node_modules\ms
+952 verbose about to build C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\debug
+953 info build C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\debug
+954 verbose unlock done using C:\Users\JT\AppData\Roaming\npm-cache\_locks\uid-safe-1ace59cc02b33d6f.lock for C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\uid-safe
+955 info linkStuff debug@2.2.0
+956 silly linkStuff debug@2.2.0 has C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules as its parent node_modules
+957 verbose linkBins debug@2.2.0
+958 verbose linkMans debug@2.2.0
+959 verbose rebuildBundles debug@2.2.0
+960 verbose rebuildBundles [ 'ms' ]
+961 info install debug@2.2.0
+962 info postinstall debug@2.2.0
+963 verbose unlock done using C:\Users\JT\AppData\Roaming\npm-cache\_locks\debug-5fa678669466d5e7.lock for C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session\node_modules\debug
+964 verbose about to build C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session
+965 info build C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session
+966 info linkStuff express-session@1.14.2
+967 silly linkStuff express-session@1.14.2 has C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules as its parent node_modules
+968 verbose linkBins express-session@1.14.2
+969 verbose linkMans express-session@1.14.2
+970 verbose rebuildBundles express-session@1.14.2
+971 verbose rebuildBundles [ 'cookie',
+971 verbose rebuildBundles   'cookie-signature',
+971 verbose rebuildBundles   'crc',
+971 verbose rebuildBundles   'debug',
+971 verbose rebuildBundles   'depd',
+971 verbose rebuildBundles   'on-headers',
+971 verbose rebuildBundles   'parseurl',
+971 verbose rebuildBundles   'uid-safe',
+971 verbose rebuildBundles   'utils-merge' ]
+972 info install express-session@1.14.2
+973 info postinstall express-session@1.14.2
+974 verbose unlock done using C:\Users\JT\AppData\Roaming\npm-cache\_locks\express-session-26e845dc3f6e8eaa.lock for C:\Users\JT\desktop\Bootcamp\QuestGroupProject\node_modules\express-session
+975 verbose validateInstall loading C:\Users\JT\desktop\Bootcamp\QuestGroupProject\package.json for validation
+976 verbose stack Error: The package react@0.14.8 does not satisfy its siblings' peerDependencies requirements!
+976 verbose stack     at C:\Program Files\nodejs\node_modules\npm\lib\install.js:125:32
+976 verbose stack     at C:\Program Files\nodejs\node_modules\npm\lib\install.js:268:7
+976 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:142:5
+976 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
+976 verbose stack     at cb (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\async-map.js:47:24)
+976 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
+976 verbose stack     at cb (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\async-map.js:47:24)
+976 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
+976 verbose stack     at cb (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\async-map.js:47:24)
+976 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
+977 verbose cwd C:\Users\JT\desktop\Bootcamp\QuestGroupProject
+978 error Windows_NT 10.0.14393
+979 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "express-session"
+980 error node v4.4.7
+981 error npm  v2.15.8
+982 error code EPEERINVALID
+983 error peerinvalid The package react@0.14.8 does not satisfy its siblings' peerDependencies requirements!
+983 error peerinvalid Peer react-dom@0.14.8 wants react@^0.14.8
+983 error peerinvalid Peer react-router@2.8.1 wants react@^0.14.0 || ^15.0.0
+983 error peerinvalid Peer react-search@2.0.4 wants react@^15.3.1
+983 error peerinvalid Peer react-bootstrap@0.30.5 wants react@>=0.14.0
+984 verbose exit [ 1, true ]
