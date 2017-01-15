@@ -3,10 +3,10 @@ var path = require('path');
 
 module.exports = {
     devtool: 'inline-source-map',
-    entry: './src/index.jsx',
+    entry: './client/src/index.jsx',
     output: {
         path: __dirname,
-        filename: './public/bundle.js'
+        filename: './client/public/bundle.js'
     },
     watch: true,
     externals: {
@@ -22,26 +22,26 @@ module.exports = {
         root: __dirname,
         modulesDirectories: [
             'node_modules', 
-            'src/components/mission',
-            'src/components/quest',
-            'src/components/users',
-            'src/components/navbars',
-            'src/components/tasks',
-            'src/components/milestones',
-            'src/components/search',
-            'src/components/search/searchBar',
-            'src/components/search/questSearch',
-            'src/components/search/missionSearch',            
-            'src/components/completed',
-            'src/components/countdown',
-            'src/components/userall',
-            'src/components/searchusers',
-            'src/components/comments',
-            'src/components/feed',
-            'src/components',
-            'src/pages',
-            'src/auth',
-            'src'
+            './client/src/components/mission',
+            './client/src/components/quest',
+            './client/src/components/users',
+            './client/src/components/navbars',
+            './client/src/components/tasks',
+            './client/src/components/milestones',
+            './client/src/components/search',
+            './client/src/components/search/searchBar',
+            './client/src/components/search/questSearch',
+            './client/src/components/search/missionSearch',            
+            './client/src/components/completed',
+            './client/src/components/countdown',
+            './client/src/components/userall',
+            './client/src/components/searchusers',
+            './client/src/components/comments',
+            './client/src/components/feed',
+            './client/src/components',
+            './client/src/pages',
+            './client/src/auth',
+            './client/src'
         ],
         extensions: ['', '.js', '.jsx']
     },
