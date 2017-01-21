@@ -51,7 +51,21 @@ export default class AllMissionItem extends React.Component {
 	        if(!likers){
 	        	set = this.props.loginId
 	        } else {
-	        	set = likers + ' ' + this.props.loginId;
+	        	var split = likers.split(' ');
+				const convert = [];
+				for(var i = 0; i < split.length; i++){
+					if(split[i] !== ''){
+						convert.push(parseInt(split[i]));
+					}
+				}
+	        	for(var i = 0; i < convert.length; i++){
+	        		if(convert[i] == this.props.loginId){
+	        			convert.splice(i, 1);
+	        			set = convert.join(' ');
+	        		} else {
+	        			set = likers + ' ' + this.props.loginId;
+	        		}	
+	        	}
 	    	}
         const data = {
         	MissionId,
@@ -66,7 +80,6 @@ export default class AllMissionItem extends React.Component {
             }
         }).then((response) => response.json())
         .then((results) => {
-        	console.log(results)
         	this.setState({
         		likersLength: results.likers.split(' ').length
         	});
@@ -91,9 +104,14 @@ export default class AllMissionItem extends React.Component {
 	render(){
 
 		const { comments, likersLength, likers } = this.state;
-		const { id, title, description, missiontasks, completedOn, createdOn, isCompleted, allUsers, loginUser, missions } = this.props;
-		const length = likers.split(' ').length;
-		console.log(length)
+		const { id, title, description, missiontasks, completedOn, createdOn, isCompleted, allUsers, loginUser, missions, loginId } = this.props;
+		const likersArray = likers.split(' ');
+		const convert = [];
+		for(var i = 0; i < likersArray.length; i++){
+			if(likersArray[i] !== ''){
+				convert.push(parseInt(likersArray[i]));
+			}
+		}
 		const filteredComments = comments.filter((comment) => comment.MissionId === id);
 
 		var singleTask = () => {
@@ -142,6 +160,16 @@ export default class AllMissionItem extends React.Component {
 				)
 			}
 		}
+
+		var likeColor;
+		for(var i = 0; i < convert.length; i++){
+			if(convert[i] == loginId){
+				likeColor = "blue"
+			} else {
+				likeColor = "black"
+			}
+		}
+
 		return (
 			<div className="panelback" id={"panel" + id}>
 				<div className="panel-heading topPanel">
@@ -160,7 +188,7 @@ export default class AllMissionItem extends React.Component {
 				<div id={"mccollapse" + id}className="panel-collapse collapse">
 				<div className="row">
 					<div className="text-center">
-						<CommentForm onComment={this.handleComment.bind(this)}/><button onClick={this.handleLike.bind(this)} id="likes"><span className="hvr-icon-bounce" aria-hidden="true" id="x"></span>{length}</button>
+						<CommentForm onComment={this.handleComment.bind(this)}/><button onClick={this.handleLike.bind(this)} id="likes"><span className="hvr-icon-bounce" style={{ color: likeColor }} aria-hidden="true" id="x"></span>{convert.length}</button>
 					</div>
 				</div>
 				{renderComments}
