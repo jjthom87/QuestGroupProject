@@ -9,7 +9,10 @@ export default class AllMissionItem extends React.Component {
         this.state = {
         	id: this.props.id,
         	comments: [],
-        	likes: this.props.likes,
+        	likers: this.props.likers,
+        	likersLength: '',
+        	newSet: '',
+        	likersArray: [],
         	commentee: this.props.loginUser,
         	missionName: this.props.title,
         };
@@ -41,17 +44,31 @@ export default class AllMissionItem extends React.Component {
 		})
 	}
 	handleLike(MissionId){
-        const { id, likes } = this.state;
+        const { id, likers, newSet } = this.state;
 
         MissionId = id;
-
+        let set = '';
+	        if(!likers){
+	        	set = this.props.loginId
+	        } else {
+	        	set = likers + ' ' + this.props.loginId;
+	    	}
+        const data = {
+        	MissionId,
+        	newSet: set
+        }
         fetch(`/api/likemission/${MissionId}`,{
             method: 'PUT',
-            body: JSON.stringify(MissionId),
+            body: JSON.stringify(data),
+            headers: {
+                'content-type': 'application/json',
+                'accept': 'application/json'
+            }
         }).then((response) => response.json())
         .then((results) => {
+        	console.log(results)
         	this.setState({
-        		likes: likes + 1
+        		likersLength: results.likers.split(' ').length
         	});
         }); 
 	}
@@ -73,9 +90,10 @@ export default class AllMissionItem extends React.Component {
 	}
 	render(){
 
-		const { comments, likes } = this.state;
+		const { comments, likersLength, likers } = this.state;
 		const { id, title, description, missiontasks, completedOn, createdOn, isCompleted, allUsers, loginUser, missions } = this.props;
-
+		const length = likers.split(' ').length;
+		console.log(length)
 		const filteredComments = comments.filter((comment) => comment.MissionId === id);
 
 		var singleTask = () => {
@@ -142,7 +160,7 @@ export default class AllMissionItem extends React.Component {
 				<div id={"mccollapse" + id}className="panel-collapse collapse">
 				<div className="row">
 					<div className="text-center">
-						<CommentForm onComment={this.handleComment.bind(this)}/><button onClick={this.handleLike.bind(this)} id="likes"><span className="hvr-icon-bounce" aria-hidden="true" id="x"></span>{likes}</button>
+						<CommentForm onComment={this.handleComment.bind(this)}/><button onClick={this.handleLike.bind(this)} id="likes"><span className="hvr-icon-bounce" aria-hidden="true" id="x"></span>{length}</button>
 					</div>
 				</div>
 				{renderComments}

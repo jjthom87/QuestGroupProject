@@ -1,20 +1,18 @@
-var express = require('express');
-var path = require('path');
-var _ = require('lodash');
+var cookieParser = require('cookie-parser');
 
-var router = express.Router();
+var Mission = require('./../model-controllers/mission.js').Mission;
+var User = require('./../model-controllers/user.js').User;
 
-var Mission = require('./model-controllers/mission.js').Mission;
-
-var middleware = require('./../middleware/middleware.js')();
+var middleware = require('./../../middleware/middleware.js')();
 
 module.exports.controller = function(app){
+	app.use(cookieParser());
+
 	app.delete('/api/mission/delete/:id', middleware.requireAuthentication, function(req, res){
-	    Mission.delete(
-	        req.user.id,
-	        req.params.id,
-	    function(success){
-	      res.json(success);
-	    });
+		User.findByUserId(req.user.id, function(){
+		    Mission.delete(req.params.id, function(mission){
+		      	res.json(mission);
+		    });
+		})
 	});
 }

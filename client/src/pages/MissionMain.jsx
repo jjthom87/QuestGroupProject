@@ -6,6 +6,7 @@ import CreateMissionTask from 'CreateMissionTask';
 import MainNav from 'MainNav';
 import MissionListforMM from 'MissionListforMM';
 var moment = require('moment');
+import _ from 'lodash';
 
 export default class MissionMain extends React.Component {
     constructor(props, context) {
@@ -33,6 +34,7 @@ export default class MissionMain extends React.Component {
             credentials: 'include'
         }).then((response) => response.json())
         .then((results) => {
+            console.log(missions)
             this.setState({
                 missions: missions
             })
@@ -180,6 +182,7 @@ export default class MissionMain extends React.Component {
             credentials: 'include'
         }).then((response) => response.json())
         .then((results) => {
+            console.log(results);
             this.setState({
                 missions: results.missions,
                 missiontasks: results.missiontasks

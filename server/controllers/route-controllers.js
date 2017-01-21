@@ -301,6 +301,7 @@ router.post('/api/quest/create', middleware.requireAuthentication, function(req,
 router.put('/api/likemission/:id', function(req, res){
   modelController.likeIncrementMission(
     req.params.id,
+    req.body.newSet,
     function(success){
       res.json(success)
     });

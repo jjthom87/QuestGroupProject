@@ -32,8 +32,8 @@ module.exports = function(sequelize, DataTypes) {
     completedOn: {
       type: DataTypes.STRING
     },
-    likes: {
-      type: DataTypes.INTEGER
+    likers: {
+      type: DataTypes.STRING
     }
   }, {
     classMethods: {

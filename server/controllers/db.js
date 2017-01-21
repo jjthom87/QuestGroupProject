@@ -1,15 +1,21 @@
-var models = require('../models');
-models.sequelize.sync();
+var Sequelize = require('sequelize');
+var sequelize = new Sequelize('quest47_db', 'root', '');
 
 module.exports = {
-	delete: function(table, userId, paramsId){
-		models.User.findOne({where: {id: userId}}).then(function(){
-		    models.table.destroy({ where: { id: paramsId }
-		    }).then(function(success){
-		      cb(success);
-		    }).catch(function(err){
-		      throw err;
-		    })
-	 	})
+	findByUserId: function(table, id, cb){
+		sequelize.query('SELECT * FROM ' + table + ' WHERE id = ' + id, { type: Sequelize.QueryTypes.SELECT})
+		.then(function(err,res){
+			cb(res);
+		}).catch(function(err){
+			throw err
+		})
+	},
+	delete: function(table, id, cb){
+		sequelize.query('DELETE FROM ' + table + ' WHERE id = ' + id, { type: Sequelize.QueryTypes.DELETE})
+		.then(function(err,res){
+			cb(res);
+		}).catch(function(err){
+			throw err
+		})
 	}
 }

@@ -64,7 +64,7 @@ export default class UserForAllPage extends React.Component {
 	}
 	render() {
 
-		const { loginUser, missions, missiontasks, quests, milestones, milestonetasks, searchText, allUsers } = this.state;
+		const { loginUser, loginId, missions, missiontasks, quests, milestones, milestonetasks, searchText, allUsers } = this.state;
 
 		const incompleteMissions = missions.filter((mission) => !mission.missionCompleted);
 		const completeMissions = missions.filter((mission) => mission.missionCompleted);
@@ -123,6 +123,7 @@ export default class UserForAllPage extends React.Component {
 					                    missions={filteredIncMiss}
 					                    missiontasks={missiontasks}
 					                    loginUser={loginUser}
+					                    loginId={loginId}
 					                />
 								</div>
 								<div className="col-md-3">
@@ -132,6 +133,7 @@ export default class UserForAllPage extends React.Component {
 					                    missions={filteredComMiss}
 					                    missiontasks={missiontasks}
 					                    loginUser={loginUser}
+					                    loginId={loginId}
 					                />
 					            </div>
 					            <div className="col-md-3">
@@ -142,6 +144,7 @@ export default class UserForAllPage extends React.Component {
 					                    milestones={milestones}
 					                    milestonetasks={milestonetasks}
 					                    loginUser={loginUser}
+					                    loginId={loginId}
 					                />
 					            </div>
 				            	<div className="col-md-3">
@@ -152,6 +155,7 @@ export default class UserForAllPage extends React.Component {
 					                    milestones={milestones}
 					                    milestonetasks={milestonetasks}
 					                    loginUser={loginUser}
+					                    loginId={loginId}
 					                />
 				            	</div>
 				        	</div>

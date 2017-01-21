@@ -276,9 +276,9 @@ var modelController = {
 			 cb(err);
 		});
 	},
-	likeIncrementMission: function(id, cb){
+	likeIncrementMission: function(id, newSet, cb){
 	  models.Mission.findOne({ where: { id: id}}).then(function(mission){
-	        mission.increment('likes');
+	        mission.set('likers', newSet);
 	        mission.save();
 	          cb(mission);
 	      }).catch(function(err){
@@ -444,8 +444,7 @@ var modelController = {
 		  isCompleted: false,
 		  missionCompleted: false,
 		  public: public,
-		  createdOn: createdOn,
-		  likes: 0
+		  createdOn: createdOn
 		  	  }).then(function(mission){
 			      user.addMission(mission).then(function(success){
 			    	cb(mission);
@@ -463,8 +462,7 @@ var modelController = {
 		  questCompleted: false,
 		  public: public,
 		  dateQuest: dateQuest,
-		  createdOn: createdOn,
-		  likes: 0
+		  createdOn: createdOn
 			  }).then(function(quest){
 			    user.addQuest(quest).then(function(success){
 				    cb(quest);
@@ -496,16 +494,16 @@ var modelController = {
 	//     });
 	// },
 	// Removes an existing Mission from the database (See route '/mission/delete/:id')
-	missionDelete: function(userId, paramsId, cb){
-		models.User.findOne({where: {id: userId}}).then(function(){
-		    models.Mission.destroy({ where: { id: paramsId }
-		    }).then(function(success){
-		      cb(success);
-		    }).catch(function(err){
-		      throw err;
-		    })
-	 	})
-	},
+	// missionDelete: function(userId, paramsId, cb){
+	// 	models.User.findOne({where: {id: userId}}).then(function(){
+	// 	    models.Mission.destroy({ where: { id: paramsId }
+	// 	    }).then(function(success){
+	// 	      cb(success);
+	// 	    }).catch(function(err){
+	// 	      throw err;
+	// 	    })
+	//  	})
+	// },
 	// Removes an existing Quest from the database (See route '/quest/delete/:id')
 	questDelete: function(userId, paramsId, cb){
 		models.User.findOne({where: {id: userId}}).then(function(){
