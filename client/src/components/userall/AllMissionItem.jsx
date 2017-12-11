@@ -9,12 +9,13 @@ export default class AllMissionItem extends React.Component {
         this.state = {
         	id: this.props.id,
         	comments: [],
-        	likers: this.props.likers,
+        	likersState: this.props.likers,
         	likersLength: '',
         	newSet: '',
         	likersArray: [],
         	commentee: this.props.loginUser,
         	missionName: this.props.title,
+        	commenteeId: this.props.loginId
         };
     }
 	handleComment(comment) {
@@ -44,14 +45,14 @@ export default class AllMissionItem extends React.Component {
 		})
 	}
 	handleLike(MissionId){
-        const { id, likers, newSet } = this.state;
+        const { id, likersState, newSet } = this.state;
 
         MissionId = id;
         let set = '';
-	        if(!likers){
+	        if(!likersState){
 	        	set = this.props.loginId
 	        } else {
-	        	var split = likers.split(' ');
+	        	var split = likersState.split(' ');
 				const convert = [];
 				for(var i = 0; i < split.length; i++){
 					if(split[i] !== ''){
@@ -63,9 +64,10 @@ export default class AllMissionItem extends React.Component {
 	        			convert.splice(i, 1);
 	        			set = convert.join(' ');
 	        		} else {
-	        			set = likers + ' ' + this.props.loginId;
+	        			set = likersState + ' ' + this.props.loginId;
 	        		}	
 	        	}
+	        	console.log(convert);
 	    	}
         const data = {
         	MissionId,
@@ -80,9 +82,22 @@ export default class AllMissionItem extends React.Component {
             }
         }).then((response) => response.json())
         .then((results) => {
-        	this.setState({
-        		likersLength: results.likers.split(' ').length
-        	});
+        	console.log(results)
+        	if(results.likers === ""){
+	        	this.setState({
+	        		likersLength: 1,
+	        		likersArray: results.likers
+	        	});
+	        }
+	        const len = this.props.likers.split(' ');
+	        for(var i = 0; i < len.length; i++){
+	        	if(len[i] == this.state.commenteeId){
+		        	this.setState({
+		        		likersLength: results.likers.split(' ').length - 1,
+		        		likersArray: results.likers
+		        	});
+	        	}
+	        }
         }); 
 	}
   	componentWillMount(){
@@ -103,15 +118,30 @@ export default class AllMissionItem extends React.Component {
 	}
 	render(){
 
-		const { comments, likersLength, likers } = this.state;
-		const { id, title, description, missiontasks, completedOn, createdOn, isCompleted, allUsers, loginUser, missions, loginId } = this.props;
-		const likersArray = likers.split(' ');
-		const convert = [];
-		for(var i = 0; i < likersArray.length; i++){
-			if(likersArray[i] !== ''){
-				convert.push(parseInt(likersArray[i]));
-			}
-		}
+		const { comments, likersLength, likersState, likersArray } = this.state;
+		const { id, title, description, missiontasks, completedOn, createdOn, isCompleted, allUsers, loginUser, missions, loginId, likers} = this.props;
+		
+		console.log(likersState);
+		console.log(likersArray);
+
+		likersArray.push(likersState)
+
+		// const convert = [];
+		// for(var i = 0; i < likersArray.length; i++){
+		// 	if(likersArray[i] !== ''){
+		// 		convert.push(parseInt(likersArray[i]));
+		// 	}
+		// }
+
+		// var likeColor;
+		// for(var i = 0; i < convert.length; i++){
+		// 	if(convert[i] == loginId){
+		// 		likeColor = "blue"
+		// 	} else {
+		// 		likeColor = "black"
+		// 	}
+		// }
+
 		const filteredComments = comments.filter((comment) => comment.MissionId === id);
 
 		var singleTask = () => {
@@ -161,15 +191,6 @@ export default class AllMissionItem extends React.Component {
 			}
 		}
 
-		var likeColor;
-		for(var i = 0; i < convert.length; i++){
-			if(convert[i] == loginId){
-				likeColor = "blue"
-			} else {
-				likeColor = "black"
-			}
-		}
-
 		return (
 			<div className="panelback" id={"panel" + id}>
 				<div className="panel-heading topPanel">
@@ -188,7 +209,7 @@ export default class AllMissionItem extends React.Component {
 				<div id={"mccollapse" + id}className="panel-collapse collapse">
 				<div className="row">
 					<div className="text-center">
-						<CommentForm onComment={this.handleComment.bind(this)}/><button onClick={this.handleLike.bind(this)} id="likes"><span className="hvr-icon-bounce" style={{ color: likeColor }} aria-hidden="true" id="x"></span>{convert.length}</button>
+						<CommentForm onComment={this.handleComment.bind(this)}/><button onClick={this.handleLike.bind(this)} id="likes"><span className="hvr-icon-bounce" style={{ color: "black" }} aria-hidden="true" id="x"></span>0</button>
 					</div>
 				</div>
 				{renderComments}

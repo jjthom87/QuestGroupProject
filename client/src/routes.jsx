@@ -31,15 +31,15 @@ export default (
     		<Route path="/" component={HomePage} />
     		<Route path="/missionshome" component={MissionMain} />
     		<Route path="/questshome" component={QuestMain} />
-        <Route path="/register" component={CreateAccountPage} />
-        <Route path="/login" component={LoginPage} />
-        <Route path="/create" component={UserCreatePage} />
-        <Route path="/searchall" component={SearchAllPage} />
-        <Route path="/completed" component={Completed} />
-        <Route path="/userall" component={UserAllPage} />
-        <Route path="/userforall/:id" component={UserForAllPage} />
-        <Route path="/searchusers" component={UserSearchPage} />
-        <Route path="/feedpage" component={FeedPage} />
+            <Route path="/register" component={CreateAccountPage} />
+            <Route path="/login" component={LoginPage} />
+            <Route path="/create" component={UserCreatePage} />
+            <Route path="/searchall" component={SearchAllPage} />
+            <Route path="/completed" component={Completed} />
+            <Route path="/userall" component={UserAllPage} />
+            <Route path="/userforall/:id" component={UserForAllPage} />
+            <Route path="/searchusers" component={UserSearchPage} />
+            <Route path="/feedpage" component={FeedPage} />
     	</Route>
   	</Router>
 );

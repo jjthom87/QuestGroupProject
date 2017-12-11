@@ -494,16 +494,16 @@ var modelController = {
 	//     });
 	// },
 	// Removes an existing Mission from the database (See route '/mission/delete/:id')
-	// missionDelete: function(userId, paramsId, cb){
-	// 	models.User.findOne({where: {id: userId}}).then(function(){
-	// 	    models.Mission.destroy({ where: { id: paramsId }
-	// 	    }).then(function(success){
-	// 	      cb(success);
-	// 	    }).catch(function(err){
-	// 	      throw err;
-	// 	    })
-	//  	})
-	// },
+	missionDelete: function(userId, paramsId, cb){
+		models.User.findOne({where: {id: userId}}).then(function(){
+		    models.Mission.destroy({ where: { id: paramsId }
+		    }).then(function(success){
+		      cb(success);
+		    }).catch(function(err){
+		      throw err;
+		    })
+	 	})
+	},
 	// Removes an existing Quest from the database (See route '/quest/delete/:id')
 	questDelete: function(userId, paramsId, cb){
 		models.User.findOne({where: {id: userId}}).then(function(){
